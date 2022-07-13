@@ -177,11 +177,9 @@
 		DD5A57B7287E3235009B1664 /* TbilisiCleanups */ = {
 			isa = PBXGroup;
 			children = (
-				DD5A57B8287E3235009B1664 /* AppDelegate.swift */,
-				DD5A57BA287E3235009B1664 /* SceneDelegate.swift */,
-				DD5A57BC287E3235009B1664 /* ViewController.swift */,
-				DD5A57C1287E3236009B1664 /* Assets.xcassets */,
-				DD5A57C3287E3236009B1664 /* LaunchScreen.storyboard */,
+				DDF73F0A287F451400BD7ED9 /* Coordinators */,
+				DDF73F09287F44F900BD7ED9 /* Supporting Files */,
+				DDF73F0B287F452400BD7ED9 /* UI */,
 				DD5A57C6287E3236009B1664 /* Info.plist */,
 			);
 			path = TbilisiCleanups;
@@ -286,6 +284,32 @@
 				DDF73F04287F294100BD7ED9 /* GTMSessionFetcher.xcframework */,
 			);
 			path = FirebaseAuth;
+			sourceTree = "<group>";
+		};
+		DDF73F09287F44F900BD7ED9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD5A57C1287E3236009B1664 /* Assets.xcassets */,
+				DD5A57C3287E3236009B1664 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DDF73F0A287F451400BD7ED9 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				DD5A57B8287E3235009B1664 /* AppDelegate.swift */,
+				DD5A57BA287E3235009B1664 /* SceneDelegate.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		DDF73F0B287F452400BD7ED9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DD5A57BC287E3235009B1664 /* ViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
