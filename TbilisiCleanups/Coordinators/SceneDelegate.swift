@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  TbilisiCleanups
-//
-//  Created by Vadim Belyaev on 13.07.2022.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -19,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let mainWindow = UIWindow(windowScene: windowScene)
-        let rootVC = ViewController()
+        let rootVC = coordinator.makeRootViewController()
         mainWindow.rootViewController = rootVC
         mainWindow.makeKeyAndVisible()
         window = mainWindow
@@ -53,6 +46,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
+    private var coordinator: AppCoordinator {
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("Unexpected application delegate class")
+        }
+        return delegate.coordinator
+    }
 }
 

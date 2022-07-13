@@ -1,16 +1,13 @@
-//
-//  AppDelegate.swift
-//  TbilisiCleanups
-//
-//  Created by Vadim Belyaev on 13.07.2022.
-//
-
 import Firebase
 import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    private(set) var coordinator: AppCoordinator!
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        coordinator = AppCoordinator()
         FirebaseApp.configure()
         return true
     }

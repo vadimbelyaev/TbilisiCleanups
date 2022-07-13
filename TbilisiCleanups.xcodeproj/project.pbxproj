@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DD5A57B9287E3235009B1664 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A57B8287E3235009B1664 /* AppDelegate.swift */; };
 		DD5A57BB287E3235009B1664 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A57BA287E3235009B1664 /* SceneDelegate.swift */; };
-		DD5A57BD287E3235009B1664 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A57BC287E3235009B1664 /* ViewController.swift */; };
+		DD5A57BD287E3235009B1664 /* NewReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A57BC287E3235009B1664 /* NewReportViewController.swift */; };
 		DD5A57C2287E3236009B1664 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD5A57C1287E3236009B1664 /* Assets.xcassets */; };
 		DD5A57C5287E3236009B1664 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD5A57C3287E3236009B1664 /* LaunchScreen.storyboard */; };
 		DD5A57D0287E3236009B1664 /* TbilisiCleanupsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A57CF287E3236009B1664 /* TbilisiCleanupsTests.swift */; };
@@ -42,6 +42,9 @@
 		DDF73F05287F294100BD7ED9 /* FirebaseAuth.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73F03287F294100BD7ED9 /* FirebaseAuth.xcframework */; };
 		DDF73F06287F294100BD7ED9 /* GTMSessionFetcher.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73F04287F294100BD7ED9 /* GTMSessionFetcher.xcframework */; };
 		DDF73F08287F2B6200BD7ED9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDF73F07287F2B6200BD7ED9 /* GoogleService-Info.plist */; };
+		DDF73F0F287F45F400BD7ED9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF73F0E287F45F400BD7ED9 /* AppCoordinator.swift */; };
+		DDF73F11287F4AC300BD7ED9 /* MyReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF73F10287F4AC300BD7ED9 /* MyReportsViewController.swift */; };
+		DDF73F13287F4ACE00BD7ED9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF73F12287F4ACE00BD7ED9 /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +68,7 @@
 		DD5A57B5287E3235009B1664 /* TbilisiCleanups.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TbilisiCleanups.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5A57B8287E3235009B1664 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD5A57BA287E3235009B1664 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DD5A57BC287E3235009B1664 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DD5A57BC287E3235009B1664 /* NewReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportViewController.swift; sourceTree = "<group>"; };
 		DD5A57C1287E3236009B1664 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD5A57C4287E3236009B1664 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD5A57C6287E3236009B1664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,6 +106,9 @@
 		DDF73F03287F294100BD7ED9 /* FirebaseAuth.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FirebaseAuth.xcframework; sourceTree = "<group>"; };
 		DDF73F04287F294100BD7ED9 /* GTMSessionFetcher.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GTMSessionFetcher.xcframework; sourceTree = "<group>"; };
 		DDF73F07287F2B6200BD7ED9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DDF73F0E287F45F400BD7ED9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		DDF73F10287F4AC300BD7ED9 /* MyReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReportsViewController.swift; sourceTree = "<group>"; };
+		DDF73F12287F4ACE00BD7ED9 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +304,7 @@
 		DDF73F0A287F451400BD7ED9 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				DDF73F0E287F45F400BD7ED9 /* AppCoordinator.swift */,
 				DD5A57B8287E3235009B1664 /* AppDelegate.swift */,
 				DD5A57BA287E3235009B1664 /* SceneDelegate.swift */,
 			);
@@ -307,7 +314,9 @@
 		DDF73F0B287F452400BD7ED9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				DD5A57BC287E3235009B1664 /* ViewController.swift */,
+				DDF73F12287F4ACE00BD7ED9 /* AboutViewController.swift */,
+				DDF73F10287F4AC300BD7ED9 /* MyReportsViewController.swift */,
+				DD5A57BC287E3235009B1664 /* NewReportViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -446,7 +455,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD5A57BD287E3235009B1664 /* ViewController.swift in Sources */,
+				DDF73F11287F4AC300BD7ED9 /* MyReportsViewController.swift in Sources */,
+				DD5A57BD287E3235009B1664 /* NewReportViewController.swift in Sources */,
+				DDF73F13287F4ACE00BD7ED9 /* AboutViewController.swift in Sources */,
+				DDF73F0F287F45F400BD7ED9 /* AppCoordinator.swift in Sources */,
 				DD5A57B9287E3235009B1664 /* AppDelegate.swift in Sources */,
 				DD5A57BB287E3235009B1664 /* SceneDelegate.swift in Sources */,
 			);
