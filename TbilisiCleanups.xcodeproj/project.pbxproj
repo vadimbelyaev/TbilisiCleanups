@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */; };
-		DD2AF405287F61FB0017A64C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF404287F61FB0017A64C /* ContentView.swift */; };
+		DD2AF405287F61FB0017A64C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF404287F61FB0017A64C /* RootView.swift */; };
 		DD2AF407287F61FC0017A64C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2AF406287F61FC0017A64C /* Assets.xcassets */; };
 		DD2AF40A287F61FC0017A64C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2AF409287F61FC0017A64C /* Preview Assets.xcassets */; };
 		DD2AF414287F61FC0017A64C /* TbilisiCleanupsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF413287F61FC0017A64C /* TbilisiCleanupsTests.swift */; };
@@ -63,7 +63,7 @@
 /* Begin PBXFileReference section */
 		DD2AF3FF287F61FB0017A64C /* TbilisiCleanups.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TbilisiCleanups.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbilisiCleanupsApp.swift; sourceTree = "<group>"; };
-		DD2AF404287F61FB0017A64C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DD2AF404287F61FB0017A64C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		DD2AF406287F61FC0017A64C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD2AF409287F61FC0017A64C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DD2AF40F287F61FC0017A64C /* TbilisiCleanupsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TbilisiCleanupsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */,
-				DD2AF404287F61FB0017A64C /* ContentView.swift */,
+				DD2AF404287F61FB0017A64C /* RootView.swift */,
 				DD2AF406287F61FC0017A64C /* Assets.xcassets */,
 				DD2AF408287F61FC0017A64C /* Preview Content */,
 			);
@@ -425,7 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD2AF405287F61FB0017A64C /* ContentView.swift in Sources */,
+				DD2AF405287F61FB0017A64C /* RootView.swift in Sources */,
 				DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

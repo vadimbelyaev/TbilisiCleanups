@@ -1,10 +1,3 @@
-//
-//  TbilisiCleanupsApp.swift
-//  TbilisiCleanups
-//
-//  Created by Vadim Belyaev on 14.07.2022.
-//
-
 import Firebase
 import SwiftUI
 
@@ -17,7 +10,7 @@ struct TbilisiCleanupsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
     }
 }
