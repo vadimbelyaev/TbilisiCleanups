@@ -7,149 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD5A57B9287E3235009B1664 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A57B8287E3235009B1664 /* AppDelegate.swift */; };
-		DD5A57BB287E3235009B1664 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A57BA287E3235009B1664 /* SceneDelegate.swift */; };
-		DD5A57BD287E3235009B1664 /* NewReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A57BC287E3235009B1664 /* NewReportViewController.swift */; };
-		DD5A57C2287E3236009B1664 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD5A57C1287E3236009B1664 /* Assets.xcassets */; };
-		DD5A57C5287E3236009B1664 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD5A57C3287E3236009B1664 /* LaunchScreen.storyboard */; };
-		DD5A57D0287E3236009B1664 /* TbilisiCleanupsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A57CF287E3236009B1664 /* TbilisiCleanupsTests.swift */; };
-		DD5A57DA287E3236009B1664 /* TbilisiCleanupsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A57D9287E3236009B1664 /* TbilisiCleanupsUITests.swift */; };
-		DD5A57DC287E3236009B1664 /* TbilisiCleanupsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A57DB287E3236009B1664 /* TbilisiCleanupsUITestsLaunchTests.swift */; };
-		DDF73ED6287F271D00BD7ED9 /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73ECA287F271D00BD7ED9 /* nanopb.xcframework */; };
-		DDF73ED8287F271D00BD7ED9 /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73ECC287F271D00BD7ED9 /* PromisesObjC.xcframework */; };
-		DDF73ED9287F271D00BD7ED9 /* FirebaseAnalytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73ECD287F271D00BD7ED9 /* FirebaseAnalytics.xcframework */; };
-		DDF73EDA287F271D00BD7ED9 /* FirebaseAnalyticsSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73ECE287F271D00BD7ED9 /* FirebaseAnalyticsSwift.xcframework */; };
-		DDF73EDB287F271D00BD7ED9 /* FirebaseCoreDiagnostics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73ECF287F271D00BD7ED9 /* FirebaseCoreDiagnostics.xcframework */; };
-		DDF73EDC287F271D00BD7ED9 /* FirebaseInstallations.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73ED0287F271D00BD7ED9 /* FirebaseInstallations.xcframework */; };
-		DDF73EDD287F271D00BD7ED9 /* FirebaseCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73ED1287F271D00BD7ED9 /* FirebaseCore.xcframework */; };
-		DDF73EDE287F271D00BD7ED9 /* FirebaseCoreInternal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73ED2287F271D00BD7ED9 /* FirebaseCoreInternal.xcframework */; };
-		DDF73EDF287F271D00BD7ED9 /* GoogleDataTransport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73ED3287F271D00BD7ED9 /* GoogleDataTransport.xcframework */; };
-		DDF73EE0287F271D00BD7ED9 /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73ED4287F271D00BD7ED9 /* GoogleAppMeasurement.xcframework */; };
-		DDF73EE1287F271D00BD7ED9 /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73ED5287F271D00BD7ED9 /* GoogleUtilities.xcframework */; };
-		DDF73EE6287F273C00BD7ED9 /* FirebaseCrashlytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73EE3287F273C00BD7ED9 /* FirebaseCrashlytics.xcframework */; };
-		DDF73EE7287F273C00BD7ED9 /* run in Resources */ = {isa = PBXBuildFile; fileRef = DDF73EE4287F273C00BD7ED9 /* run */; };
-		DDF73EE8287F273C00BD7ED9 /* upload-symbols in Resources */ = {isa = PBXBuildFile; fileRef = DDF73EE5287F273C00BD7ED9 /* upload-symbols */; };
-		DDF73EF4287F274E00BD7ED9 /* FirebaseFirestore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73EEA287F274E00BD7ED9 /* FirebaseFirestore.xcframework */; };
-		DDF73EF5287F274E00BD7ED9 /* gRPC-Core.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73EEB287F274E00BD7ED9 /* gRPC-Core.xcframework */; };
-		DDF73EF6287F274E00BD7ED9 /* gRPCCertificates-Cpp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DDF73EED287F274E00BD7ED9 /* gRPCCertificates-Cpp.bundle */; };
-		DDF73EF7287F274E00BD7ED9 /* Libuv-gRPC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73EEE287F274E00BD7ED9 /* Libuv-gRPC.xcframework */; };
-		DDF73EF8287F274E00BD7ED9 /* leveldb-library.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73EEF287F274E00BD7ED9 /* leveldb-library.xcframework */; };
-		DDF73EF9287F274E00BD7ED9 /* gRPC-C++.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73EF0287F274E00BD7ED9 /* gRPC-C++.xcframework */; };
-		DDF73EFA287F274E00BD7ED9 /* BoringSSL-GRPC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73EF1287F274E00BD7ED9 /* BoringSSL-GRPC.xcframework */; };
-		DDF73EFB287F274E00BD7ED9 /* FirebaseFirestoreSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73EF2287F274E00BD7ED9 /* FirebaseFirestoreSwift.xcframework */; };
-		DDF73EFC287F274E00BD7ED9 /* abseil.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73EF3287F274E00BD7ED9 /* abseil.xcframework */; };
-		DDF73EFF287F277E00BD7ED9 /* FirebaseMessaging.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73EFE287F277E00BD7ED9 /* FirebaseMessaging.xcframework */; };
-		DDF73F05287F294100BD7ED9 /* FirebaseAuth.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73F03287F294100BD7ED9 /* FirebaseAuth.xcframework */; };
-		DDF73F06287F294100BD7ED9 /* GTMSessionFetcher.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF73F04287F294100BD7ED9 /* GTMSessionFetcher.xcframework */; };
-		DDF73F08287F2B6200BD7ED9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDF73F07287F2B6200BD7ED9 /* GoogleService-Info.plist */; };
-		DDF73F0F287F45F400BD7ED9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF73F0E287F45F400BD7ED9 /* AppCoordinator.swift */; };
-		DDF73F11287F4AC300BD7ED9 /* MyReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF73F10287F4AC300BD7ED9 /* MyReportsViewController.swift */; };
-		DDF73F13287F4ACE00BD7ED9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF73F12287F4ACE00BD7ED9 /* AboutViewController.swift */; };
+		DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */; };
+		DD2AF405287F61FB0017A64C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF404287F61FB0017A64C /* ContentView.swift */; };
+		DD2AF407287F61FC0017A64C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2AF406287F61FC0017A64C /* Assets.xcassets */; };
+		DD2AF40A287F61FC0017A64C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2AF409287F61FC0017A64C /* Preview Assets.xcassets */; };
+		DD2AF414287F61FC0017A64C /* TbilisiCleanupsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF413287F61FC0017A64C /* TbilisiCleanupsTests.swift */; };
+		DD2AF41E287F61FC0017A64C /* TbilisiCleanupsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF41D287F61FC0017A64C /* TbilisiCleanupsUITests.swift */; };
+		DD2AF420287F61FC0017A64C /* TbilisiCleanupsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF41F287F61FC0017A64C /* TbilisiCleanupsUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DD5A57CC287E3236009B1664 /* PBXContainerItemProxy */ = {
+		DD2AF410287F61FC0017A64C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DD5A57AD287E3235009B1664 /* Project object */;
+			containerPortal = DD2AF3F7287F61FB0017A64C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DD5A57B4287E3235009B1664;
+			remoteGlobalIDString = DD2AF3FE287F61FB0017A64C;
 			remoteInfo = TbilisiCleanups;
 		};
-		DD5A57D6287E3236009B1664 /* PBXContainerItemProxy */ = {
+		DD2AF41A287F61FC0017A64C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DD5A57AD287E3235009B1664 /* Project object */;
+			containerPortal = DD2AF3F7287F61FB0017A64C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DD5A57B4287E3235009B1664;
+			remoteGlobalIDString = DD2AF3FE287F61FB0017A64C;
 			remoteInfo = TbilisiCleanups;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DD5A57B5287E3235009B1664 /* TbilisiCleanups.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TbilisiCleanups.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD5A57B8287E3235009B1664 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DD5A57BA287E3235009B1664 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DD5A57BC287E3235009B1664 /* NewReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportViewController.swift; sourceTree = "<group>"; };
-		DD5A57C1287E3236009B1664 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DD5A57C4287E3236009B1664 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DD5A57C6287E3236009B1664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD5A57CB287E3236009B1664 /* TbilisiCleanupsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TbilisiCleanupsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD5A57CF287E3236009B1664 /* TbilisiCleanupsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbilisiCleanupsTests.swift; sourceTree = "<group>"; };
-		DD5A57D5287E3236009B1664 /* TbilisiCleanupsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TbilisiCleanupsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD5A57D9287E3236009B1664 /* TbilisiCleanupsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbilisiCleanupsUITests.swift; sourceTree = "<group>"; };
-		DD5A57DB287E3236009B1664 /* TbilisiCleanupsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbilisiCleanupsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		DDF73ECA287F271D00BD7ED9 /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = nanopb.xcframework; sourceTree = "<group>"; };
-		DDF73ECC287F271D00BD7ED9 /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = PromisesObjC.xcframework; sourceTree = "<group>"; };
-		DDF73ECD287F271D00BD7ED9 /* FirebaseAnalytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FirebaseAnalytics.xcframework; sourceTree = "<group>"; };
-		DDF73ECE287F271D00BD7ED9 /* FirebaseAnalyticsSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FirebaseAnalyticsSwift.xcframework; sourceTree = "<group>"; };
-		DDF73ECF287F271D00BD7ED9 /* FirebaseCoreDiagnostics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FirebaseCoreDiagnostics.xcframework; sourceTree = "<group>"; };
-		DDF73ED0287F271D00BD7ED9 /* FirebaseInstallations.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FirebaseInstallations.xcframework; sourceTree = "<group>"; };
-		DDF73ED1287F271D00BD7ED9 /* FirebaseCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FirebaseCore.xcframework; sourceTree = "<group>"; };
-		DDF73ED2287F271D00BD7ED9 /* FirebaseCoreInternal.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FirebaseCoreInternal.xcframework; sourceTree = "<group>"; };
-		DDF73ED3287F271D00BD7ED9 /* GoogleDataTransport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleDataTransport.xcframework; sourceTree = "<group>"; };
-		DDF73ED4287F271D00BD7ED9 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
-		DDF73ED5287F271D00BD7ED9 /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleUtilities.xcframework; sourceTree = "<group>"; };
-		DDF73EE3287F273C00BD7ED9 /* FirebaseCrashlytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FirebaseCrashlytics.xcframework; sourceTree = "<group>"; };
-		DDF73EE4287F273C00BD7ED9 /* run */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = run; sourceTree = "<group>"; };
-		DDF73EE5287F273C00BD7ED9 /* upload-symbols */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "upload-symbols"; sourceTree = "<group>"; };
-		DDF73EEA287F274E00BD7ED9 /* FirebaseFirestore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FirebaseFirestore.xcframework; sourceTree = "<group>"; };
-		DDF73EEB287F274E00BD7ED9 /* gRPC-Core.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = "gRPC-Core.xcframework"; sourceTree = "<group>"; };
-		DDF73EED287F274E00BD7ED9 /* gRPCCertificates-Cpp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "gRPCCertificates-Cpp.bundle"; sourceTree = "<group>"; };
-		DDF73EEE287F274E00BD7ED9 /* Libuv-gRPC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = "Libuv-gRPC.xcframework"; sourceTree = "<group>"; };
-		DDF73EEF287F274E00BD7ED9 /* leveldb-library.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = "leveldb-library.xcframework"; sourceTree = "<group>"; };
-		DDF73EF0287F274E00BD7ED9 /* gRPC-C++.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = "gRPC-C++.xcframework"; sourceTree = "<group>"; };
-		DDF73EF1287F274E00BD7ED9 /* BoringSSL-GRPC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = "BoringSSL-GRPC.xcframework"; sourceTree = "<group>"; };
-		DDF73EF2287F274E00BD7ED9 /* FirebaseFirestoreSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FirebaseFirestoreSwift.xcframework; sourceTree = "<group>"; };
-		DDF73EF3287F274E00BD7ED9 /* abseil.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = abseil.xcframework; sourceTree = "<group>"; };
-		DDF73EFE287F277E00BD7ED9 /* FirebaseMessaging.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FirebaseMessaging.xcframework; sourceTree = "<group>"; };
-		DDF73F00287F27C700BD7ED9 /* Firebase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
-		DDF73F01287F27C700BD7ED9 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		DDF73F03287F294100BD7ED9 /* FirebaseAuth.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FirebaseAuth.xcframework; sourceTree = "<group>"; };
-		DDF73F04287F294100BD7ED9 /* GTMSessionFetcher.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GTMSessionFetcher.xcframework; sourceTree = "<group>"; };
-		DDF73F07287F2B6200BD7ED9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		DDF73F0E287F45F400BD7ED9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		DDF73F10287F4AC300BD7ED9 /* MyReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReportsViewController.swift; sourceTree = "<group>"; };
-		DDF73F12287F4ACE00BD7ED9 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		DD2AF3FF287F61FB0017A64C /* TbilisiCleanups.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TbilisiCleanups.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbilisiCleanupsApp.swift; sourceTree = "<group>"; };
+		DD2AF404287F61FB0017A64C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DD2AF406287F61FC0017A64C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD2AF409287F61FC0017A64C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DD2AF40F287F61FC0017A64C /* TbilisiCleanupsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TbilisiCleanupsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD2AF413287F61FC0017A64C /* TbilisiCleanupsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbilisiCleanupsTests.swift; sourceTree = "<group>"; };
+		DD2AF419287F61FC0017A64C /* TbilisiCleanupsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TbilisiCleanupsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD2AF41D287F61FC0017A64C /* TbilisiCleanupsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbilisiCleanupsUITests.swift; sourceTree = "<group>"; };
+		DD2AF41F287F61FC0017A64C /* TbilisiCleanupsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbilisiCleanupsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DD5A57B2287E3235009B1664 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DDF73EDF287F271D00BD7ED9 /* GoogleDataTransport.xcframework in Frameworks */,
-				DDF73ED8287F271D00BD7ED9 /* PromisesObjC.xcframework in Frameworks */,
-				DDF73EF8287F274E00BD7ED9 /* leveldb-library.xcframework in Frameworks */,
-				DDF73EF5287F274E00BD7ED9 /* gRPC-Core.xcframework in Frameworks */,
-				DDF73EDD287F271D00BD7ED9 /* FirebaseCore.xcframework in Frameworks */,
-				DDF73F06287F294100BD7ED9 /* GTMSessionFetcher.xcframework in Frameworks */,
-				DDF73EF9287F274E00BD7ED9 /* gRPC-C++.xcframework in Frameworks */,
-				DDF73EDA287F271D00BD7ED9 /* FirebaseAnalyticsSwift.xcframework in Frameworks */,
-				DDF73EFA287F274E00BD7ED9 /* BoringSSL-GRPC.xcframework in Frameworks */,
-				DDF73ED9287F271D00BD7ED9 /* FirebaseAnalytics.xcframework in Frameworks */,
-				DDF73EFC287F274E00BD7ED9 /* abseil.xcframework in Frameworks */,
-				DDF73ED6287F271D00BD7ED9 /* nanopb.xcframework in Frameworks */,
-				DDF73EDE287F271D00BD7ED9 /* FirebaseCoreInternal.xcframework in Frameworks */,
-				DDF73F05287F294100BD7ED9 /* FirebaseAuth.xcframework in Frameworks */,
-				DDF73EDC287F271D00BD7ED9 /* FirebaseInstallations.xcframework in Frameworks */,
-				DDF73EFF287F277E00BD7ED9 /* FirebaseMessaging.xcframework in Frameworks */,
-				DDF73EE6287F273C00BD7ED9 /* FirebaseCrashlytics.xcframework in Frameworks */,
-				DDF73EE0287F271D00BD7ED9 /* GoogleAppMeasurement.xcframework in Frameworks */,
-				DDF73EDB287F271D00BD7ED9 /* FirebaseCoreDiagnostics.xcframework in Frameworks */,
-				DDF73EFB287F274E00BD7ED9 /* FirebaseFirestoreSwift.xcframework in Frameworks */,
-				DDF73EE1287F271D00BD7ED9 /* GoogleUtilities.xcframework in Frameworks */,
-				DDF73EF7287F274E00BD7ED9 /* Libuv-gRPC.xcframework in Frameworks */,
-				DDF73EF4287F274E00BD7ED9 /* FirebaseFirestore.xcframework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DD5A57C8287E3236009B1664 /* Frameworks */ = {
+		DD2AF3FC287F61FB0017A64C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD5A57D2287E3236009B1664 /* Frameworks */ = {
+		DD2AF40C287F61FC0017A64C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD2AF416287F61FC0017A64C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -159,178 +71,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DD5A57AC287E3235009B1664 = {
+		DD2AF3F6287F61FB0017A64C = {
 			isa = PBXGroup;
 			children = (
-				DD5A57B7287E3235009B1664 /* TbilisiCleanups */,
-				DD5A57CE287E3236009B1664 /* TbilisiCleanupsTests */,
-				DD5A57D8287E3236009B1664 /* TbilisiCleanupsUITests */,
-				DDF73EC8287F260300BD7ED9 /* Firebase */,
-				DD5A57B6287E3235009B1664 /* Products */,
+				DD2AF401287F61FB0017A64C /* TbilisiCleanups */,
+				DD2AF412287F61FC0017A64C /* TbilisiCleanupsTests */,
+				DD2AF41C287F61FC0017A64C /* TbilisiCleanupsUITests */,
+				DD2AF400287F61FB0017A64C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		DD5A57B6287E3235009B1664 /* Products */ = {
+		DD2AF400287F61FB0017A64C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD5A57B5287E3235009B1664 /* TbilisiCleanups.app */,
-				DD5A57CB287E3236009B1664 /* TbilisiCleanupsTests.xctest */,
-				DD5A57D5287E3236009B1664 /* TbilisiCleanupsUITests.xctest */,
+				DD2AF3FF287F61FB0017A64C /* TbilisiCleanups.app */,
+				DD2AF40F287F61FC0017A64C /* TbilisiCleanupsTests.xctest */,
+				DD2AF419287F61FC0017A64C /* TbilisiCleanupsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DD5A57B7287E3235009B1664 /* TbilisiCleanups */ = {
+		DD2AF401287F61FB0017A64C /* TbilisiCleanups */ = {
 			isa = PBXGroup;
 			children = (
-				DDF73F0A287F451400BD7ED9 /* Coordinators */,
-				DDF73F09287F44F900BD7ED9 /* Supporting Files */,
-				DDF73F0B287F452400BD7ED9 /* UI */,
-				DD5A57C6287E3236009B1664 /* Info.plist */,
+				DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */,
+				DD2AF404287F61FB0017A64C /* ContentView.swift */,
+				DD2AF406287F61FC0017A64C /* Assets.xcassets */,
+				DD2AF408287F61FC0017A64C /* Preview Content */,
 			);
 			path = TbilisiCleanups;
 			sourceTree = "<group>";
 		};
-		DD5A57CE287E3236009B1664 /* TbilisiCleanupsTests */ = {
+		DD2AF408287F61FC0017A64C /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				DD5A57CF287E3236009B1664 /* TbilisiCleanupsTests.swift */,
+				DD2AF409287F61FC0017A64C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DD2AF412287F61FC0017A64C /* TbilisiCleanupsTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD2AF413287F61FC0017A64C /* TbilisiCleanupsTests.swift */,
 			);
 			path = TbilisiCleanupsTests;
 			sourceTree = "<group>";
 		};
-		DD5A57D8287E3236009B1664 /* TbilisiCleanupsUITests */ = {
+		DD2AF41C287F61FC0017A64C /* TbilisiCleanupsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				DD5A57D9287E3236009B1664 /* TbilisiCleanupsUITests.swift */,
-				DD5A57DB287E3236009B1664 /* TbilisiCleanupsUITestsLaunchTests.swift */,
+				DD2AF41D287F61FC0017A64C /* TbilisiCleanupsUITests.swift */,
+				DD2AF41F287F61FC0017A64C /* TbilisiCleanupsUITestsLaunchTests.swift */,
 			);
 			path = TbilisiCleanupsUITests;
-			sourceTree = "<group>";
-		};
-		DDF73EC8287F260300BD7ED9 /* Firebase */ = {
-			isa = PBXGroup;
-			children = (
-				DDF73F07287F2B6200BD7ED9 /* GoogleService-Info.plist */,
-				DDF73F00287F27C700BD7ED9 /* Firebase.h */,
-				DDF73F01287F27C700BD7ED9 /* module.modulemap */,
-				DDF73EC9287F271D00BD7ED9 /* FirebaseAnalytics */,
-				DDF73F02287F294100BD7ED9 /* FirebaseAuth */,
-				DDF73EE2287F273C00BD7ED9 /* FirebaseCrashlytics */,
-				DDF73EE9287F274E00BD7ED9 /* FirebaseFirestore */,
-				DDF73EFD287F277E00BD7ED9 /* FirebaseMessaging */,
-			);
-			path = Firebase;
-			sourceTree = "<group>";
-		};
-		DDF73EC9287F271D00BD7ED9 /* FirebaseAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				DDF73ECA287F271D00BD7ED9 /* nanopb.xcframework */,
-				DDF73ECC287F271D00BD7ED9 /* PromisesObjC.xcframework */,
-				DDF73ECD287F271D00BD7ED9 /* FirebaseAnalytics.xcframework */,
-				DDF73ECE287F271D00BD7ED9 /* FirebaseAnalyticsSwift.xcframework */,
-				DDF73ECF287F271D00BD7ED9 /* FirebaseCoreDiagnostics.xcframework */,
-				DDF73ED0287F271D00BD7ED9 /* FirebaseInstallations.xcframework */,
-				DDF73ED1287F271D00BD7ED9 /* FirebaseCore.xcframework */,
-				DDF73ED2287F271D00BD7ED9 /* FirebaseCoreInternal.xcframework */,
-				DDF73ED3287F271D00BD7ED9 /* GoogleDataTransport.xcframework */,
-				DDF73ED4287F271D00BD7ED9 /* GoogleAppMeasurement.xcframework */,
-				DDF73ED5287F271D00BD7ED9 /* GoogleUtilities.xcframework */,
-			);
-			path = FirebaseAnalytics;
-			sourceTree = "<group>";
-		};
-		DDF73EE2287F273C00BD7ED9 /* FirebaseCrashlytics */ = {
-			isa = PBXGroup;
-			children = (
-				DDF73EE3287F273C00BD7ED9 /* FirebaseCrashlytics.xcframework */,
-				DDF73EE4287F273C00BD7ED9 /* run */,
-				DDF73EE5287F273C00BD7ED9 /* upload-symbols */,
-			);
-			path = FirebaseCrashlytics;
-			sourceTree = "<group>";
-		};
-		DDF73EE9287F274E00BD7ED9 /* FirebaseFirestore */ = {
-			isa = PBXGroup;
-			children = (
-				DDF73EEA287F274E00BD7ED9 /* FirebaseFirestore.xcframework */,
-				DDF73EEB287F274E00BD7ED9 /* gRPC-Core.xcframework */,
-				DDF73EEC287F274E00BD7ED9 /* Resources */,
-				DDF73EEE287F274E00BD7ED9 /* Libuv-gRPC.xcframework */,
-				DDF73EEF287F274E00BD7ED9 /* leveldb-library.xcframework */,
-				DDF73EF0287F274E00BD7ED9 /* gRPC-C++.xcframework */,
-				DDF73EF1287F274E00BD7ED9 /* BoringSSL-GRPC.xcframework */,
-				DDF73EF2287F274E00BD7ED9 /* FirebaseFirestoreSwift.xcframework */,
-				DDF73EF3287F274E00BD7ED9 /* abseil.xcframework */,
-			);
-			path = FirebaseFirestore;
-			sourceTree = "<group>";
-		};
-		DDF73EEC287F274E00BD7ED9 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				DDF73EED287F274E00BD7ED9 /* gRPCCertificates-Cpp.bundle */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		DDF73EFD287F277E00BD7ED9 /* FirebaseMessaging */ = {
-			isa = PBXGroup;
-			children = (
-				DDF73EFE287F277E00BD7ED9 /* FirebaseMessaging.xcframework */,
-			);
-			path = FirebaseMessaging;
-			sourceTree = "<group>";
-		};
-		DDF73F02287F294100BD7ED9 /* FirebaseAuth */ = {
-			isa = PBXGroup;
-			children = (
-				DDF73F03287F294100BD7ED9 /* FirebaseAuth.xcframework */,
-				DDF73F04287F294100BD7ED9 /* GTMSessionFetcher.xcframework */,
-			);
-			path = FirebaseAuth;
-			sourceTree = "<group>";
-		};
-		DDF73F09287F44F900BD7ED9 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				DD5A57C1287E3236009B1664 /* Assets.xcassets */,
-				DD5A57C3287E3236009B1664 /* LaunchScreen.storyboard */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DDF73F0A287F451400BD7ED9 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				DDF73F0E287F45F400BD7ED9 /* AppCoordinator.swift */,
-				DD5A57B8287E3235009B1664 /* AppDelegate.swift */,
-				DD5A57BA287E3235009B1664 /* SceneDelegate.swift */,
-			);
-			path = Coordinators;
-			sourceTree = "<group>";
-		};
-		DDF73F0B287F452400BD7ED9 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				DDF73F12287F4ACE00BD7ED9 /* AboutViewController.swift */,
-				DDF73F10287F4AC300BD7ED9 /* MyReportsViewController.swift */,
-				DD5A57BC287E3235009B1664 /* NewReportViewController.swift */,
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DD5A57B4287E3235009B1664 /* TbilisiCleanups */ = {
+		DD2AF3FE287F61FB0017A64C /* TbilisiCleanups */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD5A57DF287E3236009B1664 /* Build configuration list for PBXNativeTarget "TbilisiCleanups" */;
+			buildConfigurationList = DD2AF423287F61FC0017A64C /* Build configuration list for PBXNativeTarget "TbilisiCleanups" */;
 			buildPhases = (
-				DD5A57B1287E3235009B1664 /* Sources */,
-				DD5A57B2287E3235009B1664 /* Frameworks */,
-				DD5A57B3287E3235009B1664 /* Resources */,
+				DD2AF3FB287F61FB0017A64C /* Sources */,
+				DD2AF3FC287F61FB0017A64C /* Frameworks */,
+				DD2AF3FD287F61FB0017A64C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -338,69 +144,69 @@
 			);
 			name = TbilisiCleanups;
 			productName = TbilisiCleanups;
-			productReference = DD5A57B5287E3235009B1664 /* TbilisiCleanups.app */;
+			productReference = DD2AF3FF287F61FB0017A64C /* TbilisiCleanups.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DD5A57CA287E3236009B1664 /* TbilisiCleanupsTests */ = {
+		DD2AF40E287F61FC0017A64C /* TbilisiCleanupsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD5A57E2287E3236009B1664 /* Build configuration list for PBXNativeTarget "TbilisiCleanupsTests" */;
+			buildConfigurationList = DD2AF426287F61FC0017A64C /* Build configuration list for PBXNativeTarget "TbilisiCleanupsTests" */;
 			buildPhases = (
-				DD5A57C7287E3236009B1664 /* Sources */,
-				DD5A57C8287E3236009B1664 /* Frameworks */,
-				DD5A57C9287E3236009B1664 /* Resources */,
+				DD2AF40B287F61FC0017A64C /* Sources */,
+				DD2AF40C287F61FC0017A64C /* Frameworks */,
+				DD2AF40D287F61FC0017A64C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DD5A57CD287E3236009B1664 /* PBXTargetDependency */,
+				DD2AF411287F61FC0017A64C /* PBXTargetDependency */,
 			);
 			name = TbilisiCleanupsTests;
 			productName = TbilisiCleanupsTests;
-			productReference = DD5A57CB287E3236009B1664 /* TbilisiCleanupsTests.xctest */;
+			productReference = DD2AF40F287F61FC0017A64C /* TbilisiCleanupsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DD5A57D4287E3236009B1664 /* TbilisiCleanupsUITests */ = {
+		DD2AF418287F61FC0017A64C /* TbilisiCleanupsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD5A57E5287E3236009B1664 /* Build configuration list for PBXNativeTarget "TbilisiCleanupsUITests" */;
+			buildConfigurationList = DD2AF429287F61FC0017A64C /* Build configuration list for PBXNativeTarget "TbilisiCleanupsUITests" */;
 			buildPhases = (
-				DD5A57D1287E3236009B1664 /* Sources */,
-				DD5A57D2287E3236009B1664 /* Frameworks */,
-				DD5A57D3287E3236009B1664 /* Resources */,
+				DD2AF415287F61FC0017A64C /* Sources */,
+				DD2AF416287F61FC0017A64C /* Frameworks */,
+				DD2AF417287F61FC0017A64C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DD5A57D7287E3236009B1664 /* PBXTargetDependency */,
+				DD2AF41B287F61FC0017A64C /* PBXTargetDependency */,
 			);
 			name = TbilisiCleanupsUITests;
 			productName = TbilisiCleanupsUITests;
-			productReference = DD5A57D5287E3236009B1664 /* TbilisiCleanupsUITests.xctest */;
+			productReference = DD2AF419287F61FC0017A64C /* TbilisiCleanupsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		DD5A57AD287E3235009B1664 /* Project object */ = {
+		DD2AF3F7287F61FB0017A64C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					DD5A57B4287E3235009B1664 = {
+					DD2AF3FE287F61FB0017A64C = {
 						CreatedOnToolsVersion = 13.4;
 					};
-					DD5A57CA287E3236009B1664 = {
+					DD2AF40E287F61FC0017A64C = {
 						CreatedOnToolsVersion = 13.4;
-						TestTargetID = DD5A57B4287E3235009B1664;
+						TestTargetID = DD2AF3FE287F61FB0017A64C;
 					};
-					DD5A57D4287E3236009B1664 = {
+					DD2AF418287F61FC0017A64C = {
 						CreatedOnToolsVersion = 13.4;
-						TestTargetID = DD5A57B4287E3235009B1664;
+						TestTargetID = DD2AF3FE287F61FB0017A64C;
 					};
 				};
 			};
-			buildConfigurationList = DD5A57B0287E3235009B1664 /* Build configuration list for PBXProject "TbilisiCleanups" */;
+			buildConfigurationList = DD2AF3FA287F61FB0017A64C /* Build configuration list for PBXProject "TbilisiCleanups" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -408,40 +214,36 @@
 				en,
 				Base,
 			);
-			mainGroup = DD5A57AC287E3235009B1664;
-			productRefGroup = DD5A57B6287E3235009B1664 /* Products */;
+			mainGroup = DD2AF3F6287F61FB0017A64C;
+			productRefGroup = DD2AF400287F61FB0017A64C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DD5A57B4287E3235009B1664 /* TbilisiCleanups */,
-				DD5A57CA287E3236009B1664 /* TbilisiCleanupsTests */,
-				DD5A57D4287E3236009B1664 /* TbilisiCleanupsUITests */,
+				DD2AF3FE287F61FB0017A64C /* TbilisiCleanups */,
+				DD2AF40E287F61FC0017A64C /* TbilisiCleanupsTests */,
+				DD2AF418287F61FC0017A64C /* TbilisiCleanupsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DD5A57B3287E3235009B1664 /* Resources */ = {
+		DD2AF3FD287F61FB0017A64C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDF73EE7287F273C00BD7ED9 /* run in Resources */,
-				DDF73EE8287F273C00BD7ED9 /* upload-symbols in Resources */,
-				DD5A57C5287E3236009B1664 /* LaunchScreen.storyboard in Resources */,
-				DD5A57C2287E3236009B1664 /* Assets.xcassets in Resources */,
-				DDF73EF6287F274E00BD7ED9 /* gRPCCertificates-Cpp.bundle in Resources */,
-				DDF73F08287F2B6200BD7ED9 /* GoogleService-Info.plist in Resources */,
+				DD2AF40A287F61FC0017A64C /* Preview Assets.xcassets in Resources */,
+				DD2AF407287F61FC0017A64C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD5A57C9287E3236009B1664 /* Resources */ = {
+		DD2AF40D287F61FC0017A64C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD5A57D3287E3236009B1664 /* Resources */ = {
+		DD2AF417287F61FC0017A64C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -451,64 +253,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DD5A57B1287E3235009B1664 /* Sources */ = {
+		DD2AF3FB287F61FB0017A64C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDF73F11287F4AC300BD7ED9 /* MyReportsViewController.swift in Sources */,
-				DD5A57BD287E3235009B1664 /* NewReportViewController.swift in Sources */,
-				DDF73F13287F4ACE00BD7ED9 /* AboutViewController.swift in Sources */,
-				DDF73F0F287F45F400BD7ED9 /* AppCoordinator.swift in Sources */,
-				DD5A57B9287E3235009B1664 /* AppDelegate.swift in Sources */,
-				DD5A57BB287E3235009B1664 /* SceneDelegate.swift in Sources */,
+				DD2AF405287F61FB0017A64C /* ContentView.swift in Sources */,
+				DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD5A57C7287E3236009B1664 /* Sources */ = {
+		DD2AF40B287F61FC0017A64C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD5A57D0287E3236009B1664 /* TbilisiCleanupsTests.swift in Sources */,
+				DD2AF414287F61FC0017A64C /* TbilisiCleanupsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD5A57D1287E3236009B1664 /* Sources */ = {
+		DD2AF415287F61FC0017A64C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD5A57DC287E3236009B1664 /* TbilisiCleanupsUITestsLaunchTests.swift in Sources */,
-				DD5A57DA287E3236009B1664 /* TbilisiCleanupsUITests.swift in Sources */,
+				DD2AF420287F61FC0017A64C /* TbilisiCleanupsUITestsLaunchTests.swift in Sources */,
+				DD2AF41E287F61FC0017A64C /* TbilisiCleanupsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DD5A57CD287E3236009B1664 /* PBXTargetDependency */ = {
+		DD2AF411287F61FC0017A64C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DD5A57B4287E3235009B1664 /* TbilisiCleanups */;
-			targetProxy = DD5A57CC287E3236009B1664 /* PBXContainerItemProxy */;
+			target = DD2AF3FE287F61FB0017A64C /* TbilisiCleanups */;
+			targetProxy = DD2AF410287F61FC0017A64C /* PBXContainerItemProxy */;
 		};
-		DD5A57D7287E3236009B1664 /* PBXTargetDependency */ = {
+		DD2AF41B287F61FC0017A64C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DD5A57B4287E3235009B1664 /* TbilisiCleanups */;
-			targetProxy = DD5A57D6287E3236009B1664 /* PBXContainerItemProxy */;
+			target = DD2AF3FE287F61FB0017A64C /* TbilisiCleanups */;
+			targetProxy = DD2AF41A287F61FC0017A64C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		DD5A57C3287E3236009B1664 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DD5A57C4287E3236009B1664 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		DD5A57DD287E3236009B1664 /* Debug */ = {
+		DD2AF421287F61FC0017A64C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -558,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -568,7 +355,7 @@
 			};
 			name = Debug;
 		};
-		DD5A57DE287E3236009B1664 /* Release */ = {
+		DD2AF422287F61FC0017A64C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -612,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -622,69 +409,63 @@
 			};
 			name = Release;
 		};
-		DD5A57E0287E3236009B1664 /* Debug */ = {
+		DD2AF424287F61FC0017A64C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_ASSET_PATHS = "\"TbilisiCleanups/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TbilisiCleanups/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = net.vadimbelyaev.TbilisiCleanups;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = Firebase;
 			};
 			name = Debug;
 		};
-		DD5A57E1287E3236009B1664 /* Release */ = {
+		DD2AF425287F61FC0017A64C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_ASSET_PATHS = "\"TbilisiCleanups/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TbilisiCleanups/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = net.vadimbelyaev.TbilisiCleanups;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = Firebase;
 			};
 			name = Release;
 		};
-		DD5A57E3287E3236009B1664 /* Debug */ = {
+		DD2AF427287F61FC0017A64C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -703,7 +484,7 @@
 			};
 			name = Debug;
 		};
-		DD5A57E4287E3236009B1664 /* Release */ = {
+		DD2AF428287F61FC0017A64C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -722,7 +503,7 @@
 			};
 			name = Release;
 		};
-		DD5A57E6287E3236009B1664 /* Debug */ = {
+		DD2AF42A287F61FC0017A64C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -739,7 +520,7 @@
 			};
 			name = Debug;
 		};
-		DD5A57E7287E3236009B1664 /* Release */ = {
+		DD2AF42B287F61FC0017A64C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -759,43 +540,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DD5A57B0287E3235009B1664 /* Build configuration list for PBXProject "TbilisiCleanups" */ = {
+		DD2AF3FA287F61FB0017A64C /* Build configuration list for PBXProject "TbilisiCleanups" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD5A57DD287E3236009B1664 /* Debug */,
-				DD5A57DE287E3236009B1664 /* Release */,
+				DD2AF421287F61FC0017A64C /* Debug */,
+				DD2AF422287F61FC0017A64C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD5A57DF287E3236009B1664 /* Build configuration list for PBXNativeTarget "TbilisiCleanups" */ = {
+		DD2AF423287F61FC0017A64C /* Build configuration list for PBXNativeTarget "TbilisiCleanups" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD5A57E0287E3236009B1664 /* Debug */,
-				DD5A57E1287E3236009B1664 /* Release */,
+				DD2AF424287F61FC0017A64C /* Debug */,
+				DD2AF425287F61FC0017A64C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD5A57E2287E3236009B1664 /* Build configuration list for PBXNativeTarget "TbilisiCleanupsTests" */ = {
+		DD2AF426287F61FC0017A64C /* Build configuration list for PBXNativeTarget "TbilisiCleanupsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD5A57E3287E3236009B1664 /* Debug */,
-				DD5A57E4287E3236009B1664 /* Release */,
+				DD2AF427287F61FC0017A64C /* Debug */,
+				DD2AF428287F61FC0017A64C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD5A57E5287E3236009B1664 /* Build configuration list for PBXNativeTarget "TbilisiCleanupsUITests" */ = {
+		DD2AF429287F61FC0017A64C /* Build configuration list for PBXNativeTarget "TbilisiCleanupsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD5A57E6287E3236009B1664 /* Debug */,
-				DD5A57E7287E3236009B1664 /* Release */,
+				DD2AF42A287F61FC0017A64C /* Debug */,
+				DD2AF42B287F61FC0017A64C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = DD5A57AD287E3235009B1664 /* Project object */;
+	rootObject = DD2AF3F7287F61FB0017A64C /* Project object */;
 }
