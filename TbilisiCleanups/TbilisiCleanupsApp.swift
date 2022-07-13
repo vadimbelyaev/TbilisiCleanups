@@ -5,7 +5,9 @@ import SwiftUI
 struct TbilisiCleanupsApp: App {
 
     init() {
-        FirebaseApp.configure()
+        if ProcessInfo.processInfo.environment["ENABLE_PREVIEWS"] == nil {
+            FirebaseApp.configure()
+        }
     }
 
     var body: some Scene {

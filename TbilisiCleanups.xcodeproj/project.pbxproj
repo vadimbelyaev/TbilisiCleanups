@@ -41,6 +41,7 @@
 		DD2AF468287F63E50017A64C /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2AF44B287F63E50017A64C /* GoogleAppMeasurement.xcframework */; };
 		DD2AF469287F63E50017A64C /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2AF44C287F63E50017A64C /* GoogleUtilities.xcframework */; };
 		DD2AF46A287F63E50017A64C /* FirebaseMessaging.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2AF44E287F63E50017A64C /* FirebaseMessaging.xcframework */; };
+		DD2AF46C287F67B60017A64C /* ReportStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF46B287F67B60017A64C /* ReportStartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		DD2AF44C287F63E50017A64C /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleUtilities.xcframework; sourceTree = "<group>"; };
 		DD2AF44E287F63E50017A64C /* FirebaseMessaging.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FirebaseMessaging.xcframework; sourceTree = "<group>"; };
 		DD2AF44F287F63E50017A64C /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		DD2AF46B287F67B60017A64C /* ReportStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				DD2AF404287F61FB0017A64C /* RootView.swift */,
 				DD2AF406287F61FC0017A64C /* Assets.xcassets */,
 				DD2AF408287F61FC0017A64C /* Preview Content */,
+				DD2AF46B287F67B60017A64C /* ReportStartView.swift */,
 			);
 			path = TbilisiCleanups;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 			files = (
 				DD2AF405287F61FB0017A64C /* RootView.swift in Sources */,
 				DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */,
+				DD2AF46C287F67B60017A64C /* ReportStartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
