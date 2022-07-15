@@ -3,6 +3,7 @@ import SwiftUI
 
 struct ReportDescriptionView: View {
     @Binding var currentDraft: ReportDraft
+    @FocusState private var textEditorFocused: Bool
 
     private var region: Binding<MKCoordinateRegion>
 
@@ -12,22 +13,58 @@ struct ReportDescriptionView: View {
     }
 
     var body: some View {
-        List {
-            Section {
-                Map(
-                    coordinateRegion: region,
-                    interactionModes: []
-                )
-                .frame(height: 120)
+        VStack {
+            ScrollView {
+                VStack(alignment: .leading) {
+                    Map(
+                        coordinateRegion: region,
+                        interactionModes: []
+                    )
+                    .frame(height: 120)
+                    Text("Describe where this place is so it's easier to find it:")
+                        .padding(.top)
+                        .padding(.horizontal)
+                    TextEditor(text: $currentDraft.placeDescription)
+                        .focused($textEditorFocused)
+                        .frame(height: 240)
+                        .padding(8)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .strokeBorder()
+                                .foregroundStyle(.tertiary)
+                        )
+                        .padding(.horizontal)
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(750)) {
+                                print("YOOO")
+                                textEditorFocused = true
+                            }
+                        }
+
+                }
             }
-            Section {
-                Text("Describe where this place is so it's easier to find it:")
-                TextEditor(text: $currentDraft.placeDescription)
-                    .frame(height: 240)
+            HStack {
+                Spacer()
+                continueButton
+                Spacer()
             }
         }
-        .listStyle(.plain)
+        .onTapGesture {
+            textEditorFocused = false
+        }
         .navigationTitle("Description")
+    }
+
+    private var continueButton: some View {
+        NavigationLink {
+            Text("Photos")
+        } label: {
+            Text("Continue")
+                .frame(maxWidth: 300)
+                .padding(.vertical, 8)
+        }
+        .buttonStyle(.borderedProminent)
+        .padding(.bottom, 25)
     }
 }
 

@@ -6,7 +6,6 @@ import SwiftUI
 struct ReportLocationView: View {
 
     @ObservedObject var model: ReportLocationViewModel
-    @State private var isNextScreenActive = false
 
     var body: some View {
         ZStack {
@@ -56,9 +55,8 @@ struct ReportLocationView: View {
         .cornerRadius(25)
     }
 
-    @ViewBuilder
     private var continueButton: some View {
-        NavigationLink(isActive: $isNextScreenActive) {
+        NavigationLink {
             ReportDescriptionView(currentDraft: model.$currentDraft)
         } label: {
             Text("Use this location")
