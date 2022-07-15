@@ -4,6 +4,8 @@ import SwiftUI
 @main
 struct TbilisiCleanupsApp: App {
 
+    @State private var appState: AppState = .init()
+
     init() {
         if ProcessInfo.processInfo.environment["ENABLE_PREVIEWS"] == nil {
             FirebaseApp.configure()
@@ -12,7 +14,7 @@ struct TbilisiCleanupsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView()
+            RootView(appState: $appState)
         }
     }
 }

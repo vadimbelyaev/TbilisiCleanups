@@ -1,13 +1,9 @@
-//
-//  ReportStartView.swift
-//  TbilisiCleanups
-//
-//  Created by Vadim Belyaev on 14.07.2022.
-//
-
 import SwiftUI
 
 struct ReportStartView: View {
+
+    @Binding var appState: AppState
+
     var body: some View {
         NavigationView {
             VStack {
@@ -46,7 +42,9 @@ struct ReportStartView: View {
                 HStack {
                     Spacer()
                     NavigationLink {
-                        Text("Location")
+                        ReportLocationView(
+                            model: ReportLocationViewModel(currentDraft: $appState.currentDraft)
+                        )
                     } label: {
                         Text("Start")
                             .frame(maxWidth: 300)
@@ -68,7 +66,8 @@ struct ReportStartView: View {
 }
 
 struct ReportStartView_Previews: PreviewProvider {
+    @State static var appState = AppState()
     static var previews: some View {
-        ReportStartView()
+        ReportStartView(appState: $appState)
     }
 }
