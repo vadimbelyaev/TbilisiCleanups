@@ -36,7 +36,6 @@ struct ReportDescriptionView: View {
                         .padding(.horizontal)
                         .onAppear {
                             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(750)) {
-                                print("YOOO")
                                 textEditorFocused = true
                             }
                         }
@@ -57,7 +56,9 @@ struct ReportDescriptionView: View {
 
     private var continueButton: some View {
         NavigationLink {
-            Text("Photos")
+            ReportPhotosView(
+                model: ReportPhotosViewModel(currentDraft: $currentDraft)
+            )
         } label: {
             Text("Continue")
                 .frame(maxWidth: 300)
