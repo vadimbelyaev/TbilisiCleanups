@@ -123,9 +123,11 @@ struct MediaCell: View {
                 .opacity(0.1)
                 .overlay(imageOverlay)
                 .clipShape(Rectangle())
-//                .task {
-//                    image = try? await placeMedia.loadThumbnail(for: geometry.frame(in: .local).size)
-//                }
+                .task {
+                    image = await placeMedia.fetchThumbnail(
+                        for: geometry.frame(in: .local).size
+                    )
+                }
         }
     }
 
