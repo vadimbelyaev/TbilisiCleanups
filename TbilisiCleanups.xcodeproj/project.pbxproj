@@ -192,20 +192,14 @@
 		DD2AF401287F61FB0017A64C /* TbilisiCleanups */ = {
 			isa = PBXGroup;
 			children = (
+				DDCE78012882F4B200ACA7BF /* App */,
 				DDCE77F92882EA0C00ACA7BF /* Info.plist */,
+				DD2AF408287F61FC0017A64C /* Preview Content */,
+				DDCE77FA2882F43800ACA7BF /* Resources */,
+				DD2AF4732881EEC30017A64C /* State */,
 				DDCE77F82882E9E300ACA7BF /* TbilisiCleanups.entitlements */,
 				DD2AF47A28821AE00017A64C /* UI Components */,
-				DD2AF4732881EEC30017A64C /* State */,
-				DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */,
-				DD2AF404287F61FB0017A64C /* RootView.swift */,
-				DD2AF406287F61FC0017A64C /* Assets.xcassets */,
-				DD2AF408287F61FC0017A64C /* Preview Content */,
-				DD2AF46B287F67B60017A64C /* ReportStartView.swift */,
-				DD2AF46D287F71B70017A64C /* ReportLocationView.swift */,
-				DD2AF46F288054860017A64C /* ReportLocationViewModel.swift */,
-				DD2AF4712881EB030017A64C /* ReportDescriptionView.swift */,
-				DD2AF476288209940017A64C /* ReportPhotosView.swift */,
-				DD2AF478288209BD0017A64C /* ReportPhotosViewModel.swift */,
+				DDCE77FB2882F44A00ACA7BF /* Views */,
 			);
 			path = TbilisiCleanups;
 			sourceTree = "<group>";
@@ -333,6 +327,76 @@
 				DD2AF47B28821AF90017A64C /* PhotoPicker.swift */,
 			);
 			path = "UI Components";
+			sourceTree = "<group>";
+		};
+		DDCE77FA2882F43800ACA7BF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD2AF406287F61FC0017A64C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DDCE77FB2882F44A00ACA7BF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DDCE77FE2882F47600ACA7BF /* ReportDescriptionView */,
+				DDCE77FC2882F45F00ACA7BF /* ReportLocationView */,
+				DDCE78002882F48A00ACA7BF /* ReportPhotosView */,
+				DDCE77FF2882F47F00ACA7BF /* ReportStartView */,
+				DDCE77FD2882F46F00ACA7BF /* RootView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DDCE77FC2882F45F00ACA7BF /* ReportLocationView */ = {
+			isa = PBXGroup;
+			children = (
+				DD2AF46D287F71B70017A64C /* ReportLocationView.swift */,
+				DD2AF46F288054860017A64C /* ReportLocationViewModel.swift */,
+			);
+			path = ReportLocationView;
+			sourceTree = "<group>";
+		};
+		DDCE77FD2882F46F00ACA7BF /* RootView */ = {
+			isa = PBXGroup;
+			children = (
+				DD2AF404287F61FB0017A64C /* RootView.swift */,
+			);
+			path = RootView;
+			sourceTree = "<group>";
+		};
+		DDCE77FE2882F47600ACA7BF /* ReportDescriptionView */ = {
+			isa = PBXGroup;
+			children = (
+				DD2AF4712881EB030017A64C /* ReportDescriptionView.swift */,
+			);
+			path = ReportDescriptionView;
+			sourceTree = "<group>";
+		};
+		DDCE77FF2882F47F00ACA7BF /* ReportStartView */ = {
+			isa = PBXGroup;
+			children = (
+				DD2AF46B287F67B60017A64C /* ReportStartView.swift */,
+			);
+			path = ReportStartView;
+			sourceTree = "<group>";
+		};
+		DDCE78002882F48A00ACA7BF /* ReportPhotosView */ = {
+			isa = PBXGroup;
+			children = (
+				DD2AF476288209940017A64C /* ReportPhotosView.swift */,
+				DD2AF478288209BD0017A64C /* ReportPhotosViewModel.swift */,
+			);
+			path = ReportPhotosView;
+			sourceTree = "<group>";
+		};
+		DDCE78012882F4B200ACA7BF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
