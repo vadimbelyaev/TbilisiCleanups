@@ -13,7 +13,6 @@ final class ReportLocationViewModel: NSObject, ObservableObject {
     private let logger = Logger()
 
     override init() {
-        print("MODEL INIT")
         locationManager = CLLocationManager()
         locationButtonState = locationManager.authorizationStatus == .restricted ? .restricted : .idle
         super.init()
@@ -27,7 +26,6 @@ final class ReportLocationViewModel: NSObject, ObservableObject {
     }
 
     func requestLocation() {
-        print("MODEL>REQUESTLOCATION")
         switch locationManager.authorizationStatus {
         case .authorizedWhenInUse, .authorizedAlways:
             locationButtonState = .inProgress
@@ -72,7 +70,6 @@ extension ReportLocationViewModel: CLLocationManagerDelegate {
     }
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        print("LOCATION MANAGER DID CHANGE STATUS TO \(manager.authorizationStatus)")
         switch manager.authorizationStatus {
         case .authorizedWhenInUse, .authorizedAlways:
             requestLocation()

@@ -13,7 +13,6 @@ struct MapView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UIViewType, context: Context) {
-        print("UPDATE VIEW")
         guard let view = uiView as? MKMapView else { return }
         view.region = region
     }
@@ -30,13 +29,7 @@ struct MapView: UIViewRepresentable {
             super.init()
         }
 
-        func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-            print("MAP VIEW WILL CHANGE")
-//            managedView.region = mapView.region
-        }
-
         func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-            print("MAP VIEW DID CHANGE")
             managedView.region = mapView.region
         }
     }
