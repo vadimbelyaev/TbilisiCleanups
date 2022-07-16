@@ -18,7 +18,7 @@ struct ReportPhotosView: View {
                 alignment: .leading,
                 spacing: .zero
             ) {
-                ForEach(model.currentDraft.photos) { media in
+                ForEach(model.currentDraft.medias) { media in
                     MediaCell(placeMedia: media)
                         .aspectRatio(1, contentMode: .fill)
                 }
@@ -40,10 +40,10 @@ struct ReportPhotosView: View {
 }
 
 struct MediaCell: View {
-    private let placeMedia: PlacePhoto
+    private let placeMedia: PlaceMedia
     @State private var image: UIImage? = nil
 
-    init(placeMedia: PlacePhoto) {
+    init(placeMedia: PlaceMedia) {
         self.placeMedia = placeMedia
     }
 

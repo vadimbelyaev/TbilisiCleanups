@@ -10,11 +10,11 @@ final class ReportPhotosViewModel: ObservableObject {
     }
 
     func makePhotoPicker(isPresented: Binding<Bool>) -> some View {
-        PhotoPicker(results: $currentDraft.photos, isPresented: isPresented)
+        PhotoPicker(results: $currentDraft.medias, isPresented: isPresented)
     }
 }
 
-extension PlacePhoto {
+extension PlaceMedia {
 
     enum ImageLoadingError: Error {
         case itemProviderCannotLoadUIImage

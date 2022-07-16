@@ -15,12 +15,12 @@ struct ReportDraft {
         longitudinalMeters: 750
     )
     var placeDescription: String
-    var photos: [PlacePhoto]
+    var medias: [PlaceMedia]
 
-    static let empty = ReportDraft(placeDescription: "", photos: [])
+    static let empty = ReportDraft(placeDescription: "", medias: [])
 }
 
-struct PlacePhoto: Identifiable {
+struct PlaceMedia: Identifiable {
     let id: String
     let itemProvider: NSItemProvider
 }
