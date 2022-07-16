@@ -140,7 +140,7 @@ struct MediaCell: View {
             Color.secondary
                 .opacity(0.1)
                 .overlay(imageOverlay)
-                .clipShape(Rectangle())
+                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                 .task {
                     image = await placeMedia.fetchThumbnail(
                         for: geometry.frame(in: .local).size
