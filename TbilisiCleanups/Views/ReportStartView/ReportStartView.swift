@@ -2,8 +2,6 @@ import SwiftUI
 
 struct ReportStartView: View {
 
-    @EnvironmentObject var appState: AppState
-
     var body: some View {
         NavigationView {
             VStack {
@@ -42,9 +40,7 @@ struct ReportStartView: View {
                 HStack {
                     Spacer()
                     NavigationLink {
-                        ReportLocationView(
-                            model: ReportLocationViewModel(currentDraft: $appState.currentDraft)
-                        )
+                        ReportLocationView()
                     } label: {
                         Text("Start")
                             .frame(maxWidth: 300)

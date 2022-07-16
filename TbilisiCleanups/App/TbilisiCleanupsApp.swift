@@ -33,6 +33,7 @@ struct TbilisiCleanupsApp: App {
         WindowGroup {
             RootView()
                 .environmentObject(appState)
+                .environmentObject(appState.currentDraft)
         }
     }
 }

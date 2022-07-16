@@ -49,6 +49,7 @@
 		DD2AF477288209940017A64C /* ReportPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF476288209940017A64C /* ReportPhotosView.swift */; };
 		DD2AF479288209BD0017A64C /* ReportPhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF478288209BD0017A64C /* ReportPhotosViewModel.swift */; };
 		DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF47B28821AF90017A64C /* PhotoPicker.swift */; };
+		DDCE7803288308E100ACA7BF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE7802288308E100ACA7BF /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		DD2AF47B28821AF90017A64C /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		DDCE77F82882E9E300ACA7BF /* TbilisiCleanups.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TbilisiCleanups.entitlements; sourceTree = "<group>"; };
 		DDCE77F92882EA0C00ACA7BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DDCE7802288308E100ACA7BF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +326,7 @@
 		DD2AF47A28821AE00017A64C /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
+				DDCE7802288308E100ACA7BF /* MapView.swift */,
 				DD2AF47B28821AF90017A64C /* PhotoPicker.swift */,
 			);
 			path = "UI Components";
@@ -560,6 +563,7 @@
 				DD2AF405287F61FB0017A64C /* RootView.swift in Sources */,
 				DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */,
 				DD2AF4752881EED10017A64C /* AppState.swift in Sources */,
+				DDCE7803288308E100ACA7BF /* MapView.swift in Sources */,
 				DD2AF479288209BD0017A64C /* ReportPhotosViewModel.swift in Sources */,
 				DD2AF470288054860017A64C /* ReportLocationViewModel.swift in Sources */,
 				DD2AF46C287F67B60017A64C /* ReportStartView.swift in Sources */,
@@ -723,14 +727,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TbilisiCleanups/TbilisiCleanups.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"TbilisiCleanups/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PQTAJ5C86Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TbilisiCleanups/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app uses your current location to show it on a map when you submit a report.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -745,7 +751,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = net.vadimbelyaev.TbilisiCleanups;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Tbilisi Cleanups Development";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -759,13 +765,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TbilisiCleanups/TbilisiCleanups.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"TbilisiCleanups/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PQTAJ5C86Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TbilisiCleanups/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app uses your current location to show it on a map when you submit a report.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -780,7 +788,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = net.vadimbelyaev.TbilisiCleanups;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Tbilisi Cleanups Development";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

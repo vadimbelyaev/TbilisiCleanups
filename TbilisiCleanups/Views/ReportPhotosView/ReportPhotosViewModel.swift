@@ -3,10 +3,12 @@ import os.log
 import SwiftUI
 
 final class ReportPhotosViewModel: ObservableObject {
-    @Binding var currentDraft: ReportDraft
+    @ObservedObject var currentDraft: ReportDraft = .empty
 
-    init(currentDraft: Binding<ReportDraft>) {
-        _currentDraft = currentDraft
+    init() {}
+    
+    func setUpBindings(currentDraft: ReportDraft) {
+        self.currentDraft = currentDraft
     }
 
     func makePhotoPicker(isPresented: Binding<Bool>) -> some View {

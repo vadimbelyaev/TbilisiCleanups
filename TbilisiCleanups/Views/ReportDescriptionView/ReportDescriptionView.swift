@@ -2,22 +2,17 @@ import MapKit
 import SwiftUI
 
 struct ReportDescriptionView: View {
-    @Binding var currentDraft: ReportDraft
+    @EnvironmentObject private var currentDraft: ReportDraft
     @FocusState private var textEditorFocused: Bool
 
-    private var region: Binding<MKCoordinateRegion>
-
-    init(currentDraft: Binding<ReportDraft>) {
-        _currentDraft = currentDraft
-        region = .init(projectedValue: currentDraft.locationRegion)
-    }
+    @State private var region: MKCoordinateRegion = .init()
 
     var body: some View {
         VStack {
             ScrollView {
                 VStack(alignment: .leading) {
                     Map(
-                        coordinateRegion: region,
+                        coordinateRegion: $region,
                         interactionModes: []
                     )
                     .frame(height: 120)
@@ -52,13 +47,14 @@ struct ReportDescriptionView: View {
             textEditorFocused = false
         }
         .navigationTitle("Description")
+        .onAppear {
+            region = currentDraft.locationRegion
+        }
     }
 
     private var continueButton: some View {
         NavigationLink {
-            ReportPhotosView(
-                model: ReportPhotosViewModel(currentDraft: $currentDraft)
-            )
+            ReportPhotosView()
         } label: {
             Text("Continue")
                 .frame(maxWidth: 300)
@@ -72,6 +68,6 @@ struct ReportDescriptionView: View {
 struct ReportDescriptionView_Previews: PreviewProvider {
     @State static var draft: ReportDraft = .empty
     static var previews: some View {
-        ReportDescriptionView(currentDraft: $draft)
+        ReportDescriptionView()
     }
 }

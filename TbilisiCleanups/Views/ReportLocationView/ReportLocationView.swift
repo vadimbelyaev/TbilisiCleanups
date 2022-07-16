@@ -5,7 +5,8 @@ import SwiftUI
 
 struct ReportLocationView: View {
 
-    @ObservedObject var model: ReportLocationViewModel
+    @EnvironmentObject var currentDraft: ReportDraft
+    @StateObject private var model = ReportLocationViewModel()
 
     var body: some View {
         ZStack {
@@ -25,12 +26,14 @@ struct ReportLocationView: View {
             }
         }
         .navigationTitle("Location")
+        .onAppear {
+            model.setUpBindings(currentDraft: currentDraft)
+        }
     }
 
     private var map: some View {
-        Map(
-            coordinateRegion: model.$currentDraft.locationRegion,
-            showsUserLocation: true
+        MapView(
+            region: $currentDraft.locationRegion
         )
             .ignoresSafeArea(
                 .all,
@@ -46,18 +49,36 @@ struct ReportLocationView: View {
             )
     }
 
+    @ViewBuilder
     private var locationButton: some View {
-        LocationButton(.currentLocation) {
-            model.locationManager.requestLocation()
+        switch model.locationButtonState {
+        case .idle, .authorizationDenied:
+            Button {
+                model.requestLocation()
+            } label: {
+                Label("Show current location", systemImage: model.locationButtonState == .authorizationDenied ? "location.slash" : "location.fill")
+                    .labelStyle(.iconOnly)
+            }
+            .buttonStyle(.borderedProminent)
+            .cornerRadius(25)
+            .alert(
+                "Enable ins setgings",
+                isPresented: $model.locationSettingsAlertPresented,
+                actions: {
+                    Button("NotNow") {}
+                    Button("Settings") {}
+                }
+            )
+        case .inProgress:
+            ProgressView()
+        case .restricted:
+            EmptyView()
         }
-        .foregroundColor(.init(uiColor: .white))
-        .labelStyle(.iconOnly)
-        .cornerRadius(25)
     }
 
     private var continueButton: some View {
         NavigationLink {
-            ReportDescriptionView(currentDraft: model.$currentDraft)
+            ReportDescriptionView()
         } label: {
             Text("Use this location")
                 .frame(maxWidth: 300)
@@ -72,7 +93,7 @@ struct ReportLocationView_Previews: PreviewProvider {
     @State static var draft: ReportDraft = .empty
     static var previews: some View {
         NavigationView {
-            ReportLocationView(model: ReportLocationViewModel(currentDraft: $draft))
+            ReportLocationView()
         }
     }
 }

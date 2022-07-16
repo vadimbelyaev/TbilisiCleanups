@@ -2,9 +2,10 @@ import SwiftUI
 import MapKit
 
 struct ReportPhotosView: View {
-    @ObservedObject var model: ReportPhotosViewModel
+    @EnvironmentObject var currentDraft: ReportDraft
+    @StateObject var model: ReportPhotosViewModel = .init()
     @State private var isPickerPresented = false
-    @Environment(\.dismiss) private var dismiss
+
     var body: some View {
         ScrollView {
             LazyVGrid(
@@ -27,17 +28,20 @@ struct ReportPhotosView: View {
             model.makePhotoPicker(isPresented: $isPickerPresented)
         }
         .navigationTitle("Photos")
+        onAppear {
+//            model.setUpBindings(currentDraft: currentDraft)
+        }
     }
 
     @ViewBuilder
     private var mediaCells: some View {
-        ForEach(model.currentDraft.medias) { media in
+        ForEach(currentDraft.medias) { media in
             MediaCell(placeMedia: media)
                 .aspectRatio(1, contentMode: .fill)
                 .contextMenu {
                     Button {
                         withAnimation {
-                            model.currentDraft.remove(media: media)
+                            currentDraft.remove(media: media)
                         }
                     } label: {
                         Text("Remove")
@@ -102,6 +106,6 @@ struct MediaCell: View {
 
 struct ReportPhotosView_Previews: PreviewProvider {
     static var previews: some View {
-        ReportPhotosView(model: ReportPhotosViewModel(currentDraft: .constant(.empty)))
+        ReportPhotosView()
     }
 }

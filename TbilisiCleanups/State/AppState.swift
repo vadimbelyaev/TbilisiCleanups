@@ -2,11 +2,11 @@ import MapKit
 import SwiftUI
 
 final class AppState: ObservableObject {
-    @Published var currentDraft: ReportDraft = .empty
+    var currentDraft: ReportDraft = .empty
 }
 
-struct ReportDraft {
-    var locationRegion = MKCoordinateRegion(
+class ReportDraft: ObservableObject {
+    @Published var locationRegion = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
             latitude: 37.334_900,
             longitude: -122.009_020
@@ -14,12 +14,12 @@ struct ReportDraft {
         latitudinalMeters: 750,
         longitudinalMeters: 750
     )
-    var placeDescription: String
-    var medias: [PlaceMedia]
+    @Published var placeDescription: String = ""
+    @Published var medias: [PlaceMedia] = []
 
-    static let empty = ReportDraft(placeDescription: "", medias: [])
+    static let empty = ReportDraft()
 
-    mutating func remove(media: PlaceMedia) {
+    func remove(media: PlaceMedia) {
         guard let index = medias.firstIndex(where: { $0.id == media.id }) else {
             return
         }
