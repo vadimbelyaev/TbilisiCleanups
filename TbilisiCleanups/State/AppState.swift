@@ -8,11 +8,11 @@ final class AppState: ObservableObject {
 class ReportDraft: ObservableObject {
     @Published var locationRegion = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
-            latitude: 37.334_900,
-            longitude: -122.009_020
+            latitude: 42.182_724,
+            longitude: 43.523_521
         ),
-        latitudinalMeters: 750,
-        longitudinalMeters: 750
+        latitudinalMeters: 600_000,
+        longitudinalMeters: 600_000
     )
     @Published var placeDescription: String = ""
     @Published var medias: [PlaceMedia] = []
