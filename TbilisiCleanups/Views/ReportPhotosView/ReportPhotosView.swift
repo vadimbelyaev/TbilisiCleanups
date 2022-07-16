@@ -25,6 +25,12 @@ struct ReportPhotosView: View {
             } auxiliaryView: {
                 EmptyView()
             }
+            .simultaneousGesture(
+                TapGesture()
+                    .onEnded { _ in
+                        model.updateDraftLocationBasedOnPhotos()
+                    }
+            )
         }
         .sheet(isPresented: $isPickerPresented) {
             model.makePhotoPicker(isPresented: $isPickerPresented)

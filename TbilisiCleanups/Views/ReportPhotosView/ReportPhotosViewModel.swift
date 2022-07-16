@@ -45,6 +45,26 @@ final class ReportPhotosViewModel: ObservableObject {
     func makePhotoPicker(isPresented: Binding<Bool>) -> some View {
         PhotoPicker(results: $currentDraft.medias, isPresented: isPresented)
     }
+
+    func getFirstLocationOfSelectedPhotos() -> CLLocation? {
+        let ids = currentDraft.medias.map(\.id)
+        let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: ids, options: nil)
+        var targetLocation: CLLocation? = nil
+        fetchResult.enumerateObjects { asset, _, stop in
+            if let location = asset.location {
+                targetLocation = location
+                stop.pointee = true
+            }
+        }
+        return targetLocation
+    }
+
+    func updateDraftLocationBasedOnPhotos() {
+        guard let location = getFirstLocationOfSelectedPhotos() else {
+            return
+        }
+        currentDraft.locationRegion.center = location.coordinate
+    }
 }
 
 extension PlaceMedia {
