@@ -11,12 +11,12 @@ struct ReportPhotosView: View {
                 columns: [
                     GridItem(
                         .adaptive(minimum: 125, maximum: 250),
-                        spacing: 0,
+                        spacing: 8,
                         alignment: .topLeading
                     )
                 ],
                 alignment: .leading,
-                spacing: .zero
+                spacing: 8
             ) {
                 ForEach(model.currentDraft.medias) { media in
                     MediaCell(placeMedia: media)
@@ -26,16 +26,30 @@ struct ReportPhotosView: View {
                 Button {
                     isPickerPresented = true
                 } label: {
-                    Text("Select photos for \(model.currentDraft.placeDescription)")
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .aspectRatio(1, contentMode: .fill)
+                    HStack {
+                        Spacer()
+                        VStack(spacing: 16) {
+                            Spacer()
+                            Image(systemName: "plus")
+                                .font(.largeTitle)
+                            Text("Add photos or videos")
+                            Spacer()
+                        }
+                        Spacer()
+                    }
                 }
+                .aspectRatio(1, contentMode: .fill)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .strokeBorder(.selection)
+                )
                 .sheet(isPresented: $isPickerPresented) {
                     model.makePhotoPicker(isPresented: $isPickerPresented)
                 }
-                .buttonStyle(.bordered)
             }
+            .padding(.horizontal)
         }
+        .navigationTitle("Photos")
     }
 }
 
