@@ -1,6 +1,5 @@
 import SwiftUI
 import MapKit
-import os.log
 
 struct ReportPhotosView: View {
     @ObservedObject var model: ReportPhotosViewModel
@@ -20,7 +19,7 @@ struct ReportPhotosView: View {
                 spacing: .zero
             ) {
                 ForEach(model.currentDraft.photos) { media in
-                    MediaCell(itemProvider: media.itemProvider)
+                    MediaCell(placeMedia: media)
                         .aspectRatio(1, contentMode: .fill)
                 }
 
@@ -41,12 +40,11 @@ struct ReportPhotosView: View {
 }
 
 struct MediaCell: View {
-    private let itemProvider: NSItemProvider
+    private let placeMedia: PlacePhoto
     @State private var image: UIImage? = nil
-    @State private var logger = Logger()
 
-    init(itemProvider: NSItemProvider) {
-        self.itemProvider = itemProvider
+    init(placeMedia: PlacePhoto) {
+        self.placeMedia = placeMedia
     }
 
     var body: some View {
@@ -55,8 +53,8 @@ struct MediaCell: View {
                 .opacity(0.1)
                 .overlay(imageOverlay)
                 .clipShape(Rectangle())
-                .onAppear {
-                    loadThumbnail(for: geometry.frame(in: .local).size)
+                .task {
+                    image = try? await placeMedia.loadThumbnail(for: geometry.frame(in: .local).size)
                 }
         }
     }
@@ -68,43 +66,6 @@ struct MediaCell: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
         }
-    }
-
-    private func loadThumbnail(for size: CGSize) {
-        guard itemProvider.canLoadObject(ofClass: UIImage.self) else {
-            logger.error("Error fetching image: item provider can't load a UIImage")
-            return
-        }
-
-        itemProvider.loadObject(ofClass: UIImage.self) { reading, error in
-            guard let fullSizeImage = reading as? UIImage else {
-                if let error = error {
-                    logger.error("Error fetching image: \(error.localizedDescription, privacy: .public)")
-                } else {
-                    logger.error("Error fetching image: not a UIImage")
-                }
-                return
-            }
-            let fullSize = fullSizeImage.size
-            let scale = UIScreen.main.scale
-            let maxThumbnailDimension = max(size.width, size.height) * scale
-            let aspectRatio = fullSize.height > 0 ? fullSize.width / fullSize.height : 0
-            let thumbnailSize = CGSize(
-                width: aspectRatio >= 1 ? maxThumbnailDimension * aspectRatio : maxThumbnailDimension,
-                height: aspectRatio < 1 ? maxThumbnailDimension * aspectRatio : maxThumbnailDimension
-            )
-            guard let thumbnail = fullSizeImage.preparingThumbnail(of: thumbnailSize) else {
-                logger.error("Error fetching image: could not create a thumbnail")
-                return
-            }
-            DispatchQueue.main.async {
-                self.image = thumbnail
-            }
-        }
-    }
-
-    private enum ImageLoadingError: Error {
-        case itemProviderCannotLoadUIImage
     }
 }
 
