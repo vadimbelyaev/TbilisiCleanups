@@ -18,38 +18,55 @@ struct ReportPhotosView: View {
                 alignment: .leading,
                 spacing: 8
             ) {
-                ForEach(model.currentDraft.medias) { media in
-                    MediaCell(placeMedia: media)
-                        .aspectRatio(1, contentMode: .fill)
-                }
-
-                Button {
-                    isPickerPresented = true
-                } label: {
-                    HStack {
-                        Spacer()
-                        VStack(spacing: 16) {
-                            Spacer()
-                            Image(systemName: "plus")
-                                .font(.largeTitle)
-                            Text("Add photos or videos")
-                            Spacer()
-                        }
-                        Spacer()
-                    }
-                }
-                .aspectRatio(1, contentMode: .fill)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .strokeBorder(.selection)
-                )
-                .sheet(isPresented: $isPickerPresented) {
-                    model.makePhotoPicker(isPresented: $isPickerPresented)
-                }
+                mediaCells
+                addPhotosButton
             }
             .padding(.horizontal)
         }
+        .sheet(isPresented: $isPickerPresented) {
+            model.makePhotoPicker(isPresented: $isPickerPresented)
+        }
         .navigationTitle("Photos")
+    }
+
+    @ViewBuilder
+    private var mediaCells: some View {
+        ForEach(model.currentDraft.medias) { media in
+            MediaCell(placeMedia: media)
+                .aspectRatio(1, contentMode: .fill)
+                .contextMenu {
+                    Button {
+                        withAnimation {
+                            model.currentDraft.remove(media: media)
+                        }
+                    } label: {
+                        Text("Remove")
+                    }
+                }
+        }
+    }
+
+    private var addPhotosButton: some View {
+        Button {
+            isPickerPresented = true
+        } label: {
+            HStack {
+                Spacer()
+                VStack(spacing: 16) {
+                    Spacer()
+                    Image(systemName: "plus")
+                        .font(.largeTitle)
+                    Text("Add photos or videos")
+                    Spacer()
+                }
+                Spacer()
+            }
+        }
+        .aspectRatio(1, contentMode: .fill)
+        .overlay(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .strokeBorder(.selection)
+        )
     }
 }
 

@@ -18,6 +18,13 @@ struct ReportDraft {
     var medias: [PlaceMedia]
 
     static let empty = ReportDraft(placeDescription: "", medias: [])
+
+    mutating func remove(media: PlaceMedia) {
+        guard let index = medias.firstIndex(where: { $0.id == media.id }) else {
+            return
+        }
+        medias.remove(at: index)
+    }
 }
 
 struct PlaceMedia: Identifiable {
