@@ -11,18 +11,12 @@ struct ReportLocationView: View {
     var body: some View {
         ZStack {
             map
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    locationButton
-                        .padding(25)
-                }
-                HStack {
-                    Spacer()
-                    continueButton
-                    Spacer()
-                }
+            OverlayNavigationLink(title: "Use this location") {
+                ReportDescriptionView()
+            } auxiliaryView: {
+                locationButton
+                    .padding(25)
+
             }
         }
         .navigationTitle("Location")

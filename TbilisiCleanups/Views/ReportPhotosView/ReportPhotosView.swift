@@ -8,22 +8,20 @@ struct ReportPhotosView: View {
     @State private var isSettingsAlertPresented = false
 
     var body: some View {
-        ScrollView {
-            LazyVGrid(
-                columns: [
-                    GridItem(
-                        .adaptive(minimum: 125, maximum: 250),
-                        spacing: 8,
-                        alignment: .topLeading
-                    )
-                ],
-                alignment: .leading,
-                spacing: 8
-            ) {
-                mediaCells
-                addPhotosButton
+        ZStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("Show us what a littered place you found looks like:")
+                    grid
+                    Spacer(minLength: 100)
+                }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
+            OverlayNavigationLink(title: "Continue") {
+                ReportLocationView()
+            } auxiliaryView: {
+                EmptyView()
+            }
         }
         .sheet(isPresented: $isPickerPresented) {
             model.makePhotoPicker(isPresented: $isPickerPresented)
@@ -31,6 +29,23 @@ struct ReportPhotosView: View {
         .navigationTitle("Photos")
         .onAppear {
             model.setUpBindings(currentDraft: currentDraft)
+        }
+    }
+
+    private var grid: some View {
+        LazyVGrid(
+            columns: [
+                GridItem(
+                    .adaptive(minimum: 125, maximum: 250),
+                    spacing: 8,
+                    alignment: .topLeading
+                )
+            ],
+            alignment: .leading,
+            spacing: 8
+        ) {
+            mediaCells
+            addPhotosButton
         }
     }
 

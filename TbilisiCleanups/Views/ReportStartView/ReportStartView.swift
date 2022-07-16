@@ -11,6 +11,12 @@ struct ReportStartView: View {
                             .font(.title)
                             .padding(.bottom, 24)
                         HStack {
+                            Image(systemName: "photo.on.rectangle.angled")
+                                .frame(minWidth: 40)
+                            Text("Choose some photos or videos")
+                        }
+                        .font(.title3)
+                        HStack {
                             Image(systemName: "mappin.and.ellipse")
                                 .frame(minWidth: 40)
                             Text("Tell us the location")
@@ -20,12 +26,6 @@ struct ReportStartView: View {
                             Image(systemName: "rectangle.and.pencil.and.ellipsis")
                                 .frame(minWidth: 40)
                             Text("Add a text description")
-                        }
-                        .font(.title3)
-                        HStack {
-                            Image(systemName: "photo.on.rectangle.angled")
-                                .frame(minWidth: 40)
-                            Text("Attach some photos or videos")
                         }
                         .font(.title3)
 
@@ -40,7 +40,7 @@ struct ReportStartView: View {
                 HStack {
                     Spacer()
                     NavigationLink {
-                        ReportLocationView()
+                        ReportPhotosView()
                     } label: {
                         Text("Start")
                             .frame(maxWidth: 300)

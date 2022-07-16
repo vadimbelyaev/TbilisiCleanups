@@ -50,6 +50,7 @@
 		DD2AF479288209BD0017A64C /* ReportPhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF478288209BD0017A64C /* ReportPhotosViewModel.swift */; };
 		DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF47B28821AF90017A64C /* PhotoPicker.swift */; };
 		DDCE7803288308E100ACA7BF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE7802288308E100ACA7BF /* MapView.swift */; };
+		DDCE781F2883697800ACA7BF /* OverlayNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE781E2883697800ACA7BF /* OverlayNavigationLink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		DDCE77F82882E9E300ACA7BF /* TbilisiCleanups.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TbilisiCleanups.entitlements; sourceTree = "<group>"; };
 		DDCE77F92882EA0C00ACA7BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DDCE7802288308E100ACA7BF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		DDCE781E2883697800ACA7BF /* OverlayNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayNavigationLink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +330,7 @@
 			children = (
 				DDCE7802288308E100ACA7BF /* MapView.swift */,
 				DD2AF47B28821AF90017A64C /* PhotoPicker.swift */,
+				DDCE781E2883697800ACA7BF /* OverlayNavigationLink.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD2AF405287F61FB0017A64C /* RootView.swift in Sources */,
+				DDCE781F2883697800ACA7BF /* OverlayNavigationLink.swift in Sources */,
 				DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */,
 				DD2AF4752881EED10017A64C /* AppState.swift in Sources */,
 				DDCE7803288308E100ACA7BF /* MapView.swift in Sources */,
