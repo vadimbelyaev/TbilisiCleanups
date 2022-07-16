@@ -61,14 +61,7 @@ struct ReportLocationView: View {
             }
             .buttonStyle(.borderedProminent)
             .cornerRadius(25)
-            .alert(
-                "Enable ins setgings",
-                isPresented: $model.locationSettingsAlertPresented,
-                actions: {
-                    Button("NotNow") {}
-                    Button("Settings") {}
-                }
-            )
+            .locationSettingsAlert(isPresented: $model.locationSettingsAlertPresented)
         case .inProgress:
             ProgressView()
         case .restricted:
@@ -86,6 +79,30 @@ struct ReportLocationView: View {
         }
         .buttonStyle(.borderedProminent)
         .padding(.bottom, 25)
+    }
+}
+
+private extension View {
+    func locationSettingsAlert(isPresented: Binding<Bool>) -> some View {
+        alert(
+            "Please allow access to location in the Settings app.",
+            isPresented: isPresented,
+            actions: {
+                Button(role: .cancel) {
+                    // no-op
+                } label: {
+                    Text("Not now")
+                }
+                Button {
+                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
+                          UIApplication.shared.canOpenURL(settingsUrl)
+                    else { return }
+                    UIApplication.shared.open(settingsUrl)
+                } label: {
+                    Text("Settings")
+                }
+            }
+        )
     }
 }
 

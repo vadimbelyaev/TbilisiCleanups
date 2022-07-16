@@ -5,6 +5,7 @@ struct ReportPhotosView: View {
     @EnvironmentObject var currentDraft: ReportDraft
     @StateObject var model: ReportPhotosViewModel = .init()
     @State private var isPickerPresented = false
+    @State private var isSettingsAlertPresented = false
 
     var body: some View {
         ScrollView {
@@ -52,15 +53,24 @@ struct ReportPhotosView: View {
 
     private var addPhotosButton: some View {
         Button {
-            isPickerPresented = true
+            Task {
+                await model.startPhotoPickerPresentationFlow(
+                    isPickerPresented: $isPickerPresented,
+                    isSettingsAlertPresented: $isSettingsAlertPresented
+                )
+            }
         } label: {
             HStack {
                 Spacer()
                 VStack(spacing: 16) {
                     Spacer()
-                    Image(systemName: "plus")
+                    Image(systemName: model.canPresentPhotoPicker ? "plus" : "rectangle.on.rectangle.slash")
                         .font(.largeTitle)
-                    Text("Add photos or videos")
+                    if model.canPresentPhotoPicker {
+                        Text("Add photos or videos")
+                    } else {
+                        Text("Allow access to photos")
+                    }
                     Spacer()
                 }
                 Spacer()
@@ -70,6 +80,31 @@ struct ReportPhotosView: View {
         .overlay(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .strokeBorder(.selection)
+        )
+        .photoSettingsAlert(isPresented: $isSettingsAlertPresented)
+    }
+}
+
+private extension View {
+    func photoSettingsAlert(isPresented: Binding<Bool>) -> some View {
+        alert(
+            "Please allow access to photos in the Settings app.",
+            isPresented: isPresented,
+            actions: {
+                Button(role: .cancel) {
+                    // no-op
+                } label: {
+                    Text("Not now")
+                }
+                Button {
+                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
+                          UIApplication.shared.canOpenURL(settingsUrl)
+                    else { return }
+                    UIApplication.shared.open(settingsUrl)
+                } label: {
+                    Text("Settings")
+                }
+            }
         )
     }
 }
@@ -88,9 +123,9 @@ struct MediaCell: View {
                 .opacity(0.1)
                 .overlay(imageOverlay)
                 .clipShape(Rectangle())
-                .task {
-                    image = try? await placeMedia.loadThumbnail(for: geometry.frame(in: .local).size)
-                }
+//                .task {
+//                    image = try? await placeMedia.loadThumbnail(for: geometry.frame(in: .local).size)
+//                }
         }
     }
 

@@ -6,7 +6,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
     @Binding var isPresented: Bool
 
     func makeUIViewController(context: Context) -> some UIViewController {
-        var configuration = PHPickerConfiguration()
+        var configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
         configuration.selectionLimit = 0
         let picker = PHPickerViewController(configuration: configuration)
         picker.delegate = context.coordinator
