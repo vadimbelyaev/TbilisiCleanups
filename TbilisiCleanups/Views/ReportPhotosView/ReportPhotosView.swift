@@ -28,8 +28,8 @@ struct ReportPhotosView: View {
             model.makePhotoPicker(isPresented: $isPickerPresented)
         }
         .navigationTitle("Photos")
-        onAppear {
-//            model.setUpBindings(currentDraft: currentDraft)
+        .onAppear {
+            model.setUpBindings(currentDraft: currentDraft)
         }
     }
 
