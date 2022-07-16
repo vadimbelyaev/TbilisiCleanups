@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ReportStartView: View {
 
-    @Binding var appState: AppState
+    @EnvironmentObject var appState: AppState
 
     var body: some View {
         NavigationView {
@@ -58,6 +58,7 @@ struct ReportStartView: View {
             .padding()
             .navigationTitle("New Report")
         }
+        .navigationViewStyle(.stack)
         .tabItem {
             Image(systemName: "square.and.pencil")
             Text("New Report")
@@ -66,8 +67,7 @@ struct ReportStartView: View {
 }
 
 struct ReportStartView_Previews: PreviewProvider {
-    @State static var appState = AppState()
     static var previews: some View {
-        ReportStartView(appState: $appState)
+        ReportStartView()
     }
 }

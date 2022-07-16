@@ -4,7 +4,7 @@ import SwiftUI
 @main
 struct TbilisiCleanupsApp: App {
 
-    @State private var appState: AppState = .init()
+    @StateObject private var appState: AppState = .init()
 
     init() {
         if ProcessInfo.processInfo.environment["ENABLE_PREVIEWS"] == nil {
@@ -14,7 +14,8 @@ struct TbilisiCleanupsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView(appState: $appState)
+            RootView()
+                .environmentObject(appState)
         }
     }
 }

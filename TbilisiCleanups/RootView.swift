@@ -1,12 +1,9 @@
 import SwiftUI
 
 struct RootView: View {
-
-    @Binding var appState: AppState
-
     var body: some View {
         TabView {
-            ReportStartView(appState: $appState)
+            ReportStartView()
             
             NavigationView {
                 Text("My Reports")
@@ -25,14 +22,12 @@ struct RootView: View {
                 Image(systemName: "info")
                 Text("About")
             }
-
         }
     }
 }
 
 struct RootView_Previews: PreviewProvider {
-    @State static var appState = AppState()
     static var previews: some View {
-        RootView(appState: $appState)
+        RootView()
     }
 }
