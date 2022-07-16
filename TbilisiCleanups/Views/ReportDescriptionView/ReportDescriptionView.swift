@@ -7,22 +7,41 @@ struct ReportDescriptionView: View {
 
     @State private var region: MKCoordinateRegion = .init()
 
+    @Namespace private var textEditorID
+
     var body: some View {
         ZStack {
-            ScrollView {
-                VStack(alignment: .leading) {
-                    map
-                    labeledTextEditor
+            ScrollViewReader { scrollProxy in
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        map
+                        labeledTextEditor(scrollProxy: scrollProxy)
+                        if textEditorFocused {
+                            Spacer(minLength: 100)
+                        }
+                    }
                 }
             }
-            OverlayNavigationLink(title: "Submit") {
-                Text("Submission progress screen")
-            } auxiliaryView: {
-                EmptyView()
+            if !textEditorFocused {
+                OverlayNavigationLink(title: "Submit") {
+                    Text("Submission progress screen")
+                } auxiliaryView: {
+                    EmptyView()
+                }
             }
         }
         .onTapGesture {
             textEditorFocused = false
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink {
+                    Text("ASDFASFD")
+                } label: {
+                    Text("Submit")
+                }
+
+            }
         }
         .navigationTitle("Description")
         .onAppear {
@@ -39,13 +58,14 @@ struct ReportDescriptionView: View {
     }
 
     @ViewBuilder
-    private var labeledTextEditor: some View {
+    private func labeledTextEditor(scrollProxy: ScrollViewProxy) -> some View {
         Text("Describe where this place is so it's easier to find it:")
             .padding(.top)
             .padding(.horizontal)
         TextEditor(text: $currentDraft.placeDescription)
+            .id(textEditorID)
             .focused($textEditorFocused)
-            .frame(height: 240)
+            .frame(height: 120)
             .padding(8)
             .overlay(
                 RoundedRectangle(cornerRadius: 8, style: .continuous)
@@ -55,7 +75,14 @@ struct ReportDescriptionView: View {
             .padding(.horizontal)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(750)) {
-                    textEditorFocused = true
+                    withAnimation {
+                        textEditorFocused = true
+                    }
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
+                    withAnimation {
+                        scrollProxy.scrollTo(textEditorID)
+                    }
                 }
             }
     }
