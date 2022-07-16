@@ -7,6 +7,7 @@ struct MapView: UIViewRepresentable {
     func makeUIView(context: Context) -> some UIView {
         let view = MKMapView()
         view.showsUserLocation = true
+        view.showsBuildings = true
         view.region = region
         view.delegate = context.coordinator
         return view
