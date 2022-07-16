@@ -17,7 +17,10 @@ struct ReportPhotosView: View {
                 }
                 .padding(.horizontal)
             }
-            OverlayNavigationLink(title: "Continue") {
+            OverlayNavigationLink(
+                title: "Continue",
+                isDisabled: model.currentDraft.medias.isEmpty
+            ) {
                 ReportLocationView()
             } auxiliaryView: {
                 EmptyView()

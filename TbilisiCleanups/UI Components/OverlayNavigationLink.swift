@@ -2,6 +2,7 @@ import SwiftUI
 
 struct OverlayNavigationLink<Destination: View, AuxView: View>: View {
     var title: LocalizedStringKey
+    var isDisabled: Bool = false
     var destination: () -> Destination
     @ViewBuilder var auxiliaryView: AuxView
 
@@ -19,6 +20,7 @@ struct OverlayNavigationLink<Destination: View, AuxView: View>: View {
                         .frame(maxWidth: 300)
                         .padding(.vertical, 8)
                 }
+                .disabled(isDisabled)
                 .buttonStyle(.borderedProminent)
                 .padding(.bottom, 25)
                 Spacer()
