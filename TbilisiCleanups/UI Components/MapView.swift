@@ -1,10 +1,3 @@
-//
-//  MapView.swift
-//  TbilisiCleanups
-//
-//  Created by Vadim Belyaev on 16.07.2022.
-//
-
 import MapKit
 import SwiftUI
 
