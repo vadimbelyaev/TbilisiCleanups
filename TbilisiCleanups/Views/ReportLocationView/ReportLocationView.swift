@@ -50,16 +50,28 @@ struct ReportLocationView: View {
             Button {
                 model.requestLocation()
             } label: {
-                Label("Show current location", systemImage: model.locationButtonState == .authorizationDenied ? "location.slash" : "location.fill")
+                if model.locationButtonState == .authorizationDenied {
+                    Label(
+                        "Allow access to location",
+                        systemImage: "location.slash"
+                    )
                     .labelStyle(.iconOnly)
+                } else {
+                    Label(
+                        "Show current location",
+                        systemImage: "location.fill"
+                    )
+                    .labelStyle(.iconOnly)
+                }
             }
-            .buttonStyle(.borderedProminent)
+            .foregroundColor(.white)
+            .frame(width: 50, height: 50)
+            .background(Color.blue)
             .cornerRadius(25)
             .locationSettingsAlert(isPresented: $model.locationSettingsAlertPresented)
         case .inProgress:
             ProgressView()
-        case .restricted:
-            EmptyView()
+                .frame(width: 50, height: 50)
         }
     }
 

@@ -14,7 +14,7 @@ final class ReportLocationViewModel: NSObject, ObservableObject {
 
     override init() {
         locationManager = CLLocationManager()
-        locationButtonState = locationManager.authorizationStatus == .restricted ? .restricted : .idle
+        locationButtonState = locationManager.authorizationStatus == .denied ? .authorizationDenied : .idle
         super.init()
 
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -32,10 +32,8 @@ final class ReportLocationViewModel: NSObject, ObservableObject {
             locationManager.startUpdatingLocation()
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
-        case .denied:
+        case .denied, .restricted:
             locationSettingsAlertPresented = true
-        case .restricted:
-            break
         @unknown default:
             assertionFailure()
             break
@@ -71,10 +69,10 @@ extension ReportLocationViewModel: CLLocationManagerDelegate {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
-        case .authorizedWhenInUse, .authorizedAlways:
+        case .notDetermined, .authorizedWhenInUse, .authorizedAlways:
             requestLocation()
-        case .notDetermined, .denied, .restricted:
-            break
+        case .restricted, .denied:
+            locationButtonState = .authorizationDenied
         @unknown default:
             assertionFailure()
             break
@@ -86,7 +84,6 @@ extension ReportLocationViewModel {
     enum LocationButtonState {
         case idle
         case inProgress
-        case restricted
         case authorizationDenied
     }
 }
