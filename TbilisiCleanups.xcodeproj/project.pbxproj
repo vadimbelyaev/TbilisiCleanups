@@ -34,6 +34,11 @@
 		DDCE78302884041100ACA7BF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE782F2884041100ACA7BF /* FirebaseFirestore */; };
 		DDCE78322884041100ACA7BF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE78312884041100ACA7BF /* FirebaseMessaging */; };
 		DDCE78352884062800ACA7BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDCE78342884062800ACA7BF /* GoogleService-Info.plist */; };
+		DDCE78382884079600ACA7BF /* FirebaseAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE78372884079600ACA7BF /* FirebaseAuthUI */; };
+		DDCE783A2884079600ACA7BF /* FirebaseEmailAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE78392884079600ACA7BF /* FirebaseEmailAuthUI */; };
+		DDCE783C2884079600ACA7BF /* FirebaseFacebookAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE783B2884079600ACA7BF /* FirebaseFacebookAuthUI */; };
+		DDCE783E2884079600ACA7BF /* FirebaseGoogleAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE783D2884079600ACA7BF /* FirebaseGoogleAuthUI */; };
+		DDCE78402884079600ACA7BF /* FirebaseOAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE783F2884079600ACA7BF /* FirebaseOAuthUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +78,7 @@
 		DD2AF478288209BD0017A64C /* ReportPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPhotosViewModel.swift; sourceTree = "<group>"; };
 		DD2AF47B28821AF90017A64C /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		DDCE77F82882E9E300ACA7BF /* TbilisiCleanups.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TbilisiCleanups.entitlements; sourceTree = "<group>"; };
-		DDCE77F92882EA0C00ACA7BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DDCE77F92882EA0C00ACA7BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDCE7802288308E100ACA7BF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		DDCE781E2883697800ACA7BF /* OverlayNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayNavigationLink.swift; sourceTree = "<group>"; };
 		DDCE78202883F90600ACA7BF /* ReportDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDraft.swift; sourceTree = "<group>"; };
@@ -89,9 +94,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDCE782E2884041100ACA7BF /* FirebaseCrashlytics in Frameworks */,
+				DDCE783C2884079600ACA7BF /* FirebaseFacebookAuthUI in Frameworks */,
+				DDCE783E2884079600ACA7BF /* FirebaseGoogleAuthUI in Frameworks */,
+				DDCE78382884079600ACA7BF /* FirebaseAuthUI in Frameworks */,
 				DDCE78302884041100ACA7BF /* FirebaseFirestore in Frameworks */,
 				DDCE78322884041100ACA7BF /* FirebaseMessaging in Frameworks */,
 				DDCE782A2884041100ACA7BF /* FirebaseAnalytics in Frameworks */,
+				DDCE78402884079600ACA7BF /* FirebaseOAuthUI in Frameworks */,
+				DDCE783A2884079600ACA7BF /* FirebaseEmailAuthUI in Frameworks */,
 				DDCE782C2884041100ACA7BF /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,13 +148,13 @@
 			isa = PBXGroup;
 			children = (
 				DDCE78012882F4B200ACA7BF /* App */,
-				DDCE77F92882EA0C00ACA7BF /* Info.plist */,
-				DD2AF408287F61FC0017A64C /* Preview Content */,
 				DDCE77FA2882F43800ACA7BF /* Resources */,
+				DDCE78422884337900ACA7BF /* Services */,
 				DD2AF4732881EEC30017A64C /* State */,
-				DDCE77F82882E9E300ACA7BF /* TbilisiCleanups.entitlements */,
-				DD2AF47A28821AE00017A64C /* UI Components */,
 				DDCE77FB2882F44A00ACA7BF /* Views */,
+				DDCE77F92882EA0C00ACA7BF /* Info.plist */,
+				DDCE77F82882E9E300ACA7BF /* TbilisiCleanups.entitlements */,
+				DD2AF408287F61FC0017A64C /* Preview Content */,
 			);
 			path = TbilisiCleanups;
 			sourceTree = "<group>";
@@ -180,7 +190,6 @@
 				DD2AF4742881EED10017A64C /* AppState.swift */,
 				DDCE78202883F90600ACA7BF /* ReportDraft.swift */,
 				DDCE78222883F96000ACA7BF /* UserState.swift */,
-				DDCE78262883FD8700ACA7BF /* FirebaseAuthView.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -188,6 +197,7 @@
 		DD2AF47A28821AE00017A64C /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
+				DDCE78262883FD8700ACA7BF /* FirebaseAuthView.swift */,
 				DDCE7802288308E100ACA7BF /* MapView.swift */,
 				DD2AF47B28821AF90017A64C /* PhotoPicker.swift */,
 				DDCE781E2883697800ACA7BF /* OverlayNavigationLink.swift */,
@@ -206,6 +216,7 @@
 		DDCE77FB2882F44A00ACA7BF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DD2AF47A28821AE00017A64C /* UI Components */,
 				DDCE77FE2882F47600ACA7BF /* ReportDescriptionView */,
 				DDCE77FC2882F45F00ACA7BF /* ReportLocationView */,
 				DDCE78002882F48A00ACA7BF /* ReportPhotosView */,
@@ -274,6 +285,13 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
+		DDCE78422884337900ACA7BF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,6 +315,11 @@
 				DDCE782D2884041100ACA7BF /* FirebaseCrashlytics */,
 				DDCE782F2884041100ACA7BF /* FirebaseFirestore */,
 				DDCE78312884041100ACA7BF /* FirebaseMessaging */,
+				DDCE78372884079600ACA7BF /* FirebaseAuthUI */,
+				DDCE78392884079600ACA7BF /* FirebaseEmailAuthUI */,
+				DDCE783B2884079600ACA7BF /* FirebaseFacebookAuthUI */,
+				DDCE783D2884079600ACA7BF /* FirebaseGoogleAuthUI */,
+				DDCE783F2884079600ACA7BF /* FirebaseOAuthUI */,
 			);
 			productName = TbilisiCleanups;
 			productReference = DD2AF3FF287F61FB0017A64C /* TbilisiCleanups.app */;
@@ -372,6 +395,7 @@
 			mainGroup = DD2AF3F6287F61FB0017A64C;
 			packageReferences = (
 				DDCE78282884041100ACA7BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				DDCE78362884079600ACA7BF /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */,
 			);
 			productRefGroup = DD2AF400287F61FB0017A64C /* Products */;
 			projectDirPath = "";
@@ -816,6 +840,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		DDCE78362884079600ACA7BF /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/FirebaseUI-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -843,6 +875,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DDCE78282884041100ACA7BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		DDCE78372884079600ACA7BF /* FirebaseAuthUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDCE78362884079600ACA7BF /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
+			productName = FirebaseAuthUI;
+		};
+		DDCE78392884079600ACA7BF /* FirebaseEmailAuthUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDCE78362884079600ACA7BF /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
+			productName = FirebaseEmailAuthUI;
+		};
+		DDCE783B2884079600ACA7BF /* FirebaseFacebookAuthUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDCE78362884079600ACA7BF /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
+			productName = FirebaseFacebookAuthUI;
+		};
+		DDCE783D2884079600ACA7BF /* FirebaseGoogleAuthUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDCE78362884079600ACA7BF /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
+			productName = FirebaseGoogleAuthUI;
+		};
+		DDCE783F2884079600ACA7BF /* FirebaseOAuthUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDCE78362884079600ACA7BF /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
+			productName = FirebaseOAuthUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

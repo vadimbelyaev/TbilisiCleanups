@@ -37,6 +37,7 @@ struct ReportStartView: View {
                     }
                     Spacer()
                 }
+                .animation(.easeInOut, value: userState.isAuthenticated)
                 .padding(.bottom, 24)
             }
             .padding()
@@ -48,7 +49,7 @@ struct ReportStartView: View {
             }
         }
         .sheet(isPresented: $signInScreenPresented) {
-            Text("HERE BE SIGN IN")
+            FirebaseAuthView()
         }
         .navigationViewStyle(.stack)
         .tabItem {
