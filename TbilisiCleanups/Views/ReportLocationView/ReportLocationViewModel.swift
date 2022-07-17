@@ -69,10 +69,12 @@ extension ReportLocationViewModel: CLLocationManagerDelegate {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
-        case .notDetermined, .authorizedWhenInUse, .authorizedAlways:
+        case .authorizedWhenInUse, .authorizedAlways:
             requestLocation()
         case .restricted, .denied:
             locationButtonState = .authorizationDenied
+        case .notDetermined:
+            break
         @unknown default:
             assertionFailure()
             break
