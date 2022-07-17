@@ -5,6 +5,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
     let appState: AppState = .init()
     private(set) lazy var authService: AuthService = .init(userState: appState.userState)
+    private(set) lazy var reportService: ReportService = .init(appState: appState)
 
 
     func application(
@@ -44,6 +45,7 @@ struct TbilisiCleanupsApp: App {
                 .environmentObject(delegate.appState.currentDraft)
                 .environmentObject(delegate.appState.userState)
                 .environmentObject(delegate.authService)
+                .environmentObject(delegate.reportService)
         }
     }
 }

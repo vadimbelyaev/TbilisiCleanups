@@ -36,7 +36,7 @@ struct ReportDescriptionView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink {
-                    Text("ASDFASFD")
+                    ReportSubmissionView()
                 } label: {
                     Text("Submit")
                 }

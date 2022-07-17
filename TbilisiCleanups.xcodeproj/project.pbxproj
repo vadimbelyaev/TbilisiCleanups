@@ -40,6 +40,8 @@
 		DDCE78402884079600ACA7BF /* FirebaseOAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE783F2884079600ACA7BF /* FirebaseOAuthUI */; };
 		DDCE78442884341F00ACA7BF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78432884341F00ACA7BF /* AuthService.swift */; };
 		DDCE7847288438CF00ACA7BF /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE7846288438CF00ACA7BF /* UserProfileView.swift */; };
+		DDCE78492884434A00ACA7BF /* ReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78482884434A00ACA7BF /* ReportService.swift */; };
+		DDCE784C288443C800ACA7BF /* ReportSubmissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		DDCE78342884062800ACA7BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDCE78432884341F00ACA7BF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		DDCE7846288438CF00ACA7BF /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		DDCE78482884434A00ACA7BF /* ReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
+		DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSubmissionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +227,7 @@
 				DDCE77FC2882F45F00ACA7BF /* ReportLocationView */,
 				DDCE78002882F48A00ACA7BF /* ReportPhotosView */,
 				DDCE77FF2882F47F00ACA7BF /* ReportStartView */,
+				DDCE784A288443B000ACA7BF /* ReportSubmissionView */,
 				DDCE77FD2882F46F00ACA7BF /* RootView */,
 				DDCE7845288438AA00ACA7BF /* UserProfileView */,
 			);
@@ -291,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				DDCE78432884341F00ACA7BF /* AuthService.swift */,
+				DDCE78482884434A00ACA7BF /* ReportService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -301,6 +307,14 @@
 				DDCE7846288438CF00ACA7BF /* UserProfileView.swift */,
 			);
 			path = UserProfileView;
+			sourceTree = "<group>";
+		};
+		DDCE784A288443B000ACA7BF /* ReportSubmissionView */ = {
+			isa = PBXGroup;
+			children = (
+				DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */,
+			);
+			path = ReportSubmissionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,12 +493,14 @@
 				DDCE781F2883697800ACA7BF /* OverlayNavigationLink.swift in Sources */,
 				DDCE78212883F90600ACA7BF /* ReportDraft.swift in Sources */,
 				DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */,
+				DDCE784C288443C800ACA7BF /* ReportSubmissionView.swift in Sources */,
 				DD2AF4752881EED10017A64C /* AppState.swift in Sources */,
 				DDCE7803288308E100ACA7BF /* MapView.swift in Sources */,
 				DD2AF479288209BD0017A64C /* ReportPhotosViewModel.swift in Sources */,
 				DD2AF470288054860017A64C /* ReportLocationViewModel.swift in Sources */,
 				DD2AF46C287F67B60017A64C /* ReportStartView.swift in Sources */,
 				DD2AF477288209940017A64C /* ReportPhotosView.swift in Sources */,
+				DDCE78492884434A00ACA7BF /* ReportService.swift in Sources */,
 				DD2AF46E287F71B70017A64C /* ReportLocationView.swift in Sources */,
 				DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */,
 				DDCE78232883F96000ACA7BF /* UserState.swift in Sources */,
