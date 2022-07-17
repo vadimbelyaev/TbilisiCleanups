@@ -39,6 +39,7 @@
 		DDCE783C2884079600ACA7BF /* FirebaseFacebookAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE783B2884079600ACA7BF /* FirebaseFacebookAuthUI */; };
 		DDCE783E2884079600ACA7BF /* FirebaseGoogleAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE783D2884079600ACA7BF /* FirebaseGoogleAuthUI */; };
 		DDCE78402884079600ACA7BF /* FirebaseOAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE783F2884079600ACA7BF /* FirebaseOAuthUI */; };
+		DDCE78442884341F00ACA7BF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78432884341F00ACA7BF /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		DDCE78242883FB5900ACA7BF /* ReportStartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStartViewModel.swift; sourceTree = "<group>"; };
 		DDCE78262883FD8700ACA7BF /* FirebaseAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthView.swift; sourceTree = "<group>"; };
 		DDCE78342884062800ACA7BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DDCE78432884341F00ACA7BF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +290,7 @@
 		DDCE78422884337900ACA7BF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DDCE78432884341F00ACA7BF /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				DD2AF46E287F71B70017A64C /* ReportLocationView.swift in Sources */,
 				DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */,
 				DDCE78232883F96000ACA7BF /* UserState.swift in Sources */,
+				DDCE78442884341F00ACA7BF /* AuthService.swift in Sources */,
 				DD2AF4722881EB030017A64C /* ReportDescriptionView.swift in Sources */,
 				DDCE78272883FD8700ACA7BF /* FirebaseAuthView.swift in Sources */,
 			);

@@ -2,12 +2,22 @@ import Firebase
 import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+
+    let appState: AppState = .init()
+    private(set) lazy var authService: AuthService = .init(userState: appState.userState)
+
+
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
         if ProcessInfo.processInfo.environment["ENABLE_PREVIEWS"] == nil {
             FirebaseApp.configure()
+
+            // Ensuring the service is created as early as possible
+            // because it listens to the user authentication changes
+            let _ = authService
+
             UIApplication.shared.registerForRemoteNotifications()
         }
         return true
@@ -27,14 +37,13 @@ struct TbilisiCleanupsApp: App {
 
     @UIApplicationDelegateAdaptor private var delegate: AppDelegate
 
-    @StateObject private var appState: AppState = .init()
-
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environmentObject(appState)
-                .environmentObject(appState.currentDraft)
-                .environmentObject(appState.userState)
+                .environmentObject(delegate.appState)
+                .environmentObject(delegate.appState.currentDraft)
+                .environmentObject(delegate.appState.userState)
+                .environmentObject(delegate.authService)
         }
     }
 }

@@ -1,5 +1,6 @@
 import MapKit
 
+@MainActor
 class ReportDraft: ObservableObject {
     @Published var locationRegion = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
