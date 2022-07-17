@@ -24,7 +24,7 @@ struct ReportDescriptionView: View {
             }
             if !textEditorFocused {
                 OverlayNavigationLink(title: "Submit") {
-                    Text("Submission progress screen")
+                    ReportSubmissionView()
                 } auxiliaryView: {
                     EmptyView()
                 }

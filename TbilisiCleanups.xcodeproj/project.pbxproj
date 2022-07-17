@@ -24,6 +24,7 @@
 		DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF47B28821AF90017A64C /* PhotoPicker.swift */; };
 		DD7838722884B56C00ED2CE9 /* SotoAWSConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7838712884B56C00ED2CE9 /* SotoAWSConfigHelper.swift */; };
 		DD7838742884B6FF00ED2CE9 /* S3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7838732884B6FF00ED2CE9 /* S3Service.swift */; };
+		DD7838762884CFC100ED2CE9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DD7838752884CFC100ED2CE9 /* README.md */; };
 		DDCE7803288308E100ACA7BF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE7802288308E100ACA7BF /* MapView.swift */; };
 		DDCE781F2883697800ACA7BF /* OverlayNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE781E2883697800ACA7BF /* OverlayNavigationLink.swift */; };
 		DDCE78212883F90600ACA7BF /* ReportDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78202883F90600ACA7BF /* ReportDraft.swift */; };
@@ -86,6 +87,7 @@
 		DD2AF47B28821AF90017A64C /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		DD7838712884B56C00ED2CE9 /* SotoAWSConfigHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAWSConfigHelper.swift; sourceTree = "<group>"; };
 		DD7838732884B6FF00ED2CE9 /* S3Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S3Service.swift; sourceTree = "<group>"; };
+		DD7838752884CFC100ED2CE9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DDCE77F82882E9E300ACA7BF /* TbilisiCleanups.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TbilisiCleanups.entitlements; sourceTree = "<group>"; };
 		DDCE77F92882EA0C00ACA7BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDCE7802288308E100ACA7BF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		DD2AF3F6287F61FB0017A64C = {
 			isa = PBXGroup;
 			children = (
+				DD7838752884CFC100ED2CE9 /* README.md */,
 				DD2AF401287F61FB0017A64C /* TbilisiCleanups */,
 				DD2AF412287F61FC0017A64C /* TbilisiCleanupsTests */,
 				DD2AF41C287F61FC0017A64C /* TbilisiCleanupsUITests */,
@@ -461,6 +464,7 @@
 			files = (
 				DD2AF40A287F61FC0017A64C /* Preview Assets.xcassets in Resources */,
 				DD2AF407287F61FC0017A64C /* Assets.xcassets in Resources */,
+				DD7838762884CFC100ED2CE9 /* README.md in Resources */,
 				DDCE78352884062800ACA7BF /* GoogleService-Info.plist in Resources */,
 				DDCE785A2884B3AD00ACA7BF /* SotoAWS.plist in Resources */,
 			);
