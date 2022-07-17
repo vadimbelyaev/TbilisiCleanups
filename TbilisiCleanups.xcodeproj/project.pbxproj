@@ -42,6 +42,8 @@
 		DDCE7847288438CF00ACA7BF /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE7846288438CF00ACA7BF /* UserProfileView.swift */; };
 		DDCE78492884434A00ACA7BF /* ReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78482884434A00ACA7BF /* ReportService.swift */; };
 		DDCE784C288443C800ACA7BF /* ReportSubmissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */; };
+		DDCE78572884AFC100ACA7BF /* SotoS3 in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE78562884AFC100ACA7BF /* SotoS3 */; };
+		DDCE785A2884B3AD00ACA7BF /* SotoAWS.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDCE78592884B3AD00ACA7BF /* SotoAWS.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,7 @@
 		DDCE7846288438CF00ACA7BF /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		DDCE78482884434A00ACA7BF /* ReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
 		DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSubmissionView.swift; sourceTree = "<group>"; };
+		DDCE78592884B3AD00ACA7BF /* SotoAWS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SotoAWS.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,7 @@
 				DDCE78322884041100ACA7BF /* FirebaseMessaging in Frameworks */,
 				DDCE782A2884041100ACA7BF /* FirebaseAnalytics in Frameworks */,
 				DDCE78402884079600ACA7BF /* FirebaseOAuthUI in Frameworks */,
+				DDCE78572884AFC100ACA7BF /* SotoS3 in Frameworks */,
 				DDCE783A2884079600ACA7BF /* FirebaseEmailAuthUI in Frameworks */,
 				DDCE782C2884041100ACA7BF /* FirebaseAuth in Frameworks */,
 			);
@@ -135,6 +139,7 @@
 				DD2AF401287F61FB0017A64C /* TbilisiCleanups */,
 				DD2AF412287F61FC0017A64C /* TbilisiCleanupsTests */,
 				DD2AF41C287F61FC0017A64C /* TbilisiCleanupsUITests */,
+				DDCE78582884B1DD00ACA7BF /* AWS */,
 				DDCE78332884061100ACA7BF /* Firebase */,
 				DD2AF400287F61FB0017A64C /* Products */,
 			);
@@ -317,6 +322,14 @@
 			path = ReportSubmissionView;
 			sourceTree = "<group>";
 		};
+		DDCE78582884B1DD00ACA7BF /* AWS */ = {
+			isa = PBXGroup;
+			children = (
+				DDCE78592884B3AD00ACA7BF /* SotoAWS.plist */,
+			);
+			path = AWS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -345,6 +358,7 @@
 				DDCE783B2884079600ACA7BF /* FirebaseFacebookAuthUI */,
 				DDCE783D2884079600ACA7BF /* FirebaseGoogleAuthUI */,
 				DDCE783F2884079600ACA7BF /* FirebaseOAuthUI */,
+				DDCE78562884AFC100ACA7BF /* SotoS3 */,
 			);
 			productName = TbilisiCleanups;
 			productReference = DD2AF3FF287F61FB0017A64C /* TbilisiCleanups.app */;
@@ -421,6 +435,7 @@
 			packageReferences = (
 				DDCE78282884041100ACA7BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				DDCE78362884079600ACA7BF /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */,
+				DDCE78552884AFC100ACA7BF /* XCRemoteSwiftPackageReference "soto" */,
 			);
 			productRefGroup = DD2AF400287F61FB0017A64C /* Products */;
 			projectDirPath = "";
@@ -441,6 +456,7 @@
 				DD2AF40A287F61FC0017A64C /* Preview Assets.xcassets in Resources */,
 				DD2AF407287F61FC0017A64C /* Assets.xcassets in Resources */,
 				DDCE78352884062800ACA7BF /* GoogleService-Info.plist in Resources */,
+				DDCE785A2884B3AD00ACA7BF /* SotoAWS.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,6 +892,14 @@
 				minimumVersion = 12.2.0;
 			};
 		};
+		DDCE78552884AFC100ACA7BF /* XCRemoteSwiftPackageReference "soto" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/soto-project/soto.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -928,6 +952,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DDCE78362884079600ACA7BF /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
 			productName = FirebaseOAuthUI;
+		};
+		DDCE78562884AFC100ACA7BF /* SotoS3 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDCE78552884AFC100ACA7BF /* XCRemoteSwiftPackageReference "soto" */;
+			productName = SotoS3;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
