@@ -34,6 +34,7 @@ struct TbilisiCleanupsApp: App {
             RootView()
                 .environmentObject(appState)
                 .environmentObject(appState.currentDraft)
+                .environmentObject(appState.userState)
         }
     }
 }

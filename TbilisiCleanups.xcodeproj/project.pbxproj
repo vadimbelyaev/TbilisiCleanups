@@ -52,6 +52,9 @@
 		DDCE7803288308E100ACA7BF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE7802288308E100ACA7BF /* MapView.swift */; };
 		DDCE781F2883697800ACA7BF /* OverlayNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE781E2883697800ACA7BF /* OverlayNavigationLink.swift */; };
 		DDCE78212883F90600ACA7BF /* ReportDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78202883F90600ACA7BF /* ReportDraft.swift */; };
+		DDCE78232883F96000ACA7BF /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78222883F96000ACA7BF /* UserState.swift */; };
+		DDCE78252883FB5900ACA7BF /* ReportStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78242883FB5900ACA7BF /* ReportStartViewModel.swift */; };
+		DDCE78272883FD8700ACA7BF /* FirebaseAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78262883FD8700ACA7BF /* FirebaseAuthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +127,9 @@
 		DDCE7802288308E100ACA7BF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		DDCE781E2883697800ACA7BF /* OverlayNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayNavigationLink.swift; sourceTree = "<group>"; };
 		DDCE78202883F90600ACA7BF /* ReportDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDraft.swift; sourceTree = "<group>"; };
+		DDCE78222883F96000ACA7BF /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
+		DDCE78242883FB5900ACA7BF /* ReportStartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStartViewModel.swift; sourceTree = "<group>"; };
+		DDCE78262883FD8700ACA7BF /* FirebaseAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +330,8 @@
 			children = (
 				DD2AF4742881EED10017A64C /* AppState.swift */,
 				DDCE78202883F90600ACA7BF /* ReportDraft.swift */,
+				DDCE78222883F96000ACA7BF /* UserState.swift */,
+				DDCE78262883FD8700ACA7BF /* FirebaseAuthView.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -387,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				DD2AF46B287F67B60017A64C /* ReportStartView.swift */,
+				DDCE78242883FB5900ACA7BF /* ReportStartViewModel.swift */,
 			);
 			path = ReportStartView;
 			sourceTree = "<group>";
@@ -576,9 +585,12 @@
 				DD2AF470288054860017A64C /* ReportLocationViewModel.swift in Sources */,
 				DD2AF46C287F67B60017A64C /* ReportStartView.swift in Sources */,
 				DD2AF477288209940017A64C /* ReportPhotosView.swift in Sources */,
+				DDCE78252883FB5900ACA7BF /* ReportStartViewModel.swift in Sources */,
 				DD2AF46E287F71B70017A64C /* ReportLocationView.swift in Sources */,
 				DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */,
+				DDCE78232883F96000ACA7BF /* UserState.swift in Sources */,
 				DD2AF4722881EB030017A64C /* ReportDescriptionView.swift in Sources */,
+				DDCE78272883FD8700ACA7BF /* FirebaseAuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

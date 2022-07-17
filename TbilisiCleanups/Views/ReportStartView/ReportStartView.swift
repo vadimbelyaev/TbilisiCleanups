@@ -2,7 +2,9 @@ import SwiftUI
 
 struct ReportStartView: View {
 
+    @EnvironmentObject private var userState: UserState
     @State private var reportScreenPresented = false
+    @State private var signInScreenPresented = false
 
     var body: some View {
         NavigationView {
@@ -14,14 +16,25 @@ struct ReportStartView: View {
 
                 HStack {
                     Spacer()
-                    Button {
-                        reportScreenPresented = true
-                    } label: {
-                        Text("Start")
-                            .frame(maxWidth: 300)
-                            .padding(.vertical, 8)
+                    if userState.isAuthenticated {
+                        Button {
+                            reportScreenPresented = true
+                        } label: {
+                            Text("Start")
+                                .frame(maxWidth: 300)
+                                .padding(.vertical, 8)
+                        }
+                        .buttonStyle(.borderedProminent)
+                    } else {
+                        Button {
+                            signInScreenPresented = true
+                        } label: {
+                            Text("Sign in to submit a report")
+                                .frame(maxWidth: 300)
+                                .padding(.vertical, 8)
+                        }
+                        .buttonStyle(.borderedProminent)
                     }
-                    .buttonStyle(.borderedProminent)
                     Spacer()
                 }
                 .padding(.bottom, 24)
@@ -33,6 +46,9 @@ struct ReportStartView: View {
             NavigationView {
                 ReportPhotosView()
             }
+        }
+        .sheet(isPresented: $signInScreenPresented) {
+            Text("HERE BE SIGN IN")
         }
         .navigationViewStyle(.stack)
         .tabItem {
