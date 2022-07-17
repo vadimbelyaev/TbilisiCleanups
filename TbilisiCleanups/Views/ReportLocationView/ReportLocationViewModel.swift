@@ -4,7 +4,7 @@ import os.log
 import SwiftUI
 
 final class ReportLocationViewModel: NSObject, ObservableObject {
-    @ObservedObject var currentDraft: ReportDraft = .empty
+    @ObservedObject var currentDraft: ReportDraft = .init()
     @Published var locationButtonState: LocationButtonState
     @Published var locationSettingsAlertPresented: Bool = false
 

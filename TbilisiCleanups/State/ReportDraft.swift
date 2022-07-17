@@ -12,8 +12,6 @@ class ReportDraft: ObservableObject {
     @Published var placeDescription: String = ""
     @Published var medias: [PlaceMedia] = []
 
-    static let empty = ReportDraft()
-
     func remove(media: PlaceMedia) {
         guard let index = medias.firstIndex(where: { $0.id == media.id }) else {
             return

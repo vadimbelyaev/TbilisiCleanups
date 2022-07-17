@@ -6,7 +6,7 @@ import Photos
 
 @MainActor
 final class ReportPhotosViewModel: ObservableObject {
-    @ObservedObject var currentDraft: ReportDraft = .empty
+    @ObservedObject var currentDraft: ReportDraft = .init()
     @Published var authorization: PHAuthorizationStatus
     private let imageManager = PHImageManager()
 

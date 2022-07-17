@@ -89,7 +89,7 @@ struct ReportDescriptionView: View {
 }
 
 struct ReportDescriptionView_Previews: PreviewProvider {
-    @State static var draft: ReportDraft = .empty
+    @State static var draft: ReportDraft = .init()
     static var previews: some View {
         ReportDescriptionView()
     }

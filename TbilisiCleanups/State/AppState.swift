@@ -1,6 +1,6 @@
 import Foundation
 
 final class AppState: ObservableObject {
-    var currentDraft: ReportDraft = .empty
+    var currentDraft: ReportDraft = .init()
 }
 

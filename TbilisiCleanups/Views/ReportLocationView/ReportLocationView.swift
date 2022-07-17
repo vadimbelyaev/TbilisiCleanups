@@ -113,7 +113,7 @@ private extension View {
 }
 
 struct ReportLocationView_Previews: PreviewProvider {
-    @State static var draft: ReportDraft = .empty
+    @State static var draft: ReportDraft = .init()
     static var previews: some View {
         NavigationView {
             ReportLocationView()
