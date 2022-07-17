@@ -40,6 +40,7 @@
 		DDCE783E2884079600ACA7BF /* FirebaseGoogleAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE783D2884079600ACA7BF /* FirebaseGoogleAuthUI */; };
 		DDCE78402884079600ACA7BF /* FirebaseOAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE783F2884079600ACA7BF /* FirebaseOAuthUI */; };
 		DDCE78442884341F00ACA7BF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78432884341F00ACA7BF /* AuthService.swift */; };
+		DDCE7847288438CF00ACA7BF /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE7846288438CF00ACA7BF /* UserProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		DDCE78262883FD8700ACA7BF /* FirebaseAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthView.swift; sourceTree = "<group>"; };
 		DDCE78342884062800ACA7BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDCE78432884341F00ACA7BF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		DDCE7846288438CF00ACA7BF /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 				DDCE78002882F48A00ACA7BF /* ReportPhotosView */,
 				DDCE77FF2882F47F00ACA7BF /* ReportStartView */,
 				DDCE77FD2882F46F00ACA7BF /* RootView */,
+				DDCE7845288438AA00ACA7BF /* UserProfileView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -293,6 +296,14 @@
 				DDCE78432884341F00ACA7BF /* AuthService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		DDCE7845288438AA00ACA7BF /* UserProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				DDCE7846288438CF00ACA7BF /* UserProfileView.swift */,
+			);
+			path = UserProfileView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD2AF405287F61FB0017A64C /* RootView.swift in Sources */,
+				DDCE7847288438CF00ACA7BF /* UserProfileView.swift in Sources */,
 				DDCE781F2883697800ACA7BF /* OverlayNavigationLink.swift in Sources */,
 				DDCE78212883F90600ACA7BF /* ReportDraft.swift in Sources */,
 				DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */,

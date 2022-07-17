@@ -40,6 +40,16 @@ final class AuthService: NSObject, ObservableObject {
         authUI.delegate = self
         return authUI
     }()
+
+    func signOut() {
+        // TODO: Error handling
+        try? Auth.auth().signOut()
+    }
+
+    func deleteAccount() {
+        // TODO: Error handling
+        Auth.auth().currentUser?.delete()
+    }
 }
 
 extension AuthService: FUIAuthDelegate {

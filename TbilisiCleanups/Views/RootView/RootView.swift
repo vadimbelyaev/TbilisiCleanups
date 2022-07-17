@@ -4,14 +4,10 @@ struct RootView: View {
     var body: some View {
         TabView {
             ReportStartView()
-            
-            NavigationView {
-                Text("My Reports")
-                    .navigationTitle("My Reports")
-            }
+            UserProfileView()
             .tabItem {
-                Image(systemName: "scroll")
-                Text("My Reports")
+                Image(systemName: "person")
+                Text("My Profile")
             }
 
             NavigationView {
