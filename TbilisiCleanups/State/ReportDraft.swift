@@ -22,6 +22,15 @@ class ReportDraft: ObservableObject {
 }
 
 struct PlaceMedia: Identifiable {
-    let id: String
-    let itemProvider: NSItemProvider
+    let assetId: String
+    let publicURL: URL?
+
+    init(assetId: String, publicURL: URL? = nil) {
+        self.assetId = assetId
+        self.publicURL = publicURL
+    }
+
+    var id: String {
+        assetId
+    }
 }

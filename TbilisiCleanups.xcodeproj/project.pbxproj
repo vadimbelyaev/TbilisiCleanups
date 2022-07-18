@@ -22,6 +22,7 @@
 		DD2AF477288209940017A64C /* ReportPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF476288209940017A64C /* ReportPhotosView.swift */; };
 		DD2AF479288209BD0017A64C /* ReportPhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF478288209BD0017A64C /* ReportPhotosViewModel.swift */; };
 		DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF47B28821AF90017A64C /* PhotoPicker.swift */; };
+		DD39F262288623D20023F01D /* MediaUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD39F261288623D20023F01D /* MediaUploadService.swift */; };
 		DD7838722884B56C00ED2CE9 /* SotoAWSConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7838712884B56C00ED2CE9 /* SotoAWSConfigHelper.swift */; };
 		DD7838742884B6FF00ED2CE9 /* S3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7838732884B6FF00ED2CE9 /* S3Service.swift */; };
 		DD7838762884CFC100ED2CE9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DD7838752884CFC100ED2CE9 /* README.md */; };
@@ -85,6 +86,7 @@
 		DD2AF476288209940017A64C /* ReportPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPhotosView.swift; sourceTree = "<group>"; };
 		DD2AF478288209BD0017A64C /* ReportPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPhotosViewModel.swift; sourceTree = "<group>"; };
 		DD2AF47B28821AF90017A64C /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		DD39F261288623D20023F01D /* MediaUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaUploadService.swift; sourceTree = "<group>"; };
 		DD7838712884B56C00ED2CE9 /* SotoAWSConfigHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAWSConfigHelper.swift; sourceTree = "<group>"; };
 		DD7838732884B6FF00ED2CE9 /* S3Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S3Service.swift; sourceTree = "<group>"; };
 		DD7838752884CFC100ED2CE9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -308,9 +310,10 @@
 			isa = PBXGroup;
 			children = (
 				DDCE78432884341F00ACA7BF /* AuthService.swift */,
+				DD39F261288623D20023F01D /* MediaUploadService.swift */,
 				DDCE78482884434A00ACA7BF /* ReportService.swift */,
-				DD7838712884B56C00ED2CE9 /* SotoAWSConfigHelper.swift */,
 				DD7838732884B6FF00ED2CE9 /* S3Service.swift */,
+				DD7838712884B56C00ED2CE9 /* SotoAWSConfigHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				DD2AF46E287F71B70017A64C /* ReportLocationView.swift in Sources */,
 				DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */,
 				DDCE78232883F96000ACA7BF /* UserState.swift in Sources */,
+				DD39F262288623D20023F01D /* MediaUploadService.swift in Sources */,
 				DD7838722884B56C00ED2CE9 /* SotoAWSConfigHelper.swift in Sources */,
 				DDCE78442884341F00ACA7BF /* AuthService.swift in Sources */,
 				DD2AF4722881EB030017A64C /* ReportDescriptionView.swift in Sources */,

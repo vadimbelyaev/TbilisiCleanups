@@ -34,8 +34,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
         ) {
             let placeMedias = results.map {
                 PlaceMedia(
-                    id: $0.assetIdentifier ?? UUID().uuidString,
-                    itemProvider: $0.itemProvider
+                    assetId: $0.assetIdentifier ?? UUID().uuidString
                 )
             }
             pickerView.results.append(contentsOf: placeMedias)
