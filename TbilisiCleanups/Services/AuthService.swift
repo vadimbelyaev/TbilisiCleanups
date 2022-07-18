@@ -15,9 +15,11 @@ final class AuthService: NSObject, ObservableObject {
         Auth.auth().addStateDidChangeListener { auth, user in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
-                if let user = user {
+                if let user = user,
+                   !user.isAnonymous
+                {
                     self.userState.isAuthenticated = true
-                    self.userState.userId = user.providerID
+                    self.userState.userId = user.providerData.first?.uid ?? "unknown"
                     self.userState.userName = user.displayName
                 } else {
                     self.userState.isAuthenticated = false
