@@ -30,32 +30,114 @@ final class ReportService: ObservableObject {
                     try Task.checkCancellation()
                     try await s3Service.upload(
                         data: data,
-                        withKey: storageKey(
-                            for: imageAsset,
-                            timestamp: timestamp
+                        withKey: makeStorageKey(
+                            timestamp: timestamp,
+                            fileExtension: "jpg"
                         ),
                         contentType: "image/jpeg"
+                    )
+                }
+            }
+            for videoAsset in assetsByType.videos {
+                group.addTask(priority: .low) {
+                    try Task.checkCancellation()
+                    let outputURL = try makeUrlForVideoExportSession()
+                    let exportSession = try await exportSessionForVideoAsset(videoAsset)
+                    try Task.checkCancellation()
+                    exportSession.outputFileType = .mp4
+                    exportSession.outputURL = outputURL
+                    exportSession.shouldOptimizeForNetworkUse = true
+                    await exportSession.export()
+                    try Task.checkCancellation()
+                    guard exportSession.status == .completed else {
+                        throw MediaExportError.avAssetExportSessionFailed
+                    }
+                    let data = try Data(contentsOf: outputURL)
+                    try await s3Service.upload(
+                        data: data,
+                        withKey: makeStorageKey(
+                            timestamp: timestamp,
+                            fileExtension: "mp4"
+                        ),
+                        contentType: "video/mp4"
                     )
                 }
             }
             try await group.waitForAll()
         }
     }
+}
 
+private func exportSessionForVideoAsset(_ asset: PHAsset) async throws -> AVAssetExportSession {
+    let avAsset = try await fetchAVAsset(for: asset)
+    let preset = try await videoExportPreset(for: avAsset)
+    return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<AVAssetExportSession, Error>) in
+        PHImageManager.default().requestExportSession(
+            forVideo: asset,
+            options: makeVideoRequestOptions(),
+            exportPreset: preset
+        ) { session, info in
+            guard let session = session else {
+                continuation.resume(throwing: MediaExportError.cannotGetAVAssetExportSession)
+                return
+            }
+            continuation.resume(returning: session)
+        }
+    }
+}
 
-//    func exportSessionForVideoAsset(_ asset: PHAsset) async throws -> AVAssetExportSession {
-//        let options = PHVideoRequestOptions()
-//        options.deliveryMode = .fastFormat
-//        options.version = .current
-//        imageManager.requestExportSession(
-//            forVideo: <#T##PHAsset#>,
-//            options: <#T##PHVideoRequestOptions?#>,
-//            exportPreset: String
-//        ) { <#AVAssetExportSession?#>, <#[AnyHashable : Any]?#> in
-//                <#code#>
-//            }
-//
-//    }
+private func fetchAVAsset(for asset: PHAsset) async throws -> AVAsset {
+    try await withCheckedThrowingContinuation({ (continuation: CheckedContinuation<AVAsset, Error>) in
+        PHImageManager.default().requestAVAsset(
+            forVideo: asset,
+            options: makeVideoRequestOptions()
+        ) { avAsset, audioMix, info in
+            guard let avAsset = avAsset else {
+                continuation.resume(throwing: MediaExportError.cannotFetchAVAsset)
+                return
+            }
+            continuation.resume(returning: avAsset)
+        }
+    })
+}
+
+private func videoExportPreset(for asset: AVAsset) async throws -> String {
+    let preferredPresets = [
+        AVAssetExportPresetMediumQuality,
+        AVAssetExportPreset1280x720,
+        AVAssetExportPresetLowQuality,
+        AVAssetExportPreset960x540,
+    ]
+    let compatiblePresets = AVAssetExportSession.exportPresets(compatibleWith: asset)
+    let allPresets = preferredPresets + compatiblePresets
+    for preset in allPresets {
+        let canExport = await AVAssetExportSession.compatibility(
+            ofExportPreset: preset,
+            with: asset,
+            outputFileType: .mp4
+        )
+        if canExport {
+            return preset
+        }
+    }
+    throw MediaExportError.noVideoExportPresetsAvailable
+}
+
+private func makeVideoRequestOptions() -> PHVideoRequestOptions {
+    let options = PHVideoRequestOptions()
+    options.deliveryMode = .mediumQualityFormat
+    options.isNetworkAccessAllowed = true
+    options.version = .current
+    return options
+}
+
+private func makeUrlForVideoExportSession() throws -> URL {
+    let urls = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
+    guard let cachesDir = urls.first else {
+        throw MediaExportError.noCachesDirectory
+    }
+    let fileName = "\(UUID().uuidString).mp4"
+    return URL(fileURLWithPath: fileName, relativeTo: cachesDir)
 }
 
 private struct AssetsByType {
@@ -86,15 +168,11 @@ private func classifyAssetsByType(
 
 private func dataForImageAsset(_ asset: PHAsset) async throws -> Data {
     try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Data, Error>) in
-        let options = PHImageRequestOptions()
-        options.deliveryMode = .highQualityFormat
-        options.resizeMode = .exact
-        options.isSynchronous = true
         PHImageManager.default().requestImage(
             for: asset,
             targetSize: exportSize(for: asset),
             contentMode: .aspectFill,
-            options: options
+            options: makeImageRequestOptions()
         ) { image, info in
             guard let image = image else {
                 continuation.resume(throwing: MediaExportError.imageExportReturnedNoData)
@@ -107,6 +185,15 @@ private func dataForImageAsset(_ asset: PHAsset) async throws -> Data {
             continuation.resume(returning: data)
         }
     }
+}
+
+private func makeImageRequestOptions() -> PHImageRequestOptions {
+    let options = PHImageRequestOptions()
+    options.deliveryMode = .highQualityFormat
+    options.resizeMode = .exact
+    options.isNetworkAccessAllowed = true
+    options.isSynchronous = true
+    return options
 }
 
 private func exportSize(for asset: PHAsset) -> CGSize {
@@ -125,14 +212,19 @@ private func exportSize(for asset: PHAsset) -> CGSize {
     return CGSize(width: Int(targetWidth), height: Int(targetHeight))
 }
 
-private func storageKey(
-    for asset: PHAsset,
-    timestamp: TimeInterval
+private func makeStorageKey(
+    timestamp: TimeInterval,
+    fileExtension: String
 ) -> String {
-    "user_media-\(UUID().uuidString)-\(Int(timestamp)).jpg"
+    "user_media-\(UUID().uuidString)-\(Int(timestamp)).\(fileExtension)"
 }
 
 enum MediaExportError: Error {
     case imageExportReturnedNoData
     case cannotGetJPEGRepresentation
+    case cannotGetAVAssetExportSession
+    case cannotFetchAVAsset
+    case noVideoExportPresetsAvailable
+    case noCachesDirectory
+    case avAssetExportSessionFailed
 }
