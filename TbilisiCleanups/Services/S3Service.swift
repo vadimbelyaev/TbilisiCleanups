@@ -6,9 +6,10 @@ final class S3Service {
     private let bucketName: String
     private let awsClient: AWSClient
     private let s3: S3
+    private let config: SotoAWSConfig
 
     init() throws {
-        let config = try SotoAWSConfigHelper.getConfig()
+        config = try SotoAWSConfigHelper.getConfig()
         awsClient = AWSClient(
             credentialProvider: .static(
                 accessKeyId: config.accessKeyId,
@@ -24,11 +25,17 @@ final class S3Service {
         s3 = S3(client: awsClient, region: .eucentral1)
     }
 
+    /// Uploads data to S3 and return its public URL
+    /// - Parameters:
+    ///   - data: Data to be uploaded
+    ///   - key: File name
+    ///   - contentType: MIME type of the content
+    /// - Returns: Public URL of the uploaded resource
     func upload(
         data: Data,
         withKey key: String,
         contentType: String?
-    ) async throws {
+    ) async throws -> URL {
         let request = S3.PutObjectRequest(
             body: .data(data),
             bucket: bucketName,
@@ -36,5 +43,18 @@ final class S3Service {
             key: key
         )
         let _ = try await s3.putObject(request)
+        let urlString =
+        """
+        https://s3.\(config.s3Region.rawValue).amazonaws.com/\
+        \(config.s3BucketName)/\(key)
+        """
+        guard let url = URL(string: urlString) else {
+            throw S3ServiceError.cannotBuildResourceURL
+        }
+        return url
+    }
+
+    enum S3ServiceError: Error {
+        case cannotBuildResourceURL
     }
 }
