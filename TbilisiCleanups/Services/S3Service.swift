@@ -24,10 +24,15 @@ final class S3Service {
         s3 = S3(client: awsClient, region: .eucentral1)
     }
 
-    func upload(data: Data, withKey key: String) async throws {
+    func upload(
+        data: Data,
+        withKey key: String,
+        contentType: String?
+    ) async throws {
         let request = S3.PutObjectRequest(
             body: .data(data),
             bucket: bucketName,
+            contentType: contentType,
             key: key
         )
         let _ = try await s3.putObject(request)
