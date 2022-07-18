@@ -64,6 +64,7 @@ final class ReportPhotosViewModel: ObservableObject {
             return
         }
         currentDraft.locationRegion.center = location.coordinate
+        currentDraft.locationRegion.span = .init(latitudeDelta: 0.01, longitudeDelta: 0.01)
     }
 }
 
