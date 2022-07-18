@@ -17,9 +17,11 @@ final class AuthService: NSObject, ObservableObject {
                 guard let self = self else { return }
                 if let user = user {
                     self.userState.isAuthenticated = true
+                    self.userState.userId = user.providerID
                     self.userState.userName = user.displayName
                 } else {
                     self.userState.isAuthenticated = false
+                    self.userState.userId = nil
                     self.userState.userName = nil
                 }
             }
