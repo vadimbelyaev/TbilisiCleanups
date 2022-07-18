@@ -1,3 +1,11 @@
+#!/usr/bin/env bash
+# fail if any commands fails
+set -e
+# make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+set -o pipefail
+# debug log
+set -x
+
 # Exits if project file does not exists
 PBXPROJ_FILE="${BITRISE_PROJECT_PATH}/project.pbxproj"
 if [ ! -f $PBXPROJ_FILE ]; then
