@@ -41,7 +41,9 @@ struct UploadedMediasByType {
 
 struct UploadedMedia: Identifiable {
     let id: String
-    let publicURL: URL
+    let assetId: String
+    let url: URL
+    let previewImageURL: URL
 }
 
 final class ReportSubmission: Identifiable, ObservableObject {

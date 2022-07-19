@@ -67,27 +67,45 @@ private func uploadImageAsset(
     timestamp: TimeInterval
 ) async throws -> UploadedMedia {
     try Task.checkCancellation()
-    let data = try await dataForImageAsset(asset)
+    let data = try await dataForImageAsset(asset, size: exportSize(for: asset))
     try Task.checkCancellation()
+    let uploadedMediaId = UUID().uuidString
     let url = try await s3Service.upload(
         data: data,
         withKey: makeStorageKey(
+            uploadedMediaId: uploadedMediaId,
             timestamp: timestamp,
             fileExtension: "jpg"
         ),
         contentType: "image/jpeg"
     )
+    try Task.checkCancellation()
+    let previewImageData = try await dataForImageAsset(asset, size: previewImageSize(for: asset))
+    try Task.checkCancellation()
+    let previewImageURL = try await s3Service.upload(
+        data: previewImageData,
+        withKey: makePreviewImageStorageKey(
+            uploadedMediaId: uploadedMediaId,
+            timestamp: timestamp,
+            assetFileExtension: "jpg",
+            previewFileExtension: "jpg"
+        ),
+        contentType: "image/jpeg"
+    )
+
     return UploadedMedia(
-        id: asset.localIdentifier,
-        publicURL: url
+        id: uploadedMediaId,
+        assetId: asset.localIdentifier,
+        url: url,
+        previewImageURL: previewImageURL
     )
 }
 
-private func dataForImageAsset(_ asset: PHAsset) async throws -> Data {
+private func dataForImageAsset(_ asset: PHAsset, size: CGSize) async throws -> Data {
     try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Data, Error>) in
         PHImageManager.default().requestImage(
             for: asset,
-            targetSize: exportSize(for: asset),
+            targetSize: size,
             contentMode: .aspectFill,
             options: makeImageRequestOptions()
         ) { image, info in
@@ -113,10 +131,20 @@ private func makeImageRequestOptions() -> PHImageRequestOptions {
     return options
 }
 
-private func exportSize(for asset: PHAsset) -> CGSize {
+private func exportSize(for imageAsset: PHAsset) -> CGSize {
+    imageSize(withLesserDimensionEqualTo: 1080 * 2, for: imageAsset)
+}
+
+private func previewImageSize(for asset: PHAsset) -> CGSize {
+    imageSize(withLesserDimensionEqualTo: 256 * 2, for: asset)
+}
+
+private func imageSize(
+    withLesserDimensionEqualTo lesserDimension: Double,
+    for asset: PHAsset
+) -> CGSize {
     let width = Double(asset.pixelWidth)
     let height = Double(asset.pixelHeight)
-    let lesserDimension = 1080.0 * 2.0
     guard min(width, height) > lesserDimension else {
         return CGSize(width: width, height: height)
     }
@@ -149,17 +177,34 @@ private func uploadVideoAsset(
         throw MediaExportError.avAssetExportSessionFailed
     }
     let data = try Data(contentsOf: outputURL)
+    let uploadedMediaId = UUID().uuidString
     let url = try await s3Service.upload(
         data: data,
         withKey: makeStorageKey(
+            uploadedMediaId: uploadedMediaId,
             timestamp: timestamp,
             fileExtension: "mp4"
         ),
         contentType: "video/mp4"
     )
+    let previewImageData = try await dataForImageAsset(asset, size: previewImageSize(for: asset))
+    try Task.checkCancellation()
+    let previewImageURL = try await s3Service.upload(
+        data: previewImageData,
+        withKey: makePreviewImageStorageKey(
+            uploadedMediaId: uploadedMediaId,
+            timestamp: timestamp,
+            assetFileExtension: "mp4",
+            previewFileExtension: "jpg"
+        ),
+        contentType: "image/jpeg"
+    )
+
     return UploadedMedia(
-        id: asset.localIdentifier,
-        publicURL: url
+        id: uploadedMediaId,
+        assetId: asset.localIdentifier,
+        url: url,
+        previewImageURL: previewImageURL
     )
 }
 
@@ -240,6 +285,9 @@ private func makeUrlForVideoExportSession() throws -> URL {
 private struct AssetsByType {
     let images: [PHAsset]
     let videos: [PHAsset]
+    var cover: PHAsset? {
+        images.first ?? videos.first
+    }
 }
 
 private func classifyAssetsByType(
@@ -266,10 +314,31 @@ private func classifyAssetsByType(
 // MARK: - Storage Keys
 
 private func makeStorageKey(
+    uploadedMediaId: String,
     timestamp: TimeInterval,
     fileExtension: String
 ) -> String {
-    "user_media-\(UUID().uuidString)-\(Int(timestamp)).\(fileExtension)"
+    String(
+        format: "user_media-%@-%d.%@",
+        uploadedMediaId,
+        Int(timestamp),
+        fileExtension
+    )
+}
+
+private func makePreviewImageStorageKey(
+    uploadedMediaId: String,
+    timestamp: TimeInterval,
+    assetFileExtension: String,
+    previewFileExtension: String
+) -> String {
+    String(
+        format: "user_media-%@-%d.%@.thumb.%@",
+        uploadedMediaId,
+        Int(timestamp),
+        assetFileExtension,
+        previewFileExtension
+    )
 }
 
 // MARK: - Error Type

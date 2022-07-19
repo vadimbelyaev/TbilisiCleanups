@@ -100,9 +100,8 @@ private func saveSubmissionToFirebase(
             "lat": draft.locationRegion.center.latitude,
             "lon": draft.locationRegion.center.longitude
         ],
-        "photos": draft.uploadedMediasByType.photos.map(\.publicURL.absoluteString),
-        "videos": draft.uploadedMediasByType.videos.map(\.publicURL.absoluteString),
-        "cover": "https://example.com",
+        "photos": draft.uploadedMediasByType.photos.map { $0.serializedForExport() },
+        "videos": draft.uploadedMediasByType.videos.map { $0.serializedForExport() },
         "description": draft.placeDescription
     ]
 
@@ -116,6 +115,16 @@ private func saveSubmissionToFirebase(
             continuation.resume(returning: ())
         }
     })
+}
+
+private extension UploadedMedia {
+    func serializedForExport() -> [String: String] {
+        [
+            "id": id,
+            "url": url.absoluteString,
+            "preview_image_url": previewImageURL.absoluteString
+        ]
+    }
 }
 
 enum ReportServiceError: Error {
