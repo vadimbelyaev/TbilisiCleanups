@@ -34,7 +34,8 @@ struct PlaceMedia: Identifiable {
     }
 }
 
-final class ReportSubmission: ObservableObject {
+final class ReportSubmission: Identifiable, ObservableObject {
+    let id = UUID()
     @Published var draft: ReportDraft
 
     init(draft: ReportDraft) {

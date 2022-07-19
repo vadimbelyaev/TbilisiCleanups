@@ -37,6 +37,7 @@ final class ReportService: ObservableObject {
         // Trigger an extra objectWillChange because sometimes
         // just updating submission.status doesn't update the UI
         appState.currentSubmission = submission
+        appState.dequeue(submission: submission)
         // TODO: Fetch from Firebase and then remove draft from the queue
     }
 }
