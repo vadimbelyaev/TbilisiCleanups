@@ -17,14 +17,25 @@ struct OverlayNavigationLink<Destination: View, AuxView: View>: View {
                 Spacer()
                 NavigationLink(destination: destination) {
                     Text(title)
-                        .frame(maxWidth: 300)
-                        .padding(.vertical, 8)
+                        .overlayNavigationLabelStyle()
                 }
+                .overlayNavigationLinkStyle()
                 .disabled(isDisabled)
-                .buttonStyle(.borderedProminent)
                 .padding(.bottom, 25)
                 Spacer()
             }
         }
+    }
+}
+
+extension View {
+    func overlayNavigationLabelStyle() -> some View {
+        self
+            .frame(maxWidth: 300)
+            .padding(.vertical, 8)
+    }
+
+    func overlayNavigationLinkStyle() -> some View {
+        buttonStyle(.borderedProminent)
     }
 }

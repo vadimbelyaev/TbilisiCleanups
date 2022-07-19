@@ -22,19 +22,17 @@ struct ReportStartView: View {
                             reportScreenPresented = true
                         } label: {
                             Text("Start")
-                                .frame(maxWidth: 300)
-                                .padding(.vertical, 8)
+                                .overlayNavigationLabelStyle()
                         }
-                        .buttonStyle(.borderedProminent)
+                        .overlayNavigationLinkStyle()
                     } else {
                         Button {
                             signInScreenPresented = true
                         } label: {
                             Text("Sign in to submit a report")
-                                .frame(maxWidth: 300)
-                                .padding(.vertical, 8)
+                                .overlayNavigationLabelStyle()
                         }
-                        .buttonStyle(.borderedProminent)
+                        .overlayNavigationLinkStyle()
                     }
                     Spacer()
                 }

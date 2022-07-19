@@ -4,9 +4,7 @@ import SwiftUI
 struct ReportDescriptionView: View {
     @EnvironmentObject var appState: AppState
     @FocusState private var textEditorFocused: Bool
-
     @State private var region: MKCoordinateRegion = .init()
-
     @Namespace private var textEditorID
 
     var body: some View {
@@ -16,17 +14,13 @@ struct ReportDescriptionView: View {
                     VStack(alignment: .leading) {
                         map
                         labeledTextEditor(scrollProxy: scrollProxy)
-                        if textEditorFocused {
-                            Spacer(minLength: 100)
+                        OverlayNavigationLink(title: "Submit") {
+                            ReportSubmissionView()
+                        } auxiliaryView: {
+                            EmptyView()
                         }
+                        .padding(.vertical)
                     }
-                }
-            }
-            if !textEditorFocused {
-                OverlayNavigationLink(title: "Submit") {
-                    ReportSubmissionView()
-                } auxiliaryView: {
-                    EmptyView()
                 }
             }
         }
