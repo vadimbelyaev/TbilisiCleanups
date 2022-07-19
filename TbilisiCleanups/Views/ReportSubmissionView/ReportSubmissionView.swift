@@ -2,30 +2,23 @@ import SwiftUI
 
 struct ReportSubmissionView: View {
 
+    @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var reportService: ReportService
-
-    @State private var status: ReportSubmissionStatus = .notStarted
 
     var body: some View {
         statusView
             .navigationTitle("Submitting Report")
             .navigationBarBackButtonHidden(true)
-            .task {
-                // TODO: MAKE THE TASK DETACHED
-                // so that it continues execution even when the screen is dismissed
-                status = .inProgress
-                do {
+            .onAppear {
+                Task.detached {
                     try await reportService.submitCurrentDraft()
-                    status = .succeeded
-                } catch {
-                    status = .failed(error: error)
                 }
             }
     }
 
     @ViewBuilder
     private var statusView: some View {
-        switch status {
+        switch appState.currentSubmission.status {
         case .notStarted:
             Text("Your report is about to be submitted.")
         case .inProgress:

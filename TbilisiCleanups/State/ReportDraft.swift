@@ -1,8 +1,7 @@
 import MapKit
 
-@MainActor
-class ReportDraft: ObservableObject {
-    @Published var locationRegion = MKCoordinateRegion(
+struct ReportDraft {
+    var locationRegion = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
             latitude: 42.182_724,
             longitude: 43.523_521
@@ -10,11 +9,10 @@ class ReportDraft: ObservableObject {
         latitudinalMeters: 600_000,
         longitudinalMeters: 600_000
     )
-    @Published var placeDescription: String = ""
-    @Published var medias: [PlaceMedia] = []
-    @Published var submissionStatus: ReportSubmissionStatus = .notStarted
+    var placeDescription: String = ""
+    var medias: [PlaceMedia] = []
 
-    func remove(media: PlaceMedia) {
+    mutating func remove(media: PlaceMedia) {
         guard let index = medias.firstIndex(where: { $0.id == media.id }) else {
             return
         }
@@ -36,10 +34,21 @@ struct PlaceMedia: Identifiable {
     }
 }
 
-enum ReportSubmissionStatus {
-    case notStarted
-    case inProgress
-    case failed(error: Error)
-    case succeeded
+final class ReportSubmission: ObservableObject {
+    @Published var draft: ReportDraft
+
+    init(draft: ReportDraft) {
+        self.draft = draft
+    }
+
+    @Published var status: Status = .notStarted
 }
 
+extension ReportSubmission {
+    enum Status {
+        case notStarted
+        case inProgress
+        case failed(error: Error)
+        case succeeded
+    }
+}

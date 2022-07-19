@@ -2,7 +2,7 @@ import MapKit
 import SwiftUI
 
 struct ReportDescriptionView: View {
-    @ObservedObject var currentDraft: ReportDraft
+    @EnvironmentObject var appState: AppState
     @FocusState private var textEditorFocused: Bool
 
     @State private var region: MKCoordinateRegion = .init()
@@ -45,7 +45,7 @@ struct ReportDescriptionView: View {
         }
         .navigationTitle("Description")
         .onAppear {
-            region = currentDraft.locationRegion
+            region = appState.currentDraft.locationRegion
         }
     }
 
@@ -62,7 +62,7 @@ struct ReportDescriptionView: View {
         Text("Describe where this place is so it's easier to find it:")
             .padding(.top)
             .padding(.horizontal)
-        TextEditor(text: $currentDraft.placeDescription)
+        TextEditor(text: $appState.currentDraft.placeDescription)
             .id(textEditorID)
             .focused($textEditorFocused)
             .frame(height: 120)
@@ -90,6 +90,6 @@ struct ReportDescriptionView: View {
 
 struct ReportDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        ReportDescriptionView(currentDraft: .init())
+        ReportDescriptionView()
     }
 }

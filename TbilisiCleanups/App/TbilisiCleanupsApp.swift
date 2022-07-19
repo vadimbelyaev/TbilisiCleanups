@@ -7,7 +7,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     private(set) lazy var authService: AuthService = .init(userState: appState.userState)
     private(set) lazy var reportService: ReportService = .init(appState: appState)
 
-
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil

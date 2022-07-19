@@ -1,13 +1,11 @@
 import Photos
 
 final class MediaUploadService {
-    private let appState: AppState
     private let s3Service: S3Service
 
     // MARK: - Lifecycle
 
-    init(appState: AppState) {
-        self.appState = appState
+    init() {
         do {
             self.s3Service = try S3Service()
         } catch {

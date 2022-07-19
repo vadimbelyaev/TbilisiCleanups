@@ -46,7 +46,7 @@ struct ReportStartView: View {
         }
         .sheet(isPresented: $reportScreenPresented) {
             NavigationView {
-                ReportPhotosView(currentDraft: appState.currentDraft)
+                ReportPhotosView()
             }
         }
         .sheet(isPresented: $signInScreenPresented) {

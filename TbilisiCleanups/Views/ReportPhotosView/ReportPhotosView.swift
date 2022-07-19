@@ -2,7 +2,7 @@ import SwiftUI
 import MapKit
 
 struct ReportPhotosView: View {
-    @ObservedObject var currentDraft: ReportDraft
+    @EnvironmentObject var appState: AppState
     @StateObject var model: ReportPhotosViewModel = .init()
     @State private var isPickerPresented = false
     @State private var isSettingsAlertPresented = false
@@ -19,9 +19,9 @@ struct ReportPhotosView: View {
             }
             OverlayNavigationLink(
                 title: "Continue",
-                isDisabled: model.currentDraft.medias.isEmpty
+                isDisabled: appState.currentDraft.medias.isEmpty
             ) {
-                ReportLocationView(currentDraft: currentDraft)
+                ReportLocationView()
             } auxiliaryView: {
                 EmptyView()
             }
@@ -37,7 +37,7 @@ struct ReportPhotosView: View {
         }
         .navigationTitle("Photos")
         .onAppear {
-            model.setUpBindings(currentDraft: currentDraft)
+            model.setUpBindings(appState: appState)
         }
     }
 
@@ -60,13 +60,13 @@ struct ReportPhotosView: View {
 
     @ViewBuilder
     private var mediaCells: some View {
-        ForEach(currentDraft.medias) { media in
+        ForEach(appState.currentDraft.medias) { media in
             MediaCell(placeMedia: media)
                 .aspectRatio(1, contentMode: .fill)
                 .contextMenu {
                     Button {
                         withAnimation {
-                            currentDraft.remove(media: media)
+                            appState.currentDraft.remove(media: media)
                         }
                     } label: {
                         Text("Remove")
@@ -167,6 +167,6 @@ struct MediaCell: View {
 
 struct ReportPhotosView_Previews: PreviewProvider {
     static var previews: some View {
-        ReportPhotosView(currentDraft: .init())
+        ReportPhotosView()
     }
 }

@@ -6,7 +6,7 @@ import Photos
 
 @MainActor
 final class ReportPhotosViewModel: ObservableObject {
-    @ObservedObject var currentDraft: ReportDraft = .init()
+    @ObservedObject var appState: AppState = .init()
     @Published var authorization: PHAuthorizationStatus
     private let imageManager = PHImageManager()
 
@@ -14,8 +14,8 @@ final class ReportPhotosViewModel: ObservableObject {
         authorization = PHPhotoLibrary.authorizationStatus(for: .readWrite)
     }
     
-    func setUpBindings(currentDraft: ReportDraft) {
-        self.currentDraft = currentDraft
+    func setUpBindings(appState: AppState) {
+        self.appState = appState
     }
 
     var canPresentPhotoPicker: Bool {
@@ -43,11 +43,11 @@ final class ReportPhotosViewModel: ObservableObject {
     }
 
     func makePhotoPicker(isPresented: Binding<Bool>) -> some View {
-        PhotoPicker(results: $currentDraft.medias, isPresented: isPresented)
+        PhotoPicker(results: $appState.currentDraft.medias, isPresented: isPresented)
     }
 
     func getFirstLocationOfSelectedPhotos() -> CLLocation? {
-        let ids = currentDraft.medias.map(\.id)
+        let ids = appState.currentDraft.medias.map(\.id)
         let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: ids, options: nil)
         var targetLocation: CLLocation? = nil
         fetchResult.enumerateObjects { asset, _, stop in
@@ -63,8 +63,8 @@ final class ReportPhotosViewModel: ObservableObject {
         guard let location = getFirstLocationOfSelectedPhotos() else {
             return
         }
-        currentDraft.locationRegion.center = location.coordinate
-        currentDraft.locationRegion.span = .init(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        appState.currentDraft.locationRegion.center = location.coordinate
+        appState.currentDraft.locationRegion.span = .init(latitudeDelta: 0.01, longitudeDelta: 0.01)
     }
 }
 

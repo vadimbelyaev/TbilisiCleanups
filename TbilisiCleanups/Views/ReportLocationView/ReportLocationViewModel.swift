@@ -4,7 +4,7 @@ import os.log
 import SwiftUI
 
 final class ReportLocationViewModel: NSObject, ObservableObject {
-    @ObservedObject var currentDraft: ReportDraft = .init()
+    @ObservedObject var appState: AppState = .init()
     @Published var locationButtonState: LocationButtonState
     @Published var locationSettingsAlertPresented: Bool = false
 
@@ -21,8 +21,8 @@ final class ReportLocationViewModel: NSObject, ObservableObject {
         locationManager.delegate = self
     }
 
-    func setUpBindings(currentDraft: ReportDraft) {
-        self.currentDraft = currentDraft
+    func setUpBindings(appState: AppState) {
+        self.appState = appState
     }
 
     func requestLocation() {
@@ -51,7 +51,7 @@ extension ReportLocationViewModel: CLLocationManagerDelegate {
         locationButtonState = .idle
         guard let location = locations.first else { return }
         let meters = location.horizontalAccuracy * 6
-        currentDraft.locationRegion = MKCoordinateRegion(
+        appState.currentDraft.locationRegion = MKCoordinateRegion(
             center: location.coordinate,
             latitudinalMeters: meters,
             longitudinalMeters: meters

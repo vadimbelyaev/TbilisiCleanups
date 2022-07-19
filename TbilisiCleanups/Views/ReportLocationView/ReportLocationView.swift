@@ -5,14 +5,14 @@ import SwiftUI
 
 struct ReportLocationView: View {
 
-    @ObservedObject var currentDraft: ReportDraft
+    @EnvironmentObject var appState: AppState
     @StateObject private var model = ReportLocationViewModel()
 
     var body: some View {
         ZStack {
             map
             OverlayNavigationLink(title: "Use this location") {
-                ReportDescriptionView(currentDraft: currentDraft)
+                ReportDescriptionView()
             } auxiliaryView: {
                 locationButton
                     .padding(25)
@@ -21,13 +21,13 @@ struct ReportLocationView: View {
         }
         .navigationTitle("Location")
         .onAppear {
-            model.setUpBindings(currentDraft: currentDraft)
+            model.setUpBindings(appState: appState)
         }
     }
 
     private var map: some View {
         MapView(
-            region: $currentDraft.locationRegion
+            region: $appState.currentDraft.locationRegion
         )
             .ignoresSafeArea(
                 .all,
@@ -77,7 +77,7 @@ struct ReportLocationView: View {
 
     private var continueButton: some View {
         NavigationLink {
-            ReportDescriptionView(currentDraft: currentDraft)
+            ReportDescriptionView()
         } label: {
             Text("Use this location")
                 .frame(maxWidth: 300)
@@ -115,7 +115,7 @@ private extension View {
 struct ReportLocationView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ReportLocationView(currentDraft: .init())
+            ReportLocationView()
         }
     }
 }
