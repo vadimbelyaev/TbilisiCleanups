@@ -19,9 +19,9 @@ final class ReportService: ObservableObject {
         appState.currentDraft = ReportDraft()
 
         do {
-            let updatedMedias = try await mediaUploadService.uploadMedias(submission.draft.medias)
+            let uploadedMedias = try await mediaUploadService.uploadMedias(submission.draft.medias)
             await MainActor.run {
-                submission.draft.medias = updatedMedias
+                submission.draft.uploadedMediasByType = uploadedMedias
             }
         } catch {
             try await MainActor.run {
@@ -70,9 +70,9 @@ private func saveSubmissionToFirebase(
             "lat": draft.locationRegion.center.latitude,
             "lon": draft.locationRegion.center.longitude
         ],
-        "photos": [],
-        "videos": [],
-        "cover": [],
+        "photos": draft.uploadedMediasByType.photos.map(\.publicURL.absoluteString),
+        "videos": draft.uploadedMediasByType.videos.map(\.publicURL.absoluteString),
+        "cover": "https://example.com",
         "description": draft.placeDescription
     ]
 

@@ -12,6 +12,7 @@ struct ReportDraft: Identifiable {
     )
     var placeDescription: String = ""
     var medias: [PlaceMedia] = []
+    var uploadedMediasByType: UploadedMediasByType = .init(photos: [], videos: [])
 
     mutating func remove(media: PlaceMedia) {
         guard let index = medias.firstIndex(where: { $0.id == media.id }) else {
@@ -23,16 +24,24 @@ struct ReportDraft: Identifiable {
 
 struct PlaceMedia: Identifiable {
     let assetId: String
-    let publicURL: URL?
 
-    init(assetId: String, publicURL: URL? = nil) {
+    init(assetId: String) {
         self.assetId = assetId
-        self.publicURL = publicURL
     }
 
     var id: String {
         assetId
     }
+}
+
+struct UploadedMediasByType {
+    let photos: [UploadedMedia]
+    let videos: [UploadedMedia]
+}
+
+struct UploadedMedia: Identifiable {
+    let id: String
+    let publicURL: URL
 }
 
 final class ReportSubmission: Identifiable, ObservableObject {

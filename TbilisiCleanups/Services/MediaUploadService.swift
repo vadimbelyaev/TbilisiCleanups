@@ -18,15 +18,16 @@ final class MediaUploadService {
     /// Exports medias to appropriate formats and uploads them to S3.
     /// - Parameter medias: Medias to upload.
     /// - Returns: A collection of medias that have the `publicURL` property populated.
-    func uploadMedias(_ medias: [PlaceMedia]) async throws -> [PlaceMedia] {
+    func uploadMedias(_ medias: [PlaceMedia]) async throws -> UploadedMediasByType {
         let ids = medias.map(\.assetId)
         let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: ids, options: nil)
         let assetsByType = classifyAssetsByType(from: fetchResult)
         let s3Service = self.s3Service
         let timestamp = Date().timeIntervalSince1970
         try Task.checkCancellation()
-        var uploadedMedias: [PlaceMedia] = []
-        try await withThrowingTaskGroup(of: PlaceMedia.self) { group in
+        var uploadedPhotos: [UploadedMedia] = []
+        var uploadedVideos: [UploadedMedia] = []
+        try await withThrowingTaskGroup(of: UploadedMedia.self) { group in
             for imageAsset in assetsByType.images {
                 group.addTask(priority: .low) {
                     return try await uploadImageAsset(
@@ -36,6 +37,11 @@ final class MediaUploadService {
                     )
                 }
             }
+            for try await uploadedMedia in group {
+                uploadedPhotos.append(uploadedMedia)
+            }
+        }
+        try await withThrowingTaskGroup(of: UploadedMedia.self) { group in
             for videoAsset in assetsByType.videos {
                 group.addTask(priority: .low) {
                     return try await uploadVideoAsset(
@@ -45,11 +51,11 @@ final class MediaUploadService {
                     )
                 }
             }
-            for try await placeMedia in group {
-                uploadedMedias.append(placeMedia)
+            for try await uploadedMedia in group {
+                uploadedVideos.append(uploadedMedia)
             }
         }
-        return uploadedMedias
+        return UploadedMediasByType(photos: uploadedPhotos, videos: uploadedVideos)
     }
 }
 
@@ -59,7 +65,7 @@ private func uploadImageAsset(
     asset: PHAsset,
     using s3Service: S3Service,
     timestamp: TimeInterval
-) async throws -> PlaceMedia {
+) async throws -> UploadedMedia {
     try Task.checkCancellation()
     let data = try await dataForImageAsset(asset)
     try Task.checkCancellation()
@@ -71,8 +77,8 @@ private func uploadImageAsset(
         ),
         contentType: "image/jpeg"
     )
-    return PlaceMedia(
-        assetId: asset.localIdentifier,
+    return UploadedMedia(
+        id: asset.localIdentifier,
         publicURL: url
     )
 }
@@ -129,7 +135,7 @@ private func uploadVideoAsset(
     asset: PHAsset,
     using s3Service: S3Service,
     timestamp: TimeInterval
-) async throws -> PlaceMedia {
+) async throws -> UploadedMedia {
     try Task.checkCancellation()
     let outputURL = try makeUrlForVideoExportSession()
     let exportSession = try await exportSessionForVideoAsset(asset)
@@ -151,8 +157,8 @@ private func uploadVideoAsset(
         ),
         contentType: "video/mp4"
     )
-    return PlaceMedia(
-        assetId: asset.localIdentifier,
+    return UploadedMedia(
+        id: asset.localIdentifier,
         publicURL: url
     )
 }
