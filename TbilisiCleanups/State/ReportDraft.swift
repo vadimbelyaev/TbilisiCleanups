@@ -1,6 +1,7 @@
 import MapKit
 
-struct ReportDraft {
+struct ReportDraft: Identifiable {
+    let id = UUID()
     var locationRegion = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
             latitude: 42.182_724,

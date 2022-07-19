@@ -4,6 +4,7 @@ struct ReportSubmissionView: View {
 
     @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var reportService: ReportService
+    @State private var isFinished = false
 
     var body: some View {
         statusView
@@ -12,6 +13,9 @@ struct ReportSubmissionView: View {
             .onAppear {
                 Task.detached {
                     try await reportService.submitCurrentDraft()
+                    await MainActor.run {
+                        isFinished = true
+                    }
                 }
             }
     }
