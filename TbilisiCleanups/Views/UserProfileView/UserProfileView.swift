@@ -9,8 +9,10 @@ import SwiftUI
 
 struct UserProfileView: View {
 
+    @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var userState: UserState
     @EnvironmentObject private var authService: AuthService
+    @EnvironmentObject private var reportService: ReportService
 
     @State private var deleteAccountConfirmationPresented = false
     @State private var signInScreenPresented = false
@@ -29,22 +31,36 @@ struct UserProfileView: View {
     @ViewBuilder
     private var signedInBody: some View {
         List {
-            Button {
-                authService.signOut()
-            } label: {
-                Text("Sign out")
+            Section("My Reports") {
+                ForEach(appState.userReports) { report in
+                    VStack {
+                        Text(report.description ?? "No description")
+                            .font(.headline)
+                        Text(report.createdOn.formatted())
+                    }
+                }
             }
+            Section("Account") {
+                Button {
+                    authService.signOut()
+                } label: {
+                    Text("Sign out")
+                }
 
-            Button(role: .destructive) {
-                deleteAccountConfirmationPresented = true
-            } label: {
-                Text("Delete my account")
+                Button(role: .destructive) {
+                    deleteAccountConfirmationPresented = true
+                } label: {
+                    Text("Delete my account")
+                }
+                .confirmationDialog(
+                    "Delete your account? This action cannot be undone.",
+                    isPresented: $deleteAccountConfirmationPresented,
+                    actions: deleteAccountConfirmationActions
+                )
             }
-            .confirmationDialog(
-                "Delete your account? This action cannot be undone.",
-                isPresented: $deleteAccountConfirmationPresented,
-                actions: deleteAccountConfirmationActions
-            )
+        }
+        .refreshable {
+            try? await reportService.fetchReportsByCurrentUser()
         }
         .listStyle(.insetGrouped)
         .navigationTitle(userState.userName ?? "Welcome")

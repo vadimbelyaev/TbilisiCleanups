@@ -1,13 +1,18 @@
+import Firebase
 import FirebaseEmailAuthUI
 import FirebaseAuthUI
 import FirebaseOAuthUI
 import FirebaseGoogleAuthUI
 import FirebaseFacebookAuthUI
+import Combine
 
 @MainActor
 final class AuthService: NSObject, ObservableObject {
 
     private let userState: UserState
+
+    private let userSubject: PassthroughSubject<Firebase.User?, Never> = .init()
+    private(set) lazy var userPublisher = userSubject.eraseToAnyPublisher()
 
     init(userState: UserState) {
         self.userState = userState
@@ -15,15 +20,18 @@ final class AuthService: NSObject, ObservableObject {
         Auth.auth().addStateDidChangeListener { auth, user in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
+                self.userSubject.send(user)
                 if let user = user,
                    !user.isAnonymous
                 {
                     self.userState.isAuthenticated = true
                     self.userState.userId = user.providerData.first?.uid ?? "unknown"
+                    self.userState.userProviderId = user.providerData.first?.providerID ?? "unknown"
                     self.userState.userName = user.displayName
                 } else {
                     self.userState.isAuthenticated = false
                     self.userState.userId = nil
+                    self.userState.userProviderId = nil
                     self.userState.userName = nil
                 }
             }

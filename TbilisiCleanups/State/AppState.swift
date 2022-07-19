@@ -5,6 +5,7 @@ final class AppState: ObservableObject {
     @Published var currentDraft: ReportDraft = .init()
     @Published var currentSubmission: ReportSubmission = .init(draft: .init())
     @Published var draftSubmissionQueue: [ReportSubmission] = []
+    @Published var userReports: [Report] = []
     var userState: UserState = .init()
 
     func dequeue(submission: ReportSubmission) {

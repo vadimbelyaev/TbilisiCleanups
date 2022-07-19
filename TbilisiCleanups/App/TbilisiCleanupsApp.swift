@@ -1,3 +1,4 @@
+import Combine
 import Firebase
 import SwiftUI
 
@@ -6,6 +7,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     let appState: AppState = .init()
     private(set) lazy var authService: AuthService = .init(userState: appState.userState)
     private(set) lazy var reportService: ReportService = .init(appState: appState)
+
+    private var cancellables: Set<AnyCancellable> = []
 
     func application(
         _ application: UIApplication,
@@ -18,6 +21,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             // because it listens to the user authentication changes
             let _ = authService
 
+            setUpGlobalSubscriptions()
+
             UIApplication.shared.registerForRemoteNotifications()
         }
         return true
@@ -29,6 +34,23 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
         // no-op
+    }
+
+    private func setUpGlobalSubscriptions() {
+        let reportService = self.reportService
+        let appState = self.appState
+        authService.userPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { user in
+                if let user = user, !user.isAnonymous {
+                    Task.detached(priority: .low) {
+                        try await reportService.fetchReportsByCurrentUser()
+                    }
+                } else {
+                    appState.userReports = []
+                }
+            }
+            .store(in: &cancellables)
     }
 }
 

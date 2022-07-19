@@ -50,8 +50,38 @@ final class ReportService: ObservableObject {
         // just updating submission.status doesn't update the UI
         appState.currentSubmission = submission
         appState.dequeue(submission: submission)
-        // TODO: Fetch from Firebase and then remove draft from the queue
+
+        Task.detached(priority: .low) { [weak self] in
+            guard let self = self else { return }
+            try await fetchReports(appState: self.appState)
+        }
     }
+
+    func fetchReportsByCurrentUser() async throws {
+        try await fetchReports(appState: appState)
+    }
+}
+
+@MainActor
+private func fetchReports(appState: AppState) async throws {
+    guard appState.userState.isAuthenticated,
+          let userId = appState.userState.userId,
+          let providerId = appState.userState.userProviderId
+    else {
+        throw ReportServiceError.userUnauthenticated
+    }
+
+    let firestore = Firestore.firestore()
+    let snapshot = try await firestore.collection("reports")
+        .whereField("user_id", isEqualTo: userId)
+        .whereField("user_provider_id", isEqualTo: providerId)
+        .order(by: "created_on", descending: true)
+        .getDocuments()
+    let reports = snapshot
+        .documents
+        .map { $0.data() }
+        .compactMap { Report(withFirestoreData: $0) }
+    appState.userReports = reports
 }
 
 private func saveSubmissionToFirebase(
@@ -61,10 +91,10 @@ private func saveSubmissionToFirebase(
     let draft = submission.draft
     let reportData: [String: Any] = [
         "id": draft.id.uuidString,
-        "reported_by": [
-            "user_id": await appState.userState.userId ?? "N/A",
-            "user_name": await appState.userState.userName ?? "N/A"
-        ],
+        "user_id": await appState.userState.userId ?? "",
+        "user_provider_id": await appState.userState.userProviderId ?? "",
+        "user_name": await appState.userState.userName ?? "",
+        "created_on": Int(Date().timeIntervalSince1970),
         "status": "moderation",
         "location": [
             "lat": draft.locationRegion.center.latitude,
@@ -86,4 +116,8 @@ private func saveSubmissionToFirebase(
             continuation.resume(returning: ())
         }
     })
+}
+
+enum ReportServiceError: Error {
+    case userUnauthenticated
 }
