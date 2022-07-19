@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ReportStartView: View {
 
+    @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var userState: UserState
     @State private var reportScreenPresented = false
     @State private var signInScreenPresented = false
@@ -45,7 +46,7 @@ struct ReportStartView: View {
         }
         .sheet(isPresented: $reportScreenPresented) {
             NavigationView {
-                ReportPhotosView()
+                ReportPhotosView(currentDraft: appState.currentDraft)
             }
         }
         .sheet(isPresented: $signInScreenPresented) {

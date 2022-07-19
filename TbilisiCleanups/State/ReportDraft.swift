@@ -12,6 +12,7 @@ class ReportDraft: ObservableObject {
     )
     @Published var placeDescription: String = ""
     @Published var medias: [PlaceMedia] = []
+    @Published var submissionStatus: ReportSubmissionStatus = .notStarted
 
     func remove(media: PlaceMedia) {
         guard let index = medias.firstIndex(where: { $0.id == media.id }) else {
@@ -34,3 +35,11 @@ struct PlaceMedia: Identifiable {
         assetId
     }
 }
+
+enum ReportSubmissionStatus {
+    case notStarted
+    case inProgress
+    case failed(error: Error)
+    case succeeded
+}
+

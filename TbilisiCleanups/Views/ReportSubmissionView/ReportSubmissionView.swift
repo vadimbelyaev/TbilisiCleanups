@@ -4,12 +4,15 @@ struct ReportSubmissionView: View {
 
     @EnvironmentObject private var reportService: ReportService
 
-    @State private var status: SubmissionStatus = .notStarted
+    @State private var status: ReportSubmissionStatus = .notStarted
 
     var body: some View {
         statusView
             .navigationTitle("Submitting Report")
+            .navigationBarBackButtonHidden(true)
             .task {
+                // TODO: MAKE THE TASK DETACHED
+                // so that it continues execution even when the screen is dismissed
                 status = .inProgress
                 do {
                     try await reportService.submitCurrentDraft()
@@ -51,13 +54,6 @@ struct ReportSubmissionView: View {
         dump(error, to: &errorText)
         return errorText
     }
-}
-
-enum SubmissionStatus {
-    case notStarted
-    case inProgress
-    case failed(error: Error)
-    case succeeded
 }
 
 struct ReportSubmissionView_Previews: PreviewProvider {

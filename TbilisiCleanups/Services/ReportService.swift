@@ -1,3 +1,4 @@
+import FirebaseFirestore
 import Foundation
 
 final class ReportService: ObservableObject {
@@ -10,6 +11,18 @@ final class ReportService: ObservableObject {
     }
 
     func submitCurrentDraft() async throws {
-        let _ = try await mediaUploadService.uploadMedias(appState.currentDraft.medias)
+        let draftToSubmit = await appState.currentDraft
+        await MainActor.run {
+            appState.draftSubmissionQueue.append(draftToSubmit)
+            appState.currentDraft = ReportDraft()
+        }
+        let updatedMedias = try await mediaUploadService.uploadMedias(draftToSubmit.medias)
+        await MainActor.run {
+            draftToSubmit.medias = updatedMedias
+        }
     }
+}
+
+private func saveReportToFirebase(_ draft: ReportDraft) async throws {
+
 }

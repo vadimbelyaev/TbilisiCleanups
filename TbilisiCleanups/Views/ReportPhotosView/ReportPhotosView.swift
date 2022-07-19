@@ -2,7 +2,7 @@ import SwiftUI
 import MapKit
 
 struct ReportPhotosView: View {
-    @EnvironmentObject var currentDraft: ReportDraft
+    @ObservedObject var currentDraft: ReportDraft
     @StateObject var model: ReportPhotosViewModel = .init()
     @State private var isPickerPresented = false
     @State private var isSettingsAlertPresented = false
@@ -21,7 +21,7 @@ struct ReportPhotosView: View {
                 title: "Continue",
                 isDisabled: model.currentDraft.medias.isEmpty
             ) {
-                ReportLocationView()
+                ReportLocationView(currentDraft: currentDraft)
             } auxiliaryView: {
                 EmptyView()
             }
@@ -167,6 +167,6 @@ struct MediaCell: View {
 
 struct ReportPhotosView_Previews: PreviewProvider {
     static var previews: some View {
-        ReportPhotosView()
+        ReportPhotosView(currentDraft: .init())
     }
 }

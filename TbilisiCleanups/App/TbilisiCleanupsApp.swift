@@ -42,7 +42,6 @@ struct TbilisiCleanupsApp: App {
         WindowGroup {
             RootView()
                 .environmentObject(delegate.appState)
-                .environmentObject(delegate.appState.currentDraft)
                 .environmentObject(delegate.appState.userState)
                 .environmentObject(delegate.authService)
                 .environmentObject(delegate.reportService)

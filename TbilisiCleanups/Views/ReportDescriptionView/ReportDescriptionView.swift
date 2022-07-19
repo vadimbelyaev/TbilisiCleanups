@@ -2,7 +2,7 @@ import MapKit
 import SwiftUI
 
 struct ReportDescriptionView: View {
-    @EnvironmentObject private var currentDraft: ReportDraft
+    @ObservedObject var currentDraft: ReportDraft
     @FocusState private var textEditorFocused: Bool
 
     @State private var region: MKCoordinateRegion = .init()
@@ -89,8 +89,7 @@ struct ReportDescriptionView: View {
 }
 
 struct ReportDescriptionView_Previews: PreviewProvider {
-    @State static var draft: ReportDraft = .init()
     static var previews: some View {
-        ReportDescriptionView()
+        ReportDescriptionView(currentDraft: .init())
     }
 }
