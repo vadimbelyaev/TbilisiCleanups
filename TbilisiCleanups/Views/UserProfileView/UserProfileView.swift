@@ -33,13 +33,38 @@ struct UserProfileView: View {
         List {
             Section("My Reports") {
                 ForEach(appState.userReports) { report in
-                    VStack {
-                        Text(report.description ?? "No description")
-                            .font(.headline)
-                        Text(report.createdOn.formatted())
+                    ZStack(alignment: .topLeading) {
+                        AsyncImage(url: report.mainPreviewImageURL) { image in
+                            image
+                                .resizable()
+                                .ignoresSafeArea(.container)
+                                .aspectRatio(contentMode: .fill)
+                                .frame(height: 200)
+                                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        } placeholder: {
+                            Color.secondary.opacity(0.2)
+                                .frame(height: 200)
+                        }
+
+                        VStack(alignment: .leading, spacing: .zero) {
+                            Text(report.description ?? "No description")
+                                .lineLimit(1)
+                                .font(.title)
+                                .foregroundColor(.black)
+                                .padding(4)
+                                .background(Color.white.blur(radius: 8))
+                            Text(formatted(report.createdOn))
+                                .font(.footnote)
+                                .foregroundColor(.black)
+                                .padding(4)
+                                .background(Color.white.blur(radius: 4))
+                        }
+                        .padding()
                     }
+                    .listRowSeparator(.hidden)
                 }
             }
+            .listSectionSeparator(.hidden)
             Section("Account") {
                 Button {
                     authService.signOut()
@@ -62,7 +87,7 @@ struct UserProfileView: View {
         .refreshable {
             try? await reportService.fetchReportsByCurrentUser()
         }
-        .listStyle(.insetGrouped)
+        .listStyle(.inset)
         .navigationTitle(userState.userName ?? "Welcome")
     }
 
@@ -95,6 +120,12 @@ struct UserProfileView: View {
         .sheet(isPresented: $signInScreenPresented) {
             FirebaseAuthView()
         }
+    }
+
+    private static let dateFormatter = RelativeDateTimeFormatter()
+
+    private func formatted(_ date: Date) -> String {
+        Self.dateFormatter.localizedString(for: date, relativeTo: .now)
     }
 }
 

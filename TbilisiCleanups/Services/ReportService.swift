@@ -80,7 +80,7 @@ private func fetchReports(appState: AppState) async throws {
     let reports = snapshot
         .documents
         .map { $0.data() }
-        .compactMap { Report(withFirestoreData: $0) }
+        .compactMap { try? Report(withFirestoreData: $0) }
     appState.userReports = reports
 }
 
