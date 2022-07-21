@@ -3,12 +3,10 @@ name: iOS starter workflow
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
-    name: Build and Test default scheme using any available iPhone simulator
+    name: Deploy to Test Flight
     runs-on: macos-latest
 
     steps:
