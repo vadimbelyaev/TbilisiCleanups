@@ -33,3 +33,5 @@ jobs:
           match-git-basic-authorization: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
           match-build-type: 'appstore'
           browserstack-upload: false
+        env:
+          APP_IDENFIFIER: ${{ secrets.APP_IDENTIFIER }}
