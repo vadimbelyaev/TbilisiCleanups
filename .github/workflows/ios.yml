@@ -14,25 +14,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Build
-        env:
-          scheme: 'TbilisiCleanups'
-          platform: ${{ 'iOS Simulator' }}
-        run: |
-          # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
-          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
-          if [ $scheme = default ]; then scheme=$(cat default); fi
-          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
-          file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
-          xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
-      - name: Test
-        env:
-          scheme: ${{ 'default' }}
-          platform: ${{ 'iOS Simulator' }}
-        run: |
-          # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
-          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
-          if [ $scheme = default ]; then scheme=$(cat default); fi
-          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
-          file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
-          xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
+
+      - uses: sparkfabrik/ios-build-action@v2.0.0
+        with:
+          upload-to-testflight: true
+          increment-build-number: false
+          build-pods: false
+          configuration: Release
+          export-method: app-store
+          workspace-path: ${{ secrets.WORKSPACE_PATH }}
+          project-path: ${{ secrets.PROJECT_PATH }}
+          scheme: TbilisiCleanups
+          output-path: build-${{ github.sha }}.ipa
+          apple-key-id: ${{ secrets.APPLE_KEY_ID }}
+          apple-key-issuer-id: ${{ secrets.APPLE_KEY_ISSUER_ID }}
+          apple-key-content: ${{ secrets.APPLE_KEY_CONTENT }}
+          team-id: ${{ secrets.TEAM_ID }}
+          team-name: ${{ secrets.TEAM_NAME }}
+          match-password: ${{ secrets.MATCH_PASSWORD }}
+          match-git-url: ${{ secrets.MATCH_GIT_URL }}
+          match-git-basic-authorization: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          match-build-type: 'appstore'
+          browserstack-upload: false
