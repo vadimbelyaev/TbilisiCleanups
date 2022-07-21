@@ -40,11 +40,11 @@ struct UserProfileView: View {
                                 .ignoresSafeArea(.container)
                                 .aspectRatio(contentMode: .fill)
                                 .frame(height: 200)
-                                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                         } placeholder: {
-                            Color.secondary.opacity(0.2)
+                            Color.secondary.opacity(0.1)
                                 .frame(height: 200)
                         }
+                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
 
                         VStack(alignment: .leading, spacing: .zero) {
                             Text(report.description ?? "No description")
@@ -52,12 +52,17 @@ struct UserProfileView: View {
                                 .font(.title)
                                 .foregroundColor(.black)
                                 .padding(4)
-                                .background(Color.white.blur(radius: 8))
+                                .background(Color.white.opacity(0.9).blur(radius: 4))
                             Text(formatted(report.createdOn))
-                                .font(.footnote)
+                                .font(.subheadline)
                                 .foregroundColor(.black)
                                 .padding(4)
-                                .background(Color.white.blur(radius: 4))
+                                .background(Color.white.opacity(0.9).blur(radius: 2))
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                statusLabel(for: report)
+                            }
                         }
                         .padding()
                     }
@@ -119,6 +124,32 @@ struct UserProfileView: View {
         .navigationTitle("Sign In")
         .sheet(isPresented: $signInScreenPresented) {
             FirebaseAuthView()
+        }
+    }
+
+    private func statusLabel(for report: Report) -> some View {
+        Text(report.status.localizedDescription)
+            .font(.footnote)
+            .foregroundColor(.white)
+            .padding(EdgeInsets(top: 3, leading: 8, bottom: 3, trailing: 8))
+            .background(statusLabelBackground(for: report.status))
+            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+    }
+
+    private func statusLabelBackground(for status: Report.Status) -> Color {
+        switch status {
+        case.unknown:
+            return .gray
+        case .rejected:
+            return .gray
+        case .scheduled:
+            return .purple
+        case .dirty:
+            return .red
+        case .clean:
+            return .green
+        case .moderation:
+            return .blue
         }
     }
 

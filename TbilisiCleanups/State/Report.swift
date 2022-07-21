@@ -1,11 +1,12 @@
 import Foundation
 
-struct Report: Decodable, Identifiable {
+struct Report: Identifiable {
     let id: String
     let description: String?
     let createdOn: Date
     let photos: [Media]
     let videos: [Media]
+    let status: Status
 
     init(withFirestoreData data: [String: Any]) throws {
         guard let id = data["id"] as? String else {
@@ -33,6 +34,13 @@ struct Report: Decodable, Identifiable {
         } else {
             self.videos = []
         }
+
+        if let statusString = data["status"] as? String,
+           let status = Status(rawValue: statusString) {
+            self.status = status
+        } else {
+            self.status = .unknown
+        }
     }
 
     var mainPreviewImageURL: URL? {
@@ -54,10 +62,19 @@ struct Report: Decodable, Identifiable {
 }
 
 extension Report {
-    struct Media: Decodable {
+    struct Media {
         let id: String
         let url: URL
         let previewImageURL: URL
+    }
+
+    enum Status: String {
+        case moderation
+        case dirty
+        case scheduled
+        case clean
+        case rejected
+        case unknown
     }
 
     enum ParsingError: Error {
