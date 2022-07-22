@@ -1,3 +1,4 @@
+import FirebaseCrashlytics
 import SwiftUI
 
 struct ReportSubmissionView: View {
@@ -12,7 +13,12 @@ struct ReportSubmissionView: View {
             .navigationBarBackButtonHidden(true)
             .onAppear {
                 Task.detached {
-                    try await reportService.submitCurrentDraft()
+                    do {
+                        try await reportService.submitCurrentDraft()
+                    } catch {
+                        Crashlytics.crashlytics().record(error: error)
+                        throw error
+                    }
                     await MainActor.run {
                         isFinished = true
                     }

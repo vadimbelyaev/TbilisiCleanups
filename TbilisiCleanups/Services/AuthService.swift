@@ -1,4 +1,5 @@
 import Firebase
+import FirebaseCrashlytics
 import FirebaseEmailAuthUI
 import FirebaseAuthUI
 import FirebaseOAuthUI
@@ -54,19 +55,29 @@ final class AuthService: NSObject, ObservableObject {
     }()
 
     func signOut() {
-        // TODO: Error handling
-        try? Auth.auth().signOut()
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            Crashlytics.crashlytics().record(error: error)
+        }
     }
 
     func deleteAccount() {
-        // TODO: Error handling
-        Auth.auth().currentUser?.delete()
+        Auth.auth().currentUser?.delete { error in
+            if let error = error {
+                Crashlytics.crashlytics().record(error: error)
+            }
+        }
     }
 }
 
 extension AuthService: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        guard error == nil, authDataResult != nil else { return }
+        if let error = error {
+            Crashlytics.crashlytics().record(error: error)
+            return
+        }
+        guard authDataResult != nil else { return }
         userState.isAuthenticated = true
     }
 }
