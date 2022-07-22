@@ -773,7 +773,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = net.vadimbelyaev.TbilisiCleanups;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "TbilisiCleanups Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore net.vadimbelyaev.TbilisiCleanups";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
