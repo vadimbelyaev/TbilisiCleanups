@@ -26,7 +26,7 @@ jobs:
           fileDir: './Firebase'
           encodedString: ${{ secrets.GOOGLESERVICE_INFO_PLIST_BASE64 }}
 
-      - name: Copy GoogleService-Info.plist
+      - name: Copy SotoAWS.plist
         id: write_aws_file
         uses: timheuer/base64-to-file@v1.1
         with:
@@ -42,3 +42,8 @@ jobs:
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
           FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 600
           FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 5
+          APPLE_KEY_ID: ${{ secrets.APPLE_KEY_ID }}
+          APPLE_KEY_ISSUER_ID: ${{ secrets.APPLE_KEY_ISSUER_ID }}
+          APPLE_KEY_CONTENT: ${{ secrets.APPLE_KEY_CONTENT }}
+          APP_ID: ${{ secrets.APP_ID }}
+          TEAM_NAME: ${{ secrets.TEAM_NAME }}
