@@ -1,4 +1,4 @@
-name: iOS starter workflow
+name: Deploy to TestFlight
 
 on:
   push:
@@ -6,32 +6,13 @@ on:
 
 jobs:
   build:
-    name: Deploy to Test Flight
+    name: Fastlane
     runs-on: macos-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: sparkfabrik/ios-build-action@v2.0.0
-        with:
-          upload-to-testflight: true
-          increment-build-number: false
-          build-pods: false
-          configuration: Release
-          export-method: app-store
-          project-path: TbilisiCleanups.xcodeproj
-          scheme: TbilisiCleanups
-          output-path: build-${{ github.sha }}.ipa
-          apple-key-id: ${{ secrets.APPLE_KEY_ID }}
-          apple-key-issuer-id: ${{ secrets.APPLE_KEY_ISSUER_ID }}
-          apple-key-content: ${{ secrets.APPLE_KEY_CONTENT }}
-          team-id: ${{ secrets.TEAM_ID }}
-          team-name: ${{ secrets.TEAM_NAME }}
-          match-password: ${{ secrets.MATCH_PASSWORD }}
-          match-git-url: ${{ secrets.MATCH_GIT_URL }}
-          match-git-basic-authorization: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
-          match-build-type: 'appstore'
-          browserstack-upload: false
+      - run: fastlane beta
         env:
-          IOS_APP_ID: ${{ secrets.APP_ID }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
