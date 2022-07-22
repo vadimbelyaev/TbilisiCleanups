@@ -16,7 +16,6 @@ final class ReportService: ObservableObject {
         submission.status = .inProgress
         appState.currentSubmission = submission
         appState.draftSubmissionQueue.append(submission)
-        appState.currentDraft = ReportDraft()
 
         do {
             let uploadedMedias = try await mediaUploadService.uploadMedias(submission.draft.medias)
@@ -50,6 +49,7 @@ final class ReportService: ObservableObject {
         // just updating submission.status doesn't update the UI
         appState.currentSubmission = submission
         appState.dequeue(submission: submission)
+        appState.currentDraft = ReportDraft()
 
         Task.detached(priority: .low) { [weak self] in
             guard let self = self else { return }

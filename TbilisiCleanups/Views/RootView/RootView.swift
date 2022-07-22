@@ -1,14 +1,17 @@
 import SwiftUI
 
 struct RootView: View {
+    @EnvironmentObject var appState: AppState
     var body: some View {
-        TabView {
+        TabView(selection: $appState.selectedTab) {
             ReportStartView()
+                .tag(MainTab.reportStart)
             UserProfileView()
             .tabItem {
                 Image(systemName: "person")
                 Text("My Profile")
             }
+            .tag(MainTab.userProfile)
 
             NavigationView {
                 Text("About")
@@ -18,8 +21,15 @@ struct RootView: View {
                 Image(systemName: "info")
                 Text("About")
             }
+            .tag(MainTab.about)
         }
     }
+}
+
+enum MainTab {
+    case reportStart
+    case userProfile
+    case about
 }
 
 struct RootView_Previews: PreviewProvider {

@@ -4,7 +4,6 @@ struct ReportStartView: View {
 
     @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var userState: UserState
-    @State private var reportScreenPresented = false
     @State private var signInScreenPresented = false
 
     var body: some View {
@@ -19,7 +18,7 @@ struct ReportStartView: View {
                     Spacer()
                     if userState.isAuthenticated {
                         Button {
-                            reportScreenPresented = true
+                            appState.isReportSheetPresented = true
                         } label: {
                             Text("Start")
                                 .overlayNavigationLabelStyle()
@@ -42,7 +41,7 @@ struct ReportStartView: View {
             .padding()
             .navigationTitle("New Report")
         }
-        .sheet(isPresented: $reportScreenPresented) {
+        .sheet(isPresented: $appState.isReportSheetPresented) {
             NavigationView {
                 ReportPhotosView()
             }
