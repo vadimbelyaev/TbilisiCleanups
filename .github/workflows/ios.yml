@@ -35,6 +35,13 @@ jobs:
           encodedString: ${{ secrets.SOTOAWS_PLIST_BASE64 }}
 
       - run: bundle install
+
+      - uses: actions/cache@v3
+        with:
+          path: .build
+          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-spm-
       
       - run: bundle exec fastlane beta
         env:

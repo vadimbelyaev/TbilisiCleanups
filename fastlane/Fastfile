@@ -26,6 +26,7 @@ platform :ios do
     setup_ci if ENV['CI']
     match(type: 'appstore')
     increment_build_number(build_number: ENV['GITHUB_RUN_NUMBER'])
+    get_version_number
     build_app
     upload_to_testflight(
         api_key: api_key,
@@ -34,7 +35,11 @@ platform :ios do
         team_name: ENV['TEAM_NAME'],
         skip_waiting_for_build_processing: true,
         skip_submission: true
-      )
+    )
+    add_git_tag(
+      includes_lane: false,
+      prefix: "v" + lane_context[SharedValues:VERSION_NUMBER]
+    )
   end
 end
 
