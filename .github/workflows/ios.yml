@@ -16,7 +16,6 @@ jobs:
       - run: bundle install
       
       - run: bundle exec fastlane beta
-        with:
-          git_basic_authorization: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
