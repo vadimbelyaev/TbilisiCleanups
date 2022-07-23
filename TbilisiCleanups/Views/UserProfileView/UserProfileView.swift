@@ -36,50 +36,46 @@ struct UserProfileView: View {
     private var signedInBody: some View {
         List {
             Section("My Reports") {
-                ForEach(appState.userReports) { report in
-                    ZStack(alignment: .topLeading) {
-                        AsyncImage(url: report.mainPreviewImageURL) { image in
-                            image
-                                .resizable()
-                                .ignoresSafeArea(.container)
-                                .aspectRatio(contentMode: .fill)
-                                .frame(height: 200)
-                        } placeholder: {
-                            Color.secondary.opacity(0.1)
-                                .frame(height: 200)
-                        }
-                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-
-                        VStack(alignment: .leading, spacing: .zero) {
-                            Text(report.description ?? "No description")
-                                .lineLimit(1)
-                                .font(.title)
-                                .foregroundColor(.black)
-                                .padding(4)
-                                .background(Color.white.opacity(0.9).blur(radius: 4))
-                            Text(formatted(report.createdOn))
-                                .font(.subheadline)
-                                .foregroundColor(.black)
-                                .padding(4)
-                                .background(Color.white.opacity(0.9).blur(radius: 2))
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                statusLabel(for: report)
-                            }
-                        }
-                        .padding()
+                if appState.userReportsLoadingState == .loading {
+                    Text("Loading...")
+                }
+                if appState.userReportsLoadingState == .loaded,
+                   appState.userReports.isEmpty {
+                    Text("You haven't submitted any reports of littered places yet.")
+                    Button {
+                        appState.selectedTab = .reportStart
+                    } label: {
+                        Text("Submit a report")
                     }
-                    .listRowSeparator(.hidden)
+                    .buttonStyle(.borderless)
+                }
+                if appState.userReportsLoadingState == .failed {
+                    Label {
+                        Text("Error loading your reports.")
+                    } icon: {
+                        Image(systemName: "exclamationmark.octagon")
+                            .foregroundColor(.red)
+                    }
+
+                    Button {
+                        Task.detached(priority: .low) {
+                            try await reportService.fetchReportsByCurrentUser()
+                        }
+                    } label: {
+                        Text("Retry")
+                    }
+                    .buttonStyle(.borderless)
+                }
+                ForEach(appState.userReports) { report in
+                    reportCell(for: report)
                 }
             }
             .listSectionSeparator(.hidden)
             Section("Account") {
-                Button {
+                Button("Sign out") {
                     authService.signOut()
-                } label: {
-                    Text("Sign out")
                 }
+                .buttonStyle(.borderless)
 
                 Button(role: .destructive) {
                     deleteAccountConfirmationPresented = true
@@ -129,6 +125,43 @@ struct UserProfileView: View {
         .sheet(isPresented: $signInScreenPresented) {
             FirebaseAuthView()
         }
+    }
+
+    private func reportCell(for report: Report) -> some View {
+        ZStack(alignment: .topLeading) {
+            AsyncImage(url: report.mainPreviewImageURL) { image in
+                image
+                    .resizable()
+                    .ignoresSafeArea(.container)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 200)
+            } placeholder: {
+                Color.secondary.opacity(0.1)
+                    .frame(height: 200)
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+
+            VStack(alignment: .leading, spacing: .zero) {
+                Text(report.description ?? "No description")
+                    .lineLimit(1)
+                    .font(.title)
+                    .foregroundColor(.black)
+                    .padding(4)
+                    .background(Color.white.opacity(0.9).blur(radius: 4))
+                Text(formatted(report.createdOn))
+                    .font(.subheadline)
+                    .foregroundColor(.black)
+                    .padding(4)
+                    .background(Color.white.opacity(0.9).blur(radius: 2))
+                Spacer()
+                HStack {
+                    Spacer()
+                    statusLabel(for: report)
+                }
+            }
+            .padding()
+        }
+        .listRowSeparator(.hidden)
     }
 
     private func statusLabel(for report: Report) -> some View {

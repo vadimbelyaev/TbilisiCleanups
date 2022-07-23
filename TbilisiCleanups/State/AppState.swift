@@ -8,6 +8,7 @@ final class AppState: ObservableObject {
     @Published var currentSubmission: ReportSubmission = .init(draft: .init())
     @Published var draftSubmissionQueue: [ReportSubmission] = []
     @Published var userReports: [Report] = []
+    @Published var userReportsLoadingState: LoadingState = .notStarted
     var userState: UserState = .init()
 
     func dequeue(submission: ReportSubmission) {

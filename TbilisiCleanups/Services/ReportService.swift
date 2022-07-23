@@ -64,24 +64,31 @@ final class ReportService: ObservableObject {
 
 @MainActor
 private func fetchReports(appState: AppState) async throws {
-    guard appState.userState.isAuthenticated,
-          let userId = appState.userState.userId,
-          let providerId = appState.userState.userProviderId
-    else {
-        throw ReportServiceError.userUnauthenticated
-    }
+    do {
+        appState.userReportsLoadingState = .loading
+        guard appState.userState.isAuthenticated,
+              let userId = appState.userState.userId,
+              let providerId = appState.userState.userProviderId
+        else {
+            throw ReportServiceError.userUnauthenticated
+        }
 
-    let firestore = Firestore.firestore()
-    let snapshot = try await firestore.collection("reports")
-        .whereField("user_id", isEqualTo: userId)
-        .whereField("user_provider_id", isEqualTo: providerId)
-        .order(by: "created_on", descending: true)
-        .getDocuments()
-    let reports = snapshot
-        .documents
-        .map { $0.data() }
-        .compactMap { try? Report(withFirestoreData: $0) }
-    appState.userReports = reports
+        let firestore = Firestore.firestore()
+        let snapshot = try await firestore.collection("reports")
+            .whereField("user_id", isEqualTo: userId)
+            .whereField("user_provider_id", isEqualTo: providerId)
+            .order(by: "created_on", descending: true)
+            .getDocuments()
+        let reports = snapshot
+            .documents
+            .map { $0.data() }
+            .compactMap { try? Report(withFirestoreData: $0) }
+        appState.userReports = reports
+        appState.userReportsLoadingState = .loaded
+    } catch {
+        appState.userReportsLoadingState = .failed
+        throw error
+    }
 }
 
 private func saveSubmissionToFirebase(
