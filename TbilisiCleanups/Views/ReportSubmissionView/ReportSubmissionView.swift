@@ -13,6 +13,17 @@ struct ReportSubmissionView: View {
             .navigationTitle("Submitting Report")
             .navigationBarBackButtonHidden(true)
             .onAppear { sendReport() }
+            .onChange(of: appState.currentSubmission.status) { newValue in
+                if newValue == .succeeded {
+                    let generator = UINotificationFeedbackGenerator()
+                    generator.prepare()
+                    generator.notificationOccurred(.success)
+                } else if case .failed = newValue {
+                    let generator = UINotificationFeedbackGenerator()
+                    generator.prepare()
+                    generator.notificationOccurred(.error)
+                }
+            }
     }
 
     @ViewBuilder
