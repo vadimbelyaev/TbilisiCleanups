@@ -30,7 +30,7 @@ platform :ios do
 
     # Add a Git tag
     git_tag = "v#{lane_context[SharedValues::VERSION_NUMBER]}.#{ENV['GITHUB_RUN_NUMBER']}"
-    UI.message("Adding a Git tag #{git_tag_prefix}")
+    UI.message("Adding a Git tag #{git_tag}")
     add_git_tag(
       tag: git_tag
     )
