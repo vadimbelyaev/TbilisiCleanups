@@ -26,6 +26,7 @@ struct UserProfileView: View {
             }
 
         }
+        .navigationViewStyle(.stack)
         .tabItem {
             Image(systemName: "person")
             Text("My Profile")

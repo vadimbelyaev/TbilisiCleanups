@@ -27,6 +27,7 @@ struct AboutView: View {
             }
             .navigationTitle("About")
         }
+        .navigationViewStyle(.stack)
         .tabItem {
             Image(systemName: "info")
             Text("About")
