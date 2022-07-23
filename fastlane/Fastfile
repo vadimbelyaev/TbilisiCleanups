@@ -27,20 +27,6 @@ platform :ios do
     match(type: 'appstore')
     increment_build_number(build_number: ENV['GITHUB_RUN_NUMBER'])
     get_version_number
-
-    # Add a Git tag
-    git_tag = "v#{lane_context[SharedValues::VERSION_NUMBER]}.#{ENV['GITHUB_RUN_NUMBER']}"
-    UI.message("Adding a Git tag #{git_tag}")
-    add_git_tag(
-      tag: git_tag
-    )
-
-    # Push git tag to remote
-    UI.message("Pushing Git tag #{git_tag} to the remote repository...")
-    cmd = "git push origin #{git_tag}"
-    Actions.sh(cmd)
-    UI.message("Git tag #{git_tag} successfully pushed to remote.")
-
     build_app
     upload_to_testflight(
         api_key: api_key,
@@ -50,6 +36,18 @@ platform :ios do
         skip_waiting_for_build_processing: true,
         skip_submission: true
     )
+
+    # Add a Git tag
+    git_tag = "v#{lane_context[SharedValues::VERSION_NUMBER]}.#{ENV['GITHUB_RUN_NUMBER']}"
+    UI.message("Adding a Git tag #{git_tag}...")
+    add_git_tag(
+      tag: git_tag
+    )
+
+    # Push git tag to remote
+    UI.message("Pushing Git tag #{git_tag} to the remote repository...")
+    cmd = "git push origin #{git_tag}"
+    Actions.sh(cmd)
   end
 end
 
