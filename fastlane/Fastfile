@@ -27,12 +27,20 @@ platform :ios do
     match(type: 'appstore')
     increment_build_number(build_number: ENV['GITHUB_RUN_NUMBER'])
     get_version_number
-    git_tag_prefix = "v#{lane_context[SharedValues::VERSION_NUMBER]}"
-    puts "Git tag prefix will be #{git_tag_prefix}"
+
+    # Add a Git tag
+    git_tag = "v#{lane_context[SharedValues::VERSION_NUMBER]}.#{ENV['GITHUB_RUN_NUMBER']}"
+    UI.message("Adding a Git tag #{git_tag_prefix}")
     add_git_tag(
-      includes_lane: false,
-      prefix: git_tag_prefix
+      tag: git_tag
     )
+
+    # Push git tag to remote
+    UI.message("Pushing Git tag #{git_tag} to the remote repository...")
+    cmd = "git push origin #{git_tag}"
+    Actions.sh(cmd)
+    UI.message("Git tag #{git_tag} successfully pushed to remote.")
+
     build_app
     upload_to_testflight(
         api_key: api_key,
