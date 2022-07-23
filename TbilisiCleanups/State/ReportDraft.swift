@@ -1,18 +1,23 @@
 import MapKit
 
-struct ReportDraft: Identifiable {
-    let id = UUID()
-    var locationRegion = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(
-            latitude: 42.182_724,
-            longitude: 43.523_521
-        ),
-        latitudinalMeters: 600_000,
-        longitudinalMeters: 600_000
-    )
+struct ReportDraft: Identifiable, Codable {
+    let id: UUID
+    var locationRegion: CodableLocationRegion = Self.defaultLocation
     var placeDescription: String = ""
     var medias: [PlaceMedia] = []
     var uploadedMediasByType: UploadedMediasByType = .init(photos: [], videos: [])
+
+    init() {
+        id = UUID()
+    }
+
+    var isBlank: Bool {
+        locationRegion == Self.defaultLocation
+            && placeDescription.isEmpty
+            && medias.isEmpty
+            && uploadedMediasByType.photos.isEmpty
+            && uploadedMediasByType.videos.isEmpty
+    }
 
     mutating func remove(media: PlaceMedia) {
         guard let index = medias.firstIndex(where: { $0.id == media.id }) else {
@@ -20,9 +25,47 @@ struct ReportDraft: Identifiable {
         }
         medias.remove(at: index)
     }
+
+    static let defaultLocation = CodableLocationRegion(
+        region: MKCoordinateRegion(
+            center: CLLocationCoordinate2D(
+                latitude: 42.182_724,
+                longitude: 43.523_521
+            ),
+            latitudinalMeters: 600_000,
+            longitudinalMeters: 600_000
+        )
+    )
 }
 
-struct PlaceMedia: Identifiable {
+struct CodableLocationRegion: Codable, Equatable {
+    let centerLatitude: Double
+    let centerLongitude: Double
+    let spanLatitudeDelta: Double
+    let spanLongitudeDelta: Double
+
+    init(region: MKCoordinateRegion) {
+        self.centerLatitude = region.center.latitude
+        self.centerLongitude = region.center.longitude
+        self.spanLatitudeDelta = region.span.latitudeDelta
+        self.spanLongitudeDelta = region.span.longitudeDelta
+    }
+
+    var mkCoordinateRegion: MKCoordinateRegion {
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(
+                latitude: centerLatitude,
+                longitude: centerLongitude
+            ),
+            span: MKCoordinateSpan(
+                latitudeDelta: spanLatitudeDelta,
+                longitudeDelta: spanLongitudeDelta
+            )
+        )
+    }
+}
+
+struct PlaceMedia: Identifiable, Codable {
     let assetId: String
 
     init(assetId: String) {
@@ -34,12 +77,12 @@ struct PlaceMedia: Identifiable {
     }
 }
 
-struct UploadedMediasByType {
+struct UploadedMediasByType: Codable {
     let photos: [UploadedMedia]
     let videos: [UploadedMedia]
 }
 
-struct UploadedMedia: Identifiable {
+struct UploadedMedia: Identifiable, Codable {
     let id: String
     let assetId: String
     let url: URL
@@ -79,6 +122,4 @@ extension ReportSubmission {
             }
         }
     }
-
-
 }

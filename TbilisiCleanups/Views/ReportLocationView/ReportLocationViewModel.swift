@@ -51,10 +51,12 @@ extension ReportLocationViewModel: CLLocationManagerDelegate {
         locationButtonState = .idle
         guard let location = locations.first else { return }
         let meters = location.horizontalAccuracy * 6
-        appState.currentDraft.locationRegion = MKCoordinateRegion(
-            center: location.coordinate,
-            latitudinalMeters: meters,
-            longitudinalMeters: meters
+        appState.currentDraft.locationRegion = .init(
+            region: MKCoordinateRegion(
+                center: location.coordinate,
+                latitudinalMeters: meters,
+                longitudinalMeters: meters
+            )
         )
     }
 

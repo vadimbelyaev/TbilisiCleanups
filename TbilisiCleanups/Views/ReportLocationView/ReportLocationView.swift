@@ -7,6 +7,7 @@ struct ReportLocationView: View {
 
     @EnvironmentObject var appState: AppState
     @StateObject private var model = ReportLocationViewModel()
+    @State private var region: MKCoordinateRegion = .init()
 
     var body: some View {
         ZStack {
@@ -20,14 +21,18 @@ struct ReportLocationView: View {
             }
         }
         .navigationTitle("Location")
+        .onChange(of: region) { newValue in
+            appState.currentDraft.locationRegion = .init(region: newValue)
+        }
         .onAppear {
+            region = appState.currentDraft.locationRegion.mkCoordinateRegion
             model.setUpBindings(appState: appState)
         }
     }
 
     private var map: some View {
         MapView(
-            region: $appState.currentDraft.locationRegion
+            region: $region
         )
             .ignoresSafeArea(
                 .all,

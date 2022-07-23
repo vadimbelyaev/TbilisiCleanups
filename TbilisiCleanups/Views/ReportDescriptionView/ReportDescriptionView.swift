@@ -39,7 +39,7 @@ struct ReportDescriptionView: View {
         }
         .navigationTitle("Description")
         .onAppear {
-            region = appState.currentDraft.locationRegion
+            region = appState.currentDraft.locationRegion.mkCoordinateRegion
         }
     }
 

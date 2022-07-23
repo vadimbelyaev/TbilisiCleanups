@@ -20,7 +20,7 @@ struct ReportStartView: View {
                         Button {
                             appState.isReportSheetPresented = true
                         } label: {
-                            Text("Start")
+                            Text(appState.currentDraft.isBlank ? "Start" : "Continue with saved draft")
                                 .overlayNavigationLabelStyle()
                         }
                         .overlayNavigationLinkStyle()

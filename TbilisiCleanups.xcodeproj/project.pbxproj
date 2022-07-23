@@ -52,6 +52,8 @@
 		DDCE784C288443C800ACA7BF /* ReportSubmissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */; };
 		DDCE78572884AFC100ACA7BF /* SotoS3 in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE78562884AFC100ACA7BF /* SotoS3 */; };
 		DDCE785A2884B3AD00ACA7BF /* SotoAWS.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDCE78592884B3AD00ACA7BF /* SotoAWS.plist */; };
+		DDEC9E31288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */; };
+		DDEC9E33288C7FFA00706A55 /* StateRestorationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEC9E32288C7FFA00706A55 /* StateRestorationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		DDCE78482884434A00ACA7BF /* ReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
 		DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSubmissionView.swift; sourceTree = "<group>"; };
 		DDCE78592884B3AD00ACA7BF /* SotoAWS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SotoAWS.plist; sourceTree = "<group>"; };
+		DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Equatable.swift"; sourceTree = "<group>"; };
+		DDEC9E32288C7FFA00706A55 /* StateRestorationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRestorationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +233,7 @@
 				DDCE78202883F90600ACA7BF /* ReportDraft.swift */,
 				DDCE78222883F96000ACA7BF /* UserState.swift */,
 				DD0632E6288C3CE3001DEC31 /* LoadingState.swift */,
+				DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				DDCE78482884434A00ACA7BF /* ReportService.swift */,
 				DD7838732884B6FF00ED2CE9 /* S3Service.swift */,
 				DD7838712884B56C00ED2CE9 /* SotoAWSConfigHelper.swift */,
+				DDEC9E32288C7FFA00706A55 /* StateRestorationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -546,8 +552,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD2AF405287F61FB0017A64C /* RootView.swift in Sources */,
+				DDEC9E31288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift in Sources */,
 				DDCE7847288438CF00ACA7BF /* UserProfileView.swift in Sources */,
 				DDCE781F2883697800ACA7BF /* OverlayNavigationLink.swift in Sources */,
+				DDEC9E33288C7FFA00706A55 /* StateRestorationService.swift in Sources */,
 				DDCE78212883F90600ACA7BF /* ReportDraft.swift in Sources */,
 				DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */,
 				DDCE784C288443C800ACA7BF /* ReportSubmissionView.swift in Sources */,

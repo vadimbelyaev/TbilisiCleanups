@@ -2,6 +2,7 @@ import FirebaseCrashlytics
 import os.log
 import SwiftUI
 import AVFoundation
+import MapKit
 import Photos
 
 @MainActor
@@ -60,11 +61,16 @@ final class ReportPhotosViewModel: ObservableObject {
     }
 
     func updateDraftLocationBasedOnPhotos() {
-        guard let location = getFirstLocationOfSelectedPhotos() else {
-            return
-        }
-        appState.currentDraft.locationRegion.center = location.coordinate
-        appState.currentDraft.locationRegion.span = .init(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        guard appState.currentDraft.locationRegion == ReportDraft.defaultLocation,
+              let location = getFirstLocationOfSelectedPhotos()
+        else { return }
+
+        appState.currentDraft.locationRegion = .init(
+            region: MKCoordinateRegion(
+                center: location.coordinate,
+                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            )
+        )
     }
 }
 
