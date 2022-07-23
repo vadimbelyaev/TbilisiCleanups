@@ -13,46 +13,16 @@ struct AboutView: View {
             List {
                 Section("What is Tbilisi Clean-ups") {
                     Text("Tbilisi Clean-ups is a volunteer eco initiative in the country of Georgia 🇬🇪. We get together to clean up public parks and recreation zones.\n\nBe a part of the solution, not the problem!")
-                    Button {
-                        openSocialURL(.website)
-                    } label: {
-                        Label {
-                            Text("Our website nogarba.ge")
-                        } icon: {
-                            Image(systemName: "globe")
-                                .resizable()
-                                .frame(width: 28, height: 28)
-                        }
-
-                    }
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.vertical)
+                    socialButton(for: .website, withText: "Our website nogarba.ge")
                 }
 
                 Section("Social") {
-                    Button {
-                        openSocialURL(.facebook)
-                    } label: {
-                        Label {
-                            Text("Facebook")
-                        } icon: {
-                            Image("Social/Facebook")
-                                .resizable()
-                                .frame(width: 28, height: 28)
-                        }
-
-                    }
-
-                    Button {
-                        openSocialURL(.instagram)
-                    } label: {
-                        Label {
-                            Text("Instagram")
-                        } icon: {
-                            Image("Social/Instagram")
-                                .resizable()
-                                .frame(width: 28, height: 28)
-                        }
-
-                    }
+                    socialButton(for: .facebook, withText: "Facebook")
+                    socialButton(for: .instagram, withText: "Instagram")
+                    socialButton(for: .telegramChannel, withText: "Telegram channel")
+                    socialButton(for: .telegramChat, withText: "Telegram chat")
                 }
             }
             .navigationTitle("About")
@@ -60,6 +30,23 @@ struct AboutView: View {
         .tabItem {
             Image(systemName: "info")
             Text("About")
+        }
+    }
+
+    private func socialButton(
+        for socialURL: SocialURL,
+        withText text: LocalizedStringKey
+    ) -> some View {
+        Button {
+            openSocialURL(socialURL)
+        } label: {
+            Label {
+                Text(text)
+            } icon: {
+                socialURL.image
+                    .resizable()
+                    .frame(width: 28, height: 28)
+            }
         }
     }
 
@@ -75,6 +62,21 @@ private enum SocialURL: String {
     case website = "https://nogarba.ge"
     case facebook = "https://www.facebook.com/tbilisicleanups"
     case instagram = "https://instagram.com/tbilisi_clean_ups"
+    case telegramChannel = "https://t.me/tbilisicleanups"
+    case telegramChat = "https://t.me/tbilisi_cleanups"
+
+    var image: Image {
+        switch self {
+        case .website:
+            return Image(systemName: "globe")
+        case .facebook:
+            return Image("Social/Facebook")
+        case .instagram:
+            return Image("Social/Instagram")
+        case .telegramChannel, .telegramChat:
+            return Image("Social/Telegram")
+        }
+    }
 }
 
 struct AboutView_Previews: PreviewProvider {

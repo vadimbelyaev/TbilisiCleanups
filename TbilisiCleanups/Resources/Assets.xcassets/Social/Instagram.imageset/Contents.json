@@ -1,17 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "Instagram_Glyph_Gradient_50x50.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Instagram_Glyph_Gradient_100x100.png",
+      "filename" : "Instagram_Glyph_Gradient_28x28@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Instagram_Glyph_Gradient_150x150.png",
+      "filename" : "Instagram_Glyph_Gradient_28x28@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
