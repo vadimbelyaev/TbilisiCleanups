@@ -26,6 +26,10 @@ struct UserProfileView: View {
             }
 
         }
+        .tabItem {
+            Image(systemName: "person")
+            Text("My Profile")
+        }
     }
 
     @ViewBuilder

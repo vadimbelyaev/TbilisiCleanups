@@ -58,10 +58,27 @@ final class ReportSubmission: Identifiable, ObservableObject {
 }
 
 extension ReportSubmission {
-    enum Status {
+    enum Status: Equatable {
         case notStarted
         case inProgress
         case failed(error: Error)
         case succeeded
+
+        static func == (lhs: ReportSubmission.Status, rhs: ReportSubmission.Status) -> Bool {
+            switch (lhs, rhs) {
+            case (.notStarted, .notStarted):
+                return true
+            case (.inProgress, .inProgress):
+                return true
+            case (.failed, .failed):
+                return true
+            case (.succeeded, .succeeded):
+                return true
+            default:
+                return false
+            }
+        }
     }
+
+
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD0632E5288BD976001DEC31 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0632E4288BD976001DEC31 /* AboutView.swift */; };
 		DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */; };
 		DD2AF405287F61FB0017A64C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF404287F61FB0017A64C /* RootView.swift */; };
 		DD2AF407287F61FC0017A64C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2AF406287F61FC0017A64C /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD0632E4288BD976001DEC31 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		DD2AF3FF287F61FB0017A64C /* TbilisiCleanups.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TbilisiCleanups.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbilisiCleanupsApp.swift; sourceTree = "<group>"; };
 		DD2AF404287F61FB0017A64C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -145,6 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD0632E3288BD962001DEC31 /* AboutView */ = {
+			isa = PBXGroup;
+			children = (
+				DD0632E4288BD976001DEC31 /* AboutView.swift */,
+			);
+			path = AboutView;
+			sourceTree = "<group>";
+		};
 		DD2AF3F6287F61FB0017A64C = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				DD2AF47A28821AE00017A64C /* UI Components */,
+				DD0632E3288BD962001DEC31 /* AboutView */,
 				DDCE77FE2882F47600ACA7BF /* ReportDescriptionView */,
 				DDCE77FC2882F45F00ACA7BF /* ReportLocationView */,
 				DDCE78002882F48A00ACA7BF /* ReportPhotosView */,
@@ -550,6 +561,7 @@
 				DD2AF46E287F71B70017A64C /* ReportLocationView.swift in Sources */,
 				DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */,
 				DDCE78232883F96000ACA7BF /* UserState.swift in Sources */,
+				DD0632E5288BD976001DEC31 /* AboutView.swift in Sources */,
 				DD39F262288623D20023F01D /* MediaUploadService.swift in Sources */,
 				DD7838722884B56C00ED2CE9 /* SotoAWSConfigHelper.swift in Sources */,
 				DDCE78442884341F00ACA7BF /* AuthService.swift in Sources */,
