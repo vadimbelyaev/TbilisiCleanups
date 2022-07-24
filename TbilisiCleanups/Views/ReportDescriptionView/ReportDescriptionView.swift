@@ -19,6 +19,7 @@ struct ReportDescriptionView: View {
                         } auxiliaryView: {
                             EmptyView()
                         }
+                        .disabled(appState.currentDraft.hasEmptyDescription)
                         .padding(.vertical)
                     }
                 }

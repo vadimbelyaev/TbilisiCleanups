@@ -19,6 +19,10 @@ struct ReportDraft: Identifiable, Codable {
             && uploadedMediasByType.videos.isEmpty
     }
 
+    var hasEmptyDescription: Bool {
+        placeDescription.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
     mutating func remove(media: PlaceMedia) {
         guard let index = medias.firstIndex(where: { $0.id == media.id }) else {
             return

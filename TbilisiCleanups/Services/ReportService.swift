@@ -109,7 +109,7 @@ private func saveSubmissionToFirebase(
         ],
         "photos": draft.uploadedMediasByType.photos.map { $0.serializedForExport() },
         "videos": draft.uploadedMediasByType.videos.map { $0.serializedForExport() },
-        "description": draft.placeDescription
+        "description": draft.placeDescription.trimmingCharacters(in: .whitespacesAndNewlines)
     ]
 
     let firestore = Firestore.firestore()
