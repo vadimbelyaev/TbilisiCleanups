@@ -27,15 +27,6 @@ struct ReportDescriptionView: View {
         .onTapGesture {
             textEditorFocused = false
         }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink {
-                    ReportSubmissionView()
-                } label: {
-                    Text("Submit")
-                }
-            }
-        }
         .navigationTitle("Description")
         .onAppear {
             region = appState.currentDraft.locationRegion.mkCoordinateRegion
