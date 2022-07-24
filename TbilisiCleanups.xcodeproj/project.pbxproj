@@ -562,7 +562,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Tools/swiftlint\" --config \"${SRCROOT}/.swiftlint.yml\"\n";
+			shellScript = "if [ \"${ENABLE_PREVIEWS}\" = \"YES\" ]; then\n    echo \"Skipping: build for SwiftUI previews\"\n    exit 0\nfi\n\nif [ \"${CONFIGURATION}\" != \"Debug\" ]; then\n    echo \"Skipping: not a Debug build\"\n    exit 0\nfi\n\n\"${SRCROOT}/Tools/swiftlint\" --config \"${SRCROOT}/.swiftlint.yml\"\n";
 		};
 		DDE290ED288D7A2B004ED1D9 /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -580,7 +580,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Tools/swiftformat\" .\n";
+			shellScript = "if [ \"${ENABLE_PREVIEWS}\" = \"YES\" ]; then\n    echo \"Skipping: build for SwiftUI previews\"\n    exit 0\nfi\n\nif [ \"${CONFIGURATION}\" != \"Debug\" ]; then\n    echo \"Skipping: not a Debug build\"\n    exit 0\nfi\n\n\"${SRCROOT}/Tools/swiftformat\" .\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
