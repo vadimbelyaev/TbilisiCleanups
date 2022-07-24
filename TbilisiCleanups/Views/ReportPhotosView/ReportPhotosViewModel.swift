@@ -9,7 +9,6 @@ import SwiftUI
 final class ReportPhotosViewModel: ObservableObject {
     @ObservedObject var appState: AppState = .init()
     @Published var authorization: PHAuthorizationStatus
-    private let imageManager = PHImageManager()
 
     init() {
         authorization = PHPhotoLibrary.authorizationStatus(for: .readWrite)
@@ -76,6 +75,9 @@ final class ReportPhotosViewModel: ObservableObject {
 
 extension PlaceMedia {
     func fetchThumbnail(for size: CGSize) async -> UIImage? {
+        guard [.authorized, .limited].contains(PHPhotoLibrary.authorizationStatus(for: .readWrite)) else {
+            return nil
+        }
         let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: [id], options: nil)
         guard let asset = fetchResult.firstObject else { return nil }
         let scale = await UIScreen.main.scale
@@ -88,7 +90,7 @@ extension PlaceMedia {
             options.isSynchronous = true
             options.resizeMode = .fast
             options.deliveryMode = .highQualityFormat
-            imageManager.requestImage(
+            PHImageManager.default().requestImage(
                 for: asset,
                 targetSize: targetSize,
                 contentMode: .aspectFill,
@@ -99,6 +101,3 @@ extension PlaceMedia {
         }
     }
 }
-
-private let logger = Logger()
-private let imageManager = PHImageManager.default()

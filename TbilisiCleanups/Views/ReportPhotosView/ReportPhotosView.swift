@@ -1,10 +1,12 @@
 import MapKit
+import Photos
 import SwiftUI
 
 struct ReportPhotosView: View {
     @EnvironmentObject var appState: AppState
     @StateObject var model: ReportPhotosViewModel = .init()
     @State private var isPickerPresented = false
+    @State private var isLimitedPickerPresented = false
     @State private var isSettingsAlertPresented = false
 
     var body: some View {
@@ -13,6 +15,9 @@ struct ReportPhotosView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     Text("Show us what a littered place you found looks like:")
                     grid
+                    if model.authorization == .limited {
+                        limitedLibraryAccessView
+                    }
                     Spacer(minLength: 100)
                 }
                 .padding(.horizontal)
@@ -107,6 +112,21 @@ struct ReportPhotosView: View {
                 .strokeBorder(.selection)
         )
         .photoSettingsAlert(isPresented: $isSettingsAlertPresented)
+    }
+
+    private var limitedLibraryAccessView: some View {
+        VStack(alignment: .leading) {
+            Text("You allowed limited access to your photo library.")
+                .font(.footnote)
+                .foregroundColor(.secondary)
+            Button {
+                isLimitedPickerPresented = true
+            } label: {
+                Text("Select more photos...")
+                    .font(.footnote)
+            }
+            LimitedPhotoPicker(isPresented: $isLimitedPickerPresented)
+        }
     }
 }
 
