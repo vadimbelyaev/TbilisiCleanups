@@ -43,7 +43,7 @@ final class AuthService: NSObject, ObservableObject {
             fatalError("Could not create Auth UI")
         }
         authUI.providers = [
-            FUIEmailAuth(),
+            FUIEmailAuth()
 //            FUIOAuth.appleAuthProvider(),
 //            FUIGoogleAuth(authUI: authUI),
 //            FUIFacebookAuth(authUI: authUI),

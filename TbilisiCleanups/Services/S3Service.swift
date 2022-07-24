@@ -4,7 +4,7 @@ import SotoS3
 final class S3Service {
     private let bucketName: String
     private let awsClient: AWSClient
-    private let s3: S3
+    private let s3: S3 // swiftlint:disable:this identifier_name
     private let config: SotoAWSConfig
 
     init() throws {
@@ -41,7 +41,7 @@ final class S3Service {
             contentType: contentType,
             key: key
         )
-        let _ = try await s3.putObject(request)
+        _ = try await s3.putObject(request)
         let urlString =
             """
             https://s3.\(config.s3Region.rawValue).amazonaws.com/\

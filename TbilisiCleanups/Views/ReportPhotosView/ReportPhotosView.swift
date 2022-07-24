@@ -136,7 +136,7 @@ private extension View {
 
 struct MediaCell: View {
     private let placeMedia: PlaceMedia
-    @State private var image: UIImage? = nil
+    @State private var image: UIImage?
 
     init(placeMedia: PlaceMedia) {
         self.placeMedia = placeMedia

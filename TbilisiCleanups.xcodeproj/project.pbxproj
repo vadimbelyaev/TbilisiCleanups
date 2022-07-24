@@ -562,7 +562,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Tools/swiftlint\"\n";
+			shellScript = "\"${SRCROOT}/Tools/swiftlint\" --config \"${SRCROOT}/.swiftlint.yml\"\n";
 		};
 		DDE290ED288D7A2B004ED1D9 /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;

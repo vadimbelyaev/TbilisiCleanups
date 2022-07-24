@@ -1,0 +1,4 @@
+disabled_rules:
+  - opening_brace
+  - unused_closure_parameter
+

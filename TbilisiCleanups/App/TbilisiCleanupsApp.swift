@@ -23,7 +23,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
         // Ensuring the service is created as early as possible
         // because it listens to the user authentication changes
-        let _ = authService
+        _ = authService
 
         setUpGlobalSubscriptions()
         UIApplication.shared.registerForRemoteNotifications()

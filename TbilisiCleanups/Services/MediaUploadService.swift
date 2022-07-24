@@ -211,19 +211,20 @@ private func uploadVideoAsset(
 private func exportSessionForVideoAsset(_ asset: PHAsset) async throws -> AVAssetExportSession {
     let avAsset = try await fetchAVAsset(for: asset)
     let preset = try await videoExportPreset(for: avAsset)
-    return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<AVAssetExportSession, Error>) in
-        PHImageManager.default().requestExportSession(
-            forVideo: asset,
-            options: makeVideoRequestOptions(),
-            exportPreset: preset
-        ) { session, info in
-            guard let session = session else {
-                continuation.resume(throwing: MediaExportError.cannotGetAVAssetExportSession)
-                return
+    return try await withCheckedThrowingContinuation
+        { (continuation: CheckedContinuation<AVAssetExportSession, Error>) in
+            PHImageManager.default().requestExportSession(
+                forVideo: asset,
+                options: makeVideoRequestOptions(),
+                exportPreset: preset
+            ) { session, info in
+                guard let session = session else {
+                    continuation.resume(throwing: MediaExportError.cannotGetAVAssetExportSession)
+                    return
+                }
+                continuation.resume(returning: session)
             }
-            continuation.resume(returning: session)
         }
-    }
 }
 
 private func fetchAVAsset(for asset: PHAsset) async throws -> AVAsset {
@@ -246,7 +247,7 @@ private func videoExportPreset(for asset: AVAsset) async throws -> String {
         AVAssetExportPresetMediumQuality,
         AVAssetExportPreset1280x720,
         AVAssetExportPresetLowQuality,
-        AVAssetExportPreset960x540,
+        AVAssetExportPreset960x540
     ]
     let compatiblePresets = AVAssetExportSession.exportPresets(compatibleWith: asset)
     let allPresets = preferredPresets + compatiblePresets
