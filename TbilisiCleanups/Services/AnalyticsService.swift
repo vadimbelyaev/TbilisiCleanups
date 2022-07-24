@@ -14,6 +14,7 @@ protocol FirebaseAnalyticsLoggable {
 enum AppError: FirebaseAnalyticsLoggable {
     case couldNotParseReportMediaFromFirebase(data: [String: String])
     case duplicateAttemptToSendReport
+    case reportsWithDuplicateIDExist(reportID: String)
 
     var eventName: String { "app_error" }
 
@@ -27,6 +28,11 @@ enum AppError: FirebaseAnalyticsLoggable {
         case .duplicateAttemptToSendReport:
             return [
                 "error_type": "duplicateAttemptToSendReport"
+            ]
+        case let .reportsWithDuplicateIDExist(reportID):
+            return [
+                "error_type": "reportsWithDuplicateIDExist",
+                "report_id": reportID
             ]
         }
     }

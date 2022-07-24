@@ -90,7 +90,21 @@ private func fetchReports(appState: AppState) async throws {
             .documents
             .map { $0.data() }
             .compactMap { try? Report(withFirestoreData: $0) }
-        appState.userReports = reports
+
+        // Double check for duplicate IDs. Reports with duplicate IDs will
+        // mess up the rendering and indicate report submission duplicates.
+        var reportIDs: Set<String> = []
+        var reportsWithUniqueIDs: [Report] = []
+        for report in reports {
+            if reportIDs.contains(report.id) {
+                AnalyticsService.logEvent(AppError.reportsWithDuplicateIDExist(reportID: report.id))
+            } else {
+                reportIDs.insert(report.id)
+                reportsWithUniqueIDs.append(report)
+            }
+        }
+
+        appState.userReports = reportsWithUniqueIDs
         appState.userReportsLoadingState = .loaded
     } catch {
         appState.userReportsLoadingState = .failed
