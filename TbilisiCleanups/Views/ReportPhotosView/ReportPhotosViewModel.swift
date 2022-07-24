@@ -102,4 +102,4 @@ extension PlaceMedia {
 }
 
 private let logger = Logger()
-private let imageManager = PHImageManager()
+private let imageManager = PHImageManager.default()
