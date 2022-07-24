@@ -9,13 +9,13 @@ import FirebaseOAuthUI
 
 @MainActor
 final class AuthService: NSObject, ObservableObject {
-    private let userState: UserState
+    private let appState: AppState
 
     private let userSubject: PassthroughSubject<Firebase.User?, Never> = .init()
     private(set) lazy var userPublisher = userSubject.eraseToAnyPublisher()
 
-    init(userState: UserState) {
-        self.userState = userState
+    init(appState: AppState) {
+        self.appState = appState
         super.init()
         Auth.auth().addStateDidChangeListener { auth, user in
             DispatchQueue.main.async { [weak self] in
@@ -24,15 +24,15 @@ final class AuthService: NSObject, ObservableObject {
                 if let user = user,
                    !user.isAnonymous
                 {
-                    self.userState.isAuthenticated = true
-                    self.userState.userId = user.providerData.first?.uid ?? "unknown"
-                    self.userState.userProviderId = user.providerData.first?.providerID ?? "unknown"
-                    self.userState.userName = user.displayName
+                    self.appState.userState.isAuthenticated = true
+                    self.appState.userState.userId = user.providerData.first?.uid ?? "unknown"
+                    self.appState.userState.userProviderId = user.providerData.first?.providerID ?? "unknown"
+                    self.appState.userState.userName = user.displayName
                 } else {
-                    self.userState.isAuthenticated = false
-                    self.userState.userId = nil
-                    self.userState.userProviderId = nil
-                    self.userState.userName = nil
+                    self.appState.userState.isAuthenticated = false
+                    self.appState.userState.userId = nil
+                    self.appState.userState.userProviderId = nil
+                    self.appState.userState.userName = nil
                 }
             }
         }
@@ -56,6 +56,7 @@ final class AuthService: NSObject, ObservableObject {
     func signOut() {
         do {
             try Auth.auth().signOut()
+            appState.currentDraft = .init()
         } catch {
             Crashlytics.crashlytics().record(error: error)
         }
@@ -77,6 +78,6 @@ extension AuthService: FUIAuthDelegate {
             return
         }
         guard authDataResult != nil else { return }
-        userState.isAuthenticated = true
+        appState.userState.isAuthenticated = true
     }
 }

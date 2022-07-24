@@ -7,11 +7,20 @@ struct ReportSubmissionView: View {
     @State private var isFinished = false
     @Environment(\.dismiss) private var dismiss
 
+    // Sometimes onAppear is called more than once, this flag
+    // ensures we don't send the same report several times.
+    @State private var hasAppeared = false
+
     var body: some View {
         statusView
             .navigationTitle("Submitting Report")
             .navigationBarBackButtonHidden(true)
-            .onAppear { sendReport() }
+            .onAppear {
+                if !hasAppeared {
+                    sendReport()
+                }
+                hasAppeared = true
+            }
             .onChange(of: appState.currentSubmission.status) { newValue in
                 if newValue == .succeeded {
                     let generator = UINotificationFeedbackGenerator()

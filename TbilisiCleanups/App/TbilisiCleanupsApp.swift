@@ -6,7 +6,7 @@ import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     let appState: AppState = .init()
-    private(set) lazy var authService = AuthService(userState: appState.userState)
+    private(set) lazy var authService = AuthService(appState: appState)
     private(set) lazy var reportService = ReportService(appState: appState)
     private(set) lazy var stateRestorationService = StateRestorationService(appState: appState)
 

@@ -15,11 +15,20 @@ final class StateRestorationService {
         userDefaults.set(data, forKey: "currentDraft")
     }
 
+    func eraseDraftState() {
+        userDefaults.set(nil, forKey: "currentDraft")
+    }
+
     func restoreState() throws {
         guard let data = userDefaults.object(forKey: "currentDraft") as? Data
         else { return }
         let decoder = JSONDecoder()
-        let draft = try decoder.decode(ReportDraft.self, from: data)
+        var draft = try decoder.decode(ReportDraft.self, from: data)
+
+        // Forcefully changing the draft ID so that it doesn't accidentally get
+        // submitted with a duplicate ID, say, after a crash
+        draft.id = UUID()
+
         appState.currentDraft = draft
     }
 }

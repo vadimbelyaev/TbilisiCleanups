@@ -13,18 +13,21 @@ protocol FirebaseAnalyticsLoggable {
 
 enum AppError: FirebaseAnalyticsLoggable {
     case couldNotParseReportMediaFromFirebase(data: [String: String])
+    case duplicateAttemptToSendReport
 
-    var eventName: String {
-        switch self {
-        case .couldNotParseReportMediaFromFirebase:
-            return "couldNotParseReportMediaFromFirebase"
-        }
-    }
+    var eventName: String { "app_error" }
 
     var parameters: [String: Any]? {
         switch self {
         case let .couldNotParseReportMediaFromFirebase(data):
-            return data
+            return [
+                "error_type": "couldNotParseReportMediaFromFirebase",
+                "data": data
+            ]
+        case .duplicateAttemptToSendReport:
+            return [
+                "error_type": "duplicateAttemptToSendReport"
+            ]
         }
     }
 }

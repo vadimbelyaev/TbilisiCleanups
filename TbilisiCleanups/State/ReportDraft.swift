@@ -1,7 +1,7 @@
 import MapKit
 
 struct ReportDraft: Identifiable, Codable {
-    let id: UUID
+    var id: UUID
     var locationRegion: CodableLocationRegion = Self.defaultLocation
     var placeDescription: String = ""
     var medias: [PlaceMedia] = []

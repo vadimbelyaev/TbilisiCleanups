@@ -5,13 +5,19 @@ import Foundation
 final class ReportService: ObservableObject {
     private let appState: AppState
     private let mediaUploadService: MediaUploadService
+    private let stateRestorationService: StateRestorationService
 
     init(appState: AppState) {
         self.appState = appState
         self.mediaUploadService = MediaUploadService()
+        self.stateRestorationService = StateRestorationService(appState: appState)
     }
 
     func submitCurrentDraft() async throws {
+        guard appState.currentSubmission.status != .inProgress else {
+            AnalyticsService.logEvent(AppError.duplicateAttemptToSendReport)
+            return
+        }
         let submission = ReportSubmission(draft: appState.currentDraft)
         submission.status = .inProgress
         appState.currentSubmission = submission
@@ -50,6 +56,7 @@ final class ReportService: ObservableObject {
         appState.currentSubmission = submission
         appState.dequeue(submission: submission)
         appState.currentDraft = ReportDraft()
+        stateRestorationService.eraseDraftState()
 
         Task.detached(priority: .low) { [weak self] in
             guard let self = self else { return }
