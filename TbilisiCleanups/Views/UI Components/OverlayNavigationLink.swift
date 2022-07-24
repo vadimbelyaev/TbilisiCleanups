@@ -9,10 +9,10 @@ struct OverlayNavigationLink<Destination: View, AuxView: View>: View {
     var body: some View {
         VStack {
             Spacer()
-                HStack {
-                    Spacer()
-                    auxiliaryView
-                }
+            HStack {
+                Spacer()
+                auxiliaryView
+            }
             HStack {
                 Spacer()
                 NavigationLink(destination: destination) {

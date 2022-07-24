@@ -1,5 +1,5 @@
-import SwiftUI
 import MapKit
+import SwiftUI
 
 struct ReportPhotosView: View {
     @EnvironmentObject var appState: AppState

@@ -4,7 +4,6 @@ import MapKit
 import SwiftUI
 
 struct ReportLocationView: View {
-
     @EnvironmentObject var appState: AppState
     @StateObject private var model = ReportLocationViewModel()
     @State private var region: MKCoordinateRegion = .init()
@@ -17,7 +16,6 @@ struct ReportLocationView: View {
             } auxiliaryView: {
                 locationButton
                     .padding(25)
-
             }
         }
         .navigationTitle("Location")
@@ -34,15 +32,15 @@ struct ReportLocationView: View {
         MapView(
             region: $region
         )
-            .ignoresSafeArea()
-            .overlay(
-                Image(systemName: "mappin")
-                    .foregroundColor(.red)
-                    .font(.largeTitle)
-                    .alignmentGuide(VerticalAlignment.center, computeValue: { d in
-                        d[.bottom]
-                    })
-            )
+        .ignoresSafeArea()
+        .overlay(
+            Image(systemName: "mappin")
+                .foregroundColor(.red)
+                .font(.largeTitle)
+                .alignmentGuide(VerticalAlignment.center, computeValue: { dim in
+                    dim[.bottom]
+                })
+        )
     }
 
     @ViewBuilder

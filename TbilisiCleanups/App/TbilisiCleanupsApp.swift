@@ -5,7 +5,6 @@ import SwiftUI
 // MARK: - AppDelegate
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-
     let appState: AppState = .init()
     private(set) lazy var authService = AuthService(userState: appState.userState)
     private(set) lazy var reportService = ReportService(appState: appState)
@@ -15,7 +14,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
     func application(
         _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
         guard ProcessInfo.processInfo.environment["ENABLE_PREVIEWS"] == nil else {
             return true
@@ -34,7 +33,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
     func application(
         _ application: UIApplication,
-        didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+        didReceiveRemoteNotification userInfo: [AnyHashable: Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
         // no-op
@@ -64,7 +63,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct TbilisiCleanupsApp: App {
-
     @UIApplicationDelegateAdaptor private var delegate: AppDelegate
     @Environment(\.scenePhase) private var scenePhase
 

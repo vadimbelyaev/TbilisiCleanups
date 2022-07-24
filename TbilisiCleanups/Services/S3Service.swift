@@ -2,7 +2,6 @@ import Foundation
 import SotoS3
 
 final class S3Service {
-
     private let bucketName: String
     private let awsClient: AWSClient
     private let s3: S3
@@ -44,10 +43,10 @@ final class S3Service {
         )
         let _ = try await s3.putObject(request)
         let urlString =
-        """
-        https://s3.\(config.s3Region.rawValue).amazonaws.com/\
-        \(config.s3BucketName)/\(key)
-        """
+            """
+            https://s3.\(config.s3Region.rawValue).amazonaws.com/\
+            \(config.s3BucketName)/\(key)
+            """
         guard let url = URL(string: urlString) else {
             throw S3ServiceError.cannotBuildResourceURL
         }

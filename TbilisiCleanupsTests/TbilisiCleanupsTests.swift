@@ -5,11 +5,10 @@
 //  Created by Vadim Belyaev on 14.07.2022.
 //
 
-import XCTest
 @testable import TbilisiCleanups
+import XCTest
 
 class TbilisiCleanupsTests: XCTestCase {
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -32,5 +31,4 @@ class TbilisiCleanupsTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

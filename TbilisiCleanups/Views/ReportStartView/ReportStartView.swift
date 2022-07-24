@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct ReportStartView: View {
-
     @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var userState: UserState
     @State private var signInScreenPresented = false

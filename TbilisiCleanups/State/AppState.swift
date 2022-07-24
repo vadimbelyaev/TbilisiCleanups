@@ -18,4 +18,3 @@ final class AppState: ObservableObject {
         draftSubmissionQueue.remove(at: index)
     }
 }
-

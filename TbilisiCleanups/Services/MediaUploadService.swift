@@ -30,7 +30,7 @@ final class MediaUploadService {
         try await withThrowingTaskGroup(of: UploadedMedia.self) { group in
             for imageAsset in assetsByType.images {
                 group.addTask(priority: .low) {
-                    return try await uploadImageAsset(
+                    try await uploadImageAsset(
                         asset: imageAsset,
                         using: s3Service,
                         timestamp: timestamp
@@ -44,7 +44,7 @@ final class MediaUploadService {
         try await withThrowingTaskGroup(of: UploadedMedia.self) { group in
             for videoAsset in assetsByType.videos {
                 group.addTask(priority: .low) {
-                    return try await uploadVideoAsset(
+                    try await uploadVideoAsset(
                         asset: videoAsset,
                         using: s3Service,
                         timestamp: timestamp
@@ -305,7 +305,6 @@ private func classifyAssetsByType(
             break
         @unknown default:
             assertionFailure()
-            break
         }
     }
     return AssetsByType(images: images, videos: videos)

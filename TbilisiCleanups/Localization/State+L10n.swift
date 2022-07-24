@@ -10,7 +10,7 @@ import Foundation
 extension Report.Status {
     var localizedDescription: String {
         switch self {
-        case.moderation:
+        case .moderation:
             return NSLocalizedString(
                 "Moderation",
                 comment: "Report status - under moderation"

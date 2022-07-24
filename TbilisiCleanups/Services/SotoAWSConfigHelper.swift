@@ -2,7 +2,6 @@ import Foundation
 import SotoS3
 
 enum SotoAWSConfigHelper {
-
     static func getConfig() throws -> SotoAWSConfig {
         guard let url = Bundle.main.url(forResource: "SotoAWS", withExtension: "plist") else {
             throw ConfigLoadError.fileNotFoundInBundle

@@ -1,9 +1,9 @@
-import FirebaseCrashlytics
-import os.log
-import SwiftUI
 import AVFoundation
+import FirebaseCrashlytics
 import MapKit
+import os.log
 import Photos
+import SwiftUI
 
 @MainActor
 final class ReportPhotosViewModel: ObservableObject {
@@ -14,7 +14,7 @@ final class ReportPhotosViewModel: ObservableObject {
     init() {
         authorization = PHPhotoLibrary.authorizationStatus(for: .readWrite)
     }
-    
+
     func setUpBindings(appState: AppState) {
         self.appState = appState
     }
@@ -50,7 +50,7 @@ final class ReportPhotosViewModel: ObservableObject {
     func getFirstLocationOfSelectedPhotos() -> CLLocation? {
         let ids = appState.currentDraft.medias.map(\.id)
         let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: ids, options: nil)
-        var targetLocation: CLLocation? = nil
+        var targetLocation: CLLocation?
         fetchResult.enumerateObjects { asset, _, stop in
             if let location = asset.location {
                 targetLocation = location
@@ -75,7 +75,6 @@ final class ReportPhotosViewModel: ObservableObject {
 }
 
 extension PlaceMedia {
-
     func fetchThumbnail(for size: CGSize) async -> UIImage? {
         let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: [id], options: nil)
         guard let asset = fetchResult.firstObject else { return nil }

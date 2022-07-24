@@ -1,15 +1,14 @@
+import Combine
 import Firebase
+import FirebaseAuthUI
 import FirebaseCrashlytics
 import FirebaseEmailAuthUI
-import FirebaseAuthUI
-import FirebaseOAuthUI
-import FirebaseGoogleAuthUI
 import FirebaseFacebookAuthUI
-import Combine
+import FirebaseGoogleAuthUI
+import FirebaseOAuthUI
 
 @MainActor
 final class AuthService: NSObject, ObservableObject {
-
     private let userState: UserState
 
     private let userSubject: PassthroughSubject<Firebase.User?, Never> = .init()

@@ -2,7 +2,6 @@ import FirebaseCrashlytics
 import SwiftUI
 
 struct ReportSubmissionView: View {
-
     @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var reportService: ReportService
     @State private var isFinished = false
@@ -73,7 +72,6 @@ struct ReportSubmissionView: View {
                         .overlayNavigationLabelStyle()
                 }
                 .overlayNavigationLinkStyle()
-
             }
             .padding(.horizontal)
         }

@@ -36,7 +36,8 @@ struct Report: Identifiable {
         }
 
         if let statusString = data["status"] as? String,
-           let status = Status(rawValue: statusString) {
+           let status = Status(rawValue: statusString)
+        {
             self.status = status
         } else {
             self.status = .unknown

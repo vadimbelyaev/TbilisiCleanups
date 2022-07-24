@@ -1,0 +1,1 @@
+--disable redundantSelf, trailingClosures, trailingCommas, unusedArguments

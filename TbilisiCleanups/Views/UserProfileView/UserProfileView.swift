@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct UserProfileView: View {
-
     @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var userState: UserState
     @EnvironmentObject private var authService: AuthService
@@ -24,7 +23,6 @@ struct UserProfileView: View {
             } else {
                 guestBody
             }
-
         }
         .navigationViewStyle(.stack)
         .tabItem {
@@ -41,7 +39,8 @@ struct UserProfileView: View {
                     Text("Loading...")
                 }
                 if appState.userReportsLoadingState == .loaded,
-                   appState.userReports.isEmpty {
+                   appState.userReports.isEmpty
+                {
                     Text("You haven't submitted any reports of littered places yet.")
                     Button {
                         appState.selectedTab = .reportStart
@@ -177,7 +176,7 @@ struct UserProfileView: View {
 
     private func statusLabelBackground(for status: Report.Status) -> Color {
         switch status {
-        case.unknown:
+        case .unknown:
             return .gray
         case .rejected:
             return .gray

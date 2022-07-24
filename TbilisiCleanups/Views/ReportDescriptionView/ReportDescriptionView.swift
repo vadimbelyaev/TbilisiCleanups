@@ -34,7 +34,6 @@ struct ReportDescriptionView: View {
                 } label: {
                     Text("Submit")
                 }
-
             }
         }
         .navigationTitle("Description")

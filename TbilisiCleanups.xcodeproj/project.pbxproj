@@ -383,9 +383,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD2AF423287F61FC0017A64C /* Build configuration list for PBXNativeTarget "TbilisiCleanups" */;
 			buildPhases = (
+				DDE290ED288D7A2B004ED1D9 /* SwiftFormat */,
 				DD2AF3FB287F61FB0017A64C /* Sources */,
 				DD2AF3FC287F61FB0017A64C /* Frameworks */,
 				DD2AF3FD287F61FB0017A64C /* Resources */,
+				DDE290EC288D79A6004ED1D9 /* SwiftLint */,
 				DDCE77F72882E6DA00ACA7BF /* Upload dSYM to Crashlytics */,
 			);
 			buildRules = (
@@ -543,6 +545,42 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+		DDE290EC288D79A6004ED1D9 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Tools/swiftlint\"\n";
+		};
+		DDE290ED288D7A2B004ED1D9 /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Tools/swiftformat\" .\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

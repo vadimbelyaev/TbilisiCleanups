@@ -36,9 +36,7 @@ final class ReportLocationViewModel: NSObject, ObservableObject {
             locationSettingsAlertPresented = true
         @unknown default:
             assertionFailure()
-            break
         }
-
     }
 }
 
@@ -79,7 +77,6 @@ extension ReportLocationViewModel: CLLocationManagerDelegate {
             break
         @unknown default:
             assertionFailure()
-            break
         }
     }
 }

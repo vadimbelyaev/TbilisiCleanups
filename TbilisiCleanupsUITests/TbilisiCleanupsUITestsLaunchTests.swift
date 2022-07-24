@@ -8,7 +8,6 @@
 import XCTest
 
 class TbilisiCleanupsUITestsLaunchTests: XCTestCase {
-
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }

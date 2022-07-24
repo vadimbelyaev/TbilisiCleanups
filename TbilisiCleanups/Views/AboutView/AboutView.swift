@@ -12,9 +12,17 @@ struct AboutView: View {
         NavigationView {
             List {
                 Section("What is Tbilisi Clean-ups") {
-                    Text("Tbilisi Clean-ups is a volunteer eco initiative in the country of Georgia 🇬🇪. We get together to clean up public parks and recreation zones.\n\nBe a part of the solution, not the problem!")
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding(.vertical)
+                    Text(
+                        """
+                        Tbilisi Clean-ups is a volunteer eco initiative in \
+                        the country of Georgia 🇬🇪. We get together to clean up \
+                        public parks and recreation zones.
+
+                        Be a part of the solution, not the problem!
+                        """
+                    )
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.vertical)
                     socialButton(for: .website, withText: "Our website nogarba.ge")
                 }
 
