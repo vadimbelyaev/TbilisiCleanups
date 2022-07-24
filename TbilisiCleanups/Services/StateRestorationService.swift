@@ -20,7 +20,6 @@ final class StateRestorationService {
         let encoder = JSONEncoder()
         let data = try encoder.encode(appState.currentDraft)
         userDefaults.set(data, forKey: "currentDraft")
-        print("SAVED STATE with \(appState.currentDraft.medias.count) MEDIAS")
     }
 
     func restoreState() throws {
@@ -29,6 +28,5 @@ final class StateRestorationService {
         let decoder = JSONDecoder()
         let draft = try decoder.decode(ReportDraft.self, from: data)
         appState.currentDraft = draft
-        print("RESTORED STATE with \(draft.medias.count) MEDIAS")
     }
 }

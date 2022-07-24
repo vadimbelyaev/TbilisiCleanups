@@ -9,7 +9,6 @@ enum SotoAWSConfigHelper {
         let data = try Data(contentsOf: url)
         let decoder = PropertyListDecoder()
         let config = try decoder.decode(SotoAWSConfig.self, from: data)
-        print(config)
         return config
     }
 }
