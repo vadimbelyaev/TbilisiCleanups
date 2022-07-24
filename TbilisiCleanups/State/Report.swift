@@ -55,7 +55,7 @@ struct Report: Identifiable {
               let previewImageURLString = data["preview_image_url"],
               let previewImageURL = URL(string: previewImageURLString)
         else {
-            // TODO: Send analytics error
+            AnalyticsService.logEvent(AppError.couldNotParseReportMediaFromFirebase(data: data))
             return nil
         }
         return Media(id: id, url: url, previewImageURL: previewImageURL)

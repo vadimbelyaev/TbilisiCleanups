@@ -53,6 +53,7 @@
 		DDCE78572884AFC100ACA7BF /* SotoS3 in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE78562884AFC100ACA7BF /* SotoS3 */; };
 		DDCE785A2884B3AD00ACA7BF /* SotoAWS.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDCE78592884B3AD00ACA7BF /* SotoAWS.plist */; };
 		DDE290EF288D9D54004ED1D9 /* LimitedPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE290EE288D9D54004ED1D9 /* LimitedPhotoPicker.swift */; };
+		DDE290F1288DA181004ED1D9 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE290F0288DA181004ED1D9 /* AnalyticsService.swift */; };
 		DDEC9E31288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */; };
 		DDEC9E33288C7FFA00706A55 /* StateRestorationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEC9E32288C7FFA00706A55 /* StateRestorationService.swift */; };
 /* End PBXBuildFile section */
@@ -115,6 +116,7 @@
 		DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSubmissionView.swift; sourceTree = "<group>"; };
 		DDCE78592884B3AD00ACA7BF /* SotoAWS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SotoAWS.plist; sourceTree = "<group>"; };
 		DDE290EE288D9D54004ED1D9 /* LimitedPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedPhotoPicker.swift; sourceTree = "<group>"; };
+		DDE290F0288DA181004ED1D9 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Equatable.swift"; sourceTree = "<group>"; };
 		DDEC9E32288C7FFA00706A55 /* StateRestorationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRestorationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -345,6 +347,7 @@
 		DDCE78422884337900ACA7BF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DDE290F0288DA181004ED1D9 /* AnalyticsService.swift */,
 				DDCE78432884341F00ACA7BF /* AuthService.swift */,
 				DD39F261288623D20023F01D /* MediaUploadService.swift */,
 				DDCE78482884434A00ACA7BF /* ReportService.swift */,
@@ -618,6 +621,7 @@
 				DD0632E5288BD976001DEC31 /* AboutView.swift in Sources */,
 				DD39F262288623D20023F01D /* MediaUploadService.swift in Sources */,
 				DD7838722884B56C00ED2CE9 /* SotoAWSConfigHelper.swift in Sources */,
+				DDE290F1288DA181004ED1D9 /* AnalyticsService.swift in Sources */,
 				DDCE78442884341F00ACA7BF /* AuthService.swift in Sources */,
 				DD2AF4722881EB030017A64C /* ReportDescriptionView.swift in Sources */,
 				DDCE78272883FD8700ACA7BF /* FirebaseAuthView.swift in Sources */,
