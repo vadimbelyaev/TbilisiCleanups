@@ -1,10 +1,3 @@
-//
-//  AboutView.swift
-//  TbilisiCleanups
-//
-//  Created by Vadim Belyaev on 23.07.2022.
-//
-
 import SwiftUI
 
 struct AboutView: View {

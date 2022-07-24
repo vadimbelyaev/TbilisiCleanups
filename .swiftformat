@@ -1,1 +1,2 @@
 --disable redundantSelf, trailingClosures, trailingCommas, unusedArguments
+--header strip

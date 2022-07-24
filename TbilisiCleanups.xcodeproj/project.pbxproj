@@ -52,6 +52,7 @@
 		DDCE784C288443C800ACA7BF /* ReportSubmissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */; };
 		DDCE78572884AFC100ACA7BF /* SotoS3 in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE78562884AFC100ACA7BF /* SotoS3 */; };
 		DDCE785A2884B3AD00ACA7BF /* SotoAWS.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDCE78592884B3AD00ACA7BF /* SotoAWS.plist */; };
+		DDE290EF288D9D54004ED1D9 /* LimitedPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE290EE288D9D54004ED1D9 /* LimitedPhotoPicker.swift */; };
 		DDEC9E31288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */; };
 		DDEC9E33288C7FFA00706A55 /* StateRestorationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEC9E32288C7FFA00706A55 /* StateRestorationService.swift */; };
 /* End PBXBuildFile section */
@@ -113,6 +114,7 @@
 		DDCE78482884434A00ACA7BF /* ReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
 		DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSubmissionView.swift; sourceTree = "<group>"; };
 		DDCE78592884B3AD00ACA7BF /* SotoAWS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SotoAWS.plist; sourceTree = "<group>"; };
+		DDE290EE288D9D54004ED1D9 /* LimitedPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedPhotoPicker.swift; sourceTree = "<group>"; };
 		DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Equatable.swift"; sourceTree = "<group>"; };
 		DDEC9E32288C7FFA00706A55 /* StateRestorationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRestorationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -242,9 +244,10 @@
 			isa = PBXGroup;
 			children = (
 				DDCE78262883FD8700ACA7BF /* FirebaseAuthView.swift */,
+				DDE290EE288D9D54004ED1D9 /* LimitedPhotoPicker.swift */,
 				DDCE7802288308E100ACA7BF /* MapView.swift */,
-				DD2AF47B28821AF90017A64C /* PhotoPicker.swift */,
 				DDCE781E2883697800ACA7BF /* OverlayNavigationLink.swift */,
+				DD2AF47B28821AF90017A64C /* PhotoPicker.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				DDCE78492884434A00ACA7BF /* ReportService.swift in Sources */,
 				DD2AF46E287F71B70017A64C /* ReportLocationView.swift in Sources */,
 				DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */,
+				DDE290EF288D9D54004ED1D9 /* LimitedPhotoPicker.swift in Sources */,
 				DD0632E7288C3CE3001DEC31 /* LoadingState.swift in Sources */,
 				DDCE78232883F96000ACA7BF /* UserState.swift in Sources */,
 				DD0632E5288BD976001DEC31 /* AboutView.swift in Sources */,

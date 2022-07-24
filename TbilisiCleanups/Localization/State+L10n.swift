@@ -1,10 +1,3 @@
-//
-//  State+L10n.swift
-//  TbilisiCleanups
-//
-//  Created by Vadim Belyaev on 21.07.2022.
-//
-
 import Foundation
 
 extension Report.Status {

@@ -1,10 +1,3 @@
-//
-//  TbilisiCleanupsTests.swift
-//  TbilisiCleanupsTests
-//
-//  Created by Vadim Belyaev on 14.07.2022.
-//
-
 @testable import TbilisiCleanups
 import XCTest
 

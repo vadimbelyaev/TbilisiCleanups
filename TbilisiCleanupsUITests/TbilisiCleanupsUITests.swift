@@ -1,10 +1,3 @@
-//
-//  TbilisiCleanupsUITests.swift
-//  TbilisiCleanupsUITests
-//
-//  Created by Vadim Belyaev on 14.07.2022.
-//
-
 import XCTest
 
 class TbilisiCleanupsUITests: XCTestCase {

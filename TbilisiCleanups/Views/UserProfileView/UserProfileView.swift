@@ -1,10 +1,3 @@
-//
-//  UserProfileView.swift
-//  TbilisiCleanups
-//
-//  Created by Vadim Belyaev on 17.07.2022.
-//
-
 import SwiftUI
 
 struct UserProfileView: View {
