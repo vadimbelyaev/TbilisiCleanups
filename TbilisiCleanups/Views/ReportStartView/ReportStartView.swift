@@ -11,6 +11,7 @@ struct ReportStartView: View {
             VStack {
                 ScrollView {
                     bodyText
+                        .padding()
                 }
                 Spacer()
 
@@ -38,7 +39,6 @@ struct ReportStartView: View {
                 .animation(.easeInOut, value: userState.isAuthenticated)
                 .padding(.bottom, 24)
             }
-            .padding()
             .navigationTitle("New Report")
         }
         .sheet(isPresented: $appState.isReportSheetPresented) {
