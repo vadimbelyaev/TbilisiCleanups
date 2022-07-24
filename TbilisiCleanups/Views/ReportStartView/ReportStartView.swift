@@ -48,6 +48,7 @@ struct ReportStartView: View {
         }
         .sheet(isPresented: $signInScreenPresented) {
             FirebaseAuthView()
+                .ignoresSafeArea(.all, edges: .bottom)
         }
         .navigationViewStyle(.stack)
         .tabItem {

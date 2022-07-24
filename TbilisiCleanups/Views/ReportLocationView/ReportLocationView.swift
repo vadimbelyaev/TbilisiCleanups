@@ -34,10 +34,7 @@ struct ReportLocationView: View {
         MapView(
             region: $region
         )
-            .ignoresSafeArea(
-                .all,
-                edges: [.leading, .trailing, .top]
-            )
+            .ignoresSafeArea()
             .overlay(
                 Image(systemName: "mappin")
                     .foregroundColor(.red)

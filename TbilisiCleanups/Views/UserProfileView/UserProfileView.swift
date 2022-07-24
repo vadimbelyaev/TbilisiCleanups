@@ -125,6 +125,7 @@ struct UserProfileView: View {
         .navigationTitle("Sign In")
         .sheet(isPresented: $signInScreenPresented) {
             FirebaseAuthView()
+                .ignoresSafeArea(.all, edges: .bottom)
         }
     }
 

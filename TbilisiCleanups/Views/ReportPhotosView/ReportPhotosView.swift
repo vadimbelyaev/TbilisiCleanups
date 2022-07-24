@@ -34,6 +34,7 @@ struct ReportPhotosView: View {
         }
         .sheet(isPresented: $isPickerPresented) {
             model.makePhotoPicker(isPresented: $isPickerPresented)
+                .ignoresSafeArea(.all, edges: .bottom)
         }
         .navigationTitle("Photos")
         .onAppear {
