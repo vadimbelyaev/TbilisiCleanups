@@ -6,7 +6,7 @@ struct ReportPhotosView: View {
     @EnvironmentObject var appState: AppState
     @StateObject var model: ReportPhotosViewModel = .init()
     @State private var isPickerPresented = false
-    @State private var isLimitedPickerPresented = false
+    @State private var isCustomPickerPresented = false
     @State private var isSettingsAlertPresented = false
 
     var body: some View {
@@ -15,9 +15,6 @@ struct ReportPhotosView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     Text("Show us what a littered place you found looks like:")
                     grid
-                    if model.authorization == .limited {
-                        limitedLibraryAccessView
-                    }
                     Spacer(minLength: 100)
                 }
                 .padding(.horizontal)
@@ -40,6 +37,9 @@ struct ReportPhotosView: View {
         .sheet(isPresented: $isPickerPresented) {
             model.makePhotoPicker(isPresented: $isPickerPresented)
                 .ignoresSafeArea(.all, edges: .bottom)
+        }
+        .sheet(isPresented: $isCustomPickerPresented) {
+            model.makeCustomPhotoPicker(isPresented: $isCustomPickerPresented)
         }
         .navigationTitle("Photos")
         .onAppear {
@@ -67,7 +67,7 @@ struct ReportPhotosView: View {
     @ViewBuilder
     private var mediaCells: some View {
         ForEach(appState.currentDraft.medias) { media in
-            MediaCell(placeMedia: media)
+            MediaCell(model: model, placeMedia: media)
                 .aspectRatio(1, contentMode: .fill)
                 .contextMenu {
                     Button {
@@ -83,11 +83,15 @@ struct ReportPhotosView: View {
 
     private var addPhotosButton: some View {
         Button {
-            Task {
-                await model.startPhotoPickerPresentationFlow(
-                    isPickerPresented: $isPickerPresented,
-                    isSettingsAlertPresented: $isSettingsAlertPresented
-                )
+            if model.authorization == .authorized {
+                Task {
+                    await model.startPhotoPickerPresentationFlow(
+                        isPickerPresented: $isPickerPresented,
+                        isSettingsAlertPresented: $isSettingsAlertPresented
+                    )
+                }
+            } else if model.authorization == .limited {
+                isCustomPickerPresented = true
             }
         } label: {
             HStack {
@@ -112,21 +116,6 @@ struct ReportPhotosView: View {
                 .strokeBorder(.selection)
         )
         .photoSettingsAlert(isPresented: $isSettingsAlertPresented)
-    }
-
-    private var limitedLibraryAccessView: some View {
-        VStack(alignment: .leading) {
-            Text("You allowed limited access to your photo library.")
-                .font(.footnote)
-                .foregroundColor(.secondary)
-            Button {
-                isLimitedPickerPresented = true
-            } label: {
-                Text("Select more photos...")
-                    .font(.footnote)
-            }
-            LimitedPhotoPicker(isPresented: $isLimitedPickerPresented)
-        }
     }
 }
 
@@ -155,10 +144,15 @@ private extension View {
 }
 
 struct MediaCell: View {
+    private let model: ReportPhotosViewModel
     private let placeMedia: PlaceMedia
     @State private var image: UIImage?
 
-    init(placeMedia: PlaceMedia) {
+    init(
+        model: ReportPhotosViewModel,
+        placeMedia: PlaceMedia
+    ) {
+        self.model = model
         self.placeMedia = placeMedia
     }
 
@@ -169,8 +163,9 @@ struct MediaCell: View {
                 .overlay(imageOverlay)
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                 .task {
-                    image = await placeMedia.fetchThumbnail(
-                        for: geometry.frame(in: .local).size
+                    image = await model.fetchThumbnail(
+                        for: placeMedia,
+                        ofSize: geometry.frame(in: .local).size
                     )
                 }
         }

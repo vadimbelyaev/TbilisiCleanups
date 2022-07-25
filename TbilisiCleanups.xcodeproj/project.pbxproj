@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DD0632E5288BD976001DEC31 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0632E4288BD976001DEC31 /* AboutView.swift */; };
 		DD0632E7288C3CE3001DEC31 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0632E6288C3CE3001DEC31 /* LoadingState.swift */; };
+		DD112630288DDBC4005F5FC0 /* CustomPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11262F288DDBC4005F5FC0 /* CustomPhotoPicker.swift */; };
 		DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */; };
 		DD2AF405287F61FB0017A64C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF404287F61FB0017A64C /* RootView.swift */; };
 		DD2AF407287F61FC0017A64C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2AF406287F61FC0017A64C /* Assets.xcassets */; };
@@ -52,7 +53,7 @@
 		DDCE784C288443C800ACA7BF /* ReportSubmissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */; };
 		DDCE78572884AFC100ACA7BF /* SotoS3 in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE78562884AFC100ACA7BF /* SotoS3 */; };
 		DDCE785A2884B3AD00ACA7BF /* SotoAWS.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDCE78592884B3AD00ACA7BF /* SotoAWS.plist */; };
-		DDE290EF288D9D54004ED1D9 /* LimitedPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE290EE288D9D54004ED1D9 /* LimitedPhotoPicker.swift */; };
+		DDE290EF288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE290EE288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift */; };
 		DDE290F1288DA181004ED1D9 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE290F0288DA181004ED1D9 /* AnalyticsService.swift */; };
 		DDEC9E31288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */; };
 		DDEC9E33288C7FFA00706A55 /* StateRestorationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEC9E32288C7FFA00706A55 /* StateRestorationService.swift */; };
@@ -78,6 +79,7 @@
 /* Begin PBXFileReference section */
 		DD0632E4288BD976001DEC31 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		DD0632E6288C3CE3001DEC31 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		DD11262F288DDBC4005F5FC0 /* CustomPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhotoPicker.swift; sourceTree = "<group>"; };
 		DD2AF3FF287F61FB0017A64C /* TbilisiCleanups.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TbilisiCleanups.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbilisiCleanupsApp.swift; sourceTree = "<group>"; };
 		DD2AF404287F61FB0017A64C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -115,7 +117,7 @@
 		DDCE78482884434A00ACA7BF /* ReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
 		DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSubmissionView.swift; sourceTree = "<group>"; };
 		DDCE78592884B3AD00ACA7BF /* SotoAWS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SotoAWS.plist; sourceTree = "<group>"; };
-		DDE290EE288D9D54004ED1D9 /* LimitedPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedPhotoPicker.swift; sourceTree = "<group>"; };
+		DDE290EE288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedLibraryPickerRepresentable.swift; sourceTree = "<group>"; };
 		DDE290F0288DA181004ED1D9 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Equatable.swift"; sourceTree = "<group>"; };
 		DDEC9E32288C7FFA00706A55 /* StateRestorationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRestorationService.swift; sourceTree = "<group>"; };
@@ -245,8 +247,9 @@
 		DD2AF47A28821AE00017A64C /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
+				DD11262F288DDBC4005F5FC0 /* CustomPhotoPicker.swift */,
 				DDCE78262883FD8700ACA7BF /* FirebaseAuthView.swift */,
-				DDE290EE288D9D54004ED1D9 /* LimitedPhotoPicker.swift */,
+				DDE290EE288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift */,
 				DDCE7802288308E100ACA7BF /* MapView.swift */,
 				DDCE781E2883697800ACA7BF /* OverlayNavigationLink.swift */,
 				DD2AF47B28821AF90017A64C /* PhotoPicker.swift */,
@@ -602,6 +605,7 @@
 				DDEC9E33288C7FFA00706A55 /* StateRestorationService.swift in Sources */,
 				DDCE78212883F90600ACA7BF /* ReportDraft.swift in Sources */,
 				DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */,
+				DD112630288DDBC4005F5FC0 /* CustomPhotoPicker.swift in Sources */,
 				DDCE784C288443C800ACA7BF /* ReportSubmissionView.swift in Sources */,
 				DD2AF4752881EED10017A64C /* AppState.swift in Sources */,
 				DDCE7803288308E100ACA7BF /* MapView.swift in Sources */,
@@ -615,7 +619,7 @@
 				DDCE78492884434A00ACA7BF /* ReportService.swift in Sources */,
 				DD2AF46E287F71B70017A64C /* ReportLocationView.swift in Sources */,
 				DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */,
-				DDE290EF288D9D54004ED1D9 /* LimitedPhotoPicker.swift in Sources */,
+				DDE290EF288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift in Sources */,
 				DD0632E7288C3CE3001DEC31 /* LoadingState.swift in Sources */,
 				DDCE78232883F96000ACA7BF /* UserState.swift in Sources */,
 				DD0632E5288BD976001DEC31 /* AboutView.swift in Sources */,

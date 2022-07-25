@@ -9,9 +9,12 @@ import SwiftUI
 final class ReportPhotosViewModel: ObservableObject {
     @ObservedObject var appState: AppState = .init()
     @Published var authorization: PHAuthorizationStatus
+    private let imageManager: PHCachingImageManager
 
     init() {
         authorization = PHPhotoLibrary.authorizationStatus(for: .readWrite)
+        imageManager = PHCachingImageManager()
+        imageManager.allowsCachingHighQualityImages = false
     }
 
     func setUpBindings(appState: AppState) {
@@ -46,8 +49,16 @@ final class ReportPhotosViewModel: ObservableObject {
         PhotoPicker(results: $appState.currentDraft.medias, isPresented: isPresented)
     }
 
+    func makeCustomPhotoPicker(isPresented: Binding<Bool>) -> some View {
+        let appState = self.appState
+        return CustomPhotoPicker(didFinishPicking: { assets in
+            let newMedias = assets.map { PlaceMedia(assetId: $0.localIdentifier) }
+            appState.currentDraft.medias.append(contentsOf: newMedias)
+        })
+    }
+
     func getFirstLocationOfSelectedPhotos() -> CLLocation? {
-        let ids = appState.currentDraft.medias.map(\.id)
+        let ids = appState.currentDraft.medias.map(\.assetId)
         let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: ids, options: nil)
         var targetLocation: CLLocation?
         fetchResult.enumerateObjects { asset, _, stop in
@@ -71,16 +82,14 @@ final class ReportPhotosViewModel: ObservableObject {
             )
         )
     }
-}
 
-extension PlaceMedia {
-    func fetchThumbnail(for size: CGSize) async -> UIImage? {
+    func fetchThumbnail(for placeMedia: PlaceMedia, ofSize size: CGSize) async -> UIImage? {
         guard [.authorized, .limited].contains(PHPhotoLibrary.authorizationStatus(for: .readWrite)) else {
             return nil
         }
-        let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: [id], options: nil)
+        let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: [placeMedia.assetId], options: nil)
         guard let asset = fetchResult.firstObject else { return nil }
-        let scale = await UIScreen.main.scale
+        let scale = UIScreen.main.scale
         let targetSize = CGSize(
             width: size.width * scale,
             height: size.height * scale
@@ -90,7 +99,7 @@ extension PlaceMedia {
             options.isSynchronous = true
             options.resizeMode = .fast
             options.deliveryMode = .highQualityFormat
-            PHImageManager.default().requestImage(
+            imageManager.requestImage(
                 for: asset,
                 targetSize: targetSize,
                 contentMode: .aspectFill,

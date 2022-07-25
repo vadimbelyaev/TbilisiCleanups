@@ -70,14 +70,12 @@ struct CodableLocationRegion: Codable, Equatable {
 }
 
 struct PlaceMedia: Identifiable, Codable {
+    let id: UUID
     let assetId: String
 
     init(assetId: String) {
+        self.id = UUID()
         self.assetId = assetId
-    }
-
-    var id: String {
-        assetId
     }
 }
 
