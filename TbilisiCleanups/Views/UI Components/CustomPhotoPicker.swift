@@ -165,7 +165,8 @@ private final class CustomPhotoPickerModel: NSObject, ObservableObject {
     }
 
     func fetchAssets() async {
-        Task(priority: .userInitiated) {
+        Task.detached(priority: .userInitiated) { [weak self] in
+            guard let self = self else { return }
             let allAssets = await withCheckedContinuation { (continuation: CheckedContinuation<[PHAsset], Never>) in
                 let fetchOptions = PHFetchOptions()
                 fetchOptions.sortDescriptors = [
@@ -183,29 +184,32 @@ private final class CustomPhotoPickerModel: NSObject, ObservableObject {
                 continuation.resume(returning: allAssets)
             }
             await MainActor.run {
-                assets = allAssets
+                self.assets = allAssets
             }
         }
     }
 
     func fetchThumbnail(for asset: PHAsset, ofSize size: CGSize) async -> UIImage? {
         let scale = UIScreen.main.scale
-        let targetSize = CGSize(
-            width: size.width * scale,
-            height: size.height * scale
-        )
+        let imageManager = imageManager
         return await withCheckedContinuation { (continuation: CheckedContinuation<UIImage?, Never>) in
-            let options = PHImageRequestOptions()
-            options.isSynchronous = true
-            options.resizeMode = .fast
-            options.deliveryMode = .highQualityFormat
-            imageManager.requestImage(
-                for: asset,
-                targetSize: targetSize,
-                contentMode: .aspectFill,
-                options: options
-            ) { image, _ in
-                continuation.resume(returning: image)
+            Task.detached(priority: .userInitiated) {
+                let targetSize = CGSize(
+                    width: size.width * scale,
+                    height: size.height * scale
+                )
+                let options = PHImageRequestOptions()
+                options.isSynchronous = true
+                options.resizeMode = .fast
+                options.deliveryMode = .highQualityFormat
+                imageManager.requestImage(
+                    for: asset,
+                    targetSize: targetSize,
+                    contentMode: .aspectFill,
+                    options: options
+                ) { image, _ in
+                    continuation.resume(returning: image)
+                }
             }
         }
     }
@@ -242,7 +246,7 @@ private final class CustomPhotoPickerModel: NSObject, ObservableObject {
 
 extension CustomPhotoPickerModel: PHPhotoLibraryChangeObserver {
     func photoLibraryDidChange(_ changeInstance: PHChange) {
-        Task(priority: .userInitiated) {
+        Task {
             await fetchAssets()
         }
     }
