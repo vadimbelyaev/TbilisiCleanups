@@ -3,7 +3,8 @@ import SwiftUI
 
 struct ReportDescriptionView: View {
     @EnvironmentObject var appState: AppState
-    @FocusState private var textEditorFocused: Bool
+    @State private var textEditorBecomeFocused = false
+    @State private var textEditorResignFocused = false
     @State private var region: MKCoordinateRegion = .init()
     @Namespace private var textEditorID
 
@@ -26,7 +27,7 @@ struct ReportDescriptionView: View {
             }
         }
         .onTapGesture {
-            textEditorFocused = false
+            textEditorResignFocused = true
         }
         .navigationTitle("Description")
         .onAppear {
@@ -47,29 +48,27 @@ struct ReportDescriptionView: View {
         Text("Describe where this place is so it's easier to find it:")
             .padding(.top)
             .padding(.horizontal)
-        TextEditor(text: $appState.currentDraft.placeDescription)
-            .id(textEditorID)
-            .focused($textEditorFocused)
-            .frame(height: 120)
-            .padding(8)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .strokeBorder()
-                    .foregroundStyle(.tertiary)
-            )
-            .padding(.horizontal)
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(750)) {
-                    withAnimation {
-                        textEditorFocused = true
-                    }
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
-                    withAnimation {
-                        scrollProxy.scrollTo(textEditorID)
-                    }
-                }
-            }
+        UITextViewRepresentable(
+            text: $appState.currentDraft.placeDescription,
+            becomeFocused: $textEditorBecomeFocused,
+            resignFocused: $textEditorResignFocused
+        )
+        .id(textEditorID)
+        .frame(height: 120)
+        .padding(8)
+        .overlay(
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                .strokeBorder()
+                .foregroundStyle(.tertiary)
+        )
+        .padding(.horizontal)
+        .highPriorityGesture(TapGesture())
+        .onAppear {
+            textEditorBecomeFocused = true
+        }
+        .onDisappear {
+            textEditorResignFocused = true
+        }
     }
 }
 

@@ -10,6 +10,7 @@
 		DD0632E5288BD976001DEC31 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0632E4288BD976001DEC31 /* AboutView.swift */; };
 		DD0632E7288C3CE3001DEC31 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0632E6288C3CE3001DEC31 /* LoadingState.swift */; };
 		DD112630288DDBC4005F5FC0 /* CustomPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11262F288DDBC4005F5FC0 /* CustomPhotoPicker.swift */; };
+		DD112632288E9AE2005F5FC0 /* UITextViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD112631288E9AE2005F5FC0 /* UITextViewRepresentable.swift */; };
 		DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */; };
 		DD2AF405287F61FB0017A64C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF404287F61FB0017A64C /* RootView.swift */; };
 		DD2AF407287F61FC0017A64C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2AF406287F61FC0017A64C /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		DD0632E4288BD976001DEC31 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		DD0632E6288C3CE3001DEC31 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		DD11262F288DDBC4005F5FC0 /* CustomPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhotoPicker.swift; sourceTree = "<group>"; };
+		DD112631288E9AE2005F5FC0 /* UITextViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewRepresentable.swift; sourceTree = "<group>"; };
 		DD2AF3FF287F61FB0017A64C /* TbilisiCleanups.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TbilisiCleanups.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbilisiCleanupsApp.swift; sourceTree = "<group>"; };
 		DD2AF404287F61FB0017A64C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				DDCE7802288308E100ACA7BF /* MapView.swift */,
 				DDCE781E2883697800ACA7BF /* OverlayNavigationLink.swift */,
 				DD2AF47B28821AF90017A64C /* PhotoPicker.swift */,
+				DD112631288E9AE2005F5FC0 /* UITextViewRepresentable.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 			files = (
 				DD2AF405287F61FB0017A64C /* RootView.swift in Sources */,
 				DDEC9E31288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift in Sources */,
+				DD112632288E9AE2005F5FC0 /* UITextViewRepresentable.swift in Sources */,
 				DDCE7847288438CF00ACA7BF /* UserProfileView.swift in Sources */,
 				DDCE781F2883697800ACA7BF /* OverlayNavigationLink.swift in Sources */,
 				DDEC9E33288C7FFA00706A55 /* StateRestorationService.swift in Sources */,
