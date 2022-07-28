@@ -9,12 +9,11 @@ import SwiftUI
 final class ReportPhotosViewModel: ObservableObject {
     @ObservedObject var appState: AppState = .init()
     @Published var authorization: PHAuthorizationStatus
-    private let imageManager: PHCachingImageManager
+    private let imageManager = PHImageManager.default()
+    private let assetsCache = NSCache<NSString, PHAsset>()
 
     init() {
         authorization = PHPhotoLibrary.authorizationStatus(for: .readWrite)
-        imageManager = PHCachingImageManager()
-        imageManager.allowsCachingHighQualityImages = false
     }
 
     func setUpBindings(appState: AppState) {
@@ -87,25 +86,42 @@ final class ReportPhotosViewModel: ObservableObject {
         guard [.authorized, .limited].contains(PHPhotoLibrary.authorizationStatus(for: .readWrite)) else {
             return nil
         }
-        let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: [placeMedia.assetId], options: nil)
-        guard let asset = fetchResult.firstObject else { return nil }
-        let scale = UIScreen.main.scale
-        let targetSize = CGSize(
-            width: size.width * scale,
-            height: size.height * scale
-        )
         return await withCheckedContinuation { (continuation: CheckedContinuation<UIImage?, Never>) in
-            let options = PHImageRequestOptions()
-            options.isSynchronous = true
-            options.resizeMode = .fast
-            options.deliveryMode = .highQualityFormat
-            imageManager.requestImage(
-                for: asset,
-                targetSize: targetSize,
-                contentMode: .aspectFill,
-                options: options
-            ) { image, _ in
-                continuation.resume(returning: image)
+            Task.detached(priority: .userInitiated) { [weak self] in
+                guard let self = self else { return }
+                let asset: PHAsset? = {
+                    if let cachedAsset = self.assetsCache.object(forKey: NSString(string: placeMedia.assetId)) {
+                        return cachedAsset
+                    }
+                    let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: [placeMedia.assetId], options: nil)
+                    guard let asset = fetchResult.firstObject else {
+                        return nil
+                    }
+                    return asset
+                }()
+                guard let asset = asset else {
+                    continuation.resume(returning: nil)
+                    return
+                }
+                self.assetsCache.setObject(asset, forKey: NSString(string: asset.localIdentifier))
+                let scale = await UIScreen.main.scale
+                let targetSize = CGSize(
+                    width: size.width * scale,
+                    height: size.height * scale
+                )
+
+                let options = PHImageRequestOptions()
+                options.isSynchronous = true
+                options.resizeMode = .fast
+                options.deliveryMode = .highQualityFormat
+                self.imageManager.requestImage(
+                    for: asset,
+                    targetSize: targetSize,
+                    contentMode: .aspectFill,
+                    options: options
+                ) { image, _ in
+                    continuation.resume(returning: image)
+                }
             }
         }
     }

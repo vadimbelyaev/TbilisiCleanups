@@ -144,7 +144,7 @@ private extension View {
 }
 
 struct MediaCell: View {
-    private let model: ReportPhotosViewModel
+    @ObservedObject private var model: ReportPhotosViewModel
     private let placeMedia: PlaceMedia
     @State private var image: UIImage?
 
