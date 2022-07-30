@@ -70,7 +70,8 @@ final class ReportPhotosViewModel: ObservableObject {
     }
 
     func updateDraftLocationBasedOnPhotos() {
-        guard appState.currentDraft.locationRegion == ReportDraft.defaultLocation,
+        guard appState.currentDraft.locationRegion == ReportDraft.defaultRegion,
+              appState.currentDraft.location == ReportDraft.defaultLocation,
               let location = getFirstLocationOfSelectedPhotos()
         else { return }
 
@@ -80,6 +81,7 @@ final class ReportPhotosViewModel: ObservableObject {
                 span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             )
         )
+        appState.currentDraft.location = .init(clLocationCoordinate2D: location.coordinate)
     }
 
     func fetchThumbnail(for placeMedia: PlaceMedia, ofSize size: CGSize) async -> UIImage? {

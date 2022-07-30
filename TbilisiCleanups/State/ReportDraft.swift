@@ -2,7 +2,8 @@ import MapKit
 
 struct ReportDraft: Identifiable, Codable {
     var id: UUID
-    var locationRegion: CodableLocationRegion = Self.defaultLocation
+    var locationRegion: CodableLocationRegion = Self.defaultRegion
+    var location: CodableLocation = Self.defaultLocation
     var placeDescription: String = ""
     var medias: [PlaceMedia] = []
     var uploadedMediasByType: UploadedMediasByType = .init(photos: [], videos: [])
@@ -12,7 +13,8 @@ struct ReportDraft: Identifiable, Codable {
     }
 
     var isBlank: Bool {
-        locationRegion == Self.defaultLocation
+        locationRegion == Self.defaultRegion
+            && location == Self.defaultLocation
             && placeDescription.isEmpty
             && medias.isEmpty
             && uploadedMediasByType.photos.isEmpty
@@ -30,18 +32,23 @@ struct ReportDraft: Identifiable, Codable {
         medias.remove(at: index)
     }
 
-    static let defaultLocation = CodableLocationRegion(
+    static let defaultLocation = CodableLocation(
+        clLocationCoordinate2D: CLLocationCoordinate2D(
+            latitude: 42.182_724,
+            longitude: 43.523_521
+        )
+    )
+
+    static let defaultRegion = CodableLocationRegion(
         region: MKCoordinateRegion(
-            center: CLLocationCoordinate2D(
-                latitude: 42.182_724,
-                longitude: 43.523_521
-            ),
+            center: defaultLocation.clLocationCoordinate2D,
             latitudinalMeters: 600_000,
             longitudinalMeters: 600_000
         )
     )
 }
 
+/// Codable equivalent of MKCoordinateRegion
 struct CodableLocationRegion: Codable, Equatable {
     let centerLatitude: Double
     let centerLongitude: Double
@@ -66,6 +73,21 @@ struct CodableLocationRegion: Codable, Equatable {
                 longitudeDelta: spanLongitudeDelta
             )
         )
+    }
+}
+
+/// Codable equivalent of CLLocationCoordinate2D
+struct CodableLocation: Codable, Equatable {
+    let latitude: Double
+    let longitude: Double
+
+    init(clLocationCoordinate2D: CLLocationCoordinate2D) {
+        self.latitude = clLocationCoordinate2D.latitude
+        self.longitude = clLocationCoordinate2D.longitude
+    }
+
+    var clLocationCoordinate2D: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }
 

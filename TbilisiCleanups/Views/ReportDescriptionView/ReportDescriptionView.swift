@@ -6,6 +6,7 @@ struct ReportDescriptionView: View {
     @State private var textEditorBecomeFocused = false
     @State private var textEditorResignFocused = false
     @State private var region: MKCoordinateRegion = .init()
+    @State private var location: CLLocationCoordinate2D = .init()
     @Namespace private var textEditorID
 
     var body: some View {
@@ -31,14 +32,19 @@ struct ReportDescriptionView: View {
         }
         .navigationTitle("Description")
         .onAppear {
-            region = appState.currentDraft.locationRegion.mkCoordinateRegion
+            region = MKCoordinateRegion(
+                center: appState.currentDraft.location.clLocationCoordinate2D,
+                span: appState.currentDraft.locationRegion.mkCoordinateRegion.span
+            )
+            location = appState.currentDraft.location.clLocationCoordinate2D
         }
     }
 
     private var map: some View {
-        Map(
-            coordinateRegion: $region,
-            interactionModes: []
+        MapViewControllerRepresentable(
+            region: $region,
+            location: $location,
+            isInteractive: false
         )
         .frame(height: 120)
     }

@@ -125,8 +125,8 @@ private func saveSubmissionToFirebase(
         "created_on": Int(Date().timeIntervalSince1970),
         "status": "moderation",
         "location": [
-            "lat": draft.locationRegion.centerLatitude,
-            "lon": draft.locationRegion.centerLongitude
+            "lat": draft.location.latitude,
+            "lon": draft.location.longitude
         ],
         "photos": draft.uploadedMediasByType.photos.map { $0.serializedForExport() },
         "videos": draft.uploadedMediasByType.videos.map { $0.serializedForExport() },

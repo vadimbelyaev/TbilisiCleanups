@@ -7,6 +7,7 @@ struct ReportLocationView: View {
     @EnvironmentObject var appState: AppState
     @StateObject private var model = ReportLocationViewModel()
     @State private var region: MKCoordinateRegion = .init()
+    @State private var location: CLLocationCoordinate2D = .init()
 
     var body: some View {
         ZStack {
@@ -22,25 +23,23 @@ struct ReportLocationView: View {
         .onChange(of: region) { newValue in
             appState.currentDraft.locationRegion = .init(region: newValue)
         }
+        .onChange(of: location, perform: { newValue in
+            appState.currentDraft.location = .init(clLocationCoordinate2D: newValue)
+        })
         .onAppear {
             region = appState.currentDraft.locationRegion.mkCoordinateRegion
+            location = appState.currentDraft.location.clLocationCoordinate2D
             model.setUpBindings(appState: appState)
         }
     }
 
     private var map: some View {
-        MapView(
-            region: $region
+        MapViewControllerRepresentable(
+            region: $region,
+            location: $location,
+            isInteractive: true
         )
         .ignoresSafeArea()
-        .overlay(
-            Image(systemName: "mappin")
-                .foregroundColor(.red)
-                .font(.largeTitle)
-                .alignmentGuide(VerticalAlignment.center, computeValue: { dim in
-                    dim[.bottom]
-                })
-        )
     }
 
     @ViewBuilder

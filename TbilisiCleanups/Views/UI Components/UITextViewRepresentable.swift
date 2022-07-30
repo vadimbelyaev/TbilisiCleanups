@@ -15,14 +15,18 @@ struct UITextViewRepresentable: UIViewRepresentable {
 
     func updateUIView(_ uiView: UIViewType, context: Context) {
         if becomeFocused {
-            uiView.becomeFirstResponder()
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
-                becomeFocused = false
+            DispatchQueue.main.async {
+                uiView.becomeFirstResponder()
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
+                    becomeFocused = false
+                }
             }
         } else if resignFocused {
-            uiView.resignFirstResponder()
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
-                resignFocused = false
+            DispatchQueue.main.async {
+                uiView.resignFirstResponder()
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
+                    resignFocused = false
+                }
             }
         }
     }
