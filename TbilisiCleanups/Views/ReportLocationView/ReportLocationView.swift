@@ -6,8 +6,6 @@ import SwiftUI
 struct ReportLocationView: View {
     @EnvironmentObject var appState: AppState
     @StateObject private var model = ReportLocationViewModel()
-    @State private var region: MKCoordinateRegion = .init()
-    @State private var location: CLLocationCoordinate2D = .init()
 
     var body: some View {
         ZStack {
@@ -20,23 +18,23 @@ struct ReportLocationView: View {
             }
         }
         .navigationTitle("Location")
-        .onChange(of: region) { newValue in
+        .onChange(of: model.region) { newValue in
             appState.currentDraft.locationRegion = .init(region: newValue)
         }
-        .onChange(of: location, perform: { newValue in
+        .onChange(of: model.location, perform: { newValue in
             appState.currentDraft.location = .init(clLocationCoordinate2D: newValue)
         })
         .onAppear {
-            region = appState.currentDraft.locationRegion.mkCoordinateRegion
-            location = appState.currentDraft.location.clLocationCoordinate2D
+            model.region = appState.currentDraft.locationRegion.mkCoordinateRegion
+            model.location = appState.currentDraft.location.clLocationCoordinate2D
             model.setUpBindings(appState: appState)
         }
     }
 
     private var map: some View {
         MapViewControllerRepresentable(
-            region: $region,
-            location: $location,
+            region: $model.region,
+            location: $model.location,
             isInteractive: true
         )
         .ignoresSafeArea()

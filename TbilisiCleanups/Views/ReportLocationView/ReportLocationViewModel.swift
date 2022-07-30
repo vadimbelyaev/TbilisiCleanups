@@ -7,6 +7,8 @@ final class ReportLocationViewModel: NSObject, ObservableObject {
     @ObservedObject var appState: AppState = .init()
     @Published var locationButtonState: LocationButtonState
     @Published var locationSettingsAlertPresented: Bool = false
+    @Published var region: MKCoordinateRegion = .init()
+    @Published var location: CLLocationCoordinate2D = .init()
 
     private let locationManager: CLLocationManager
 
@@ -49,12 +51,10 @@ extension ReportLocationViewModel: CLLocationManagerDelegate {
         locationButtonState = .idle
         guard let location = locations.first else { return }
         let meters = location.horizontalAccuracy * 6
-        appState.currentDraft.locationRegion = .init(
-            region: MKCoordinateRegion(
-                center: location.coordinate,
-                latitudinalMeters: meters,
-                longitudinalMeters: meters
-            )
+        region = MKCoordinateRegion(
+            center: location.coordinate,
+            latitudinalMeters: meters,
+            longitudinalMeters: meters
         )
     }
 
