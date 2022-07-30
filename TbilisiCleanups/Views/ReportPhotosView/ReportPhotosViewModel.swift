@@ -84,13 +84,15 @@ final class ReportPhotosViewModel: ObservableObject {
         appState.currentDraft.location = .init(clLocationCoordinate2D: location.coordinate)
     }
 
-    func fetchThumbnail(for placeMedia: PlaceMedia, ofSize size: CGSize) async -> UIImage? {
+    func fetchAsset(for placeMedia: PlaceMedia) async throws -> PHAsset {
         guard [.authorized, .limited].contains(PHPhotoLibrary.authorizationStatus(for: .readWrite)) else {
-            return nil
+            throw ImageFetchError.noPhotoLibraryPermissions
         }
-        return await withCheckedContinuation { (continuation: CheckedContinuation<UIImage?, Never>) in
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<PHAsset, Error>) in
             Task.detached(priority: .userInitiated) { [weak self] in
-                guard let self = self else { return }
+                guard let self = self else {
+                    throw ImageFetchError.cancelled
+                }
                 let asset: PHAsset? = {
                     if let cachedAsset = self.assetsCache.object(forKey: NSString(string: placeMedia.assetId)) {
                         return cachedAsset
@@ -102,10 +104,21 @@ final class ReportPhotosViewModel: ObservableObject {
                     return asset
                 }()
                 guard let asset = asset else {
-                    continuation.resume(returning: nil)
+                    continuation.resume(throwing: ImageFetchError.assetNotFound)
                     return
                 }
                 self.assetsCache.setObject(asset, forKey: NSString(string: asset.localIdentifier))
+                continuation.resume(returning: asset)
+            }
+        }
+    }
+
+    func fetchThumbnail(for asset: PHAsset, ofSize size: CGSize) async throws -> UIImage {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<UIImage, Error>) in
+            Task.detached(priority: .userInitiated) { [weak self] in
+                guard let self = self else {
+                    throw ImageFetchError.cancelled
+                }
                 let scale = await UIScreen.main.scale
                 let targetSize = CGSize(
                     width: size.width * scale,
@@ -122,9 +135,32 @@ final class ReportPhotosViewModel: ObservableObject {
                     contentMode: .aspectFill,
                     options: options
                 ) { image, _ in
-                    continuation.resume(returning: image)
+                    if let image = image {
+                        continuation.resume(returning: image)
+                    } else {
+                        continuation.resume(throwing: ImageFetchError.cannotFetchThumnail)
+                    }
                 }
             }
         }
     }
+
+    func formattedDuration(for asset: PHAsset) -> String {
+        Self.durationFormatter.string(from: asset.duration) ?? ""
+    }
+
+    private static let durationFormatter: DateComponentsFormatter = {
+        let fmt = DateComponentsFormatter()
+        fmt.allowsFractionalUnits = false
+        fmt.allowedUnits = [.second, .minute]
+        fmt.zeroFormattingBehavior = .dropTrailing
+        return fmt
+    }()
+}
+
+enum ImageFetchError: Error {
+    case noPhotoLibraryPermissions
+    case assetNotFound
+    case cannotFetchThumnail
+    case cancelled
 }

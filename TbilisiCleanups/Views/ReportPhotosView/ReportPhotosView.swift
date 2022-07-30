@@ -146,6 +146,7 @@ private extension View {
 struct MediaCell: View {
     @ObservedObject private var model: ReportPhotosViewModel
     private let placeMedia: PlaceMedia
+    @State private var asset: PHAsset?
     @State private var image: UIImage?
 
     init(
@@ -162,11 +163,15 @@ struct MediaCell: View {
                 .opacity(0.1)
                 .overlay(imageOverlay)
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .overlay(videoDurationOverlay)
                 .task {
-                    image = await model.fetchThumbnail(
-                        for: placeMedia,
-                        ofSize: geometry.frame(in: .local).size
-                    )
+                    asset = try? await model.fetchAsset(for: placeMedia)
+                    if let asset = asset {
+                        image = try? await model.fetchThumbnail(
+                            for: asset,
+                            ofSize: geometry.frame(in: .local).size
+                        )
+                    }
                 }
         }
     }
@@ -177,6 +182,25 @@ struct MediaCell: View {
             Image(uiImage: image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
+        }
+    }
+
+    @ViewBuilder
+    private var videoDurationOverlay: some View {
+        if let asset = asset,
+           asset.mediaType == .video
+        {
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Text(model.formattedDuration(for: asset))
+                        .font(.footnote)
+                        .foregroundColor(.white)
+                        .padding(6)
+                        .background(Color.black.opacity(0.4).blur(radius: 4))
+                }
+            }
         }
     }
 }
