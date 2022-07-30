@@ -1,7 +1,7 @@
 import Foundation
 
 @MainActor
-final class StateRestorationService {
+final class StateRestorationService: ObservableObject {
     private let appState: AppState
     private let userDefaults = UserDefaults.standard
 

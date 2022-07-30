@@ -73,6 +73,7 @@ struct TbilisiCleanupsApp: App {
                 .environmentObject(delegate.appState.userState)
                 .environmentObject(delegate.authService)
                 .environmentObject(delegate.reportService)
+                .environmentObject(delegate.stateRestorationService)
         }
         .onChange(of: scenePhase) { newValue in
             if newValue == .background {

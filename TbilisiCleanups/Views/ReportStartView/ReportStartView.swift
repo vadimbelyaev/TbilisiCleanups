@@ -3,6 +3,8 @@ import SwiftUI
 struct ReportStartView: View {
     @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var userState: UserState
+    @EnvironmentObject private var stateRestorationService: StateRestorationService
+    @State private var isDiscardDraftDialogPresented = false
     @State private var signInScreenPresented = false
 
     var body: some View {
@@ -13,30 +15,7 @@ struct ReportStartView: View {
                         .padding()
                 }
                 Spacer()
-
-                HStack {
-                    Spacer()
-                    if userState.isAuthenticated {
-                        Button {
-                            appState.isReportSheetPresented = true
-                        } label: {
-                            Text(appState.currentDraft.isBlank ? "Start" : "Continue with saved draft")
-                                .overlayNavigationLabelStyle()
-                        }
-                        .overlayNavigationLinkStyle()
-                    } else {
-                        Button {
-                            signInScreenPresented = true
-                        } label: {
-                            Text("Sign in to submit a report")
-                                .overlayNavigationLabelStyle()
-                        }
-                        .overlayNavigationLinkStyle()
-                    }
-                    Spacer()
-                }
-                .animation(.easeInOut, value: userState.isAuthenticated)
-                .padding(.bottom, 24)
+                buttons
             }
             .navigationTitle("New Report")
         }
@@ -49,6 +28,18 @@ struct ReportStartView: View {
             FirebaseAuthView()
                 .ignoresSafeArea(.all, edges: .bottom)
         }
+        .confirmationDialog(
+            "Discard saved draft and start with a new report?",
+            isPresented: $isDiscardDraftDialogPresented,
+            titleVisibility: .visible,
+            actions: {
+                Button("Start with a new report", role: .destructive) {
+                    appState.currentDraft = .init()
+                    stateRestorationService.eraseDraftState()
+                    appState.isReportSheetPresented = true
+                }
+            }
+        )
         .navigationViewStyle(.stack)
         .tabItem {
             Image(systemName: "square.and.pencil")
@@ -85,6 +76,48 @@ struct ReportStartView: View {
 
             Text("Thank you for contributing to a cleaner country!")
         }
+    }
+
+    private var buttons: some View {
+        VStack {
+            if !appState.currentDraft.isBlank {
+                HStack {
+                    Spacer()
+                    Button {
+                        isDiscardDraftDialogPresented = true
+                    } label: {
+                        Text("Discard saved draft and start over")
+                            .overlayNavigationLabelStyle()
+                    }
+                    .overlayNavigationLinkStyle()
+                    .tint(.red)
+                    Spacer()
+                }
+            }
+            HStack {
+                Spacer()
+                if userState.isAuthenticated {
+                    Button {
+                        appState.isReportSheetPresented = true
+                    } label: {
+                        Text(appState.currentDraft.isBlank ? "Start" : "Continue with saved draft")
+                            .overlayNavigationLabelStyle()
+                    }
+                    .overlayNavigationLinkStyle()
+                } else {
+                    Button {
+                        signInScreenPresented = true
+                    } label: {
+                        Text("Sign in to submit a report")
+                            .overlayNavigationLabelStyle()
+                    }
+                    .overlayNavigationLinkStyle()
+                }
+                Spacer()
+            }
+        }
+        .animation(.easeInOut, value: userState.isAuthenticated)
+        .padding(.bottom, 24)
     }
 }
 
