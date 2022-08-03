@@ -138,7 +138,7 @@ final class ReportPhotosViewModel: ObservableObject {
                     if let image = image {
                         continuation.resume(returning: image)
                     } else {
-                        continuation.resume(throwing: ImageFetchError.cannotFetchThumnail)
+                        continuation.resume(throwing: ImageFetchError.cannotFetchThumbnail)
                     }
                 }
             }
@@ -161,6 +161,6 @@ final class ReportPhotosViewModel: ObservableObject {
 enum ImageFetchError: Error {
     case noPhotoLibraryPermissions
     case assetNotFound
-    case cannotFetchThumnail
+    case cannotFetchThumbnail
     case cancelled
 }
