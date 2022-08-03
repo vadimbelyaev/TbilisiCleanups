@@ -4,10 +4,10 @@ struct AboutView: View {
     var body: some View {
         NavigationView {
             List {
-                Section("What is Tbilisi Clean-ups") {
+                Section("What is nogarba.ge") {
                     Text(
                         """
-                        Tbilisi Clean-ups is a volunteer eco initiative in \
+                        **nogarba.ge** is a volunteer eco initiative in \
                         the country of Georgia 🇬🇪. We get together to clean up \
                         public parks and recreation zones.
 

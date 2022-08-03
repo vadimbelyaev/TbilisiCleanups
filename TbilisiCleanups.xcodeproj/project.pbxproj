@@ -802,6 +802,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TbilisiCleanups/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = nogarba.ge;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app uses your current location to show it on a map when you submit a report.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The app needs access to the photo library in order to let you choose photos for the reports.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -839,6 +840,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TbilisiCleanups/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = nogarba.ge;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app uses your current location to show it on a map when you submit a report.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The app needs access to the photo library in order to let you choose photos for the reports.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

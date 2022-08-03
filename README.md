@@ -1,5 +1,5 @@
-# TbilisiCleanups
-An iOS app for reporting littered places in Georgia for the Tbilisi Clean-ups project (https://nogarba.ge)
+# nogarba.ge
+An iOS app for reporting littered places in Georgia for the **nogarba.ge** project (https://nogarba.ge)
 
 
 ## How To Build And Run
