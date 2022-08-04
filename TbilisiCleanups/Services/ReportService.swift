@@ -107,7 +107,9 @@ private func fetchReports(appState: AppState) async throws {
         appState.userReports = reportsWithUniqueIDs
         appState.userReportsLoadingState = .loaded
     } catch {
-        appState.userReportsLoadingState = .failed
+        await MainActor.run {
+            appState.userReportsLoadingState = .failed
+        }
         throw error
     }
 }
