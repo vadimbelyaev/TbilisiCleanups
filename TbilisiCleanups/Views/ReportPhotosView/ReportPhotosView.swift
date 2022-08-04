@@ -83,15 +83,12 @@ struct ReportPhotosView: View {
 
     private var addPhotosButton: some View {
         Button {
-            if model.authorization == .authorized {
-                Task {
-                    await model.startPhotoPickerPresentationFlow(
-                        isPickerPresented: $isPickerPresented,
-                        isSettingsAlertPresented: $isSettingsAlertPresented
-                    )
-                }
-            } else if model.authorization == .limited {
-                isCustomPickerPresented = true
+            Task {
+                await model.startPhotoPickerPresentationFlow(
+                    isPickerPresented: $isPickerPresented,
+                    isLimitedPickerPresented: $isCustomPickerPresented,
+                    isSettingsAlertPresented: $isSettingsAlertPresented
+                )
             }
         } label: {
             HStack {

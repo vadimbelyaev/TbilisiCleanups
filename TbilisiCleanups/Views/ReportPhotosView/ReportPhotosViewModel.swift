@@ -26,16 +26,21 @@ final class ReportPhotosViewModel: ObservableObject {
 
     func startPhotoPickerPresentationFlow(
         isPickerPresented: Binding<Bool>,
+        isLimitedPickerPresented: Binding<Bool>,
         isSettingsAlertPresented: Binding<Bool>
     ) async {
         switch authorization {
         case .notDetermined:
             authorization = await PHPhotoLibrary.requestAuthorization(for: .readWrite)
-            if [.authorized, .limited].contains(authorization) {
+            if authorization == .authorized {
                 isPickerPresented.wrappedValue = true
+            } else if authorization == .limited {
+                isLimitedPickerPresented.wrappedValue = true
             }
-        case .authorized, .limited:
+        case .authorized:
             isPickerPresented.wrappedValue = true
+        case .limited:
+            isLimitedPickerPresented.wrappedValue = true
         case .restricted, .denied:
             isSettingsAlertPresented.wrappedValue = true
         @unknown default:
