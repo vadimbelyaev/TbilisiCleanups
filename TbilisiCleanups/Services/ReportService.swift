@@ -60,17 +60,66 @@ final class ReportService: ObservableObject {
 
         Task.detached(priority: .low) { [weak self] in
             guard let self = self else { return }
-            try await fetchReports(appState: self.appState)
+            try await TbilisiCleanups.fetchReportsByCurrentUser(into: self.appState)
         }
     }
 
     func fetchReportsByCurrentUser() async throws {
-        try await fetchReports(appState: appState)
+        try await TbilisiCleanups.fetchReportsByCurrentUser(into: appState)
+    }
+
+    func fetchVerifiedReports() async throws {
+        do {
+            appState.verifiedReportsLoadingState = .loading
+
+            let verifiedStatuses = [
+                Report.Status.dirty,
+                Report.Status.clean,
+                Report.Status.scheduled
+            ].map(\.rawValue)
+            let firestore = Firestore.firestore()
+            let snapshot = try await firestore.collection("reports")
+                .whereField("status", in: verifiedStatuses)
+                .order(by: "created_on", descending: true)
+                .limit(to: 100)
+                .getDocuments()
+            let reports = snapshot
+                .documents
+                .map { $0.data() }
+                .compactMap { rawObject -> Report? in
+                    guard let report = try? Report(withFirestoreData: rawObject) else {
+                        AnalyticsService.logEvent(AppError.couldNotParseReport(rawObject: rawObject))
+                        return nil
+                    }
+                    return report
+                }
+
+            // Double check for duplicate IDs. Reports with duplicate IDs will
+            // mess up the rendering and indicate report submission duplicates.
+            var reportIDs: Set<String> = []
+            var reportsWithUniqueIDs: [Report] = []
+            for report in reports {
+                if reportIDs.contains(report.id) {
+                    AnalyticsService.logEvent(AppError.reportsWithDuplicateIDExist(reportID: report.id))
+                } else {
+                    reportIDs.insert(report.id)
+                    reportsWithUniqueIDs.append(report)
+                }
+            }
+
+            appState.verifiedReports = reportsWithUniqueIDs
+            appState.verifiedReportsLoadingState = .loaded
+        } catch {
+            await MainActor.run {
+                appState.verifiedReportsLoadingState = .failed
+            }
+            throw error
+        }
     }
 }
 
 @MainActor
-private func fetchReports(appState: AppState) async throws {
+private func fetchReportsByCurrentUser(into appState: AppState) async throws {
     do {
         appState.userReportsLoadingState = .loading
         guard appState.userState.isAuthenticated,
@@ -89,7 +138,13 @@ private func fetchReports(appState: AppState) async throws {
         let reports = snapshot
             .documents
             .map { $0.data() }
-            .compactMap { try? Report(withFirestoreData: $0) }
+            .compactMap { rawObject -> Report? in
+                guard let report = try? Report(withFirestoreData: rawObject) else {
+                    AnalyticsService.logEvent(AppError.couldNotParseReport(rawObject: rawObject))
+                    return nil
+                }
+                return report
+            }
 
         // Double check for duplicate IDs. Reports with duplicate IDs will
         // mess up the rendering and indicate report submission duplicates.

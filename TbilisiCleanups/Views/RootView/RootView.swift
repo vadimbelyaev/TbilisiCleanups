@@ -7,6 +7,8 @@ struct RootView: View {
         TabView(selection: $appState.selectedTab) {
             ReportStartView()
                 .tag(MainTab.reportStart)
+            PlacesMapView()
+                .tag(MainTab.placesMap)
             UserProfileView()
                 .tag(MainTab.userProfile)
             AboutView()
@@ -17,6 +19,7 @@ struct RootView: View {
 
 enum MainTab {
     case reportStart
+    case placesMap
     case userProfile
     case about
 }

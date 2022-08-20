@@ -1,3 +1,4 @@
+import CoreLocation
 import Foundation
 
 struct Report: Identifiable {
@@ -7,6 +8,7 @@ struct Report: Identifiable {
     let photos: [Media]
     let videos: [Media]
     let status: Status
+    let location: Location
 
     init(withFirestoreData data: [String: Any]) throws {
         guard let id = data["id"] as? String else {
@@ -41,6 +43,15 @@ struct Report: Identifiable {
             self.status = status
         } else {
             self.status = .unknown
+        }
+
+        if let location = data["location"] as? [String: Double],
+           let lat = location["lat"],
+           let lon = location["lon"]
+        {
+            self.location = .init(lat: lat, lon: lon)
+        } else {
+            throw ParsingError.missingOrInvalidLocation
         }
     }
 
@@ -78,8 +89,18 @@ extension Report {
         case unknown
     }
 
+    struct Location {
+        let lat: Double
+        let lon: Double
+
+        var clLocationCoordinate2D: CLLocationCoordinate2D {
+            .init(latitude: lat, longitude: lon)
+        }
+    }
+
     enum ParsingError: Error {
         case missingID
         case missingCreatedOn
+        case missingOrInvalidLocation
     }
 }
