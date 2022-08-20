@@ -39,10 +39,12 @@ struct ReportSubmissionView: View {
         switch appState.currentSubmission.status {
         case .notStarted:
             Text("Your report is about to be submitted.")
+                .fixedSize(horizontal: false, vertical: true)
         case .inProgress:
             VStack(spacing: 24) {
                 ProgressView()
                 Text("Submitting your report...")
+                    .fixedSize(horizontal: false, vertical: true)
             }
             .padding(.horizontal)
         case .failed:
@@ -51,8 +53,7 @@ struct ReportSubmissionView: View {
                     .font(.largeTitle)
                     .foregroundColor(.red)
                 Text("Error submitting the report. Please try again later.")
-                    .lineLimit(0)
-                    .fixedSize(horizontal: true, vertical: false)
+                    .fixedSize(horizontal: false, vertical: true)
                     .foregroundColor(.red)
                 Button {
                     sendReport()
@@ -69,10 +70,10 @@ struct ReportSubmissionView: View {
                     .font(.largeTitle)
                     .foregroundColor(.green)
                 Text("We received your report. Thank you!")
-                    .lineLimit(0)
+                    .fixedSize(horizontal: false, vertical: true)
                     .foregroundColor(.green)
                 Text("Check its status any time on the My Profile tab.")
-                    .lineLimit(0)
+                    .fixedSize(horizontal: false, vertical: true)
                 Button {
                     appState.isReportSheetPresented = false
                     appState.selectedTab = .userProfile
