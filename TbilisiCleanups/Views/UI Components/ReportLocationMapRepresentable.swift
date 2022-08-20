@@ -1,13 +1,13 @@
 import MapKit
 import SwiftUI
 
-struct MapViewControllerRepresentable: UIViewControllerRepresentable {
+struct ReportLocationMapRepresentable: UIViewControllerRepresentable {
     @Binding var region: MKCoordinateRegion
     @Binding var location: CLLocationCoordinate2D
     let isInteractive: Bool
 
     func makeUIViewController(context: Context) -> some UIViewController {
-        let controller = MapViewController(
+        let controller = ReportLocationMapViewController(
             initialRegion: region,
             initialLocation: location,
             isInteractive: isInteractive,
@@ -19,7 +19,7 @@ struct MapViewControllerRepresentable: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        guard let mapViewController = uiViewController as? MapViewController else { return }
+        guard let mapViewController = uiViewController as? ReportLocationMapViewController else { return }
         mapViewController.region = region
         mapViewController.location = location
     }
@@ -29,8 +29,8 @@ struct MapViewControllerRepresentable: UIViewControllerRepresentable {
     }
 }
 
-extension MapViewControllerRepresentable {
+extension ReportLocationMapRepresentable {
     final class Coordinator {
-        var managedController: MapViewController?
+        var managedController: ReportLocationMapViewController?
     }
 }

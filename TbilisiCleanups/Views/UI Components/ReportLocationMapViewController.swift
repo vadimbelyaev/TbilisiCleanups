@@ -1,7 +1,7 @@
 import MapKit
 import UIKit
 
-final class MapViewController: UIViewController {
+final class ReportLocationMapViewController: UIViewController {
     public var region: MKCoordinateRegion {
         didSet {
             if oldValue != region {
@@ -100,7 +100,7 @@ final class MapViewController: UIViewController {
     }
 }
 
-extension MapViewController: MKMapViewDelegate {
+extension ReportLocationMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         region = mapView.region
         // Communicate the new state back to SwiftUI

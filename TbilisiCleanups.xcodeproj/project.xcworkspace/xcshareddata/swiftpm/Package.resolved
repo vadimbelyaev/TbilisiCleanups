@@ -86,8 +86,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleSignIn-iOS",
       "state" : {
-        "revision" : "9450e779619fc184d360c9f7ce61023587f7e1f4",
-        "version" : "6.2.2"
+        "revision" : "5ce850448e89500aca5b095af7247eb46dc0ca18",
+        "version" : "6.2.3"
       }
     },
     {
@@ -167,8 +167,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",
       "state" : {
-        "revision" : "cc1995b73883a1f97931366879d862c53a32bf82",
-        "version" : "5.13.1"
+        "revision" : "3e48cb68d8e668d146dc59c73fb98cb628616236",
+        "version" : "5.13.2"
       }
     },
     {

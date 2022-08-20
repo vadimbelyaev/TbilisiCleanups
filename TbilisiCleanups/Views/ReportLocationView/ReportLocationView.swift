@@ -32,7 +32,7 @@ struct ReportLocationView: View {
     }
 
     private var map: some View {
-        MapViewControllerRepresentable(
+        ReportLocationMapRepresentable(
             region: $model.region,
             location: $model.location,
             isInteractive: true

@@ -41,7 +41,7 @@ struct ReportDescriptionView: View {
     }
 
     private var map: some View {
-        MapViewControllerRepresentable(
+        ReportLocationMapRepresentable(
             region: $region,
             location: $location,
             isInteractive: false

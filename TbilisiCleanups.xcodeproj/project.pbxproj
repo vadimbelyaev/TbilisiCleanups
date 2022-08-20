@@ -27,8 +27,8 @@
 		DD2AF479288209BD0017A64C /* ReportPhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF478288209BD0017A64C /* ReportPhotosViewModel.swift */; };
 		DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF47B28821AF90017A64C /* PhotoPicker.swift */; };
 		DD39F262288623D20023F01D /* MediaUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD39F261288623D20023F01D /* MediaUploadService.swift */; };
-		DD731EC92894DFE60003EC2B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD731EC82894DFE60003EC2B /* MapViewController.swift */; };
-		DD731ECB2894E3270003EC2B /* MapViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD731ECA2894E3270003EC2B /* MapViewControllerRepresentable.swift */; };
+		DD731EC92894DFE60003EC2B /* ReportLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD731EC82894DFE60003EC2B /* ReportLocationMapViewController.swift */; };
+		DD731ECB2894E3270003EC2B /* ReportLocationMapRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD731ECA2894E3270003EC2B /* ReportLocationMapRepresentable.swift */; };
 		DD7838722884B56C00ED2CE9 /* SotoAWSConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7838712884B56C00ED2CE9 /* SotoAWSConfigHelper.swift */; };
 		DD7838742884B6FF00ED2CE9 /* S3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7838732884B6FF00ED2CE9 /* S3Service.swift */; };
 		DD7838762884CFC100ED2CE9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DD7838752884CFC100ED2CE9 /* README.md */; };
@@ -102,8 +102,8 @@
 		DD2AF478288209BD0017A64C /* ReportPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPhotosViewModel.swift; sourceTree = "<group>"; };
 		DD2AF47B28821AF90017A64C /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		DD39F261288623D20023F01D /* MediaUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaUploadService.swift; sourceTree = "<group>"; };
-		DD731EC82894DFE60003EC2B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		DD731ECA2894E3270003EC2B /* MapViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		DD731EC82894DFE60003EC2B /* ReportLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportLocationMapViewController.swift; sourceTree = "<group>"; };
+		DD731ECA2894E3270003EC2B /* ReportLocationMapRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportLocationMapRepresentable.swift; sourceTree = "<group>"; };
 		DD7838712884B56C00ED2CE9 /* SotoAWSConfigHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAWSConfigHelper.swift; sourceTree = "<group>"; };
 		DD7838732884B6FF00ED2CE9 /* S3Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S3Service.swift; sourceTree = "<group>"; };
 		DD7838752884CFC100ED2CE9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -254,8 +254,8 @@
 				DD11262F288DDBC4005F5FC0 /* CustomPhotoPicker.swift */,
 				DDCE78262883FD8700ACA7BF /* FirebaseAuthView.swift */,
 				DDE290EE288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift */,
-				DD731EC82894DFE60003EC2B /* MapViewController.swift */,
-				DD731ECA2894E3270003EC2B /* MapViewControllerRepresentable.swift */,
+				DD731EC82894DFE60003EC2B /* ReportLocationMapViewController.swift */,
+				DD731ECA2894E3270003EC2B /* ReportLocationMapRepresentable.swift */,
 				DDCE781E2883697800ACA7BF /* OverlayNavigationLink.swift */,
 				DD2AF47B28821AF90017A64C /* PhotoPicker.swift */,
 				DD112631288E9AE2005F5FC0 /* UITextViewRepresentable.swift */,
@@ -604,7 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD731ECB2894E3270003EC2B /* MapViewControllerRepresentable.swift in Sources */,
+				DD731ECB2894E3270003EC2B /* ReportLocationMapRepresentable.swift in Sources */,
 				DD2AF405287F61FB0017A64C /* RootView.swift in Sources */,
 				DDEC9E31288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift in Sources */,
 				DD112632288E9AE2005F5FC0 /* UITextViewRepresentable.swift in Sources */,
@@ -626,7 +626,7 @@
 				DDCE78492884434A00ACA7BF /* ReportService.swift in Sources */,
 				DD2AF46E287F71B70017A64C /* ReportLocationView.swift in Sources */,
 				DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */,
-				DD731EC92894DFE60003EC2B /* MapViewController.swift in Sources */,
+				DD731EC92894DFE60003EC2B /* ReportLocationMapViewController.swift in Sources */,
 				DDE290EF288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift in Sources */,
 				DD0632E7288C3CE3001DEC31 /* LoadingState.swift in Sources */,
 				DDCE78232883F96000ACA7BF /* UserState.swift in Sources */,
