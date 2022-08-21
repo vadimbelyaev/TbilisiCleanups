@@ -82,8 +82,10 @@ extension PlacesMapViewController: MKMapViewDelegate {
         else { return nil }
         let report = placeAnnotation.report
         marker.leftCalloutAccessoryView = {
-            let imageView = LazyImageView(frame: CGRect(origin: .zero, size: CGSize(width: 40, height: 40)))
+            let imageView = LazyImageView(frame: .init(origin: .zero, size: CGSize(width: 40, height: 40)))
             imageView.url = report.mainPreviewImageURL
+            imageView.layer.cornerRadius = 4
+            imageView.clipsToBounds = true
             return imageView
         }()
         marker.rightCalloutAccessoryView = {
@@ -94,10 +96,18 @@ extension PlacesMapViewController: MKMapViewDelegate {
             button.addAction(action, for: .touchUpInside)
             return button
         }()
+        marker.detailCalloutAccessoryView = {
+            let label = UILabel()
+            label.text = report.status.localizedDescription
+            label.font = .preferredFont(forTextStyle: .footnote)
+            label.textColor = report.status.uiColor
+            return label
+        }()
         marker.displayPriority = .required
         marker.canShowCallout = true
         marker.animatesWhenAdded = false
         marker.titleVisibility = .hidden
+        marker.markerTintColor = report.status.uiColor
         return marker
     }
 }
