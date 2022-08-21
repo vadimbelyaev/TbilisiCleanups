@@ -9,6 +9,7 @@ struct UserProfileView: View {
 
     @State private var deleteAccountConfirmationPresented = false
     @State private var signInScreenPresented = false
+    @State private var deleteAccountFailed = false
 
     var body: some View {
         NavigationView {
@@ -81,6 +82,11 @@ struct UserProfileView: View {
                     isPresented: $deleteAccountConfirmationPresented,
                     actions: deleteAccountConfirmationActions
                 )
+                .alert(
+                    "There was an error deleting your account. Please try again later.",
+                    isPresented: $deleteAccountFailed,
+                    actions: {}
+                )
             }
         }
         .refreshable {
@@ -93,7 +99,13 @@ struct UserProfileView: View {
     @ViewBuilder
     private func deleteAccountConfirmationActions() -> some View {
         Button(role: .destructive) {
-            authService.deleteAccount()
+            Task {
+                do {
+                    try await authService.deleteAccount()
+                } catch {
+                    deleteAccountFailed = true
+                }
+            }
         } label: {
             Text("Delete my account")
         }
