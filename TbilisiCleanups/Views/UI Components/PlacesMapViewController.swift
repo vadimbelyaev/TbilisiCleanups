@@ -1,4 +1,5 @@
 import MapKit
+import NukeUI
 import UIKit
 
 final class PlacesMapViewController: UIViewController {
@@ -80,19 +81,19 @@ extension PlacesMapViewController: MKMapViewDelegate {
             let placeAnnotation = annotation as? PlaceAnnotation
         else { return nil }
         let report = placeAnnotation.report
-        marker.detailCalloutAccessoryView = UIButton(
-            configuration: .plain(),
-            primaryAction: .init(
-                title: "Tap to see details",
-                image: UIImage(systemName: "info.circle")?
-                    .applyingSymbolConfiguration(
-                        .init(font: .preferredFont(forTextStyle: .footnote))
-                    ),
-                handler: { [weak self] _ in
-                    self?.placeDetailsTapAction(report)
-                }
-            )
-        )
+        marker.leftCalloutAccessoryView = {
+            let imageView = LazyImageView(frame: CGRect(origin: .zero, size: CGSize(width: 40, height: 40)))
+            imageView.url = report.mainPreviewImageURL
+            return imageView
+        }()
+        marker.rightCalloutAccessoryView = {
+            let button = UIButton(type: .detailDisclosure)
+            let action = UIAction { [weak self] _ in
+                self?.placeDetailsTapAction(report)
+            }
+            button.addAction(action, for: .touchUpInside)
+            return button
+        }()
         marker.displayPriority = .required
         marker.canShowCallout = true
         marker.animatesWhenAdded = false
