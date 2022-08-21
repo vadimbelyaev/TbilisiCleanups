@@ -128,28 +128,30 @@ struct UserProfileView: View {
                 .ignoresSafeArea(.container)
                 .aspectRatio(contentMode: .fill)
                 .frame(height: 200)
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
 
-            VStack(alignment: .leading, spacing: .zero) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text(report.description ?? "No description")
+                    .fontWeight(.semibold)
                     .lineLimit(1)
-                    .font(.title)
-                    .foregroundColor(.black)
-                    .padding(4)
-                    .background(Color.white.opacity(0.9).blur(radius: 4))
-                Text(formatted(report.createdOn))
-                    .font(.subheadline)
-                    .foregroundColor(.black)
-                    .padding(4)
-                    .background(Color.white.opacity(0.9).blur(radius: 2))
+                    .font(.title3)
+                    .padding(EdgeInsets(top: 6, leading: 12, bottom: 6, trailing: 12))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(Material.thickMaterial)
                 Spacer()
                 HStack {
+                    Text(formatted(report.createdOn))
+                        .font(.footnote)
+                        .padding(EdgeInsets(top: 3, leading: 8, bottom: 3, trailing: 8))
+                        .background(Material.thickMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                     Spacer()
                     ReportStatusBadge(status: report.status)
                 }
+                .padding(4)
             }
-            .padding()
         }
+        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+        .padding(.top, 4)
         .listRowSeparator(.hidden)
     }
 
