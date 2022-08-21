@@ -150,38 +150,12 @@ struct UserProfileView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    statusLabel(for: report)
+                    ReportStatusBadge(status: report.status)
                 }
             }
             .padding()
         }
         .listRowSeparator(.hidden)
-    }
-
-    private func statusLabel(for report: Report) -> some View {
-        Text(report.status.localizedDescription)
-            .font(.footnote)
-            .foregroundColor(.white)
-            .padding(EdgeInsets(top: 3, leading: 8, bottom: 3, trailing: 8))
-            .background(statusLabelBackground(for: report.status))
-            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-    }
-
-    private func statusLabelBackground(for status: Report.Status) -> Color {
-        switch status {
-        case .unknown:
-            return .gray
-        case .rejected:
-            return .gray
-        case .scheduled:
-            return .purple
-        case .dirty:
-            return .red
-        case .clean:
-            return .green
-        case .moderation:
-            return .blue
-        }
     }
 
     private static let dateFormatter = RelativeDateTimeFormatter()

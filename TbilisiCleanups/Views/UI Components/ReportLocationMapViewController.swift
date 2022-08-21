@@ -59,11 +59,6 @@ final class ReportLocationMapViewController: UIViewController {
         if isInteractive {
             tapRecognizer.addTarget(self, action: #selector(tapHandler(_:)))
             mapView.addGestureRecognizer(tapRecognizer)
-        } else {
-            mapView.isScrollEnabled = false
-            mapView.isZoomEnabled = false
-            mapView.isPitchEnabled = false
-            mapView.isPitchEnabled = false
         }
     }
 

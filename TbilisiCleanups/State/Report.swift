@@ -74,7 +74,7 @@ struct Report: Identifiable {
 }
 
 extension Report {
-    struct Media {
+    struct Media: Identifiable {
         let id: String
         let url: URL
         let previewImageURL: URL

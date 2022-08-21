@@ -27,6 +27,7 @@
 		DD2AF479288209BD0017A64C /* ReportPhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF478288209BD0017A64C /* ReportPhotosViewModel.swift */; };
 		DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AF47B28821AF90017A64C /* PhotoPicker.swift */; };
 		DD39F262288623D20023F01D /* MediaUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD39F261288623D20023F01D /* MediaUploadService.swift */; };
+		DD625A3728B22F0E00685F5C /* ReportStatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD625A3628B22F0E00685F5C /* ReportStatusBadge.swift */; };
 		DD731EC92894DFE60003EC2B /* ReportLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD731EC82894DFE60003EC2B /* ReportLocationMapViewController.swift */; };
 		DD731ECB2894E3270003EC2B /* ReportLocationMapRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD731ECA2894E3270003EC2B /* ReportLocationMapRepresentable.swift */; };
 		DD7838722884B56C00ED2CE9 /* SotoAWSConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7838712884B56C00ED2CE9 /* SotoAWSConfigHelper.swift */; };
@@ -37,6 +38,10 @@
 		DD875B7128B138910015D598 /* PlacesMapRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD875B7028B138910015D598 /* PlacesMapRepresentable.swift */; };
 		DD8B25C82887191B0013D50F /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8B25C72887191B0013D50F /* Report.swift */; };
 		DDB1D80D2889309300CE464B /* State+L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1D80C2889309300CE464B /* State+L10n.swift */; };
+		DDB88DD928B1B0EA0020E734 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = DDB88DD828B1B0EA0020E734 /* Nuke */; };
+		DDB88DDB28B1B0EA0020E734 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDB88DDA28B1B0EA0020E734 /* NukeUI */; };
+		DDB88DDD28B21CDC0020E734 /* ReportDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB88DDC28B21CDC0020E734 /* ReportDetailsView.swift */; };
+		DDB88DDF28B22C140020E734 /* AVPlayerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB88DDE28B22C140020E734 /* AVPlayerRepresentable.swift */; };
 		DDCE781F2883697800ACA7BF /* OverlayNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE781E2883697800ACA7BF /* OverlayNavigationLink.swift */; };
 		DDCE78212883F90600ACA7BF /* ReportDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78202883F90600ACA7BF /* ReportDraft.swift */; };
 		DDCE78232883F96000ACA7BF /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78222883F96000ACA7BF /* UserState.swift */; };
@@ -105,6 +110,7 @@
 		DD2AF478288209BD0017A64C /* ReportPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPhotosViewModel.swift; sourceTree = "<group>"; };
 		DD2AF47B28821AF90017A64C /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		DD39F261288623D20023F01D /* MediaUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaUploadService.swift; sourceTree = "<group>"; };
+		DD625A3628B22F0E00685F5C /* ReportStatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStatusBadge.swift; sourceTree = "<group>"; };
 		DD731EC82894DFE60003EC2B /* ReportLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportLocationMapViewController.swift; sourceTree = "<group>"; };
 		DD731ECA2894E3270003EC2B /* ReportLocationMapRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportLocationMapRepresentable.swift; sourceTree = "<group>"; };
 		DD7838712884B56C00ED2CE9 /* SotoAWSConfigHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAWSConfigHelper.swift; sourceTree = "<group>"; };
@@ -115,6 +121,8 @@
 		DD875B7028B138910015D598 /* PlacesMapRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesMapRepresentable.swift; sourceTree = "<group>"; };
 		DD8B25C72887191B0013D50F /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		DDB1D80C2889309300CE464B /* State+L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "State+L10n.swift"; sourceTree = "<group>"; };
+		DDB88DDC28B21CDC0020E734 /* ReportDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailsView.swift; sourceTree = "<group>"; };
+		DDB88DDE28B22C140020E734 /* AVPlayerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerRepresentable.swift; sourceTree = "<group>"; };
 		DDCE77F82882E9E300ACA7BF /* TbilisiCleanups.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TbilisiCleanups.entitlements; sourceTree = "<group>"; };
 		DDCE77F92882EA0C00ACA7BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDCE781E2883697800ACA7BF /* OverlayNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayNavigationLink.swift; sourceTree = "<group>"; };
@@ -138,9 +146,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB88DDB28B1B0EA0020E734 /* NukeUI in Frameworks */,
 				DDCE782E2884041100ACA7BF /* FirebaseCrashlytics in Frameworks */,
 				DDCE783C2884079600ACA7BF /* FirebaseFacebookAuthUI in Frameworks */,
 				DDCE783E2884079600ACA7BF /* FirebaseGoogleAuthUI in Frameworks */,
+				DDB88DD928B1B0EA0020E734 /* Nuke in Frameworks */,
 				DDCE78382884079600ACA7BF /* FirebaseAuthUI in Frameworks */,
 				DDCE78302884041100ACA7BF /* FirebaseFirestore in Frameworks */,
 				DDCE78322884041100ACA7BF /* FirebaseMessaging in Frameworks */,
@@ -265,6 +275,7 @@
 		DD2AF47A28821AE00017A64C /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
+				DDB88DDE28B22C140020E734 /* AVPlayerRepresentable.swift */,
 				DD11262F288DDBC4005F5FC0 /* CustomPhotoPicker.swift */,
 				DDCE78262883FD8700ACA7BF /* FirebaseAuthView.swift */,
 				DDE290EE288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift */,
@@ -275,6 +286,7 @@
 				DD731ECA2894E3270003EC2B /* ReportLocationMapRepresentable.swift */,
 				DD731EC82894DFE60003EC2B /* ReportLocationMapViewController.swift */,
 				DD112631288E9AE2005F5FC0 /* UITextViewRepresentable.swift */,
+				DD625A3628B22F0E00685F5C /* ReportStatusBadge.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -308,6 +320,7 @@
 				DDCE77FD2882F46F00ACA7BF /* RootView */,
 				DD2AF47A28821AE00017A64C /* UI Components */,
 				DDCE7845288438AA00ACA7BF /* UserProfileView */,
+				DDB88DDC28B21CDC0020E734 /* ReportDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -439,6 +452,8 @@
 				DDCE783D2884079600ACA7BF /* FirebaseGoogleAuthUI */,
 				DDCE783F2884079600ACA7BF /* FirebaseOAuthUI */,
 				DDCE78562884AFC100ACA7BF /* SotoS3 */,
+				DDB88DD828B1B0EA0020E734 /* Nuke */,
+				DDB88DDA28B1B0EA0020E734 /* NukeUI */,
 			);
 			productName = TbilisiCleanups;
 			productReference = DD2AF3FF287F61FB0017A64C /* TbilisiCleanups.app */;
@@ -516,6 +531,7 @@
 				DDCE78282884041100ACA7BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				DDCE78362884079600ACA7BF /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */,
 				DDCE78552884AFC100ACA7BF /* XCRemoteSwiftPackageReference "soto" */,
+				DDB88DD728B1B0EA0020E734 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = DD2AF400287F61FB0017A64C /* Products */;
 			projectDirPath = "";
@@ -633,6 +649,7 @@
 				DD2AF403287F61FB0017A64C /* TbilisiCleanupsApp.swift in Sources */,
 				DD112630288DDBC4005F5FC0 /* CustomPhotoPicker.swift in Sources */,
 				DDCE784C288443C800ACA7BF /* ReportSubmissionView.swift in Sources */,
+				DDB88DDF28B22C140020E734 /* AVPlayerRepresentable.swift in Sources */,
 				DD2AF4752881EED10017A64C /* AppState.swift in Sources */,
 				DD2AF479288209BD0017A64C /* ReportPhotosViewModel.swift in Sources */,
 				DD8B25C82887191B0013D50F /* Report.swift in Sources */,
@@ -643,11 +660,13 @@
 				DD7838742884B6FF00ED2CE9 /* S3Service.swift in Sources */,
 				DDCE78492884434A00ACA7BF /* ReportService.swift in Sources */,
 				DD2AF46E287F71B70017A64C /* ReportLocationView.swift in Sources */,
+				DDB88DDD28B21CDC0020E734 /* ReportDetailsView.swift in Sources */,
 				DD875B6F28B1377E0015D598 /* PlacesMapViewController.swift in Sources */,
 				DD2AF47C28821AF90017A64C /* PhotoPicker.swift in Sources */,
 				DD731EC92894DFE60003EC2B /* ReportLocationMapViewController.swift in Sources */,
 				DDE290EF288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift in Sources */,
 				DD0632E7288C3CE3001DEC31 /* LoadingState.swift in Sources */,
+				DD625A3728B22F0E00685F5C /* ReportStatusBadge.swift in Sources */,
 				DD875B6D28B12D4A0015D598 /* PlacesMapView.swift in Sources */,
 				DDCE78232883F96000ACA7BF /* UserState.swift in Sources */,
 				DD0632E5288BD976001DEC31 /* AboutView.swift in Sources */,
@@ -1012,6 +1031,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DDB88DD728B1B0EA0020E734 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
 		DDCE78282884041100ACA7BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -1039,6 +1066,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DDB88DD828B1B0EA0020E734 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB88DD728B1B0EA0020E734 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		DDB88DDA28B1B0EA0020E734 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB88DD728B1B0EA0020E734 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
 		DDCE78292884041100ACA7BF /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DDCE78282884041100ACA7BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -20,7 +20,7 @@ struct PlacesMapView: View {
                         VStack {
                             ForEach(appState.verifiedReports) { report in
                                 NavigationLink("", tag: report.id, selection: $selectedReportId) {
-                                    Text("Details for report \(report.description ?? "nil")")
+                                    ReportDetailsView(report: report)
                                 }
                             }
                         }
