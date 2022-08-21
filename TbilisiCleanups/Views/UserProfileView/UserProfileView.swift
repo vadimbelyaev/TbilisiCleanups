@@ -1,3 +1,4 @@
+import NukeUI
 import SwiftUI
 
 struct UserProfileView: View {
@@ -123,17 +124,11 @@ struct UserProfileView: View {
 
     private func reportCell(for report: Report) -> some View {
         ZStack(alignment: .topLeading) {
-            AsyncImage(url: report.mainPreviewImageURL) { image in
-                image
-                    .resizable()
-                    .ignoresSafeArea(.container)
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 200)
-            } placeholder: {
-                Color.secondary.opacity(0.1)
-                    .frame(height: 200)
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+            LazyImage(url: report.mainPreviewImageURL)
+                .ignoresSafeArea(.container)
+                .aspectRatio(contentMode: .fill)
+                .frame(height: 200)
+                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
 
             VStack(alignment: .leading, spacing: .zero) {
                 Text(report.description ?? "No description")
