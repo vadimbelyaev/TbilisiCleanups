@@ -49,13 +49,14 @@ extension ReportLocationViewModel: CLLocationManagerDelegate {
     ) {
         manager.stopUpdatingLocation()
         locationButtonState = .idle
-        guard let location = locations.first else { return }
-        let meters = location.horizontalAccuracy * 6
+        guard let detectedLocation = locations.first else { return }
+        let meters = detectedLocation.horizontalAccuracy * 6
         region = MKCoordinateRegion(
-            center: location.coordinate,
+            center: detectedLocation.coordinate,
             latitudinalMeters: meters,
             longitudinalMeters: meters
         )
+        location = detectedLocation.coordinate
     }
 
     func locationManager(
