@@ -125,7 +125,12 @@ private final class PlaceAnnotation: NSObject, MKAnnotation {
     }
 
     var title: String? {
-        report.description
+        guard let description = report.description,
+              !description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        else {
+            return "No description"
+        }
+        return description
     }
 
     var subtitle: String? {
