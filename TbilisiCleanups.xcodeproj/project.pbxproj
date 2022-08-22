@@ -58,7 +58,7 @@
 		DDCE783C2884079600ACA7BF /* FirebaseFacebookAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE783B2884079600ACA7BF /* FirebaseFacebookAuthUI */; };
 		DDCE783E2884079600ACA7BF /* FirebaseGoogleAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE783D2884079600ACA7BF /* FirebaseGoogleAuthUI */; };
 		DDCE78402884079600ACA7BF /* FirebaseOAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE783F2884079600ACA7BF /* FirebaseOAuthUI */; };
-		DDCE78442884341F00ACA7BF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78432884341F00ACA7BF /* AuthService.swift */; };
+		DDCE78442884341F00ACA7BF /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78432884341F00ACA7BF /* UserService.swift */; };
 		DDCE7847288438CF00ACA7BF /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE7846288438CF00ACA7BF /* UserProfileView.swift */; };
 		DDCE78492884434A00ACA7BF /* ReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE78482884434A00ACA7BF /* ReportService.swift */; };
 		DDCE784C288443C800ACA7BF /* ReportSubmissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */; };
@@ -132,7 +132,7 @@
 		DDCE78222883F96000ACA7BF /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		DDCE78262883FD8700ACA7BF /* FirebaseAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthView.swift; sourceTree = "<group>"; };
 		DDCE78342884062800ACA7BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		DDCE78432884341F00ACA7BF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		DDCE78432884341F00ACA7BF /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		DDCE7846288438CF00ACA7BF /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		DDCE78482884434A00ACA7BF /* ReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
 		DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSubmissionView.swift; sourceTree = "<group>"; };
@@ -390,12 +390,12 @@
 			isa = PBXGroup;
 			children = (
 				DDE290F0288DA181004ED1D9 /* AnalyticsService.swift */,
-				DDCE78432884341F00ACA7BF /* AuthService.swift */,
 				DD39F261288623D20023F01D /* MediaUploadService.swift */,
 				DDCE78482884434A00ACA7BF /* ReportService.swift */,
 				DD7838732884B6FF00ED2CE9 /* S3Service.swift */,
 				DD7838712884B56C00ED2CE9 /* SotoAWSConfigHelper.swift */,
 				DDEC9E32288C7FFA00706A55 /* StateRestorationService.swift */,
+				DDCE78432884341F00ACA7BF /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -677,7 +677,7 @@
 				DD39F262288623D20023F01D /* MediaUploadService.swift in Sources */,
 				DD7838722884B56C00ED2CE9 /* SotoAWSConfigHelper.swift in Sources */,
 				DDE290F1288DA181004ED1D9 /* AnalyticsService.swift in Sources */,
-				DDCE78442884341F00ACA7BF /* AuthService.swift in Sources */,
+				DDCE78442884341F00ACA7BF /* UserService.swift in Sources */,
 				DD2AF4722881EB030017A64C /* ReportDescriptionView.swift in Sources */,
 				DDCE78272883FD8700ACA7BF /* FirebaseAuthView.swift in Sources */,
 			);

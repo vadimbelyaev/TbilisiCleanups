@@ -4,7 +4,7 @@ import SwiftUI
 struct UserProfileView: View {
     @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var userState: UserState
-    @EnvironmentObject private var authService: AuthService
+    @EnvironmentObject private var userService: UserService
     @EnvironmentObject private var reportService: ReportService
 
     @State private var deleteAccountConfirmationPresented = false
@@ -76,7 +76,7 @@ struct UserProfileView: View {
 
             Section("Account") {
                 Button("Sign out") {
-                    authService.signOut()
+                    userService.signOut()
                 }
                 .buttonStyle(.borderless)
 
@@ -109,7 +109,7 @@ struct UserProfileView: View {
         Button(role: .destructive) {
             Task {
                 do {
-                    try await authService.deleteAccount()
+                    try await userService.deleteAccount()
                 } catch {
                     deleteAccountFailed = true
                 }

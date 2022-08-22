@@ -7,7 +7,7 @@ import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     let appState: AppState = .init()
-    private(set) lazy var authService = AuthService(appState: appState)
+    private(set) lazy var userService = UserService(appState: appState)
     private(set) lazy var reportService = ReportService(appState: appState)
     private(set) lazy var stateRestorationService = StateRestorationService(appState: appState)
 
@@ -27,7 +27,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
         // Ensuring the service is created as early as possible
         // because it listens to the user authentication changes
-        _ = authService
+        _ = userService
 
         setUpGlobalSubscriptions()
         UNUserNotificationCenter.current().delegate = self
@@ -76,9 +76,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     private func setUpGlobalSubscriptions() {
         let reportService = self.reportService
         let appState = self.appState
-        let authService = authService
+        let userService = userService
 
-        authService.userPublisher
+        userService.userPublisher
             .receive(on: DispatchQueue.main)
             .sink { user in
                 if let user = user, !user.isAnonymous {
@@ -108,7 +108,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                 else { return }
 
                 Task.detached(priority: .utility) {
-                    try await authService.saveFCMToken(
+                    try await userService.saveFCMToken(
                         forUserWithId: userId,
                         userProviderId: userProviderId,
                         token: token
@@ -123,7 +123,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                 let (isAuthenticated, reportStateChangeNotificationsEnabled) = input
                 guard isAuthenticated else { return }
                 Task {
-                    try await authService.saveReportStatusChangeNotificationsPreference(
+                    try await userService.saveReportStatusChangeNotificationsPreference(
                         newValue: reportStateChangeNotificationsEnabled
                     )
                 }
@@ -171,7 +171,7 @@ struct TbilisiCleanupsApp: App {
             RootView()
                 .environmentObject(delegate.appState)
                 .environmentObject(delegate.appState.userState)
-                .environmentObject(delegate.authService)
+                .environmentObject(delegate.userService)
                 .environmentObject(delegate.reportService)
                 .environmentObject(delegate.stateRestorationService)
         }

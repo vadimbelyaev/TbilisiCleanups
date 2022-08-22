@@ -1,10 +1,10 @@
 import SwiftUI
 
 struct FirebaseAuthView: UIViewControllerRepresentable {
-    @EnvironmentObject private var authService: AuthService
+    @EnvironmentObject private var userService: UserService
 
     func makeUIViewController(context: Context) -> some UIViewController {
-        authService.authUI.authViewController()
+        userService.authUI.authViewController()
     }
 
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {

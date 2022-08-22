@@ -8,7 +8,7 @@ import FirebaseGoogleAuthUI
 import FirebaseOAuthUI
 
 @MainActor
-final class AuthService: NSObject, ObservableObject {
+final class UserService: NSObject, ObservableObject {
     private let appState: AppState
 
     private let userSubject: PassthroughSubject<Firebase.User?, Never> = .init()
@@ -76,7 +76,7 @@ final class AuthService: NSObject, ObservableObject {
               let userId = appState.userState.userId,
               let providerId = appState.userState.userProviderId
         else {
-            throw AuthServiceError.notAuthenticated
+            throw UserServiceError.notAuthenticated
         }
         // First, erase account data of the user's reports
         let firestore = Firestore.firestore()
@@ -129,7 +129,7 @@ final class AuthService: NSObject, ObservableObject {
         guard let userId = appState.userState.userId,
               let userProviderId = appState.userState.userProviderId
         else {
-            throw AuthServiceError.notAuthenticated
+            throw UserServiceError.notAuthenticated
         }
         let document = try await fetchUserInfoSnapshot(forUserWithId: userId, userProviderId: userProviderId)
         guard document.exists,
@@ -145,7 +145,7 @@ final class AuthService: NSObject, ObservableObject {
         guard let userId = appState.userState.userId,
               let userProviderId = appState.userState.userProviderId
         else {
-            throw AuthServiceError.notAuthenticated
+            throw UserServiceError.notAuthenticated
         }
         let reference = makeUserInfoDocumentReference(
             forUserWithId: userId,
@@ -174,11 +174,11 @@ final class AuthService: NSObject, ObservableObject {
     }
 }
 
-enum AuthServiceError: Error {
+enum UserServiceError: Error {
     case notAuthenticated
 }
 
-extension AuthService: FUIAuthDelegate {
+extension UserService: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if let error = error {
             Crashlytics.crashlytics().record(error: error)
