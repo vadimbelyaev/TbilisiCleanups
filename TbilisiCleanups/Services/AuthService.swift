@@ -34,6 +34,9 @@ final class AuthService: NSObject, ObservableObject {
                             self.appState.userState.userName = Auth.auth().currentUser?.displayName
                         }
                     }
+                    Task.detached(priority: .userInitiated) { [weak self] in
+                        try await self?.readReportStatusChangeNotificationsPreference()
+                    }
                 } else {
                     self.appState.userState.isAuthenticated = false
                     self.appState.userState.userId = nil
@@ -98,6 +101,76 @@ final class AuthService: NSObject, ObservableObject {
             Crashlytics.crashlytics().record(error: error)
             throw error
         }
+    }
+
+    func saveFCMToken(forUserWithId userId: String, userProviderId: String, token: String) async throws {
+        let document = try await fetchUserInfoSnapshot(forUserWithId: userId, userProviderId: userProviderId)
+        var fcmTokens: [String] = {
+            guard document.exists,
+                  let data = document.data(),
+                  let tokens = data["fcm_tokens"] as? [String]
+            else { return [] }
+            return tokens
+        }()
+        if !fcmTokens.contains(token) {
+            fcmTokens.append(token)
+        }
+        let reference = makeUserInfoDocumentReference(forUserWithId: userId, userProviderId: userProviderId)
+        try await reference.setData(
+            [
+                "fcm_tokens": fcmTokens,
+                "last_used_locale": Locale.current.identifier
+            ],
+            merge: true
+        )
+    }
+
+    func readReportStatusChangeNotificationsPreference() async throws -> Bool {
+        guard let userId = appState.userState.userId,
+              let userProviderId = appState.userState.userProviderId
+        else {
+            throw AuthServiceError.notAuthenticated
+        }
+        let document = try await fetchUserInfoSnapshot(forUserWithId: userId, userProviderId: userProviderId)
+        guard document.exists,
+              let data = document.data(),
+              let value = data["report_status_change_notifications_enabled"] as? Bool
+        else {
+            return false
+        }
+        return value
+    }
+
+    func saveReportStatusChangeNotificationsPreference(newValue: Bool) async throws {
+        guard let userId = appState.userState.userId,
+              let userProviderId = appState.userState.userProviderId
+        else {
+            throw AuthServiceError.notAuthenticated
+        }
+        let reference = makeUserInfoDocumentReference(
+            forUserWithId: userId,
+            userProviderId: userProviderId
+        )
+        try await reference.setData(
+            [
+                "report_status_change_notifications_enabled": newValue,
+                "last_used_locale": Locale.current.identifier
+            ],
+            merge: true
+        )
+    }
+
+    private func makeUserInfoDocumentReference(forUserWithId userId: String, userProviderId: String) -> DocumentReference {
+        Firestore.firestore()
+            .collection("user_providers")
+            .document(userProviderId)
+            .collection("users")
+            .document(userId)
+    }
+
+    private func fetchUserInfoSnapshot(forUserWithId userId: String, userProviderId: String) async throws -> DocumentSnapshot {
+        let reference = makeUserInfoDocumentReference(forUserWithId: userId, userProviderId: userProviderId)
+        return try await reference.getDocument()
     }
 }
 

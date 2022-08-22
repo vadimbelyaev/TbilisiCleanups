@@ -66,6 +66,14 @@ struct UserProfileView: View {
                 }
             }
             .listSectionSeparator(.hidden)
+            Section("Notifications") {
+                if appState.hasNotificationsPermissions {
+                    Toggle("My reports status changes", isOn: $appState.userState.reportStateChangeNotificationsEnabled)
+                } else {
+                    allowNotificationsButton
+                }
+            }
+
             Section("Account") {
                 Button("Sign out") {
                     authService.signOut()
@@ -174,6 +182,34 @@ struct UserProfileView: View {
 
     private func formatted(_ date: Date) -> String {
         Self.dateFormatter.localizedString(for: date, relativeTo: .now)
+    }
+
+    private var allowNotificationsButton: some View {
+        Button {
+            UNUserNotificationCenter.current().getNotificationSettings { settings in
+                switch settings.authorizationStatus {
+                case .authorized:
+                    break
+                case .denied:
+                    if let url = URL(string: UIApplication.openSettingsURLString),
+                       UIApplication.shared.canOpenURL(url)
+                    {
+                        UIApplication.shared.open(url)
+                    }
+                case .ephemeral, .notDetermined, .provisional:
+                    Task {
+                        let granted = try await UNUserNotificationCenter
+                            .current()
+                            .requestAuthorization(options: [.alert, .sound])
+                        appState.hasNotificationsPermissions = granted
+                    }
+                @unknown default:
+                    assertionFailure()
+                }
+            }
+        } label: {
+            Text("Allow notifications")
+        }
     }
 }
 

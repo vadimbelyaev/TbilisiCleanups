@@ -11,6 +11,8 @@ final class AppState: ObservableObject {
     @Published var userReportsLoadingState: LoadingState = .notStarted
     @Published var verifiedReports: [Report] = []
     @Published var verifiedReportsLoadingState: LoadingState = .notStarted
+    @Published var firebaseCloudMessagingToken: String?
+    @Published var hasNotificationsPermissions: Bool = false
     var userState: UserState = .init()
 
     func dequeue(submission: ReportSubmission) {

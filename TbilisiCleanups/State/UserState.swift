@@ -6,4 +6,5 @@ final class UserState: NSObject, ObservableObject {
     @Published var userId: String?
     @Published var userProviderId: String?
     @Published var userName: String?
+    @Published var reportStateChangeNotificationsEnabled: Bool = false
 }
