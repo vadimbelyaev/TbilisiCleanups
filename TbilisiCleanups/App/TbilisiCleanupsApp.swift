@@ -29,7 +29,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         // because it listens to the user authentication changes
         _ = userService
 
-        setUpGlobalSubscriptions()
+        setUpSubscriptions()
         UNUserNotificationCenter.current().delegate = self
         UIApplication.shared.registerForRemoteNotifications()
         try? stateRestorationService.restoreState()
@@ -71,9 +71,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         // no-op
     }
 
-    // MARK: - Private
+    // MARK: - Subscriptions
 
-    private func setUpGlobalSubscriptions() {
+    private func setUpSubscriptions() {
+        setUpReportFetchSubscription()
+        setUpFCMTokenSaveSubscription()
+        setUpNotificationPreferencesSubscription()
+    }
+
+    private func setUpReportFetchSubscription() {
         let reportService = self.reportService
         let appState = self.appState
         let userService = userService
@@ -90,7 +96,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                 }
             }
             .store(in: &cancellables)
+    }
 
+    private func setUpFCMTokenSaveSubscription() {
+        let userService = userService
         appState.$firebaseCloudMessagingToken.eraseToAnyPublisher()
             .combineLatest(
                 appState.userState.$isAuthenticated.eraseToAnyPublisher(),
@@ -116,6 +125,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                 }
             }
             .store(in: &cancellables)
+    }
+
+    private func setUpNotificationPreferencesSubscription() {
+        let userService = userService
         appState.userState.$isAuthenticated.eraseToAnyPublisher()
             .combineLatest(appState.userState.$reportStateChangeNotificationsEnabled.eraseToAnyPublisher())
             .debounce(for: 3, scheduler: DispatchQueue.global(qos: .userInitiated))
@@ -130,6 +143,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             }
             .store(in: &cancellables)
     }
+
+    // MARK: - Private
 
     private func getNotificationsSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { [weak self] settings in

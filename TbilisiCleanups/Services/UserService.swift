@@ -160,7 +160,10 @@ final class UserService: NSObject, ObservableObject {
         )
     }
 
-    private func makeUserInfoDocumentReference(forUserWithId userId: String, userProviderId: String) -> DocumentReference {
+    private func makeUserInfoDocumentReference(
+        forUserWithId userId: String,
+        userProviderId: String
+    ) -> DocumentReference {
         Firestore.firestore()
             .collection("user_providers")
             .document(userProviderId)
@@ -168,7 +171,10 @@ final class UserService: NSObject, ObservableObject {
             .document(userId)
     }
 
-    private func fetchUserInfoSnapshot(forUserWithId userId: String, userProviderId: String) async throws -> DocumentSnapshot {
+    private func fetchUserInfoSnapshot(
+        forUserWithId userId: String,
+        userProviderId: String
+    ) async throws -> DocumentSnapshot {
         let reference = makeUserInfoDocumentReference(forUserWithId: userId, userProviderId: userProviderId)
         return try await reference.getDocument()
     }
