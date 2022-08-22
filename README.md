@@ -8,9 +8,9 @@ An iOS app for reporting littered places in Georgia for the **nogarba.ge** proje
 
 #### Firebase
 
-The app is using Firebase for many purposes.
+The app is using Firebase for many purposes, including the cloud database, analytics, crash reporting and push notifications.
 
-However, the Firebase configuration is not included in the repository for security purposes. 
+The Firebase configuration is not included in the repository for security purposes. 
 
 The actual configuration for release builds gets copied into the sources folder in the CI pipeline.
  
@@ -40,3 +40,8 @@ You will later need to copy this file into the project, as described in the "Mai
 4. Copy the prepared `SotoAWS.plist` file into the `AWS/` directory.
 5. Click Run.
 
+### Push Notifications
+
+The app is using Firebase Cloud Functions to send push notifications. For example, when the status of the user's report changes, a Firestore trigger executes a cloud function that sends a push to this user's device.
+
+The code of the cloud functions is available in a separate repository [TbilisiCleanups-FirebaseFunctions](https://github.com/vadimbelyaev/TbilisiCleanups-FirebaseFunctions).
