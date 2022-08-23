@@ -130,12 +130,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         appState.userState.$isAuthenticated.eraseToAnyPublisher()
             .combineLatest(
                 appState.userState
-                    .updateReportStateChangeNotificationsPreference
+                    .updateReportNotificationsPreference
                     .eraseToAnyPublisher()
             )
             .receive(on: DispatchQueue.main)
             .handleEvents(receiveOutput: { input in
-                appState.userState.reportStateChangeNotificationsEnabled = input.1
+                appState.userState.reportNotificationsEnabled = input.1
             })
             .debounce(for: 3, scheduler: DispatchQueue.global(qos: .userInitiated))
             .sink { input in

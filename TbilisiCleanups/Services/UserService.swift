@@ -38,7 +38,7 @@ final class UserService: NSObject, ObservableObject {
                         guard let self = self else { return }
                         let allowed = try await self.readReportStatusChangeNotificationsPreference()
                         await MainActor.run {
-                            appState.userState.reportStateChangeNotificationsEnabled = allowed
+                            appState.userState.reportNotificationsEnabled = allowed
                         }
                     }
                 } else {

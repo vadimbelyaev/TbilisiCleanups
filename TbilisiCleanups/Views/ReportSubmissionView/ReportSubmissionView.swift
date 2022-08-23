@@ -92,11 +92,11 @@ struct ReportSubmissionView: View {
     @ViewBuilder
     private var notificationView: some View {
         if appState.hasNotificationsPermissions {
-            if appState.userState.reportStateChangeNotificationsEnabled {
+            if appState.userState.reportNotificationsEnabled {
                 Text("You'll receive a notification when the status of your report changes.")
             } else {
                 Button {
-                    appState.userState.updateReportStateChangeNotificationsPreference.send(true)
+                    appState.userState.updateReportNotificationsPreference.send(true)
                 } label: {
                     Text("Notify me when the status of the report changes")
                 }
@@ -121,7 +121,7 @@ struct ReportSubmissionView: View {
                                 DispatchQueue.main.async {
                                     appState.hasNotificationsPermissions = granted
                                     if granted {
-                                        appState.userState.updateReportStateChangeNotificationsPreference.send(true)
+                                        appState.userState.updateReportNotificationsPreference.send(true)
                                     }
                                 }
                             }

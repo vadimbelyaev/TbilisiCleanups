@@ -215,10 +215,10 @@ struct UserProfileView: View {
     private func makeReportNotificationsBinding() -> Binding<Bool> {
         Binding(
             get: {
-                appState.userState.reportStateChangeNotificationsEnabled
+                appState.userState.reportNotificationsEnabled
             },
             set: { newValue in
-                appState.userState.updateReportStateChangeNotificationsPreference.send(newValue)
+                appState.userState.updateReportNotificationsPreference.send(newValue)
             }
         )
     }
