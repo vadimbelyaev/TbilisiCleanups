@@ -35,7 +35,11 @@ final class UserService: NSObject, ObservableObject {
                         }
                     }
                     Task.detached(priority: .userInitiated) { [weak self] in
-                        try await self?.readReportStatusChangeNotificationsPreference()
+                        guard let self = self else { return }
+                        let allowed = try await self.readReportStatusChangeNotificationsPreference()
+                        await MainActor.run {
+                            appState.userState.reportStateChangeNotificationsEnabled = allowed
+                        }
                     }
                 } else {
                     self.appState.userState.isAuthenticated = false

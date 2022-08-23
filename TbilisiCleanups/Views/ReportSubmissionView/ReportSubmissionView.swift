@@ -74,6 +74,8 @@ struct ReportSubmissionView: View {
                     .foregroundColor(.green)
                 Text("Check its status any time on the My Profile tab.")
                     .fixedSize(horizontal: false, vertical: true)
+                notificationView
+                    .padding(.vertical, 32)
                 Button {
                     appState.isReportSheetPresented = false
                     appState.selectedTab = .userProfile
@@ -84,6 +86,52 @@ struct ReportSubmissionView: View {
                 .overlayNavigationLinkStyle()
             }
             .padding(.horizontal)
+        }
+    }
+
+    @ViewBuilder
+    private var notificationView: some View {
+        if appState.hasNotificationsPermissions {
+            if appState.userState.reportStateChangeNotificationsEnabled {
+                Text("You'll receive a notification when the status of your report changes.")
+            } else {
+                Button {
+                    appState.userState.updateReportStateChangeNotificationsPreference.send(true)
+                } label: {
+                    Text("Notify me when the status of the report changes")
+                }
+            }
+        } else {
+            Button {
+                UNUserNotificationCenter.current().getNotificationSettings { settings in
+                    switch settings.authorizationStatus {
+                    case .authorized:
+                        assertionFailure("This case should be handled in the if branch above")
+                    case .denied:
+                        DispatchQueue.main.async {
+                            guard let url = URL(string: UIApplication.openSettingsURLString),
+                                  UIApplication.shared.canOpenURL(url)
+                            else { return }
+                            UIApplication.shared.open(url)
+                        }
+                    case .provisional, .ephemeral, .notDetermined:
+                        UNUserNotificationCenter
+                            .current()
+                            .requestAuthorization(options: [.alert, .sound]) { granted, error in
+                                DispatchQueue.main.async {
+                                    appState.hasNotificationsPermissions = granted
+                                    if granted {
+                                        appState.userState.updateReportStateChangeNotificationsPreference.send(true)
+                                    }
+                                }
+                            }
+                    @unknown default:
+                        assertionFailure()
+                    }
+                }
+            } label: {
+                Text("Allow notifications to be informed of your report's status changes")
+            }
         }
     }
 

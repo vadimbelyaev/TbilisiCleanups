@@ -68,7 +68,7 @@ struct UserProfileView: View {
             .listSectionSeparator(.hidden)
             Section("Notifications") {
                 if appState.hasNotificationsPermissions {
-                    Toggle("My reports status changes", isOn: $appState.userState.reportStateChangeNotificationsEnabled)
+                    Toggle("My reports status changes", isOn: makeReportNotificationsBinding())
                 } else {
                     allowNotificationsButton
                 }
@@ -210,6 +210,17 @@ struct UserProfileView: View {
         } label: {
             Text("Allow notifications")
         }
+    }
+
+    private func makeReportNotificationsBinding() -> Binding<Bool> {
+        Binding(
+            get: {
+                appState.userState.reportStateChangeNotificationsEnabled
+            },
+            set: { newValue in
+                appState.userState.updateReportStateChangeNotificationsPreference.send(newValue)
+            }
+        )
     }
 }
 

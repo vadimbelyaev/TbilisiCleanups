@@ -33,7 +33,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         UNUserNotificationCenter.current().delegate = self
         UIApplication.shared.registerForRemoteNotifications()
         try? stateRestorationService.restoreState()
-        getNotificationsSettings()
         return true
     }
 
@@ -128,9 +127,18 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 
     private func setUpNotificationPreferencesSubscription() {
+        let appState = appState
         let userService = userService
         appState.userState.$isAuthenticated.eraseToAnyPublisher()
-            .combineLatest(appState.userState.$reportStateChangeNotificationsEnabled.eraseToAnyPublisher())
+            .combineLatest(
+                appState.userState
+                    .updateReportStateChangeNotificationsPreference
+                    .eraseToAnyPublisher()
+            )
+            .receive(on: DispatchQueue.main)
+            .handleEvents(receiveOutput: { input in
+                appState.userState.reportStateChangeNotificationsEnabled = input.1
+            })
             .debounce(for: 3, scheduler: DispatchQueue.global(qos: .userInitiated))
             .sink { input in
                 let (isAuthenticated, reportStateChangeNotificationsEnabled) = input
@@ -144,9 +152,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             .store(in: &cancellables)
     }
 
-    // MARK: - Private
-
-    private func getNotificationsSettings() {
+    func getNotificationsSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { [weak self] settings in
             DispatchQueue.main.async {
                 switch settings.authorizationStatus {
@@ -191,8 +197,15 @@ struct TbilisiCleanupsApp: App {
                 .environmentObject(delegate.stateRestorationService)
         }
         .onChange(of: scenePhase) { newValue in
-            if newValue == .background {
+            switch newValue {
+            case .active:
+                delegate.getNotificationsSettings()
+            case .inactive:
+                break
+            case .background:
                 try? delegate.stateRestorationService.saveState()
+            @unknown default:
+                break
             }
         }
     }
