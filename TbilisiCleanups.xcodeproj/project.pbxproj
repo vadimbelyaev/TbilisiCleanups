@@ -29,6 +29,7 @@
 		DD39F262288623D20023F01D /* MediaUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD39F261288623D20023F01D /* MediaUploadService.swift */; };
 		DD625A3728B22F0E00685F5C /* ReportStatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD625A3628B22F0E00685F5C /* ReportStatusBadge.swift */; };
 		DD625A3928B24E5300685F5C /* Report.Status+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD625A3828B24E5300685F5C /* Report.Status+Colors.swift */; };
+		DD625A3B28B58BF400685F5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD625A3A28B58BF400685F5C /* AppDelegate.swift */; };
 		DD731EC92894DFE60003EC2B /* ReportLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD731EC82894DFE60003EC2B /* ReportLocationMapViewController.swift */; };
 		DD731ECB2894E3270003EC2B /* ReportLocationMapRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD731ECA2894E3270003EC2B /* ReportLocationMapRepresentable.swift */; };
 		DD7838722884B56C00ED2CE9 /* SotoAWSConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7838712884B56C00ED2CE9 /* SotoAWSConfigHelper.swift */; };
@@ -113,6 +114,7 @@
 		DD39F261288623D20023F01D /* MediaUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaUploadService.swift; sourceTree = "<group>"; };
 		DD625A3628B22F0E00685F5C /* ReportStatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStatusBadge.swift; sourceTree = "<group>"; };
 		DD625A3828B24E5300685F5C /* Report.Status+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Report.Status+Colors.swift"; sourceTree = "<group>"; };
+		DD625A3A28B58BF400685F5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD731EC82894DFE60003EC2B /* ReportLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportLocationMapViewController.swift; sourceTree = "<group>"; };
 		DD731ECA2894E3270003EC2B /* ReportLocationMapRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportLocationMapRepresentable.swift; sourceTree = "<group>"; };
 		DD7838712884B56C00ED2CE9 /* SotoAWSConfigHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAWSConfigHelper.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				DD2AF402287F61FB0017A64C /* TbilisiCleanupsApp.swift */,
+				DD625A3A28B58BF400685F5C /* AppDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				DD875B7128B138910015D598 /* PlacesMapRepresentable.swift in Sources */,
 				DD2AF405287F61FB0017A64C /* RootView.swift in Sources */,
 				DDEC9E31288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift in Sources */,
+				DD625A3B28B58BF400685F5C /* AppDelegate.swift in Sources */,
 				DD112632288E9AE2005F5FC0 /* UITextViewRepresentable.swift in Sources */,
 				DDCE7847288438CF00ACA7BF /* UserProfileView.swift in Sources */,
 				DDCE781F2883697800ACA7BF /* OverlayNavigationLink.swift in Sources */,
