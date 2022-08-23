@@ -143,7 +143,7 @@ struct UserProfileView: View {
     }
 
     private func reportCell(for report: Report) -> some View {
-        NavigationLink {
+        NavigationLink(tag: report.id, selection: $appState.userProfileSelectedReportId) {
             ReportDetailsView(report: report)
         } label: {
             LazyImage(url: report.mainPreviewImageURL)

@@ -167,8 +167,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 // MARK: - UNUserNotificationCenterDelegate
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
-        print("\(#function)")
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse
+    ) async {
+        let userInfo = response.notification.request.content.userInfo
+        guard let reportId = userInfo["report_id"] as? String else {
+            return
+        }
+        appState.selectedTab = .userProfile
+        appState.userProfileSelectedReportId = reportId
     }
 
     func userNotificationCenter(
