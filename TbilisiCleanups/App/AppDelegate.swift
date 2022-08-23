@@ -167,7 +167,27 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 // MARK: - UNUserNotificationCenterDelegate
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
-    // TBD
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+        print("\(#function)")
+    }
+
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification
+    ) async -> UNNotificationPresentationOptions {
+        let reportService = reportService
+        Task.detached(priority: .userInitiated) {
+            await withThrowingTaskGroup(of: Void.self, body: { group in
+                group.addTask {
+                    try await reportService.fetchReportsByCurrentUser()
+                }
+                group.addTask {
+                    try await reportService.fetchVerifiedReports()
+                }
+            })
+        }
+        return [.badge, .banner]
+    }
 }
 
 // MARK: - MessagingDelegate
