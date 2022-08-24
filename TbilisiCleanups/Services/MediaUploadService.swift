@@ -97,7 +97,9 @@ private func uploadImageAsset(
         id: uploadedMediaId,
         assetId: asset.localIdentifier,
         url: url,
-        previewImageURL: previewImageURL
+        previewImageURL: previewImageURL,
+        width: asset.pixelWidth,
+        height: asset.pixelHeight
     )
 }
 
@@ -204,7 +206,9 @@ private func uploadVideoAsset(
         id: uploadedMediaId,
         assetId: asset.localIdentifier,
         url: url,
-        previewImageURL: previewImageURL
+        previewImageURL: previewImageURL,
+        width: asset.pixelWidth,
+        height: asset.pixelHeight
     )
 }
 

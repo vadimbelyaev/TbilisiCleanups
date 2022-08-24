@@ -203,11 +203,13 @@ private func saveSubmissionToFirebase(
 }
 
 private extension UploadedMedia {
-    func serializedForExport() -> [String: String] {
+    func serializedForExport() -> [String: Any] {
         [
             "id": id,
             "url": url.absoluteString,
-            "preview_image_url": previewImageURL.absoluteString
+            "preview_image_url": previewImageURL.absoluteString,
+            "width": width,
+            "height": height
         ]
     }
 }

@@ -47,12 +47,12 @@ struct ReportDetailsView: View {
                 ForEach(report.videos) { video in
                     AVPlayerRepresentable(url: video.url)
                         .frame(maxWidth: .infinity)
-                        .aspectRatio(16 / 9, contentMode: .fill)
+                        .aspectRatio(video.aspectRatio(defaultIfZero: 16 / 9), contentMode: .fill)
                 }
                 ForEach(report.photos) { photo in
                     NukeUI.LazyImage(url: photo.previewImageURL, resizingMode: .aspectFit)
                         .frame(maxWidth: .infinity)
-                        .aspectRatio(4 / 3, contentMode: .fill)
+                        .aspectRatio(photo.aspectRatio(defaultIfZero: 4 / 3), contentMode: .fill)
                 }
             }
         }

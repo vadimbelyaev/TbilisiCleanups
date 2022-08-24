@@ -23,14 +23,14 @@ struct Report: Identifiable {
 
         self.description = data["description"] as? String
 
-        if let photoCollection = data["photos"] as? [[String: String]] {
+        if let photoCollection = data["photos"] as? [[String: Any]] {
             self.photos = photoCollection
                 .compactMap { Self.parseMedia(data: $0) }
         } else {
             self.photos = []
         }
 
-        if let videoCollection = data["videos"] as? [[String: String]] {
+        if let videoCollection = data["videos"] as? [[String: Any]] {
             self.videos = videoCollection
                 .compactMap { Self.parseMedia(data: $0) }
         } else {
@@ -59,17 +59,25 @@ struct Report: Identifiable {
         photos.first?.previewImageURL ?? videos.first?.previewImageURL
     }
 
-    private static func parseMedia(data: [String: String]) -> Media? {
-        guard let id = data["id"],
-              let urlString = data["url"],
+    private static func parseMedia(data: [String: Any]) -> Media? {
+        guard let id = data["id"] as? String,
+              let urlString = data["url"] as? String,
               let url = URL(string: urlString),
-              let previewImageURLString = data["preview_image_url"],
+              let previewImageURLString = data["preview_image_url"] as? String,
               let previewImageURL = URL(string: previewImageURLString)
         else {
             AnalyticsService.logEvent(AppError.couldNotParseReportMediaFromFirebase(data: data))
             return nil
         }
-        return Media(id: id, url: url, previewImageURL: previewImageURL)
+        let width = data["width"] as? Int ?? 0
+        let height = data["height"] as? Int ?? 0
+        return Media(
+            id: id,
+            url: url,
+            previewImageURL: previewImageURL,
+            width: width,
+            height: height
+        )
     }
 }
 
@@ -78,6 +86,20 @@ extension Report {
         let id: String
         let url: URL
         let previewImageURL: URL
+        let width: Int
+        let height: Int
+
+        var aspectRatio: Double {
+            guard height > 0 else {
+                return 0
+            }
+            return Double(width) / Double(height)
+        }
+
+        func aspectRatio(defaultIfZero: Double) -> Double {
+            let ratio = aspectRatio
+            return ratio > 0 ? ratio : defaultIfZero
+        }
     }
 
     enum Status: String {

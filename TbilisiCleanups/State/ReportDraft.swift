@@ -107,10 +107,18 @@ struct UploadedMediasByType: Codable {
 }
 
 struct UploadedMedia: Identifiable, Codable {
+    /// Unique identifier of the media
     let id: String
+    /// PHAsset ID for reference (not for upload)
     let assetId: String
+    /// URL of the original photo or video
     let url: URL
+    /// URL of the preview image
     let previewImageURL: URL
+    /// Width of the original photo/video in pixels
+    let width: Int
+    /// Height of the original photo/video in pixels
+    let height: Int
 }
 
 final class ReportSubmission: Identifiable, ObservableObject {

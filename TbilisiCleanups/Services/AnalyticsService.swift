@@ -12,7 +12,7 @@ protocol FirebaseAnalyticsLoggable {
 }
 
 enum AppError: FirebaseAnalyticsLoggable {
-    case couldNotParseReportMediaFromFirebase(data: [String: String])
+    case couldNotParseReportMediaFromFirebase(data: [String: Any])
     case duplicateAttemptToSendReport
     case reportsWithDuplicateIDExist(reportID: String)
     case couldNotParseReport(rawObject: [String: Any])
