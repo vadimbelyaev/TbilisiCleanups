@@ -296,6 +296,14 @@
 			path = "UI Components";
 			sourceTree = "<group>";
 		};
+		DD625A4228B6E0C400685F5C /* ReportDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				DDB88DDC28B21CDC0020E734 /* ReportDetailsView.swift */,
+			);
+			path = ReportDetailsView;
+			sourceTree = "<group>";
+		};
 		DDB1D80B2889307E00CE464B /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +326,7 @@
 				DD0632E3288BD962001DEC31 /* AboutView */,
 				DD23B69B28B12CE000ECE7D5 /* PlacesMapView */,
 				DDCE77FE2882F47600ACA7BF /* ReportDescriptionView */,
+				DD625A4228B6E0C400685F5C /* ReportDetailsView */,
 				DDCE77FC2882F45F00ACA7BF /* ReportLocationView */,
 				DDCE78002882F48A00ACA7BF /* ReportPhotosView */,
 				DDCE77FF2882F47F00ACA7BF /* ReportStartView */,
@@ -325,7 +334,6 @@
 				DDCE77FD2882F46F00ACA7BF /* RootView */,
 				DD2AF47A28821AE00017A64C /* UI Components */,
 				DDCE7845288438AA00ACA7BF /* UserProfileView */,
-				DDB88DDC28B21CDC0020E734 /* ReportDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
