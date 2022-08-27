@@ -20,30 +20,30 @@ struct UserProfileView: View {
         .navigationViewStyle(.stack)
         .tabItem {
             Image(systemName: "person")
-            Text("My Profile")
+            Text(L10n.UserProfile.tabName)
         }
     }
 
     @ViewBuilder
     private var signedInBody: some View {
         List {
-            Section("My Reports") {
+            Section(L10n.UserProfile.contributionsSection) {
                 NavigationLink {
                     UserReportsView()
                 } label: {
-                    Text("My reports")
+                    Text(L10n.UserProfile.myReports)
                 }
             }
-            Section("Notifications") {
+            Section(L10n.UserProfile.notificationsSection) {
                 if appState.hasNotificationsPermissions {
-                    Toggle("My reports status changes", isOn: makeReportNotificationsBinding())
+                    Toggle(L10n.UserProfile.statusesOfMyReports, isOn: makeReportNotificationsBinding())
                 } else {
                     allowNotificationsButton
                 }
             }
 
-            Section("Account") {
-                Button("Sign out") {
+            Section(L10n.UserProfile.accountSection) {
+                Button(L10n.UserProfile.signOutButton) {
                     userService.signOut()
                 }
                 .buttonStyle(.borderless)
@@ -51,22 +51,22 @@ struct UserProfileView: View {
                 Button(role: .destructive) {
                     deleteAccountConfirmationPresented = true
                 } label: {
-                    Text("Delete my account")
+                    Text(L10n.UserProfile.deleteMyAccount)
                 }
                 .confirmationDialog(
-                    "Delete your account? This action cannot be undone.",
+                    L10n.UserProfile.DeleteAccountConfirmation.title,
                     isPresented: $deleteAccountConfirmationPresented,
                     actions: deleteAccountConfirmationActions
                 )
                 .alert(
-                    "There was an error deleting your account. Please try again later.",
+                    L10n.UserProfile.errorDeletingAccount,
                     isPresented: $deleteAccountFailed,
                     actions: {}
                 )
             }
         }
         .listStyle(.insetGrouped)
-        .navigationTitle(userState.userName ?? "Welcome")
+        .navigationTitle(userState.userName ?? L10n.UserProfile.nonameTitle)
     }
 
     @ViewBuilder
@@ -80,27 +80,27 @@ struct UserProfileView: View {
                 }
             }
         } label: {
-            Text("Delete my account")
+            Text(L10n.UserProfile.DeleteAccountConfirmation.deleteAction)
         }
         Button(role: .cancel) {
             // no-op
         } label: {
-            Text("Do not delete")
+            Text(L10n.UserProfile.DeleteAccountConfirmation.doNotDeleteAction)
         }
     }
 
     @ViewBuilder
     private var guestBody: some View {
         List {
-            Text("Manage your account, see your reports and their statuses.")
+            Text(L10n.UserProfile.Guest.body)
             Button {
                 signInScreenPresented = true
             } label: {
-                Text("Sign in")
+                Text(L10n.UserProfile.Guest.signInButton)
             }
         }
         .listStyle(.insetGrouped)
-        .navigationTitle("Sign In")
+        .navigationTitle(L10n.UserProfile.Guest.title)
         .sheet(isPresented: $signInScreenPresented) {
             FirebaseAuthView()
                 .ignoresSafeArea(.all, edges: .bottom)
@@ -131,7 +131,7 @@ struct UserProfileView: View {
                 }
             }
         } label: {
-            Text("Allow notifications")
+            Text(L10n.UserProfile.allowNotifications)
         }
     }
 

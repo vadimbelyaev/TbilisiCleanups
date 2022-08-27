@@ -8,3 +8,22 @@
 "About.instagram" = "Instagram";
 "About.telegramChannel" = "Telegram Channel";
 "About.telegramChat" = "Telegram Chat";
+
+"UserProfile.nonameTitle" = "My Profile";
+"UserProfile.tabName" = "My Profile";
+"UserProfile.contributionsSection" = "Contributions";
+"UserProfile.myReports" = "My Reports";
+"UserProfile.notificationsSection" = "Notifications";
+"UserProfile.allowNotifications" = "Allow Notifications";
+"UserProfile.statusesOfMyReports" = "Statuses Of My Reports";
+"UserProfile.accountSection" = "Account";
+"UserProfile.signOutButton" = "Sign Out";
+"UserProfile.deleteMyAccount" = "Delete My Account";
+"UserProfile.DeleteAccountConfirmation.title" = "Delete your account? This action cannot be undone.";
+"UserProfile.DeleteAccountConfirmation.deleteAction" = "Delete My Account";
+"UserProfile.DeleteAccountConfirmation.doNotDeleteAction" = "Do Not Delete";
+"UserProfile.errorDeletingAccount" = "There was an error deleting your account. Please try again later.";
+"UserProfile.Guest.title" = "Sign In";
+"UserProfile.Guest.body" = "Manage your account, see your reports and their statuses.";
+"UserProfile.Guest.signInButton" = "Sign In";
+

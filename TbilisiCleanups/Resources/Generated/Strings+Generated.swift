@@ -34,6 +34,46 @@ internal enum L10n {
     /// What Is nogarba.ge
     internal static let whatIsNogarbage = L10n.tr("Localizable", "About.whatIsNogarbage", fallback: #"What Is nogarba.ge"#)
   }
+  internal enum UserProfile {
+    /// Account
+    internal static let accountSection = L10n.tr("Localizable", "UserProfile.accountSection", fallback: #"Account"#)
+    /// Allow Notifications
+    internal static let allowNotifications = L10n.tr("Localizable", "UserProfile.allowNotifications", fallback: #"Allow Notifications"#)
+    /// Contributions
+    internal static let contributionsSection = L10n.tr("Localizable", "UserProfile.contributionsSection", fallback: #"Contributions"#)
+    /// Delete My Account
+    internal static let deleteMyAccount = L10n.tr("Localizable", "UserProfile.deleteMyAccount", fallback: #"Delete My Account"#)
+    /// There was an error deleting your account. Please try again later.
+    internal static let errorDeletingAccount = L10n.tr("Localizable", "UserProfile.errorDeletingAccount", fallback: #"There was an error deleting your account. Please try again later."#)
+    /// My Reports
+    internal static let myReports = L10n.tr("Localizable", "UserProfile.myReports", fallback: #"My Reports"#)
+    /// My Profile
+    internal static let nonameTitle = L10n.tr("Localizable", "UserProfile.nonameTitle", fallback: #"My Profile"#)
+    /// Notifications
+    internal static let notificationsSection = L10n.tr("Localizable", "UserProfile.notificationsSection", fallback: #"Notifications"#)
+    /// Sign Out
+    internal static let signOutButton = L10n.tr("Localizable", "UserProfile.signOutButton", fallback: #"Sign Out"#)
+    /// Statuses Of My Reports
+    internal static let statusesOfMyReports = L10n.tr("Localizable", "UserProfile.statusesOfMyReports", fallback: #"Statuses Of My Reports"#)
+    /// My Profile
+    internal static let tabName = L10n.tr("Localizable", "UserProfile.tabName", fallback: #"My Profile"#)
+    internal enum DeleteAccountConfirmation {
+      /// Delete My Account
+      internal static let deleteAction = L10n.tr("Localizable", "UserProfile.DeleteAccountConfirmation.deleteAction", fallback: #"Delete My Account"#)
+      /// Do Not Delete
+      internal static let doNotDeleteAction = L10n.tr("Localizable", "UserProfile.DeleteAccountConfirmation.doNotDeleteAction", fallback: #"Do Not Delete"#)
+      /// Delete your account? This action cannot be undone.
+      internal static let title = L10n.tr("Localizable", "UserProfile.DeleteAccountConfirmation.title", fallback: #"Delete your account? This action cannot be undone."#)
+    }
+    internal enum Guest {
+      /// Manage your account, see your reports and their statuses.
+      internal static let body = L10n.tr("Localizable", "UserProfile.Guest.body", fallback: #"Manage your account, see your reports and their statuses."#)
+      /// Sign In
+      internal static let signInButton = L10n.tr("Localizable", "UserProfile.Guest.signInButton", fallback: #"Sign In"#)
+      /// Sign In
+      internal static let title = L10n.tr("Localizable", "UserProfile.Guest.title", fallback: #"Sign In"#)
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

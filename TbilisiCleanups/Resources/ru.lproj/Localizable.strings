@@ -8,3 +8,22 @@
 "About.instagram" = "Инстаграм";
 "About.telegramChannel" = "Телеграм-канал";
 "About.telegramChat" = "Телеграм-чат";
+
+"UserProfile.nonameTitle" = "Мой профиль";
+"UserProfile.tabName" = "Профиль";
+"UserProfile.contributionsSection" = "Вклад";
+"UserProfile.myReports" = "Мои репорты";
+"UserProfile.notificationsSection" = "Уведомления";
+"UserProfile.allowNotifications" = "Разрешите уведомления";
+"UserProfile.statusesOfMyReports" = "Статусы моих репортов";
+"UserProfile.accountSection" = "Аккаунт";
+"UserProfile.signOutButton" = "Выйти";
+"UserProfile.deleteMyAccount" = "Удалить аккаунт";
+"UserProfile.DeleteAccountConfirmation.title" = "Удалить ваш аккаунт? Это действие будет невозможно отменить.";
+"UserProfile.DeleteAccountConfirmation.deleteAction" = "Удалить мой аккаунт";
+"UserProfile.DeleteAccountConfirmation.doNotDeleteAction" = "Не удалять";
+"UserProfile.errorDeletingAccount" = "Произошла ошибка при удалении аккаунта. Пожалуйста, попробуйте позже.";
+"UserProfile.Guest.title" = "Войдите";
+"UserProfile.Guest.body" = "Управляйте своим аккаунтом, просматривайте свои репорты и их статусы.";
+"UserProfile.Guest.signInButton" = "Войти";
+
