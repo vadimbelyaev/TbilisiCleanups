@@ -1,2 +1,3 @@
 --disable redundantSelf, trailingClosures, trailingCommas, unusedArguments
 --header strip
+--exclude TbilisiCleanups/Resources/Generated

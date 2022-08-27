@@ -40,7 +40,19 @@ You will later need to copy this file into the project, as described in the "Mai
 4. Copy the prepared `SotoAWS.plist` file into the `AWS/` directory.
 5. Click Run.
 
-### Push Notifications
+## Resources and Localization
+
+The app uses [SwiftGen](https://github.com/SwiftGen/SwiftGen) to generate image assets, colors and l10n strings Swift files.
+
+To execute SwiftGen, run
+```shell
+make gen
+```
+from the root directory of the project.
+
+Always run SwiftGen after adding or modifying an assets catalog or localization strings.
+
+## Push Notifications
 
 The app is using Firebase Cloud Functions to send push notifications. For example, when the status of the user's report changes, a Firestore trigger executes a cloud function that sends a push to this user's device.
 

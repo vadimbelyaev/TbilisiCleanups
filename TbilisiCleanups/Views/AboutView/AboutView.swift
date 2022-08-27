@@ -4,7 +4,7 @@ struct AboutView: View {
     var body: some View {
         NavigationView {
             List {
-                Section("What is nogarba.ge") {
+                Section(L10n.About.whatIsNogarbage) {
                     Text(
                         """
                         **nogarba.ge** is a volunteer eco initiative in \
