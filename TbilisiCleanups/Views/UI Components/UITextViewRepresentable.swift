@@ -29,6 +29,7 @@ struct UITextViewRepresentable: UIViewRepresentable {
                 }
             }
         }
+        uiView.text = text
     }
 
     func makeCoordinator() -> UITextViewRepresentableCoordinator {
