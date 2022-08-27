@@ -27,3 +27,10 @@
 "UserProfile.Guest.body" = "Управляйте своим аккаунтом, просматривайте свои репорты и их статусы.";
 "UserProfile.Guest.signInButton" = "Войти";
 
+"UserReports.title" = "Мои репорты";
+"UserReports.loading" = "Загрузка…";
+"UserReports.noReportsYet" = "Вы ещё не отправляли репорты о замусоренных местах.";
+"UserReports.submitReportButton" = "Отправить репорт";
+"UserReports.errorLoadingReports" = "Не удалось загрузить ваши репорты.";
+"UserReports.retryButton" = "Попробовать снова";
+"UserReports.noReportDescription" = "Без описания";

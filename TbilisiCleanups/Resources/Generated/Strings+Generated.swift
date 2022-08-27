@@ -74,6 +74,22 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "UserProfile.Guest.title", fallback: #"Sign In"#)
     }
   }
+  internal enum UserReports {
+    /// Error loading your reports.
+    internal static let errorLoadingReports = L10n.tr("Localizable", "UserReports.errorLoadingReports", fallback: #"Error loading your reports."#)
+    /// Loading…
+    internal static let loading = L10n.tr("Localizable", "UserReports.loading", fallback: #"Loading…"#)
+    /// No Description
+    internal static let noReportDescription = L10n.tr("Localizable", "UserReports.noReportDescription", fallback: #"No Description"#)
+    /// You haven't submitted any reports of littered places yet.
+    internal static let noReportsYet = L10n.tr("Localizable", "UserReports.noReportsYet", fallback: #"You haven't submitted any reports of littered places yet."#)
+    /// Retry
+    internal static let retryButton = L10n.tr("Localizable", "UserReports.retryButton", fallback: #"Retry"#)
+    /// Submit a Report
+    internal static let submitReportButton = L10n.tr("Localizable", "UserReports.submitReportButton", fallback: #"Submit a Report"#)
+    /// My Reports
+    internal static let title = L10n.tr("Localizable", "UserReports.title", fallback: #"My Reports"#)
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

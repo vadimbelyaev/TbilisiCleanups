@@ -27,3 +27,10 @@
 "UserProfile.Guest.body" = "Manage your account, see your reports and their statuses.";
 "UserProfile.Guest.signInButton" = "Sign In";
 
+"UserReports.title" = "My Reports";
+"UserReports.loading" = "Loading…";
+"UserReports.noReportsYet" = "You haven't submitted any reports of littered places yet.";
+"UserReports.submitReportButton" = "Submit a Report";
+"UserReports.errorLoadingReports" = "Error loading your reports.";
+"UserReports.retryButton" = "Retry";
+"UserReports.noReportDescription" = "No Description";

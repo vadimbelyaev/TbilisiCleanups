@@ -8,22 +8,22 @@ struct UserReportsView: View {
     var body: some View {
         List {
             if appState.userReportsLoadingState == .loading {
-                Text("Loading...")
+                Text(L10n.UserReports.loading)
             }
             if appState.userReportsLoadingState == .loaded,
                appState.userReports.isEmpty
             {
-                Text("You haven't submitted any reports of littered places yet.")
+                Text(L10n.UserReports.noReportsYet)
                 Button {
                     appState.selectedTab = .reportStart
                 } label: {
-                    Text("Submit a report")
+                    Text(L10n.UserReports.submitReportButton)
                 }
                 .buttonStyle(.borderless)
             }
             if appState.userReportsLoadingState == .failed {
                 Label {
-                    Text("Error loading your reports.")
+                    Text(L10n.UserReports.errorLoadingReports)
                 } icon: {
                     Image(systemName: "exclamationmark.octagon")
                         .foregroundColor(.red)
@@ -34,7 +34,7 @@ struct UserReportsView: View {
                         try await reportService.fetchReportsByCurrentUser()
                     }
                 } label: {
-                    Text("Retry")
+                    Text(L10n.UserReports.retryButton)
                 }
                 .buttonStyle(.borderless)
             }
@@ -47,7 +47,7 @@ struct UserReportsView: View {
         .refreshable {
             try? await reportService.fetchReportsByCurrentUser()
         }
-        .navigationTitle("My Reports")
+        .navigationTitle(L10n.UserReports.title)
     }
 
     private func reportCell(for report: Report) -> some View {
@@ -55,7 +55,7 @@ struct UserReportsView: View {
             appState.userProfileSelectedReportId = report.id
         } label: {
             VStack(alignment: .leading) {
-                Text(report.description ?? "No description")
+                Text(report.description ?? L10n.UserReports.noReportDescription)
                     .fontWeight(.semibold)
                     .font(.title3)
                     .lineLimit(1)
