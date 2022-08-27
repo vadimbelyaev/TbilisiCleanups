@@ -65,6 +65,7 @@
 		DDCE784C288443C800ACA7BF /* ReportSubmissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */; };
 		DDCE78572884AFC100ACA7BF /* SotoS3 in Frameworks */ = {isa = PBXBuildFile; productRef = DDCE78562884AFC100ACA7BF /* SotoS3 */; };
 		DDCE785A2884B3AD00ACA7BF /* SotoAWS.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDCE78592884B3AD00ACA7BF /* SotoAWS.plist */; };
+		DDDB451828B98E1B00FD5008 /* UserReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB451728B98E1B00FD5008 /* UserReportsView.swift */; };
 		DDE290EF288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE290EE288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift */; };
 		DDE290F1288DA181004ED1D9 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE290F0288DA181004ED1D9 /* AnalyticsService.swift */; };
 		DDEC9E31288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */; };
@@ -139,6 +140,7 @@
 		DDCE78482884434A00ACA7BF /* ReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
 		DDCE784B288443C800ACA7BF /* ReportSubmissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSubmissionView.swift; sourceTree = "<group>"; };
 		DDCE78592884B3AD00ACA7BF /* SotoAWS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SotoAWS.plist; sourceTree = "<group>"; };
+		DDDB451728B98E1B00FD5008 /* UserReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReportsView.swift; sourceTree = "<group>"; };
 		DDE290EE288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedLibraryPickerRepresentable.swift; sourceTree = "<group>"; };
 		DDE290F0288DA181004ED1D9 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Equatable.swift"; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				DDCE7846288438CF00ACA7BF /* UserProfileView.swift */,
+				DDDB451728B98E1B00FD5008 /* UserReportsView.swift */,
 			);
 			path = UserProfileView;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				DD2AF403287F61FB0017A64C /* App.swift in Sources */,
 				DD112630288DDBC4005F5FC0 /* CustomPhotoPicker.swift in Sources */,
 				DDCE784C288443C800ACA7BF /* ReportSubmissionView.swift in Sources */,
+				DDDB451828B98E1B00FD5008 /* UserReportsView.swift in Sources */,
 				DDB88DDF28B22C140020E734 /* AVPlayerRepresentable.swift in Sources */,
 				DD2AF4752881EED10017A64C /* AppState.swift in Sources */,
 				DD2AF479288209BD0017A64C /* ReportPhotosViewModel.swift in Sources */,
