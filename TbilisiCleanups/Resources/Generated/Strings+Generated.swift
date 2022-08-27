@@ -11,8 +11,28 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
   internal enum About {
-    /// What is nogarba.ge
-    internal static let whatIsNogarbage = L10n.tr("Localizable", "About.whatIsNogarbage", fallback: #"What is nogarba.ge"#)
+    /// nogarba.ge is a volunteer eco initiative in the country of Georgia 🇬🇪. We get together to clean up public parks and recreation zones.
+    /// 
+    /// Be a part of the solution, not the problem!
+    internal static let aboutNogarbage = L10n.tr("Localizable", "About.aboutNogarbage", fallback: #"nogarba.ge is a volunteer eco initiative in the country of Georgia 🇬🇪. We get together to clean up public parks and recreation zones.\n\nBe a part of the solution, not the problem!"#)
+    /// Facebook
+    internal static let facebook = L10n.tr("Localizable", "About.facebook", fallback: #"Facebook"#)
+    /// Instagram
+    internal static let instagram = L10n.tr("Localizable", "About.instagram", fallback: #"Instagram"#)
+    /// Our Website nogarba.ge
+    internal static let ourWebsite = L10n.tr("Localizable", "About.ourWebsite", fallback: #"Our Website nogarba.ge"#)
+    /// Social
+    internal static let social = L10n.tr("Localizable", "About.social", fallback: #"Social"#)
+    /// About
+    internal static let tabName = L10n.tr("Localizable", "About.tabName", fallback: #"About"#)
+    /// Telegram Channel
+    internal static let telegramChannel = L10n.tr("Localizable", "About.telegramChannel", fallback: #"Telegram Channel"#)
+    /// Telegram Chat
+    internal static let telegramChat = L10n.tr("Localizable", "About.telegramChat", fallback: #"Telegram Chat"#)
+    /// About
+    internal static let title = L10n.tr("Localizable", "About.title", fallback: #"About"#)
+    /// What Is nogarba.ge
+    internal static let whatIsNogarbage = L10n.tr("Localizable", "About.whatIsNogarbage", fallback: #"What Is nogarba.ge"#)
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

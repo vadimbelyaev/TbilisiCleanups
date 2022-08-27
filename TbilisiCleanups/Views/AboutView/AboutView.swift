@@ -5,39 +5,31 @@ struct AboutView: View {
         NavigationView {
             List {
                 Section(L10n.About.whatIsNogarbage) {
-                    Text(
-                        """
-                        **nogarba.ge** is a volunteer eco initiative in \
-                        the country of Georgia 🇬🇪. We get together to clean up \
-                        public parks and recreation zones.
-
-                        Be a part of the solution, not the problem!
-                        """
-                    )
-                    .fixedSize(horizontal: false, vertical: true)
-                    .padding(.vertical)
-                    socialButton(for: .website, withText: "Our website nogarba.ge")
+                    Text(L10n.About.aboutNogarbage)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.vertical)
+                    socialButton(for: .website, withText: L10n.About.ourWebsite)
                 }
 
-                Section("Social") {
-                    socialButton(for: .facebook, withText: "Facebook")
-                    socialButton(for: .instagram, withText: "Instagram")
-                    socialButton(for: .telegramChannel, withText: "Telegram channel")
-                    socialButton(for: .telegramChat, withText: "Telegram chat")
+                Section(L10n.About.social) {
+                    socialButton(for: .facebook, withText: L10n.About.facebook)
+                    socialButton(for: .instagram, withText: L10n.About.instagram)
+                    socialButton(for: .telegramChannel, withText: L10n.About.telegramChannel)
+                    socialButton(for: .telegramChat, withText: L10n.About.telegramChat)
                 }
             }
-            .navigationTitle("About")
+            .navigationTitle(L10n.About.title)
         }
         .navigationViewStyle(.stack)
         .tabItem {
             Image(systemName: "info")
-            Text("About")
+            Text(L10n.About.tabName)
         }
     }
 
     private func socialButton(
         for socialURL: SocialURL,
-        withText text: LocalizedStringKey
+        withText text: String
     ) -> some View {
         Button {
             openSocialURL(socialURL)
@@ -72,11 +64,11 @@ private enum SocialURL: String {
         case .website:
             return Image(systemName: "globe")
         case .facebook:
-            return Image("Social/Facebook")
+            return Asset.Social.facebook.swiftUIImage
         case .instagram:
-            return Image("Social/Instagram")
+            return Asset.Social.instagram.swiftUIImage
         case .telegramChannel, .telegramChat:
-            return Image("Social/Telegram")
+            return Asset.Social.telegram.swiftUIImage
         }
     }
 }
