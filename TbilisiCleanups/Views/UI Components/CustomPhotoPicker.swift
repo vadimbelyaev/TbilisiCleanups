@@ -8,8 +8,13 @@ struct CustomPhotoPicker: View {
     @State private var isLimitedLibraryPickerPresented = false
 
     private let didFinishPicking: (([PHAsset]) -> Void)?
+    private let pickerL10n: CustomPhotoPickerL10n
 
-    init(didFinishPicking: (([PHAsset]) -> Void)?) {
+    init(
+        pickerL10n: CustomPhotoPickerL10n,
+        didFinishPicking: (([PHAsset]) -> Void)?
+    ) {
+        self.pickerL10n = pickerL10n
         self.didFinishPicking = didFinishPicking
     }
 
@@ -20,14 +25,14 @@ struct CustomPhotoPicker: View {
                     grid
                     limitedLibraryAccessView
                 }
-                .navigationTitle("Photos")
+                .navigationTitle(pickerL10n.navigationTitle)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
                             dismiss()
                         } label: {
-                            Text("Cancel")
+                            Text(pickerL10n.toolbarCancelButton)
                         }
                     }
 
@@ -36,7 +41,7 @@ struct CustomPhotoPicker: View {
                             didFinishPicking?(model.getSelectedAssets())
                             dismiss()
                         } label: {
-                            Text("Add")
+                            Text(pickerL10n.toolbarAddButton)
                         }
                     }
                 }
@@ -70,13 +75,13 @@ struct CustomPhotoPicker: View {
 
     private var limitedLibraryAccessView: some View {
         VStack(alignment: .leading) {
-            Text("You allowed limited access to your photo library.")
+            Text(pickerL10n.limitedAccessDisclaimer)
                 .font(.footnote)
                 .foregroundColor(.secondary)
             Button {
                 isLimitedLibraryPickerPresented = true
             } label: {
-                Text("Select more photos...")
+                Text(pickerL10n.selectMorePhotosButton)
                     .font(.footnote)
             }
             LimitedLibraryPickerRepresentable(isPresented: $isLimitedLibraryPickerPresented)
@@ -252,8 +257,10 @@ extension CustomPhotoPickerModel: PHPhotoLibraryChangeObserver {
     }
 }
 
-struct CustomPhotoPicker_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomPhotoPicker(didFinishPicking: nil)
-    }
+struct CustomPhotoPickerL10n {
+    let navigationTitle: String
+    let toolbarCancelButton: String
+    let toolbarAddButton: String
+    let limitedAccessDisclaimer: String
+    let selectMorePhotosButton: String
 }

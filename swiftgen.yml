@@ -12,7 +12,7 @@ output_dir: TbilisiCleanups/Resources/Generated/
 ##   SwiftGen will parse all `.strings` files found in that folder.
 strings:
   inputs:
-    - TbilisiCleanups/Resources/en.lproj
+    - TbilisiCleanups/Resources/en.lproj/Localizable.strings
   outputs:
     - templateName: structured-swift5
       output: Strings+Generated.swift

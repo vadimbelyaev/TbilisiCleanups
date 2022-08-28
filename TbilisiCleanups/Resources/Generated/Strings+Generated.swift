@@ -34,6 +34,18 @@ internal enum L10n {
     /// What Is nogarba.ge
     internal static let whatIsNogarbage = L10n.tr("Localizable", "About.whatIsNogarbage", fallback: #"What Is nogarba.ge"#)
   }
+  internal enum CustomPhotoPicker {
+    /// You allowed limited access to your photo library.
+    internal static let limitedAccessDisclaimer = L10n.tr("Localizable", "CustomPhotoPicker.limitedAccessDisclaimer", fallback: #"You allowed limited access to your photo library."#)
+    /// Photos
+    internal static let navigationTitle = L10n.tr("Localizable", "CustomPhotoPicker.navigationTitle", fallback: #"Photos"#)
+    /// Select more photos…
+    internal static let selectMorePhotosButton = L10n.tr("Localizable", "CustomPhotoPicker.selectMorePhotosButton", fallback: #"Select more photos…"#)
+    /// Add
+    internal static let toolbarAddButton = L10n.tr("Localizable", "CustomPhotoPicker.toolbarAddButton", fallback: #"Add"#)
+    /// Cancel
+    internal static let toolbarCancelButton = L10n.tr("Localizable", "CustomPhotoPicker.toolbarCancelButton", fallback: #"Cancel"#)
+  }
   internal enum Navigation {
     /// Continue
     internal static let `continue` = L10n.tr("Localizable", "Navigation.continue", fallback: #"Continue"#)

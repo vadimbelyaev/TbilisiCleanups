@@ -55,10 +55,20 @@ final class ReportPhotosViewModel: ObservableObject {
 
     func makeCustomPhotoPicker(isPresented: Binding<Bool>) -> some View {
         let appState = self.appState
-        return CustomPhotoPicker(didFinishPicking: { assets in
-            let newMedias = assets.map { PlaceMedia(assetId: $0.localIdentifier) }
-            appState.currentDraft.medias.append(contentsOf: newMedias)
-        })
+        let pickerL10n = CustomPhotoPickerL10n(
+            navigationTitle: L10n.CustomPhotoPicker.navigationTitle,
+            toolbarCancelButton: L10n.CustomPhotoPicker.toolbarCancelButton,
+            toolbarAddButton: L10n.CustomPhotoPicker.toolbarAddButton,
+            limitedAccessDisclaimer: L10n.CustomPhotoPicker.limitedAccessDisclaimer,
+            selectMorePhotosButton: L10n.CustomPhotoPicker.selectMorePhotosButton
+        )
+        return CustomPhotoPicker(
+            pickerL10n: pickerL10n,
+            didFinishPicking: { assets in
+                let newMedias = assets.map { PlaceMedia(assetId: $0.localIdentifier) }
+                appState.currentDraft.medias.append(contentsOf: newMedias)
+            }
+        )
     }
 
     func getFirstLocationOfSelectedPhotos() -> CLLocation? {

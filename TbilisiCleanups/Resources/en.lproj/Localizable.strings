@@ -9,6 +9,12 @@
 "About.telegramChannel" = "Telegram Channel";
 "About.telegramChat" = "Telegram Chat";
 
+"CustomPhotoPicker.navigationTitle" = "Photos";
+"CustomPhotoPicker.toolbarCancelButton" = "Cancel";
+"CustomPhotoPicker.toolbarAddButton" = "Add";
+"CustomPhotoPicker.limitedAccessDisclaimer" = "You allowed limited access to your photo library.";
+"CustomPhotoPicker.selectMorePhotosButton" = "Select more photos…";
+
 "PlacesMap.tabName" = "Places";
 
 "ReportDetails.title" = "Report Details";

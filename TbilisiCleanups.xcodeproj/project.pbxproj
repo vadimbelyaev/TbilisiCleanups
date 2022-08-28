@@ -71,6 +71,7 @@
 		DDDB451828B98E1B00FD5008 /* UserReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB451728B98E1B00FD5008 /* UserReportsView.swift */; };
 		DDE290EF288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE290EE288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift */; };
 		DDE290F1288DA181004ED1D9 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE290F0288DA181004ED1D9 /* AnalyticsService.swift */; };
+		DDE3901F28BB642900B9FACC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDE3902128BB642900B9FACC /* InfoPlist.strings */; };
 		DDEC9E31288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */; };
 		DDEC9E33288C7FFA00706A55 /* StateRestorationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEC9E32288C7FFA00706A55 /* StateRestorationService.swift */; };
 /* End PBXBuildFile section */
@@ -150,6 +151,8 @@
 		DDDB451728B98E1B00FD5008 /* UserReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReportsView.swift; sourceTree = "<group>"; };
 		DDE290EE288D9D54004ED1D9 /* LimitedLibraryPickerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedLibraryPickerRepresentable.swift; sourceTree = "<group>"; };
 		DDE290F0288DA181004ED1D9 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
+		DDE3902028BB642900B9FACC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DDE3902228BB642B00B9FACC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Equatable.swift"; sourceTree = "<group>"; };
 		DDEC9E32288C7FFA00706A55 /* StateRestorationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRestorationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -336,6 +339,7 @@
 				DD0C350D28BA6DCC00EF6174 /* Generated */,
 				DD2AF406287F61FC0017A64C /* Assets.xcassets */,
 				DD0C350B28BA6BE700EF6174 /* Localizable.strings */,
+				DDE3902128BB642900B9FACC /* InfoPlist.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -586,6 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD2AF40A287F61FC0017A64C /* Preview Assets.xcassets in Resources */,
+				DDE3901F28BB642900B9FACC /* InfoPlist.strings in Resources */,
 				DD0C350928BA6BE700EF6174 /* Localizable.strings in Resources */,
 				DD2AF407287F61FC0017A64C /* Assets.xcassets in Resources */,
 				DD7838762884CFC100ED2CE9 /* README.md in Resources */,
@@ -763,6 +768,15 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
+		DDE3902128BB642900B9FACC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDE3902028BB642900B9FACC /* en */,
+				DDE3902228BB642B00B9FACC /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -897,7 +911,7 @@
 				INFOPLIST_FILE = TbilisiCleanups/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = nogarba.ge;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app uses your current location to show it on a map when you submit a report.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The app needs access to the photo library in order to let you choose photos for the reports.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The app needs access to the photo library in order to let you choose photos for the reports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -935,7 +949,7 @@
 				INFOPLIST_FILE = TbilisiCleanups/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = nogarba.ge;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app uses your current location to show it on a map when you submit a report.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The app needs access to the photo library in order to let you choose photos for the reports.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The app needs access to the photo library in order to let you choose photos for the reports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
