@@ -86,6 +86,8 @@
 "UserProfile.notificationsSection" = "Notifications";
 "UserProfile.allowNotifications" = "Allow Notifications";
 "UserProfile.statusesOfMyReports" = "Statuses Of My Reports";
+"UserProfile.languageSection" = "Language";
+"UserProfile.changeLanguageButton" = "Change in the Settings app";
 "UserProfile.accountSection" = "Account";
 "UserProfile.signOutButton" = "Sign Out";
 "UserProfile.deleteMyAccount" = "Delete My Account";

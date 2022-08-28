@@ -74,6 +74,7 @@
 		DDE3901F28BB642900B9FACC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDE3902128BB642900B9FACC /* InfoPlist.strings */; };
 		DDEC9E31288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */; };
 		DDEC9E33288C7FFA00706A55 /* StateRestorationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEC9E32288C7FFA00706A55 /* StateRestorationService.swift */; };
+		DDF5C83828BB85F700086581 /* UIApplication+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5C83728BB85F700086581 /* UIApplication+Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,7 @@
 		DDE3902228BB642B00B9FACC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DDEC9E30288C7AA400706A55 /* MKCoordinateRegion+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Equatable.swift"; sourceTree = "<group>"; };
 		DDEC9E32288C7FFA00706A55 /* StateRestorationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRestorationService.swift; sourceTree = "<group>"; };
+		DDF5C83728BB85F700086581 /* UIApplication+Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Settings.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +315,7 @@
 				DD112631288E9AE2005F5FC0 /* UITextViewRepresentable.swift */,
 				DD625A3628B22F0E00685F5C /* ReportStatusBadge.swift */,
 				DD625A3828B24E5300685F5C /* Report.Status+Colors.swift */,
+				DDF5C83728BB85F700086581 /* UIApplication+Settings.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -692,6 +695,7 @@
 				DD2AF403287F61FB0017A64C /* App.swift in Sources */,
 				DD112630288DDBC4005F5FC0 /* CustomPhotoPicker.swift in Sources */,
 				DDCE784C288443C800ACA7BF /* ReportSubmissionView.swift in Sources */,
+				DDF5C83828BB85F700086581 /* UIApplication+Settings.swift in Sources */,
 				DDDB451828B98E1B00FD5008 /* UserReportsView.swift in Sources */,
 				DDB88DDF28B22C140020E734 /* AVPlayerRepresentable.swift in Sources */,
 				DD2AF4752881EED10017A64C /* AppState.swift in Sources */,

@@ -42,6 +42,12 @@ struct UserProfileView: View {
                 }
             }
 
+            Section(L10n.UserProfile.languageSection) {
+                Button(L10n.UserProfile.changeLanguageButton) {
+                    UIApplication.goToSettings()
+                }
+            }
+
             Section(L10n.UserProfile.accountSection) {
                 Button(L10n.UserProfile.signOutButton) {
                     userService.signOut()
@@ -114,11 +120,7 @@ struct UserProfileView: View {
                 case .authorized:
                     break
                 case .denied:
-                    if let url = URL(string: UIApplication.openSettingsURLString),
-                       UIApplication.shared.canOpenURL(url)
-                    {
-                        UIApplication.shared.open(url)
-                    }
+                    UIApplication.goToSettings()
                 case .ephemeral, .notDetermined, .provisional:
                     Task {
                         let granted = try await UNUserNotificationCenter

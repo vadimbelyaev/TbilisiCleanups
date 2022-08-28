@@ -85,10 +85,7 @@ private extension View {
                     Text(L10n.ReportLocation.AccessAlert.notNowAction)
                 }
                 Button {
-                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
-                          UIApplication.shared.canOpenURL(settingsUrl)
-                    else { return }
-                    UIApplication.shared.open(settingsUrl)
+                    UIApplication.goToSettings()
                 } label: {
                     Text(L10n.ReportLocation.AccessAlert.settingsAction)
                 }

@@ -110,10 +110,7 @@ struct ReportSubmissionView: View {
                         assertionFailure("This case should be handled in the if branch above")
                     case .denied:
                         DispatchQueue.main.async {
-                            guard let url = URL(string: UIApplication.openSettingsURLString),
-                                  UIApplication.shared.canOpenURL(url)
-                            else { return }
-                            UIApplication.shared.open(url)
+                            UIApplication.goToSettings()
                         }
                     case .provisional, .ephemeral, .notDetermined:
                         UNUserNotificationCenter

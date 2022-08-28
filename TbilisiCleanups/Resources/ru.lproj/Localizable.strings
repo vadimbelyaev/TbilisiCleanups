@@ -86,6 +86,8 @@
 "UserProfile.notificationsSection" = "Уведомления";
 "UserProfile.allowNotifications" = "Разрешите уведомления";
 "UserProfile.statusesOfMyReports" = "Статусы моих репортов";
+"UserProfile.languageSection" = "Язык";
+"UserProfile.changeLanguageButton" = "Сменить в приложении Настройки";
 "UserProfile.accountSection" = "Аккаунт";
 "UserProfile.signOutButton" = "Выйти";
 "UserProfile.deleteMyAccount" = "Удалить аккаунт";

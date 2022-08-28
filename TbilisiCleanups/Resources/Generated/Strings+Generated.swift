@@ -144,8 +144,8 @@ internal enum L10n {
     /// New Report
     internal static let title = L10n.tr("Localizable", "ReportStart.title", fallback: #"New Report"#)
     internal enum DiscardDraftConfirmation {
-      /// Start with a new report
-      internal static let startNewReportAction = L10n.tr("Localizable", "ReportStart.DiscardDraftConfirmation.startNewReportAction", fallback: #"Start with a new report"#)
+      /// Start With a New Report
+      internal static let startNewReportAction = L10n.tr("Localizable", "ReportStart.DiscardDraftConfirmation.startNewReportAction", fallback: #"Start With a New Report"#)
       /// Discard saved draft and start with a new report?
       internal static let title = L10n.tr("Localizable", "ReportStart.DiscardDraftConfirmation.title", fallback: #"Discard saved draft and start with a new report?"#)
     }
@@ -195,12 +195,16 @@ internal enum L10n {
     internal static let accountSection = L10n.tr("Localizable", "UserProfile.accountSection", fallback: #"Account"#)
     /// Allow Notifications
     internal static let allowNotifications = L10n.tr("Localizable", "UserProfile.allowNotifications", fallback: #"Allow Notifications"#)
+    /// Change in the Settings app
+    internal static let changeLanguageButton = L10n.tr("Localizable", "UserProfile.changeLanguageButton", fallback: #"Change in the Settings app"#)
     /// Contributions
     internal static let contributionsSection = L10n.tr("Localizable", "UserProfile.contributionsSection", fallback: #"Contributions"#)
     /// Delete My Account
     internal static let deleteMyAccount = L10n.tr("Localizable", "UserProfile.deleteMyAccount", fallback: #"Delete My Account"#)
     /// There was an error deleting your account. Please try again later.
     internal static let errorDeletingAccount = L10n.tr("Localizable", "UserProfile.errorDeletingAccount", fallback: #"There was an error deleting your account. Please try again later."#)
+    /// Language
+    internal static let languageSection = L10n.tr("Localizable", "UserProfile.languageSection", fallback: #"Language"#)
     /// My Reports
     internal static let myReports = L10n.tr("Localizable", "UserProfile.myReports", fallback: #"My Reports"#)
     /// My Profile
