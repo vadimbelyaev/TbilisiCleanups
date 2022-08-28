@@ -10,14 +10,14 @@ struct ReportLocationView: View {
     var body: some View {
         ZStack {
             map
-            OverlayNavigationLink(title: "Use this location") {
+            OverlayNavigationLink(title: L10n.ReportLocation.useThisLocationButton) {
                 ReportDescriptionView()
             } auxiliaryView: {
                 locationButton
                     .padding(25)
             }
         }
-        .navigationTitle("Location")
+        .navigationTitle(L10n.ReportLocation.title)
         .onChange(of: model.region) { newValue in
             appState.currentDraft.locationRegion = .init(region: newValue)
         }
@@ -49,13 +49,13 @@ struct ReportLocationView: View {
             } label: {
                 if model.locationButtonState == .authorizationDenied {
                     Label(
-                        "Allow access to location",
+                        L10n.ReportLocation.allowLocationAccessButton,
                         systemImage: "location.slash"
                     )
                     .labelStyle(.iconOnly)
                 } else {
                     Label(
-                        "Show current location",
+                        L10n.ReportLocation.showCurrentLocationButton,
                         systemImage: "location.fill"
                     )
                     .labelStyle(.iconOnly)
@@ -71,30 +71,18 @@ struct ReportLocationView: View {
                 .frame(width: 50, height: 50)
         }
     }
-
-    private var continueButton: some View {
-        NavigationLink {
-            ReportDescriptionView()
-        } label: {
-            Text("Use this location")
-                .frame(maxWidth: 300)
-                .padding(.vertical, 8)
-        }
-        .buttonStyle(.borderedProminent)
-        .padding(.bottom, 25)
-    }
 }
 
 private extension View {
     func locationSettingsAlert(isPresented: Binding<Bool>) -> some View {
         alert(
-            "Please allow access to location in the Settings app.",
+            L10n.ReportLocation.AccessAlert.title,
             isPresented: isPresented,
             actions: {
                 Button(role: .cancel) {
                     // no-op
                 } label: {
-                    Text("Not now")
+                    Text(L10n.ReportLocation.AccessAlert.notNowAction)
                 }
                 Button {
                     guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
@@ -102,7 +90,7 @@ private extension View {
                     else { return }
                     UIApplication.shared.open(settingsUrl)
                 } label: {
-                    Text("Settings")
+                    Text(L10n.ReportLocation.AccessAlert.settingsAction)
                 }
             }
         )

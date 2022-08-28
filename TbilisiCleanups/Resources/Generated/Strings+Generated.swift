@@ -68,6 +68,24 @@ internal enum L10n {
     /// Report Details
     internal static let title = L10n.tr("Localizable", "ReportDetails.title", fallback: #"Report Details"#)
   }
+  internal enum ReportLocation {
+    /// Allow access to location
+    internal static let allowLocationAccessButton = L10n.tr("Localizable", "ReportLocation.allowLocationAccessButton", fallback: #"Allow access to location"#)
+    /// Show current location
+    internal static let showCurrentLocationButton = L10n.tr("Localizable", "ReportLocation.showCurrentLocationButton", fallback: #"Show current location"#)
+    /// Location
+    internal static let title = L10n.tr("Localizable", "ReportLocation.title", fallback: #"Location"#)
+    /// Use this location
+    internal static let useThisLocationButton = L10n.tr("Localizable", "ReportLocation.useThisLocationButton", fallback: #"Use this location"#)
+    internal enum AccessAlert {
+      /// Not now
+      internal static let notNowAction = L10n.tr("Localizable", "ReportLocation.AccessAlert.notNowAction", fallback: #"Not now"#)
+      /// Settings
+      internal static let settingsAction = L10n.tr("Localizable", "ReportLocation.AccessAlert.settingsAction", fallback: #"Settings"#)
+      /// Please allow access to location in the Settings app.
+      internal static let title = L10n.tr("Localizable", "ReportLocation.AccessAlert.title", fallback: #"Please allow access to location in the Settings app."#)
+    }
+  }
   internal enum ReportPhoto {
     /// Add Photos or Videos
     internal static let addPhotosButton = L10n.tr("Localizable", "ReportPhoto.addPhotosButton", fallback: #"Add Photos or Videos"#)

@@ -48,6 +48,14 @@
 "ReportPhoto.AccessAlert.notNowAction" = "Not Now";
 "ReportPhoto.AccessAlert.settingsAction" = "Settings";
 
+"ReportLocation.title" = "Location";
+"ReportLocation.useThisLocationButton" = "Use this location";
+"ReportLocation.allowLocationAccessButton" = "Allow access to location";
+"ReportLocation.showCurrentLocationButton" = "Show current location";
+"ReportLocation.AccessAlert.title" = "Please allow access to location in the Settings app.";
+"ReportLocation.AccessAlert.notNowAction" = "Not now";
+"ReportLocation.AccessAlert.settingsAction" = "Settings";
+
 "ReportStatus.moderation" = "Moderation";
 "ReportStatus.dirty" = "Dirty";
 "ReportStatus.scheduled" = "Scheduled";

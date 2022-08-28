@@ -48,6 +48,14 @@
 "ReportPhoto.AccessAlert.notNowAction" = "Не сейчас";
 "ReportPhoto.AccessAlert.settingsAction" = "Настройки";
 
+"ReportLocation.title" = "Локация";
+"ReportLocation.useThisLocationButton" = "Использовать эту локацию";
+"ReportLocation.allowLocationAccessButton" = "Разрешите доступ к геопозиции";
+"ReportLocation.showCurrentLocationButton" = "Показать текущее месторасположение";
+"ReportLocation.AccessAlert.title" = "Пожалуйста, разрешите доступ к геопозиции в приложении Настройки.";
+"ReportLocation.AccessAlert.notNowAction" = "Не сейчас";
+"ReportLocation.AccessAlert.settingsAction" = "Настройки";
+
 "ReportStatus.moderation" = "На модерации";
 "ReportStatus.dirty" = "Замусорено";
 "ReportStatus.scheduled" = "Запланировано";
