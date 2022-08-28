@@ -34,6 +34,38 @@ internal enum L10n {
     /// What Is nogarba.ge
     internal static let whatIsNogarbage = L10n.tr("Localizable", "About.whatIsNogarbage", fallback: #"What Is nogarba.ge"#)
   }
+  internal enum PlacesMap {
+    /// Places
+    internal static let tabName = L10n.tr("Localizable", "PlacesMap.tabName", fallback: #"Places"#)
+  }
+  internal enum ReportDetails {
+    /// Copied!
+    internal static let coordinatesCopiedMessage = L10n.tr("Localizable", "ReportDetails.coordinatesCopiedMessage", fallback: #"Copied!"#)
+    /// Location
+    internal static let locationHeader = L10n.tr("Localizable", "ReportDetails.locationHeader", fallback: #"Location"#)
+    /// No Description
+    internal static let noReportDescription = L10n.tr("Localizable", "ReportDetails.noReportDescription", fallback: #"No Description"#)
+    /// Open In Google Maps
+    internal static let openInGoogleMaps = L10n.tr("Localizable", "ReportDetails.openInGoogleMaps", fallback: #"Open In Google Maps"#)
+    /// Photos & Videos
+    internal static let photosAndVideosHeader = L10n.tr("Localizable", "ReportDetails.photosAndVideosHeader", fallback: #"Photos & Videos"#)
+    /// Report Details
+    internal static let title = L10n.tr("Localizable", "ReportDetails.title", fallback: #"Report Details"#)
+  }
+  internal enum ReportStatus {
+    /// clean
+    internal static let clean = L10n.tr("Localizable", "ReportStatus.clean", fallback: #"clean"#)
+    /// Dirty
+    internal static let dirty = L10n.tr("Localizable", "ReportStatus.dirty", fallback: #"Dirty"#)
+    /// Moderation
+    internal static let moderation = L10n.tr("Localizable", "ReportStatus.moderation", fallback: #"Moderation"#)
+    /// Rejected
+    internal static let rejected = L10n.tr("Localizable", "ReportStatus.rejected", fallback: #"Rejected"#)
+    /// Scheduled
+    internal static let scheduled = L10n.tr("Localizable", "ReportStatus.scheduled", fallback: #"Scheduled"#)
+    /// Unknown
+    internal static let unknown = L10n.tr("Localizable", "ReportStatus.unknown", fallback: #"Unknown"#)
+  }
   internal enum UserProfile {
     /// Account
     internal static let accountSection = L10n.tr("Localizable", "UserProfile.accountSection", fallback: #"Account"#)

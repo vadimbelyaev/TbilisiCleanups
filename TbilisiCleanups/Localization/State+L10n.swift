@@ -4,35 +4,17 @@ extension Report.Status {
     var localizedDescription: String {
         switch self {
         case .moderation:
-            return NSLocalizedString(
-                "Moderation",
-                comment: "Report status - under moderation"
-            )
+            return L10n.ReportStatus.moderation
         case .dirty:
-            return NSLocalizedString(
-                "Dirty",
-                comment: "Report status - dirty"
-            )
+            return L10n.ReportStatus.dirty
         case .scheduled:
-            return NSLocalizedString(
-                "Scheduled",
-                comment: "Report status - cleanup is scheduled for this place"
-            )
+            return L10n.ReportStatus.scheduled
         case .clean:
-            return NSLocalizedString(
-                "Clean",
-                comment: "Report status - clean"
-            )
+            return L10n.ReportStatus.clean
         case .rejected:
-            return NSLocalizedString(
-                "Rejected",
-                comment: "Report status - did not pass moderation"
-            )
+            return L10n.ReportStatus.rejected
         case .unknown:
-            return NSLocalizedString(
-                "Unknown",
-                comment: "Report status - unknown"
-            )
+            return L10n.ReportStatus.unknown
         }
     }
 }

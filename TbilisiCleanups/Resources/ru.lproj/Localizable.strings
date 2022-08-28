@@ -9,6 +9,22 @@
 "About.telegramChannel" = "Телеграм-канал";
 "About.telegramChat" = "Телеграм-чат";
 
+"PlacesMap.tabName" = "Места";
+
+"ReportDetails.title" = "Детали репорта";
+"ReportDetails.locationHeader" = "Локация";
+"ReportDetails.noReportDescription" = "Без описания";
+"ReportDetails.photosAndVideosHeader" = "Фото и видео";
+"ReportDetails.openInGoogleMaps" = "Открыть в картах Google";
+"ReportDetails.coordinatesCopiedMessage" = "Скопировано!";
+
+"ReportStatus.moderation" = "На модерации";
+"ReportStatus.dirty" = "Замусорено";
+"ReportStatus.scheduled" = "Запланировано";
+"ReportStatus.clean" = "Чисто";
+"ReportStatus.rejected" = "Не принято";
+"ReportStatus.unknown" = "Неизвестно";
+
 "UserProfile.nonameTitle" = "Мой профиль";
 "UserProfile.tabName" = "Профиль";
 "UserProfile.contributionsSection" = "Вклад";

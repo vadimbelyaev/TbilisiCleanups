@@ -9,6 +9,22 @@
 "About.telegramChannel" = "Telegram Channel";
 "About.telegramChat" = "Telegram Chat";
 
+"PlacesMap.tabName" = "Places";
+
+"ReportDetails.title" = "Report Details";
+"ReportDetails.locationHeader" = "Location";
+"ReportDetails.noReportDescription" = "No Description";
+"ReportDetails.photosAndVideosHeader" = "Photos & Videos";
+"ReportDetails.openInGoogleMaps" = "Open In Google Maps";
+"ReportDetails.coordinatesCopiedMessage" = "Copied!";
+
+"ReportStatus.moderation" = "Moderation";
+"ReportStatus.dirty" = "Dirty";
+"ReportStatus.scheduled" = "Scheduled";
+"ReportStatus.clean" = "clean";
+"ReportStatus.rejected" = "Rejected";
+"ReportStatus.unknown" = "Unknown";
+
 "UserProfile.nonameTitle" = "My Profile";
 "UserProfile.tabName" = "My Profile";
 "UserProfile.contributionsSection" = "Contributions";

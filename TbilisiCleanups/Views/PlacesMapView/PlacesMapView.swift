@@ -37,7 +37,7 @@ struct PlacesMapView: View {
         }
         .tabItem {
             Image(systemName: "map")
-            Text("Places")
+            Text(L10n.PlacesMap.tabName)
         }
     }
 }

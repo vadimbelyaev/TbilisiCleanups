@@ -19,11 +19,11 @@ struct ReportDetailsView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Text("Location")
+                Text(L10n.ReportDetails.locationHeader)
                     .font(.title)
                     .fontWeight(.semibold)
                     .padding(.horizontal)
-                Text(report.description ?? "No description")
+                Text(report.description ?? L10n.ReportDetails.noReportDescription)
                     .padding(.horizontal)
                 ReportStatusBadge(status: report.status)
                     .padding(.horizontal)
@@ -39,7 +39,7 @@ struct ReportDetailsView: View {
                 openInGoogleMapsButton
                     .padding(.horizontal)
 
-                Text("Photos and videos")
+                Text(L10n.ReportDetails.photosAndVideosHeader)
                     .font(.title)
                     .fontWeight(.semibold)
                     .padding(.top)
@@ -57,7 +57,7 @@ struct ReportDetailsView: View {
             }
         }
         .listStyle(.plain)
-        .navigationTitle("Report Details")
+        .navigationTitle(L10n.ReportDetails.title)
         .navigationBarTitleDisplayMode(.inline)
     }
 
@@ -72,7 +72,7 @@ struct ReportDetailsView: View {
             }
             UIApplication.shared.open(url)
         } label: {
-            Label("Open in Google Maps", systemImage: "globe")
+            Label(L10n.ReportDetails.openInGoogleMaps, systemImage: "globe")
         }
     }
 
@@ -105,7 +105,7 @@ private struct CopyCoordinatesButton: View {
         .opacity(copied ? 0 : 1)
         .overlay(
             HStack {
-                Label("Copied!", systemImage: "checkmark.circle.fill")
+                Label(L10n.ReportDetails.coordinatesCopiedMessage, systemImage: "checkmark.circle.fill")
                     .foregroundColor(.green)
                     .opacity(copied ? 1 : 0)
                 Spacer()
