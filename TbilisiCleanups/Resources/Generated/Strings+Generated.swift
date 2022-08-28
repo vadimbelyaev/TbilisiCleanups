@@ -53,6 +53,8 @@ internal enum L10n {
     internal static let done = L10n.tr("Localizable", "Navigation.done", fallback: #"Done"#)
   }
   internal enum PlacesMap {
+    /// No Description
+    internal static let noDescription = L10n.tr("Localizable", "PlacesMap.noDescription", fallback: #"No Description"#)
     /// Places
     internal static let tabName = L10n.tr("Localizable", "PlacesMap.tabName", fallback: #"Places"#)
   }

@@ -128,7 +128,7 @@ private final class PlaceAnnotation: NSObject, MKAnnotation {
         guard let description = report.description,
               !description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         else {
-            return "No description"
+            return L10n.PlacesMap.noDescription
         }
         return description
     }

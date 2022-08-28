@@ -16,6 +16,7 @@
 "CustomPhotoPicker.selectMorePhotosButton" = "Выбрать больше фото…";
 
 "PlacesMap.tabName" = "Места";
+"PlacesMap.noDescription" = "Без описания";
 
 "ReportDetails.title" = "Детали репорта";
 "ReportDetails.locationHeader" = "Локация";

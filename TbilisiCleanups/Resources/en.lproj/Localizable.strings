@@ -16,6 +16,7 @@
 "CustomPhotoPicker.selectMorePhotosButton" = "Select more photos…";
 
 "PlacesMap.tabName" = "Places";
+"PlacesMap.noDescription" = "No Description";
 
 "ReportDetails.title" = "Report Details";
 "ReportDetails.locationHeader" = "Location";
@@ -27,7 +28,7 @@
 "ReportStart.title" = "New Report";
 "ReportStart.tabName" = "New Report";
 "ReportStart.DiscardDraftConfirmation.title" = "Discard saved draft and start with a new report?";
-"ReportStart.DiscardDraftConfirmation.startNewReportAction" = "Start with a new report";
+"ReportStart.DiscardDraftConfirmation.startNewReportAction" = "Start With a New Report";
 "ReportStart.bodyHeader" = "Report a littered place in 3 steps:";
 "ReportStart.bodyStep1" = "Choose some photos or videos";
 "ReportStart.bodyStep2" = "Tell us the location";
