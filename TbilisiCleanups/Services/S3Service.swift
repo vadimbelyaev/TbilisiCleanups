@@ -21,7 +21,7 @@ final class S3Service {
             logger: .init(label: "AWSClient")
         )
         bucketName = config.s3BucketName
-        s3 = S3(client: awsClient, region: .eucentral1)
+        s3 = S3(client: awsClient, region: config.s3Region)
     }
 
     /// Uploads data to S3 and return its public URL
