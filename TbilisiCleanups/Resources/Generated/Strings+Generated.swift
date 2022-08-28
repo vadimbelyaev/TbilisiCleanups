@@ -52,9 +52,41 @@ internal enum L10n {
     /// Report Details
     internal static let title = L10n.tr("Localizable", "ReportDetails.title", fallback: #"Report Details"#)
   }
+  internal enum ReportStart {
+    /// Once submitted, your report will be reviewed by our moderators.
+    internal static let bodyFinal = L10n.tr("Localizable", "ReportStart.bodyFinal", fallback: #"Once submitted, your report will be reviewed by our moderators."#)
+    /// Report a littered place in 3 steps:
+    internal static let bodyHeader = L10n.tr("Localizable", "ReportStart.bodyHeader", fallback: #"Report a littered place in 3 steps:"#)
+    /// Choose some photos or videos
+    internal static let bodyStep1 = L10n.tr("Localizable", "ReportStart.bodyStep1", fallback: #"Choose some photos or videos"#)
+    /// Tell us the location
+    internal static let bodyStep2 = L10n.tr("Localizable", "ReportStart.bodyStep2", fallback: #"Tell us the location"#)
+    /// Add a text description
+    internal static let bodyStep3 = L10n.tr("Localizable", "ReportStart.bodyStep3", fallback: #"Add a text description"#)
+    /// Thank you for contributing to a cleaner country!
+    internal static let bodyThankYou = L10n.tr("Localizable", "ReportStart.bodyThankYou", fallback: #"Thank you for contributing to a cleaner country!"#)
+    /// Continue with saved draft
+    internal static let continueDraftButton = L10n.tr("Localizable", "ReportStart.continueDraftButton", fallback: #"Continue with saved draft"#)
+    /// Discard saved draft and start over
+    internal static let discardDraftButton = L10n.tr("Localizable", "ReportStart.discardDraftButton", fallback: #"Discard saved draft and start over"#)
+    /// Sign in to submit a report
+    internal static let signInButton = L10n.tr("Localizable", "ReportStart.signInButton", fallback: #"Sign in to submit a report"#)
+    /// Start
+    internal static let startButton = L10n.tr("Localizable", "ReportStart.startButton", fallback: #"Start"#)
+    /// New Report
+    internal static let tabName = L10n.tr("Localizable", "ReportStart.tabName", fallback: #"New Report"#)
+    /// New Report
+    internal static let title = L10n.tr("Localizable", "ReportStart.title", fallback: #"New Report"#)
+    internal enum DiscardDraftConfirmation {
+      /// Start with a new report
+      internal static let startNewReportAction = L10n.tr("Localizable", "ReportStart.DiscardDraftConfirmation.startNewReportAction", fallback: #"Start with a new report"#)
+      /// Discard saved draft and start with a new report?
+      internal static let title = L10n.tr("Localizable", "ReportStart.DiscardDraftConfirmation.title", fallback: #"Discard saved draft and start with a new report?"#)
+    }
+  }
   internal enum ReportStatus {
-    /// clean
-    internal static let clean = L10n.tr("Localizable", "ReportStatus.clean", fallback: #"clean"#)
+    /// Clean
+    internal static let clean = L10n.tr("Localizable", "ReportStatus.clean", fallback: #"Clean"#)
     /// Dirty
     internal static let dirty = L10n.tr("Localizable", "ReportStatus.dirty", fallback: #"Dirty"#)
     /// Moderation

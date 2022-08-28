@@ -17,7 +17,7 @@ struct ReportStartView: View {
                 Spacer()
                 buttons
             }
-            .navigationTitle("New Report")
+            .navigationTitle(L10n.ReportStart.title)
         }
         .sheet(isPresented: $appState.isReportSheetPresented) {
             NavigationView {
@@ -29,11 +29,14 @@ struct ReportStartView: View {
                 .ignoresSafeArea(.all, edges: .bottom)
         }
         .confirmationDialog(
-            "Discard saved draft and start with a new report?",
+            L10n.ReportStart.DiscardDraftConfirmation.title,
             isPresented: $isDiscardDraftDialogPresented,
             titleVisibility: .visible,
             actions: {
-                Button("Start with a new report", role: .destructive) {
+                Button(
+                    L10n.ReportStart.DiscardDraftConfirmation.startNewReportAction,
+                    role: .destructive
+                ) {
                     appState.currentDraft = .init()
                     stateRestorationService.eraseDraftState()
                     appState.isReportSheetPresented = true
@@ -43,38 +46,38 @@ struct ReportStartView: View {
         .navigationViewStyle(.stack)
         .tabItem {
             Image(systemName: "square.and.pencil")
-            Text("New Report")
+            Text(L10n.ReportStart.tabName)
         }
     }
 
     private var bodyText: some View {
         VStack(alignment: .leading, spacing: 24) {
-            Text("Report a littered place in 3 steps:")
+            Text(L10n.ReportStart.bodyHeader)
                 .font(.title)
                 .padding(.bottom, 24)
             HStack {
                 Image(systemName: "photo.on.rectangle.angled")
                     .frame(minWidth: 40)
-                Text("Choose some photos or videos")
+                Text(L10n.ReportStart.bodyStep1)
             }
             .font(.title3)
             HStack {
                 Image(systemName: "mappin.and.ellipse")
                     .frame(minWidth: 40)
-                Text("Tell us the location")
+                Text(L10n.ReportStart.bodyStep2)
             }
             .font(.title3)
             HStack {
                 Image(systemName: "rectangle.and.pencil.and.ellipsis")
                     .frame(minWidth: 40)
-                Text("Add a text description")
+                Text(L10n.ReportStart.bodyStep3)
             }
             .font(.title3)
 
-            Text("Once submitted, your report will be reviewed by our moderators.")
+            Text(L10n.ReportStart.bodyFinal)
                 .padding(.top, 24)
 
-            Text("Thank you for contributing to a cleaner country!")
+            Text(L10n.ReportStart.bodyThankYou)
         }
     }
 
@@ -86,7 +89,7 @@ struct ReportStartView: View {
                     Button {
                         isDiscardDraftDialogPresented = true
                     } label: {
-                        Text("Discard saved draft and start over")
+                        Text(L10n.ReportStart.discardDraftButton)
                             .overlayNavigationLabelStyle()
                     }
                     .overlayNavigationLinkStyle()
@@ -100,15 +103,19 @@ struct ReportStartView: View {
                     Button {
                         appState.isReportSheetPresented = true
                     } label: {
-                        Text(appState.currentDraft.isBlank ? "Start" : "Continue with saved draft")
-                            .overlayNavigationLabelStyle()
+                        Text(
+                            appState.currentDraft.isBlank
+                                ? L10n.ReportStart.startButton
+                                : L10n.ReportStart.continueDraftButton
+                        )
+                        .overlayNavigationLabelStyle()
                     }
                     .overlayNavigationLinkStyle()
                 } else {
                     Button {
                         signInScreenPresented = true
                     } label: {
-                        Text("Sign in to submit a report")
+                        Text(L10n.ReportStart.signInButton)
                             .overlayNavigationLabelStyle()
                     }
                     .overlayNavigationLinkStyle()

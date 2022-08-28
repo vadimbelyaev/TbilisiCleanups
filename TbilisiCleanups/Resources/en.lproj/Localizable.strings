@@ -18,10 +18,25 @@
 "ReportDetails.openInGoogleMaps" = "Open In Google Maps";
 "ReportDetails.coordinatesCopiedMessage" = "Copied!";
 
+"ReportStart.title" = "New Report";
+"ReportStart.tabName" = "New Report";
+"ReportStart.DiscardDraftConfirmation.title" = "Discard saved draft and start with a new report?";
+"ReportStart.DiscardDraftConfirmation.startNewReportAction" = "Start with a new report";
+"ReportStart.bodyHeader" = "Report a littered place in 3 steps:";
+"ReportStart.bodyStep1" = "Choose some photos or videos";
+"ReportStart.bodyStep2" = "Tell us the location";
+"ReportStart.bodyStep3" = "Add a text description";
+"ReportStart.bodyFinal" = "Once submitted, your report will be reviewed by our moderators.";
+"ReportStart.bodyThankYou" = "Thank you for contributing to a cleaner country!";
+"ReportStart.discardDraftButton" = "Discard saved draft and start over";
+"ReportStart.startButton" = "Start";
+"ReportStart.continueDraftButton" = "Continue with saved draft";
+"ReportStart.signInButton" = "Sign in to submit a report";
+
 "ReportStatus.moderation" = "Moderation";
 "ReportStatus.dirty" = "Dirty";
 "ReportStatus.scheduled" = "Scheduled";
-"ReportStatus.clean" = "clean";
+"ReportStatus.clean" = "Clean";
 "ReportStatus.rejected" = "Rejected";
 "ReportStatus.unknown" = "Unknown";
 

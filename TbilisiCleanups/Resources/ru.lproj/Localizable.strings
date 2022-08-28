@@ -18,6 +18,21 @@
 "ReportDetails.openInGoogleMaps" = "Открыть в картах Google";
 "ReportDetails.coordinatesCopiedMessage" = "Скопировано!";
 
+"ReportStart.title" = "Новый репорт";
+"ReportStart.tabName" = "Новый репорт";
+"ReportStart.DiscardDraftConfirmation.title" = "Стереть сохраненный черновик и начать с чистого листа?";
+"ReportStart.DiscardDraftConfirmation.startNewReportAction" = "Начать с чистого листа";
+"ReportStart.bodyHeader" = "Сообщите о замусоренном месте за 3 шага:";
+"ReportStart.bodyStep1" = "Приложите фото или видео";
+"ReportStart.bodyStep2" = "Укажите локацию";
+"ReportStart.bodyStep3" = "Добавьте текстовое описание";
+"ReportStart.bodyFinal" = "После отправки ваш репорт уйдёт на проверку нашим модераторам.";
+"ReportStart.bodyThankYou" = "Спасибо за ваш вклад в чистоту страны!";
+"ReportStart.discardDraftButton" = "Стереть черновик и начать заново";
+"ReportStart.startButton" = "Приступить";
+"ReportStart.continueDraftButton" = "Продолжить с черновиком";
+"ReportStart.signInButton" = "Войти, чтобы отправить репорт";
+
 "ReportStatus.moderation" = "На модерации";
 "ReportStatus.dirty" = "Замусорено";
 "ReportStatus.scheduled" = "Запланировано";
