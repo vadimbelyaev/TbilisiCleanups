@@ -28,7 +28,7 @@ struct UserProfileView: View {
     private var signedInBody: some View {
         List {
             Section(L10n.UserProfile.contributionsSection) {
-                NavigationLink {
+                NavigationLink(isActive: $appState.userReportsScreenVisible) {
                     UserReportsView()
                 } label: {
                     Text(L10n.UserProfile.myReports)

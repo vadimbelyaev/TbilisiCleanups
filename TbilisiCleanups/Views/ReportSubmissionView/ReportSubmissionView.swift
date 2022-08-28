@@ -79,6 +79,7 @@ struct ReportSubmissionView: View {
                 Button {
                     appState.isReportSheetPresented = false
                     appState.selectedTab = .userProfile
+                    appState.userReportsScreenVisible = true
                 } label: {
                     Text(L10n.Navigation.done)
                         .overlayNavigationLabelStyle()

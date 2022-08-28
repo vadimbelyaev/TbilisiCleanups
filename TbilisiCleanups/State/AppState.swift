@@ -13,6 +13,7 @@ final class AppState: ObservableObject {
     @Published var verifiedReportsLoadingState: LoadingState = .notStarted
     @Published var firebaseCloudMessagingToken: String?
     @Published var hasNotificationsPermissions: Bool = false
+    @Published var userReportsScreenVisible: Bool = false
     @Published var userProfileSelectedReportId: String?
     var userState: UserState = .init()
 
