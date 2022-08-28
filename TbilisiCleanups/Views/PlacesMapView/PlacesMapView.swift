@@ -35,6 +35,7 @@ struct PlacesMapView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
         .tabItem {
             Image(systemName: "map")
             Text(L10n.PlacesMap.tabName)
