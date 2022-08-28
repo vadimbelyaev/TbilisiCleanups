@@ -1,11 +1,13 @@
 import FirebaseFirestore
 import Foundation
+import os.log
 
 @MainActor
 final class ReportService: ObservableObject {
     private let appState: AppState
     private let mediaUploadService: MediaUploadService
     private let stateRestorationService: StateRestorationService
+    private let logger = Logger(subsystem: "Services", category: "ReportService")
 
     init(appState: AppState) {
         self.appState = appState
@@ -30,6 +32,7 @@ final class ReportService: ObservableObject {
             }
         } catch {
             try await MainActor.run {
+                logger.error("Error uploading medias to S3: \(String(describing: dump(error)))")
                 submission.status = .failed(error: error)
                 // Trigger an extra objectWillChange because sometimes
                 // just updating submission.status doesn't update the UI
@@ -42,6 +45,7 @@ final class ReportService: ObservableObject {
             try await saveSubmissionToFirebase(submission, appState: appState)
         } catch {
             try await MainActor.run {
+                logger.error("Error saving report to Firebase: \(String(describing: dump(error)))")
                 submission.status = .failed(error: error)
                 // Trigger an extra objectWillChange because sometimes
                 // just updating submission.status doesn't update the UI
