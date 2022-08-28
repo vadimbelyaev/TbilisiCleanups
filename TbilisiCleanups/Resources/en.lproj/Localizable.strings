@@ -34,10 +34,10 @@
 "ReportStart.bodyStep3" = "Add a text description";
 "ReportStart.bodyFinal" = "Once submitted, your report will be reviewed by our moderators.";
 "ReportStart.bodyThankYou" = "Thank you for contributing to a cleaner country!";
-"ReportStart.discardDraftButton" = "Discard saved draft and start over";
+"ReportStart.discardDraftButton" = "Discard Saved Draft and Start Over";
 "ReportStart.startButton" = "Start";
-"ReportStart.continueDraftButton" = "Continue with saved draft";
-"ReportStart.signInButton" = "Sign in to submit a report";
+"ReportStart.continueDraftButton" = "Continue with Saved Draft";
+"ReportStart.signInButton" = "Sign In to Submit a Report";
 
 "ReportPhoto.title" = "Photos";
 "ReportPhoto.body" = "Show us what a littered place you found looks like:";
@@ -49,16 +49,27 @@
 "ReportPhoto.AccessAlert.settingsAction" = "Settings";
 
 "ReportLocation.title" = "Location";
-"ReportLocation.useThisLocationButton" = "Use this location";
-"ReportLocation.allowLocationAccessButton" = "Allow access to location";
-"ReportLocation.showCurrentLocationButton" = "Show current location";
+"ReportLocation.useThisLocationButton" = "Use This Location";
+"ReportLocation.allowLocationAccessButton" = "Allow Access to location";
+"ReportLocation.showCurrentLocationButton" = "Show Current Location";
 "ReportLocation.AccessAlert.title" = "Please allow access to location in the Settings app.";
-"ReportLocation.AccessAlert.notNowAction" = "Not now";
+"ReportLocation.AccessAlert.notNowAction" = "Not Now";
 "ReportLocation.AccessAlert.settingsAction" = "Settings";
 
 "ReportDescription.title" = "Description";
 "ReportDescription.body" = "Describe where this place is so it's easier to find it:";
 "ReportDescription.submitButton" = "Submit";
+
+"ReportSubmission.title" = "Submitting Report";
+"ReportSubmission.Status.notStarted" = "Your report is about to be submitted.";
+"ReportSubmission.Status.inProgress" = "Submitting your report…";
+"ReportSubmission.Status.failed" = "Error submitting the report. Please try again later.";
+"ReportSubmission.Status.succeeded" = "We received your report. Thank you!";
+"ReportSubmission.retryNowButton" = "Retry Now";
+"ReportSubmission.successNote" = "Check its status any time on the My Profile tab.";
+"ReportSubmission.Notifications.youWillReceiveNotification" = "You'll receive a notification when the status of your report changes.";
+"ReportSubmission.Notifications.notifyMeButton" = "Notify me when the status of the report changes";
+"ReportSubmission.Notifications.allowNotificationsButton" = "Allow notifications to be informed of your report's status changes";
 
 "ReportStatus.moderation" = "Moderation";
 "ReportStatus.dirty" = "Dirty";
@@ -94,3 +105,4 @@
 "UserReports.noReportDescription" = "No Description";
 
 "Navigation.continue" = "Continue";
+"Navigation.done" = "Done";

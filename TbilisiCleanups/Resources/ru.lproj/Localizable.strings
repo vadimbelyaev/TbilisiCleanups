@@ -60,6 +60,17 @@
 "ReportDescription.body" = "Опишите, где это место, чтобы его было легче найти:";
 "ReportDescription.submitButton" = "Отправить";
 
+"ReportSubmission.title" = "Отправка репорта";
+"ReportSubmission.Status.notStarted" = "Отправка сейчас начнется.";
+"ReportSubmission.Status.inProgress" = "Отправляем ваш репорт…";
+"ReportSubmission.Status.failed" = "Ошибка отправки репорта. Пожалуйста, попробуйте ещё раз чуть позже.";
+"ReportSubmission.Status.succeeded" = "Мы получили ваш репорт. Спасибо!";
+"ReportSubmission.retryNowButton" = "Попробовать ещё раз";
+"ReportSubmission.successNote" = "Проверяйте его статус на вкладке «Мой профиль».";
+"ReportSubmission.Notifications.youWillReceiveNotification" = "Вы получите уведомление, когда статус вашего репорта поменяется.";
+"ReportSubmission.Notifications.notifyMeButton" = "Уведомить меня, когда статус репорта изменится.";
+"ReportSubmission.Notifications.allowNotificationsButton" = "Разрешите уведомления, чтобы быть в курсе изменений статуса вашего репорта.";
+
 "ReportStatus.moderation" = "На модерации";
 "ReportStatus.dirty" = "Замусорено";
 "ReportStatus.scheduled" = "Запланировано";
@@ -94,3 +105,4 @@
 "UserReports.noReportDescription" = "Без описания";
 
 "Navigation.continue" = "Дальше";
+"Navigation.done" = "Готово";

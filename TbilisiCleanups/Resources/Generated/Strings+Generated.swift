@@ -49,6 +49,8 @@ internal enum L10n {
   internal enum Navigation {
     /// Continue
     internal static let `continue` = L10n.tr("Localizable", "Navigation.continue", fallback: #"Continue"#)
+    /// Done
+    internal static let done = L10n.tr("Localizable", "Navigation.done", fallback: #"Done"#)
   }
   internal enum PlacesMap {
     /// Places
@@ -77,17 +79,17 @@ internal enum L10n {
     internal static let title = L10n.tr("Localizable", "ReportDetails.title", fallback: #"Report Details"#)
   }
   internal enum ReportLocation {
-    /// Allow access to location
-    internal static let allowLocationAccessButton = L10n.tr("Localizable", "ReportLocation.allowLocationAccessButton", fallback: #"Allow access to location"#)
-    /// Show current location
-    internal static let showCurrentLocationButton = L10n.tr("Localizable", "ReportLocation.showCurrentLocationButton", fallback: #"Show current location"#)
+    /// Allow Access to location
+    internal static let allowLocationAccessButton = L10n.tr("Localizable", "ReportLocation.allowLocationAccessButton", fallback: #"Allow Access to location"#)
+    /// Show Current Location
+    internal static let showCurrentLocationButton = L10n.tr("Localizable", "ReportLocation.showCurrentLocationButton", fallback: #"Show Current Location"#)
     /// Location
     internal static let title = L10n.tr("Localizable", "ReportLocation.title", fallback: #"Location"#)
-    /// Use this location
-    internal static let useThisLocationButton = L10n.tr("Localizable", "ReportLocation.useThisLocationButton", fallback: #"Use this location"#)
+    /// Use This Location
+    internal static let useThisLocationButton = L10n.tr("Localizable", "ReportLocation.useThisLocationButton", fallback: #"Use This Location"#)
     internal enum AccessAlert {
-      /// Not now
-      internal static let notNowAction = L10n.tr("Localizable", "ReportLocation.AccessAlert.notNowAction", fallback: #"Not now"#)
+      /// Not Now
+      internal static let notNowAction = L10n.tr("Localizable", "ReportLocation.AccessAlert.notNowAction", fallback: #"Not Now"#)
       /// Settings
       internal static let settingsAction = L10n.tr("Localizable", "ReportLocation.AccessAlert.settingsAction", fallback: #"Settings"#)
       /// Please allow access to location in the Settings app.
@@ -127,12 +129,12 @@ internal enum L10n {
     internal static let bodyStep3 = L10n.tr("Localizable", "ReportStart.bodyStep3", fallback: #"Add a text description"#)
     /// Thank you for contributing to a cleaner country!
     internal static let bodyThankYou = L10n.tr("Localizable", "ReportStart.bodyThankYou", fallback: #"Thank you for contributing to a cleaner country!"#)
-    /// Continue with saved draft
-    internal static let continueDraftButton = L10n.tr("Localizable", "ReportStart.continueDraftButton", fallback: #"Continue with saved draft"#)
-    /// Discard saved draft and start over
-    internal static let discardDraftButton = L10n.tr("Localizable", "ReportStart.discardDraftButton", fallback: #"Discard saved draft and start over"#)
-    /// Sign in to submit a report
-    internal static let signInButton = L10n.tr("Localizable", "ReportStart.signInButton", fallback: #"Sign in to submit a report"#)
+    /// Continue with Saved Draft
+    internal static let continueDraftButton = L10n.tr("Localizable", "ReportStart.continueDraftButton", fallback: #"Continue with Saved Draft"#)
+    /// Discard Saved Draft and Start Over
+    internal static let discardDraftButton = L10n.tr("Localizable", "ReportStart.discardDraftButton", fallback: #"Discard Saved Draft and Start Over"#)
+    /// Sign In to Submit a Report
+    internal static let signInButton = L10n.tr("Localizable", "ReportStart.signInButton", fallback: #"Sign In to Submit a Report"#)
     /// Start
     internal static let startButton = L10n.tr("Localizable", "ReportStart.startButton", fallback: #"Start"#)
     /// New Report
@@ -159,6 +161,32 @@ internal enum L10n {
     internal static let scheduled = L10n.tr("Localizable", "ReportStatus.scheduled", fallback: #"Scheduled"#)
     /// Unknown
     internal static let unknown = L10n.tr("Localizable", "ReportStatus.unknown", fallback: #"Unknown"#)
+  }
+  internal enum ReportSubmission {
+    /// Retry Now
+    internal static let retryNowButton = L10n.tr("Localizable", "ReportSubmission.retryNowButton", fallback: #"Retry Now"#)
+    /// Check its status any time on the My Profile tab.
+    internal static let successNote = L10n.tr("Localizable", "ReportSubmission.successNote", fallback: #"Check its status any time on the My Profile tab."#)
+    /// Submitting Report
+    internal static let title = L10n.tr("Localizable", "ReportSubmission.title", fallback: #"Submitting Report"#)
+    internal enum Notifications {
+      /// Allow notifications to be informed of your report's status changes
+      internal static let allowNotificationsButton = L10n.tr("Localizable", "ReportSubmission.Notifications.allowNotificationsButton", fallback: #"Allow notifications to be informed of your report's status changes"#)
+      /// Notify me when the status of the report changes
+      internal static let notifyMeButton = L10n.tr("Localizable", "ReportSubmission.Notifications.notifyMeButton", fallback: #"Notify me when the status of the report changes"#)
+      /// You'll receive a notification when the status of your report changes.
+      internal static let youWillReceiveNotification = L10n.tr("Localizable", "ReportSubmission.Notifications.youWillReceiveNotification", fallback: #"You'll receive a notification when the status of your report changes."#)
+    }
+    internal enum Status {
+      /// Error submitting the report. Please try again later.
+      internal static let failed = L10n.tr("Localizable", "ReportSubmission.Status.failed", fallback: #"Error submitting the report. Please try again later."#)
+      /// Submitting your report…
+      internal static let inProgress = L10n.tr("Localizable", "ReportSubmission.Status.inProgress", fallback: #"Submitting your report…"#)
+      /// Your report is about to be submitted.
+      internal static let notStarted = L10n.tr("Localizable", "ReportSubmission.Status.notStarted", fallback: #"Your report is about to be submitted."#)
+      /// We received your report. Thank you!
+      internal static let succeeded = L10n.tr("Localizable", "ReportSubmission.Status.succeeded", fallback: #"We received your report. Thank you!"#)
+    }
   }
   internal enum UserProfile {
     /// Account

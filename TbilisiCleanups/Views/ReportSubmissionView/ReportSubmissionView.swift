@@ -13,7 +13,7 @@ struct ReportSubmissionView: View {
 
     var body: some View {
         statusView
-            .navigationTitle("Submitting Report")
+            .navigationTitle(L10n.ReportSubmission.title)
             .navigationBarBackButtonHidden(true)
             .onAppear {
                 if !hasAppeared {
@@ -38,12 +38,12 @@ struct ReportSubmissionView: View {
     private var statusView: some View {
         switch appState.currentSubmission.status {
         case .notStarted:
-            Text("Your report is about to be submitted.")
+            Text(L10n.ReportSubmission.Status.notStarted)
                 .fixedSize(horizontal: false, vertical: true)
         case .inProgress:
             VStack(spacing: 24) {
                 ProgressView()
-                Text("Submitting your report...")
+                Text(L10n.ReportSubmission.Status.inProgress)
                     .fixedSize(horizontal: false, vertical: true)
             }
             .padding(.horizontal)
@@ -52,13 +52,13 @@ struct ReportSubmissionView: View {
                 Image(systemName: "xmark.octagon")
                     .font(.largeTitle)
                     .foregroundColor(.red)
-                Text("Error submitting the report. Please try again later.")
+                Text(L10n.ReportSubmission.Status.failed)
                     .fixedSize(horizontal: false, vertical: true)
                     .foregroundColor(.red)
                 Button {
                     sendReport()
                 } label: {
-                    Text("Retry now")
+                    Text(L10n.ReportSubmission.retryNowButton)
                         .overlayNavigationLabelStyle()
                 }
                 .overlayNavigationLinkStyle()
@@ -69,10 +69,10 @@ struct ReportSubmissionView: View {
                 Image(systemName: "checkmark.circle")
                     .font(.largeTitle)
                     .foregroundColor(.green)
-                Text("We received your report. Thank you!")
+                Text(L10n.ReportSubmission.Status.succeeded)
                     .fixedSize(horizontal: false, vertical: true)
                     .foregroundColor(.green)
-                Text("Check its status any time on the My Profile tab.")
+                Text(L10n.ReportSubmission.successNote)
                     .fixedSize(horizontal: false, vertical: true)
                 notificationView
                     .padding(.vertical, 32)
@@ -80,7 +80,7 @@ struct ReportSubmissionView: View {
                     appState.isReportSheetPresented = false
                     appState.selectedTab = .userProfile
                 } label: {
-                    Text("Done")
+                    Text(L10n.Navigation.done)
                         .overlayNavigationLabelStyle()
                 }
                 .overlayNavigationLinkStyle()
@@ -93,12 +93,12 @@ struct ReportSubmissionView: View {
     private var notificationView: some View {
         if appState.hasNotificationsPermissions {
             if appState.userState.reportNotificationsEnabled {
-                Text("You'll receive a notification when the status of your report changes.")
+                Text(L10n.ReportSubmission.Notifications.youWillReceiveNotification)
             } else {
                 Button {
                     appState.userState.updateReportNotificationsPreference.send(true)
                 } label: {
-                    Text("Notify me when the status of the report changes")
+                    Text(L10n.ReportSubmission.Notifications.notifyMeButton)
                 }
             }
         } else {
@@ -130,7 +130,7 @@ struct ReportSubmissionView: View {
                     }
                 }
             } label: {
-                Text("Allow notifications to be informed of your report's status changes")
+                Text(L10n.ReportSubmission.Notifications.allowNotificationsButton)
             }
         }
     }
