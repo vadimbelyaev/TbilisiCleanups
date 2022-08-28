@@ -33,6 +33,15 @@
 "ReportStart.continueDraftButton" = "Continue with saved draft";
 "ReportStart.signInButton" = "Sign in to submit a report";
 
+"ReportPhoto.title" = "Photos";
+"ReportPhoto.body" = "Show us what a littered place you found looks like:";
+"ReportPhoto.removeMenu" = "Remove";
+"ReportPhoto.addPhotosButton" = "Add Photos or Videos";
+"ReportPhoto.allowAccess" = "Allow Access to Photos";
+"ReportPhoto.AccessAlert.title" = "Please allow access to photos in the Settings app.";
+"ReportPhoto.AccessAlert.notNowAction" = "Not Now";
+"ReportPhoto.AccessAlert.settingsAction" = "Settings";
+
 "ReportStatus.moderation" = "Moderation";
 "ReportStatus.dirty" = "Dirty";
 "ReportStatus.scheduled" = "Scheduled";
@@ -65,3 +74,5 @@
 "UserReports.errorLoadingReports" = "Error loading your reports.";
 "UserReports.retryButton" = "Retry";
 "UserReports.noReportDescription" = "No Description";
+
+"Navigation.continue" = "Continue";

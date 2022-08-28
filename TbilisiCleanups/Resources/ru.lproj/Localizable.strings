@@ -33,6 +33,15 @@
 "ReportStart.continueDraftButton" = "Продолжить с черновиком";
 "ReportStart.signInButton" = "Войти, чтобы отправить репорт";
 
+"ReportPhoto.title" = "Фото";
+"ReportPhoto.body" = "Покажите, как выглядит замусоренное место, которое вы обнаружили:";
+"ReportPhoto.removeMenu" = "Удалить";
+"ReportPhoto.addPhotosButton" = "Добавить фото или видео";
+"ReportPhoto.allowAccess" = "Разрешить доступ к фотографиям";
+"ReportPhoto.AccessAlert.title" = "Пожалуйста, разрешите доступ к фотографиям в приложении Настройки.";
+"ReportPhoto.AccessAlert.notNowAction" = "Не сейчас";
+"ReportPhoto.AccessAlert.settingsAction" = "Настройки";
+
 "ReportStatus.moderation" = "На модерации";
 "ReportStatus.dirty" = "Замусорено";
 "ReportStatus.scheduled" = "Запланировано";
@@ -65,3 +74,5 @@
 "UserReports.errorLoadingReports" = "Не удалось загрузить ваши репорты.";
 "UserReports.retryButton" = "Попробовать снова";
 "UserReports.noReportDescription" = "Без описания";
+
+"Navigation.continue" = "Дальше";

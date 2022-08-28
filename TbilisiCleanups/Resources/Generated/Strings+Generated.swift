@@ -34,6 +34,10 @@ internal enum L10n {
     /// What Is nogarba.ge
     internal static let whatIsNogarbage = L10n.tr("Localizable", "About.whatIsNogarbage", fallback: #"What Is nogarba.ge"#)
   }
+  internal enum Navigation {
+    /// Continue
+    internal static let `continue` = L10n.tr("Localizable", "Navigation.continue", fallback: #"Continue"#)
+  }
   internal enum PlacesMap {
     /// Places
     internal static let tabName = L10n.tr("Localizable", "PlacesMap.tabName", fallback: #"Places"#)
@@ -51,6 +55,26 @@ internal enum L10n {
     internal static let photosAndVideosHeader = L10n.tr("Localizable", "ReportDetails.photosAndVideosHeader", fallback: #"Photos & Videos"#)
     /// Report Details
     internal static let title = L10n.tr("Localizable", "ReportDetails.title", fallback: #"Report Details"#)
+  }
+  internal enum ReportPhoto {
+    /// Add Photos or Videos
+    internal static let addPhotosButton = L10n.tr("Localizable", "ReportPhoto.addPhotosButton", fallback: #"Add Photos or Videos"#)
+    /// Allow Access to Photos
+    internal static let allowAccess = L10n.tr("Localizable", "ReportPhoto.allowAccess", fallback: #"Allow Access to Photos"#)
+    /// Show us what a littered place you found looks like:
+    internal static let body = L10n.tr("Localizable", "ReportPhoto.body", fallback: #"Show us what a littered place you found looks like:"#)
+    /// Remove
+    internal static let removeMenu = L10n.tr("Localizable", "ReportPhoto.removeMenu", fallback: #"Remove"#)
+    /// Photos
+    internal static let title = L10n.tr("Localizable", "ReportPhoto.title", fallback: #"Photos"#)
+    internal enum AccessAlert {
+      /// Not Now
+      internal static let notNowAction = L10n.tr("Localizable", "ReportPhoto.AccessAlert.notNowAction", fallback: #"Not Now"#)
+      /// Settings
+      internal static let settingsAction = L10n.tr("Localizable", "ReportPhoto.AccessAlert.settingsAction", fallback: #"Settings"#)
+      /// Please allow access to photos in the Settings app.
+      internal static let title = L10n.tr("Localizable", "ReportPhoto.AccessAlert.title", fallback: #"Please allow access to photos in the Settings app."#)
+    }
   }
   internal enum ReportStart {
     /// Once submitted, your report will be reviewed by our moderators.

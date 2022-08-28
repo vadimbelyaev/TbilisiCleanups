@@ -13,14 +13,14 @@ struct ReportPhotosView: View {
         ZStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Show us what a littered place you found looks like:")
+                    Text(L10n.ReportPhoto.body)
                     grid
                     Spacer(minLength: 100)
                 }
                 .padding(.horizontal)
             }
             OverlayNavigationLink(
-                title: "Continue",
+                title: L10n.Navigation.continue,
                 isDisabled: appState.currentDraft.medias.isEmpty
             ) {
                 ReportLocationView()
@@ -41,7 +41,7 @@ struct ReportPhotosView: View {
         .sheet(isPresented: $isCustomPickerPresented) {
             model.makeCustomPhotoPicker(isPresented: $isCustomPickerPresented)
         }
-        .navigationTitle("Photos")
+        .navigationTitle(L10n.ReportPhoto.title)
         .onAppear {
             model.setUpBindings(appState: appState)
         }
@@ -75,7 +75,7 @@ struct ReportPhotosView: View {
                             appState.currentDraft.remove(media: media)
                         }
                     } label: {
-                        Text("Remove")
+                        Text(L10n.ReportPhoto.removeMenu)
                     }
                 }
         }
@@ -98,9 +98,9 @@ struct ReportPhotosView: View {
                     Image(systemName: model.canPresentPhotoPicker ? "plus" : "rectangle.on.rectangle.slash")
                         .font(.largeTitle)
                     if model.canPresentPhotoPicker {
-                        Text("Add photos or videos")
+                        Text(L10n.ReportPhoto.addPhotosButton)
                     } else {
-                        Text("Allow access to photos")
+                        Text(L10n.ReportPhoto.allowAccess)
                     }
                     Spacer()
                 }
@@ -119,13 +119,13 @@ struct ReportPhotosView: View {
 private extension View {
     func photoSettingsAlert(isPresented: Binding<Bool>) -> some View {
         alert(
-            "Please allow access to photos in the Settings app.",
+            L10n.ReportPhoto.AccessAlert.title,
             isPresented: isPresented,
             actions: {
                 Button(role: .cancel) {
                     // no-op
                 } label: {
-                    Text("Not now")
+                    Text(L10n.ReportPhoto.AccessAlert.notNowAction)
                 }
                 Button {
                     guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
@@ -133,7 +133,7 @@ private extension View {
                     else { return }
                     UIApplication.shared.open(settingsUrl)
                 } label: {
-                    Text("Settings")
+                    Text(L10n.ReportPhoto.AccessAlert.settingsAction)
                 }
             }
         )

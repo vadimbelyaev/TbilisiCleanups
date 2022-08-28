@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct OverlayNavigationLink<Destination: View, AuxView: View>: View {
-    var title: LocalizedStringKey
+    var title: String
     var isDisabled: Bool = false
     var destination: () -> Destination
     @ViewBuilder var auxiliaryView: AuxView
