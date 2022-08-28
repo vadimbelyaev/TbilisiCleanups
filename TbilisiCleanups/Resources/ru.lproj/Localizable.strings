@@ -56,6 +56,10 @@
 "ReportLocation.AccessAlert.notNowAction" = "Не сейчас";
 "ReportLocation.AccessAlert.settingsAction" = "Настройки";
 
+"ReportDescription.title" = "Описание";
+"ReportDescription.body" = "Опишите, где это место, чтобы его было легче найти:";
+"ReportDescription.submitButton" = "Отправить";
+
 "ReportStatus.moderation" = "На модерации";
 "ReportStatus.dirty" = "Замусорено";
 "ReportStatus.scheduled" = "Запланировано";

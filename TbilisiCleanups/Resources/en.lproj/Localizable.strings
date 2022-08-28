@@ -56,6 +56,10 @@
 "ReportLocation.AccessAlert.notNowAction" = "Not now";
 "ReportLocation.AccessAlert.settingsAction" = "Settings";
 
+"ReportDescription.title" = "Description";
+"ReportDescription.body" = "Describe where this place is so it's easier to find it:";
+"ReportDescription.submitButton" = "Submit";
+
 "ReportStatus.moderation" = "Moderation";
 "ReportStatus.dirty" = "Dirty";
 "ReportStatus.scheduled" = "Scheduled";

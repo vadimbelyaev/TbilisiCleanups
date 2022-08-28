@@ -54,6 +54,14 @@ internal enum L10n {
     /// Places
     internal static let tabName = L10n.tr("Localizable", "PlacesMap.tabName", fallback: #"Places"#)
   }
+  internal enum ReportDescription {
+    /// Describe where this place is so it's easier to find it:
+    internal static let body = L10n.tr("Localizable", "ReportDescription.body", fallback: #"Describe where this place is so it's easier to find it:"#)
+    /// Submit
+    internal static let submitButton = L10n.tr("Localizable", "ReportDescription.submitButton", fallback: #"Submit"#)
+    /// Description
+    internal static let title = L10n.tr("Localizable", "ReportDescription.title", fallback: #"Description"#)
+  }
   internal enum ReportDetails {
     /// Copied!
     internal static let coordinatesCopiedMessage = L10n.tr("Localizable", "ReportDetails.coordinatesCopiedMessage", fallback: #"Copied!"#)

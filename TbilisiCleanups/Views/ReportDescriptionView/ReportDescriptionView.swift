@@ -16,7 +16,7 @@ struct ReportDescriptionView: View {
                     VStack(alignment: .leading) {
                         map
                         labeledTextEditor(scrollProxy: scrollProxy)
-                        OverlayNavigationLink(title: "Submit") {
+                        OverlayNavigationLink(title: L10n.ReportDescription.submitButton) {
                             ReportSubmissionView()
                         } auxiliaryView: {
                             EmptyView()
@@ -30,7 +30,7 @@ struct ReportDescriptionView: View {
         .onTapGesture {
             textEditorResignFocused = true
         }
-        .navigationTitle("Description")
+        .navigationTitle(L10n.ReportDescription.title)
         .onAppear {
             region = MKCoordinateRegion(
                 center: appState.currentDraft.location.clLocationCoordinate2D,
@@ -51,7 +51,7 @@ struct ReportDescriptionView: View {
 
     @ViewBuilder
     private func labeledTextEditor(scrollProxy: ScrollViewProxy) -> some View {
-        Text("Describe where this place is so it's easier to find it:")
+        Text(L10n.ReportDescription.body)
             .padding(.top)
             .padding(.horizontal)
         UITextViewRepresentable(
