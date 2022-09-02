@@ -51,7 +51,7 @@
 
 "ReportLocation.title" = "Локация";
 "ReportLocation.useThisLocationButton" = "Использовать эту локацию";
-"ReportLocation.allowLocationAccessButton" = "Разрешите доступ к геопозиции";
+"ReportLocation.allowLocationAccessButton" = "Разрешить доступ к геопозиции";
 "ReportLocation.showCurrentLocationButton" = "Показать текущее месторасположение";
 "ReportLocation.AccessAlert.title" = "Пожалуйста, разрешите доступ к геопозиции в приложении Настройки.";
 "ReportLocation.AccessAlert.notNowAction" = "Не сейчас";
@@ -70,7 +70,7 @@
 "ReportSubmission.successNote" = "Проверяйте его статус на вкладке «Мой профиль».";
 "ReportSubmission.Notifications.youWillReceiveNotification" = "Вы получите уведомление, когда статус вашего репорта поменяется.";
 "ReportSubmission.Notifications.notifyMeButton" = "Уведомить меня, когда статус репорта изменится.";
-"ReportSubmission.Notifications.allowNotificationsButton" = "Разрешите уведомления, чтобы быть в курсе изменений статуса вашего репорта.";
+"ReportSubmission.Notifications.allowNotificationsButton" = "Разрешить уведомления, чтобы быть в курсе изменений статуса вашего репорта.";
 
 "ReportStatus.moderation" = "На модерации";
 "ReportStatus.dirty" = "Замусорено";
@@ -84,7 +84,7 @@
 "UserProfile.contributionsSection" = "Вклад";
 "UserProfile.myReports" = "Мои репорты";
 "UserProfile.notificationsSection" = "Уведомления";
-"UserProfile.allowNotifications" = "Разрешите уведомления";
+"UserProfile.allowNotifications" = "Разрешить уведомления";
 "UserProfile.statusesOfMyReports" = "Статусы моих репортов";
 "UserProfile.languageSection" = "Язык";
 "UserProfile.changeLanguageButton" = "Сменить в приложении Настройки";
