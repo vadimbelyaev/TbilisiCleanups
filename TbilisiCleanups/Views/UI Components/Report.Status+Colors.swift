@@ -5,30 +5,30 @@ extension Report.Status {
     var uiColor: UIColor {
         switch self {
         case .rejected:
-            return .systemGray
+            return .systemMint
         case .clean:
             return .systemGreen
         case .dirty:
-            return .systemRed
+            return .systemGray
         case .scheduled:
-            return .systemPurple
+            return .systemRed
         case .moderation:
             return .systemBlue
         case .unknown:
-            return .systemGray
+            return .systemMint
         }
     }
 
     var swiftUIColor: SwiftUI.Color {
         switch self {
         case .unknown:
-            return .gray
+            return .mint
         case .rejected:
-            return .gray
+            return .mint
         case .scheduled:
-            return .purple
-        case .dirty:
             return .red
+        case .dirty:
+            return .gray
         case .clean:
             return .green
         case .moderation:
