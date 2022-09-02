@@ -40,11 +40,13 @@ struct ReportSubmissionView: View {
         case .notStarted:
             Text(L10n.ReportSubmission.Status.notStarted)
                 .fixedSize(horizontal: false, vertical: true)
+                .multilineTextAlignment(.center)
         case .inProgress:
             VStack(spacing: 24) {
                 ProgressView()
                 Text(L10n.ReportSubmission.Status.inProgress)
                     .fixedSize(horizontal: false, vertical: true)
+                    .multilineTextAlignment(.center)
             }
             .padding(.horizontal)
         case .failed:
@@ -54,6 +56,7 @@ struct ReportSubmissionView: View {
                     .foregroundColor(.red)
                 Text(L10n.ReportSubmission.Status.failed)
                     .fixedSize(horizontal: false, vertical: true)
+                    .multilineTextAlignment(.center)
                     .foregroundColor(.red)
                 Button {
                     sendReport()
@@ -71,9 +74,11 @@ struct ReportSubmissionView: View {
                     .foregroundColor(.green)
                 Text(L10n.ReportSubmission.Status.succeeded)
                     .fixedSize(horizontal: false, vertical: true)
+                    .multilineTextAlignment(.center)
                     .foregroundColor(.green)
                 Text(L10n.ReportSubmission.successNote)
                     .fixedSize(horizontal: false, vertical: true)
+                    .multilineTextAlignment(.center)
                 notificationView
                     .padding(.vertical, 32)
                 Button {
@@ -95,6 +100,8 @@ struct ReportSubmissionView: View {
         if appState.hasNotificationsPermissions {
             if appState.userState.reportNotificationsEnabled {
                 Text(L10n.ReportSubmission.Notifications.youWillReceiveNotification)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .multilineTextAlignment(.center)
             } else {
                 Button {
                     appState.userState.updateReportNotificationsPreference.send(true)
