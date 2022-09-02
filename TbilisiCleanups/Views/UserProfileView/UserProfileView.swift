@@ -116,20 +116,22 @@ struct UserProfileView: View {
     private var allowNotificationsButton: some View {
         Button {
             UNUserNotificationCenter.current().getNotificationSettings { settings in
-                switch settings.authorizationStatus {
-                case .authorized:
-                    break
-                case .denied:
-                    UIApplication.goToSettings()
-                case .ephemeral, .notDetermined, .provisional:
-                    Task {
-                        let granted = try await UNUserNotificationCenter
-                            .current()
-                            .requestAuthorization(options: [.alert, .sound])
-                        appState.hasNotificationsPermissions = granted
+                DispatchQueue.main.async {
+                    switch settings.authorizationStatus {
+                    case .authorized:
+                        break
+                    case .denied:
+                        UIApplication.goToSettings()
+                    case .ephemeral, .notDetermined, .provisional:
+                        Task {
+                            let granted = try await UNUserNotificationCenter
+                                .current()
+                                .requestAuthorization(options: [.alert, .sound])
+                            appState.hasNotificationsPermissions = granted
+                        }
+                    @unknown default:
+                        assertionFailure()
                     }
-                @unknown default:
-                    assertionFailure()
                 }
             }
         } label: {
