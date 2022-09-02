@@ -55,8 +55,8 @@ internal enum L10n {
   internal enum PlacesMap {
     /// No Description
     internal static let noDescription = L10n.tr("Localizable", "PlacesMap.noDescription", fallback: #"No Description"#)
-    /// Places
-    internal static let tabName = L10n.tr("Localizable", "PlacesMap.tabName", fallback: #"Places"#)
+    /// Map
+    internal static let tabName = L10n.tr("Localizable", "PlacesMap.tabName", fallback: #"Map"#)
   }
   internal enum ReportDescription {
     /// Describe where this place is so it's easier to find it:

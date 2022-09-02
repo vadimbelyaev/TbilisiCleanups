@@ -15,7 +15,7 @@
 "CustomPhotoPicker.limitedAccessDisclaimer" = "Вы разрешили доступ только к нескольким фото.";
 "CustomPhotoPicker.selectMorePhotosButton" = "Выбрать больше фото…";
 
-"PlacesMap.tabName" = "Места";
+"PlacesMap.tabName" = "Карта";
 "PlacesMap.noDescription" = "Без описания";
 
 "ReportDetails.title" = "Детали репорта";
