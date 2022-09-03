@@ -42,11 +42,7 @@ struct UserProfileView: View {
                 }
             }
 
-            Section(L10n.UserProfile.languageSection) {
-                Button(L10n.UserProfile.changeLanguageButton) {
-                    UIApplication.goToSettings()
-                }
-            }
+            languageSwitchSection
 
             Section(L10n.UserProfile.accountSection) {
                 Button(L10n.UserProfile.signOutButton) {
@@ -95,15 +91,27 @@ struct UserProfileView: View {
         }
     }
 
+    private var languageSwitchSection: some View {
+        Section(L10n.UserProfile.languageSection) {
+            Button(L10n.UserProfile.changeLanguageButton) {
+                UIApplication.goToSettings()
+            }
+        }
+    }
+
     @ViewBuilder
     private var guestBody: some View {
         List {
-            Text(L10n.UserProfile.Guest.body)
-            Button {
-                signInScreenPresented = true
-            } label: {
-                Text(L10n.UserProfile.Guest.signInButton)
+            Section("") {
+                Text(L10n.UserProfile.Guest.body)
+                Button {
+                    signInScreenPresented = true
+                } label: {
+                    Text(L10n.UserProfile.Guest.signInButton)
+                }
             }
+
+            languageSwitchSection
         }
         .listStyle(.insetGrouped)
         .navigationTitle(L10n.UserProfile.Guest.title)
