@@ -16,6 +16,8 @@ enum AppError: FirebaseAnalyticsLoggable {
     case duplicateAttemptToSendReport
     case reportsWithDuplicateIDExist(reportID: String)
     case couldNotParseReport(rawObject: [String: Any])
+    case noAssetIdentifierFromPhotoPicker
+    case couldNotFetchThumbnail(innerError: Error)
 
     var eventName: String { "app_error" }
 
@@ -39,6 +41,15 @@ enum AppError: FirebaseAnalyticsLoggable {
             return [
                 "error_type": "couldNotParseReport",
                 "raw_object": rawObject
+            ]
+        case .noAssetIdentifierFromPhotoPicker:
+            return [
+                "error_type": "noAssetIdentifierFromPhotoPicker"
+            ]
+        case let .couldNotFetchThumbnail(innerError):
+            return [
+                "error_type": "couldNotFetchThumbnail",
+                "inner_error": String(describing: dump(innerError))
             ]
         }
     }

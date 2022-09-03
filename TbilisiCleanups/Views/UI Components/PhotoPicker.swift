@@ -32,9 +32,13 @@ struct PhotoPicker: UIViewControllerRepresentable {
             _ picker: PHPickerViewController,
             didFinishPicking results: [PHPickerResult]
         ) {
-            let placeMedias = results.map {
-                PlaceMedia(
-                    assetId: $0.assetIdentifier ?? UUID().uuidString
+            let placeMedias = results.compactMap { result -> PlaceMedia? in
+                guard let assetId = result.assetIdentifier else {
+                    AnalyticsService.logEvent(AppError.noAssetIdentifierFromPhotoPicker)
+                    return nil
+                }
+                return PlaceMedia(
+                    assetId: assetId
                 )
             }
             pickerView.results.append(contentsOf: placeMedias)

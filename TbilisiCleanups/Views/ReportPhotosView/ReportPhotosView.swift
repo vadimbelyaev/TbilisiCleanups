@@ -159,12 +159,15 @@ struct MediaCell: View {
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                 .overlay(videoDurationOverlay)
                 .task {
-                    asset = try? await model.fetchAsset(for: placeMedia)
-                    if let asset = asset {
-                        image = try? await model.fetchThumbnail(
-                            for: asset,
+                    do {
+                        let fetchedAsset = try await model.fetchAsset(for: placeMedia)
+                        asset = fetchedAsset
+                        image = try await model.fetchThumbnail(
+                            for: fetchedAsset,
                             ofSize: geometry.frame(in: .local).size
                         )
+                    } catch {
+                        AnalyticsService.logEvent(AppError.couldNotFetchThumbnail(innerError: error))
                     }
                 }
         }
