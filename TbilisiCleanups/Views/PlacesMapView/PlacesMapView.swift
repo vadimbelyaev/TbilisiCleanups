@@ -4,14 +4,13 @@ import SwiftUI
 struct PlacesMapView: View {
     @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var reportService: ReportService
-    @State private var selectedReportId: String?
     var body: some View {
         NavigationView {
             ZStack {
                 PlacesMapRepresentable(
                     initialRegion: ReportDraft.defaultRegion.mkCoordinateRegion,
                     places: appState.verifiedReports,
-                    placeDetailsTapAction: { selectedReportId = $0.id }
+                    placeDetailsTapAction: { appState.placesMapSelectedReportId = $0.id }
                 )
                 Color.clear
                     .frame(width: .zero, height: .zero)
@@ -19,7 +18,7 @@ struct PlacesMapView: View {
                     .background(
                         VStack {
                             ForEach(appState.verifiedReports) { report in
-                                NavigationLink("", tag: report.id, selection: $selectedReportId) {
+                                NavigationLink("", tag: report.id, selection: $appState.placesMapSelectedReportId) {
                                     ReportDetailsView(report: report)
                                 }
                             }
