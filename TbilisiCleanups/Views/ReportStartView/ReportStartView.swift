@@ -83,7 +83,7 @@ struct ReportStartView: View {
 
     private var buttons: some View {
         VStack {
-            if !appState.currentDraft.isBlank {
+            if !appState.currentDraft.isBlank, appState.userState.isAuthenticated {
                 HStack {
                     Spacer()
                     Button {
