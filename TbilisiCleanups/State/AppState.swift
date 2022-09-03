@@ -2,7 +2,7 @@ import Foundation
 
 @MainActor
 final class AppState: ObservableObject {
-    @Published var selectedTab: MainTab = .reportStart
+    @Published var selectedTab: MainTab = .placesMap
     @Published var placesMapSelectedReportId: String?
     @Published var isReportSheetPresented = false
     @Published var currentDraft: ReportDraft = .init()
