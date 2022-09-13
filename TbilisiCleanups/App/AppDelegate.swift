@@ -20,7 +20,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         guard ProcessInfo.processInfo.environment["ENABLE_PREVIEWS"] == nil else {
             return true
         }
-        FirebaseApp.configure()
         Messaging.messaging().delegate = self
 
         // Ensuring the service is created as early as possible

@@ -1,9 +1,16 @@
+import Firebase
 import SwiftUI
 
 @main
 struct TbilisiCleanupsApp: App {
     @UIApplicationDelegateAdaptor private var delegate: AppDelegate
     @Environment(\.scenePhase) private var scenePhase
+
+    init() {
+        if ProcessInfo.processInfo.environment["ENABLE_PREVIEWS"] == nil {
+            FirebaseApp.configure()
+        }
+    }
 
     var body: some Scene {
         WindowGroup {
