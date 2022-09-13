@@ -621,6 +621,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		DDCE77F72882E6DA00ACA7BF /* Upload dSYM to Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -641,6 +642,7 @@
 		};
 		DDE290EC288D79A6004ED1D9 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -659,6 +661,7 @@
 		};
 		DDE290ED288D7A2B004ED1D9 /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
