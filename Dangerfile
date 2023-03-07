@@ -1,5 +1,5 @@
 # Shared constants
-TASK_ID_REGEX = "^EX-(\d+) .+"
+TASK_ID_REGEX = /^EX-(\d+) .+/
 
 # Make it more obvious that a PR is a work in progress and shouldn't be merged yet
 warn "PR is classed as Work in Progress" if github.pr_title.include? "[WIP]"
@@ -19,7 +19,7 @@ if git.commits.any? { |c| c.parents.length > 1 }
 end
 
 # All commits in a PR must contain a task ID unless they are in the exempt list
-EXEMPT_COMMIT_MESSAGE_REGEXES = ["Change version number"]
+EXEMPT_COMMIT_MESSAGE_REGEXES = [/Change version number/]
 unless git.commits.all? { |c| (c.message.match? TASK_ID_REGEX) | (EXEMPT_COMMIT_MESSAGE_REGEXES.any? { |msg| c.message.match? msg }) }
   failure "PR contains commits with messages that don't begin with a task ID. To get rid of this warning, use interactive rebase to change commit messages."
 end
