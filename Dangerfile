@@ -20,6 +20,6 @@ end
 
 # All commits in a PR must contain a task ID unless they are in the exempt list
 EXEMPT_COMMIT_MESSAGE_REGEXES = ["Change version number"]
-unless git.commits.all? { |c| c.message.match? TASK_ID_REGEX | EXEMPT_COMMIT_MESSAGE_REGEXES.any? { |msg| c.message.match? msg } }
+unless git.commits.all? { |c| (c.message.match? TASK_ID_REGEX) | (EXEMPT_COMMIT_MESSAGE_REGEXES.any? { |msg| c.message.match? msg }) }
   failure "PR contains commits with messages that don't begin with a task ID. To get rid of this warning, use interactive rebase to change commit messages."
 end
