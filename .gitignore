@@ -2,7 +2,7 @@
 AWS/SotoAWS.plist
 
 # Firebase settings
-Firebase/GoogleService-Info.plist
+Firebase/GoogleService-Info*.plist
 
 # Xcode
 #

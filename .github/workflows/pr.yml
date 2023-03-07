@@ -1,0 +1,17 @@
+name: PR Checks
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  build:
+    name: PR Checks
+    runs-on: macOS-12
+
+    steps:
+      - name: Danger
+        uses: danger/danger
+        with:
+          secrets: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
+
