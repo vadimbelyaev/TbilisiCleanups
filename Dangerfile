@@ -1,5 +1,5 @@
 # Shared constants
-TASK_ID_REGEX = "^EX-\d+ .*"
+TASK_ID_REGEX = "^EX-(\d+) .+"
 
 # Make it more obvious that a PR is a work in progress and shouldn't be merged yet
 warn "PR is classed as Work in Progress" if github.pr_title.include? "[WIP]"
