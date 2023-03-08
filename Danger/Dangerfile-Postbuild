@@ -1,5 +1,5 @@
-require "./Dangerfile-Common"
 require 'json'
+require "#{ENV["GITHUB_WORKSPACE"]}/Danger/Dangerfile-Common"
 
 xcode_summary.report 'xcodebuild.json'
 

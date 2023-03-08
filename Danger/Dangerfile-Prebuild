@@ -1,2 +1,1 @@
-require "./Dangerfile-Common"
-
+require "#{ENV["GITHUB_WORKSPACE"]}/Danger/Dangerfile-Common"
