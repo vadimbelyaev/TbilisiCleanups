@@ -3,10 +3,11 @@ danger.import_dangerfile(path: "#{ENV["GITHUB_WORKSPACE"]}/Danger/Dangerfile-Com
 
 RESULT_BUNDLE_PATH = "#{ENV["GITHUB_WORKSPACE"]}/TbilisiCleanups.xcresult"
 
+xcode_summary.ignored_files = ["**/Pods/**", "**/SourcePackages/**"]
 xcode_summary.report RESULT_BUNDLE_PATH
 
-# result_json = xcode_summary.warning_error_count RESULT_BUNDLE_PATH
-# result = JSON.parse(result_json)
-# number_of_warnings = result["warnings"]
-# MAX_WARNINGS = 1
-# failure "The build produced #{number_of_warnings} warnings. Max allowed number is #{MAX_WARNINGS}." if number_of_warnings > MAX_WARNINGS
+result_json = xcode_summary.warning_error_count RESULT_BUNDLE_PATH
+result = JSON.parse(result_json)
+number_of_warnings = result["warnings"]
+MAX_WARNINGS = 1
+failure "The build produced #{number_of_warnings} warnings. Max allowed number is #{MAX_WARNINGS}." if number_of_warnings > MAX_WARNINGS
