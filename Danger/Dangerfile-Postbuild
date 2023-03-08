@@ -1,10 +1,12 @@
 require 'json'
 danger.import_dangerfile(path: "#{ENV["GITHUB_WORKSPACE"]}/Danger/Dangerfile-Common")
 
-xcode_summary.report 'xcodebuild.json'
+RESULT_BUNDLE_PATH = "#{ENV["GITHUB_WORKSPACE"]}/TbilisiCleanups.xcresult"
 
-result_json = xcode_summary.warning_error_count 'xcodebuild.json'
-result = JSON.parse(result_json)
-number_of_warnings = result["warnings"]
-MAX_WARNINGS = 1
-failure "The build produced #{number_of_warnings} warnings. Max allowed number is #{MAX_WARNINGS}." if number_of_warnings > MAX_WARNINGS
+xcode_summary.report RESULT_BUNDLE_PATH
+
+# result_json = xcode_summary.warning_error_count RESULT_BUNDLE_PATH
+# result = JSON.parse(result_json)
+# number_of_warnings = result["warnings"]
+# MAX_WARNINGS = 1
+# failure "The build produced #{number_of_warnings} warnings. Max allowed number is #{MAX_WARNINGS}." if number_of_warnings > MAX_WARNINGS

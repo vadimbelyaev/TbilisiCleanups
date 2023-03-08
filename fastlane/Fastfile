@@ -61,7 +61,9 @@ platform :ios do
     increment_build_number(build_number: ENV['GITHUB_RUN_NUMBER'])
     get_version_number
     build_app(
-        scheme: 'TbilisiCleanups'
+        scheme: 'TbilisiCleanups',
+        result_bundle: true,
+        result_bundle_path: "#{ENV["GITHUB_WORKSPACE"]}/TbilisiCleanups.xcresult"
     )
   end
 end
