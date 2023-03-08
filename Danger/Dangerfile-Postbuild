@@ -1,0 +1,10 @@
+require "Dangerfile-Common"
+require 'json'
+
+xcode_summary.report 'xcodebuild.json'
+
+result_json = xcode_summary.warning_error_count 'xcodebuild.json'
+result = JSON.parse(result_json)
+number_of_warnings = result["warnings"]
+MAX_WARNINGS = 1
+failure "The build produced #{number_of_warnings} warnings. Max allowed number is #{MAX_WARNINGS}." if number_of_warnings > MAX_WARNINGS
