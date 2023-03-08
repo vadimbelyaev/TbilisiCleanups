@@ -1,1 +1,2 @@
-require "Dangerfile-Common"
+require "Danger/Dangerfile-Common"
+

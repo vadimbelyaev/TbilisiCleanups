@@ -1,4 +1,4 @@
-require "Dangerfile-Common"
+require "Danger/Dangerfile-Common"
 require 'json'
 
 xcode_summary.report 'xcodebuild.json'
