@@ -36,19 +36,13 @@ jobs:
 
       - run: bundle install
 
-      # - name: Danger Prebuild
-      #   env:
-      #     DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
-      #   run:
-      #     bundle exec danger --dangerfile=Danger/Dangerfile-Prebuild --verbose
-      
-      - name: Danger Postbuild
+      - name: Danger Prebuild
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
         run:
-          bundle exec danger --dangerfile=Danger/Dangerfile-Postbuild --verbose
+          bundle exec danger --dangerfile=Danger/Dangerfile-Prebuild --verbose
 
-      - run: bundle exec fastlane beta
+      - run: bundle exec fastlane build_for_pr
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
